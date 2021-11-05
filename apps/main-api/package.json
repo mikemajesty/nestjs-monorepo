@@ -5,7 +5,8 @@
   "scripts": {
     "prebuild": "rimraf bin",
     "build": "nest build",
-    "start:dev": "nest start --debug 0.0.0.0:5870 --watch \"../shared/src/**/*.ts\""
+    "start:dev": "nest start --debug 0.0.0.0:5870 --watch \"../shared/src/**/*.ts\"",
+    "commit": "cz"
   },
   "main": "main",
   "dependencies": {},
