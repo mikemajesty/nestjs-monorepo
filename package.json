@@ -2,9 +2,15 @@
   "name": "main-api",
   "version": "0.0.1",
   "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "author": {
+    "name": "Mike Lima",
+    "email": "mike.rodrigues.lima@gmail.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14 <=15"
+  },
+  "private": false,
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -18,7 +24,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/main-api/test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/main-api/test/jest-e2e.json",
+    "commit": "cz",
+    "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd .."
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -40,6 +48,7 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -73,5 +82,10 @@
     "roots": [
       "<rootDir>/apps/"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
