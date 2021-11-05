@@ -5,7 +5,7 @@
   "root": "apps/main-api",
   "compilerOptions": {
     "webpack": true,
-    "tsConfigPath": "apps/main-api/tsconfig.app.json"
+    "tsConfigPath": "apps/main-api/tsconfig.json"
   },
   "projects": {
     "main-api": {
@@ -14,7 +14,7 @@
       "entryFile": "main",
       "sourceRoot": "apps/main-api/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/main-api/tsconfig.app.json"
+        "tsConfigPath": "apps/main-api/tsconfig.json"
       }
     },
     "shared": {
@@ -23,7 +23,7 @@
       "entryFile": "index",
       "sourceRoot": "apps/shared/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/shared/tsconfig.lib.json"
+        "tsConfigPath": "apps/shared/tsconfig.json"
       }
     }
   }

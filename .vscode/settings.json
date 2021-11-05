@@ -6,7 +6,14 @@
   "[typescript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll": true
-    }
+    },
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "editor.formatOnSave": true
   },
   "editor.formatOnSave": true,
   "eslint.validate": ["javascript"],
