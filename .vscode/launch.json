@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: App",
+      "type": "node",
+      "request": "attach",
+      "remoteRoot": "/src",
+      "localRoot": "${workspaceFolder}",
+      "protocol": "inspector",
+      "port": 5870,
+      "restart": true,
+      "address": "0.0.0.0",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+ }
