@@ -1,11 +1,12 @@
-import { NestFactory } from '@nestjs/core';
-import { LoggerService } from '@shared/modules/logger/service';
-import { AppModule } from './modules/app.module';
-import { name } from '../package.json';
 import { RequestMethod } from '@nestjs/common/enums';
-import { SecretsService } from '@shared/modules/secrets/service';
+import { NestFactory } from '@nestjs/core';
 import { AppExceptionFilter } from '@shared/filters/http-exception.filter';
 import { ExceptionInterceptor } from '@shared/interceptors/http-exception.interceptor';
+import { LoggerService } from '@shared/modules/logger/service';
+import { SecretsService } from '@shared/modules/secrets/service';
+
+import { name } from '../package.json';
+import { AppModule } from './modules/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {

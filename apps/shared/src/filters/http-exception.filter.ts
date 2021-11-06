@@ -1,6 +1,3 @@
-import { LoggerService } from '../modules/logger/service';
-import { SecretsService } from '../modules/secrets/service';
-import { AppException, ErrorModel } from '../utils';
 import {
   ArgumentsHost,
   Catch,
@@ -11,6 +8,9 @@ import {
 import * as moment from 'moment';
 
 import * as errorStatus from '../../static/htttp-status.json';
+import { LoggerService } from '../modules/logger/service';
+import { SecretsService } from '../modules/secrets/service';
+import { AppException, ErrorModel } from '../utils';
 
 @Catch()
 export class AppExceptionFilter implements ExceptionFilter {

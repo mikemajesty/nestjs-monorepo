@@ -1,7 +1,7 @@
-import { AppException } from '../../../utils/exception';
 import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
+import { AppException } from '../../../utils/exception';
 import { ILoggerService } from '../adapter';
 import { LoggerService } from '../service';
 

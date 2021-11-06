@@ -1,7 +1,7 @@
-import { AppException } from '../../utils';
 import { ArgumentsHost, HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
+import { AppException } from '../../utils';
 import { AppExceptionFilter } from '../http-exception.filter';
 
 const mock = jest.genMockFromModule<ArgumentsHost>('@nestjs/common');

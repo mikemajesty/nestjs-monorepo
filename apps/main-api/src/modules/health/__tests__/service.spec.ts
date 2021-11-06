@@ -1,6 +1,6 @@
+import { Test } from '@nestjs/testing';
 import { ILoggerService } from '@shared/modules/logger/adapter';
 import { LoggerService } from '@shared/modules/logger/service';
-import { Test } from '@nestjs/testing';
 
 import { name } from '../../../../package.json';
 import { IHealthService } from '../adapter';

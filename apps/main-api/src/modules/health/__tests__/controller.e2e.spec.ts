@@ -1,8 +1,8 @@
+import { INestApplication } from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
 import { ILoggerService } from '@shared/modules/logger/adapter';
 import { LoggerService } from '@shared/modules/logger/service';
 import { AppException } from '@shared/utils';
-import { INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
 
 import { name } from '../../../../package.json';
