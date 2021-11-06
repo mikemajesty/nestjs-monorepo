@@ -8,6 +8,9 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
     "sourceMap": true,
+    "paths": {
+      "@shared/*": ["./apps/shared/src/*"]
+    },
     "outDir": "./dist",
     "resolveJsonModule": true,
     "baseUrl": "./",
@@ -17,10 +20,6 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false,
-    "paths": {
-      "@app/package": ["./package.json"],
-      "@shared/*": ["./apps/shared/src/*"]
-    },
+    "noFallthroughCasesInSwitch": false
   }
 }

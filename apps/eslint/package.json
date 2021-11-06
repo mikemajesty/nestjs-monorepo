@@ -1,0 +1,14 @@
+{
+  "name": "@app/eslint",
+  "version": "0.0.1",
+  "description": "",
+  "main": ".eslintrc.json",
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "prettier": "^2.3.2",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "eslint-plugin-prettier": "^4.0.0"
+  }
+}
