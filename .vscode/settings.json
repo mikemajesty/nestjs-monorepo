@@ -19,7 +19,6 @@
   "eslint.validate": ["javascript"],
   "files.exclude": {
     "**/*dist*": true,
-    "**/*bin*": true,
     "**/*coverage*": true,
     "**/*node_modules": true,
     "**/*package-lock.json*": true,
