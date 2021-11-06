@@ -31,10 +31,5 @@ async function bootstrap() {
   );
 
   await app.listen(port.MAIN_API);
-
-  loggerService.log(
-    `🔵 Swagger listening at ${await app.getUrl()}/api 🔵 \n`,
-    'Swaggger',
-  );
 }
 bootstrap();
