@@ -1,11 +1,14 @@
 {
   "name": "@app/main-api",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {},
+  "version": "0.0.1",
+  "description": "Main project",
   "main": "main",
-  "dependencies": {},
-  "devDependencies": {},
-  "author": "",
-  "license": "ISC"
+  "author": {
+    "name": "Mike Lima",
+    "email": "mike.rodrigues.lima@dasa.com.br"
+  },
+  "engines": {
+    "node": ">=14 <=15"
+  },
+  "license": "MIT"
 }

@@ -1,8 +1,15 @@
 {
   "name": "@app/eslint",
   "version": "0.0.1",
-  "description": "",
+  "description": "Eslint global config",
   "main": ".eslintrc.json",
+  "author": {
+    "name": "Mike Lima",
+    "email": "mike.rodrigues.lima@dasa.com.br"
+  },
+  "engines": {
+    "node": ">=14 <=15"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",

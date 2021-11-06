@@ -1,13 +1,18 @@
 {
   "name": "@app/shared",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Global share dependencies",
   "main": "index.js",
-  "scripts": {},
+  "author": {
+    "name": "Mike Lima",
+    "email": "mike.rodrigues.lima@dasa.com.br"
+  },
+  "engines": {
+    "node": ">=14 <=15"
+  },
   "dependencies": {
     "@nestjs/config": "^1.1.0",
     "moment": "^2.29.1"
   },
-  "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
