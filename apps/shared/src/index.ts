@@ -1,2 +1,2 @@
-export * from './shared.module';
+export * from './module';
 export * from './utils/index';

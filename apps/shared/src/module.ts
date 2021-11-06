@@ -1,7 +1,7 @@
 import { Global, Module } from '@nestjs/common';
 import { LoggerModule } from './logger/module';
 import { SecretsModule } from './secrets/module';
-import { SharedService } from './shared.service';
+import { SharedService } from './service';
 
 @Global()
 @Module({
