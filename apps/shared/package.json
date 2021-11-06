@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {},
   "dependencies": {
-    "@nestjs/config": "^1.1.0"
+    "@nestjs/config": "^1.1.0",
+    "moment": "^2.29.1"
   },
   "author": "",
   "license": "ISC"
