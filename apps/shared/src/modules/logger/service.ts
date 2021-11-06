@@ -1,4 +1,4 @@
-import { AppException } from '../utils/exception';
+import { AppException } from '../../utils/exception';
 import { ConsoleLogger, Injectable } from '@nestjs/common';
 
 import { ILoggerService } from './adapter';

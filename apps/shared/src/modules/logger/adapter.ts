@@ -1,4 +1,4 @@
-import { AppException } from '../utils/exception';
+import { AppException } from '../../utils/exception';
 
 export abstract class ILoggerService {
   abstract setContext(context: string): void;

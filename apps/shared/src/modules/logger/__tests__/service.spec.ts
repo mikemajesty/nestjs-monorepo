@@ -1,4 +1,4 @@
-import { AppException } from '../../utils/exception';
+import { AppException } from '../../../utils/exception';
 import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 

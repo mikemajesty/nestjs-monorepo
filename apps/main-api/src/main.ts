@@ -1,9 +1,9 @@
 import { NestFactory } from '@nestjs/core';
-import { LoggerService } from '@shared/logger/service';
+import { LoggerService } from '@shared/modules/logger/service';
 import { AppModule } from './app.module';
 import { name } from '../package.json';
 import { RequestMethod } from '@nestjs/common/enums';
-import { SecretsService } from '@shared/secrets/service';
+import { SecretsService } from '@shared/modules/secrets/service';
 import { AppExceptionFilter } from '@shared/filters/http-exception.filter';
 import { ExceptionInterceptor } from '@shared/interceptors/http-exception.interceptor';
 

@@ -1,5 +1,5 @@
-import { LoggerService } from '../logger/service';
-import { SecretsService } from '../secrets/service';
+import { LoggerService } from '../modules/logger/service';
+import { SecretsService } from '../modules/secrets/service';
 import { AppException, ErrorModel } from '../utils';
 import {
   ArgumentsHost,
