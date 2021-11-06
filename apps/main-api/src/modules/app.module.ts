@@ -6,4 +6,4 @@ import { HealthModule } from './health/module';
 @Module({
   imports: [HealthModule, SharedModule],
 })
-export class AppModule {}
+export class MainModule {}

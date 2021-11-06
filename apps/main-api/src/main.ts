@@ -6,10 +6,10 @@ import { LoggerService } from '@shared/modules/logger/service';
 import { SecretsService } from '@shared/modules/secrets/service';
 
 import { name } from '../package.json';
-import { AppModule } from './modules/app.module';
+import { MainModule } from './modules/app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
+  const app = await NestFactory.create(MainModule, {
     bufferLogs: true,
   });
 
