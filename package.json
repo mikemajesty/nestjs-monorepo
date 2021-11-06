@@ -1,5 +1,5 @@
 {
-  "name": "main-api",
+  "name": "monorepo",
   "version": "0.0.1",
   "description": "",
   "author": {
@@ -17,8 +17,7 @@
     "build:all": "nest build main-api && nest build shared",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
-    "start:main": "nest start main-api --watch \"./apps/shared/src/*.ts\"",
-    "start:debug": "nest start --debug --watch",
+    "start:main": "nest start main-api --watch",
     "start:prod": "node dist/apps/main-api/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
