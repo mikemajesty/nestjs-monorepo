@@ -22,7 +22,7 @@ describe('SecretsService', () => {
   describe('SecretsService', () => {
     test('should secrets successfully', () => {
       expect(secrets.ENV).toEqual('test');
-      expect(secrets.PORT).toEqual(3000);
+      expect(Number(secrets.port.MAIN_API)).toEqual(3000);
     });
   });
 });
