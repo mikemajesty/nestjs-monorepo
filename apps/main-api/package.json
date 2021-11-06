@@ -2,12 +2,7 @@
   "name": "@app/main-api",
   "version": "1.0.0",
   "description": "",
-  "scripts": {
-    "prebuild": "rimraf bin",
-    "build": "nest build",
-    "start:dev": "nest start --debug 0.0.0.0:5870 --watch \"../shared/src/**/*.ts\"",
-    "commit": "cz"
-  },
+  "scripts": {},
   "main": "main",
   "dependencies": {},
   "devDependencies": {},
