@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { LoggerService } from '@shared/modules/logger/service';
-import { AppModule } from './app.module';
+import { AppModule } from './modules/app.module';
 import { name } from '../package.json';
 import { RequestMethod } from '@nestjs/common/enums';
 import { SecretsService } from '@shared/modules/secrets/service';
