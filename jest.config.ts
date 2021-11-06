@@ -13,11 +13,12 @@ export default {
   coverageDirectory: './coverage',
   testEnvironment: 'node',
   roots: ['<rootDir>/apps/'],
-  setupFilesAfterEnv: ['./apps/config/jest-init.ts'],
-  coveragePathIgnorePatterns: ['./index.ts', 'node_modules', 'coverage'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/',
-  }),
+  coveragePathIgnorePatterns: [
+    'index.ts',
+    'main.ts',
+    'node_modules',
+    'coverage',
+  ],
   coverageThreshold: {
     global: {
       functions: 50,
@@ -26,4 +27,8 @@ export default {
       lines: 50,
     },
   },
+  setupFilesAfterEnv: ['./apps/config/jest-init.ts'],
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/',
+  }),
 };
