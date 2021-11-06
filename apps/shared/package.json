@@ -1,5 +1,5 @@
 {
-  "name": "@app/shared",
+  "name": "@app/lib.shared",
   "version": "0.0.1",
   "description": "Global share dependencies",
   "main": "index.js",

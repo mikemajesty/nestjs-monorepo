@@ -1,5 +1,5 @@
 {
-  "name": "@app/eslint",
+  "name": "@app/config.eslint",
   "version": "0.0.1",
   "description": "Eslint global config",
   "main": ".eslintrc.json",
