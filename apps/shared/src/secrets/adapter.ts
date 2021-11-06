@@ -1,4 +1,5 @@
 export abstract class ISecretsService {
   ENV: string;
-  PORT: number;
+
+  port: { MAIN_API: number };
 }
