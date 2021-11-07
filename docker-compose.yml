@@ -1,7 +1,7 @@
 version: "2"
 services:
   web:
-    container_name: genia_api
+    container_name: nestjs-monorepo
     build:
       context: .
       dockerfile: Dockerfile
