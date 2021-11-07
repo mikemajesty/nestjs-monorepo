@@ -7,9 +7,9 @@ import {
 } from '@nestjs/common';
 import * as moment from 'moment';
 
-import * as errorStatus from '../../static/htttp-status.json';
 import { LoggerService } from '../modules/logger/service';
 import { SecretsService } from '../modules/secrets/service';
+import * as errorStatus from '../static/htttp-status.json';
 import { AppException, ErrorModel } from '../utils';
 
 @Catch()

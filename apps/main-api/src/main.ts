@@ -6,7 +6,7 @@ import { LoggerService } from '@shared/modules/logger/service';
 import { SecretsService } from '@shared/modules/secrets/service';
 
 import { name } from '../package.json';
-import { MainModule } from './modules/app.module';
+import { MainModule } from './modules/module';
 
 async function bootstrap() {
   const app = await NestFactory.create(MainModule, {
