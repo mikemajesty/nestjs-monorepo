@@ -4,8 +4,8 @@ import { AppExceptionFilter } from '@shared/filters/http-exception.filter';
 import { ExceptionInterceptor } from '@shared/interceptors/http-exception.interceptor';
 import { LoggerService } from '@shared/modules/logger/service';
 import { SecretsService } from '@shared/modules/secrets/service';
+import { name } from 'apps/main-api/package.json';
 
-import { name } from '../package.json';
 import { MainModule } from './modules/module';
 
 async function bootstrap() {
@@ -27,7 +27,7 @@ async function bootstrap() {
 
   loggerService.log(
     `🟢 ${name} listening at ${port.MAIN_API} on ${ENV?.toUpperCase()} 🟢\n`,
-    'Application',
+    name,
   );
 
   await app.listen(port.MAIN_API);
