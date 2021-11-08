@@ -23,7 +23,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "build:all": "nest build main-api && nest build shared",
+    "build:all": "nest build main-api && nest build modules",
     "format": "prettier --write \"apps/**/*.{ts,js}\" ",
     "start": "nest start",
     "start:main": "nest start main-api --watch \"apps/**/*.{ts,js}\"",
