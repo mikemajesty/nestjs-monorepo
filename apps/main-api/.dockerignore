@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+.git
+.husky
+.vscode
+CHANGELOG.md
+README.md
+devops
+package-lock.json
+commitlint.config.ts
+.gitignore
