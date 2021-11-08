@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ILoggerService } from '@shared/modules/logger/adapter';
-import { name } from 'apps/main-api/package.json';
 
+import { name } from '../../../package.json';
 import { IHealthService } from './adapter';
 
 @Injectable()
