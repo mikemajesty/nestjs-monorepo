@@ -9,7 +9,7 @@
     "target": "es2017",
     "sourceMap": true,
     "paths": {
-      "@shared/*": ["./apps/shared/src/*"]
+      "@app/libs/*": ["./apps/libs/*"]
     },
     "outDir": "./dist",
     "resolveJsonModule": true,
