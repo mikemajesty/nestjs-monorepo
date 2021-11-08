@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { SharedModule } from '@shared/index';
+import { SharedModule } from 'apps/libs/modules';
 
 import { HealthModule } from './health/module';
 
