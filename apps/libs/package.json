@@ -1,0 +1,19 @@
+{
+  "name": "@app/libs",
+  "version": "0.0.1",
+  "description": "project libs",
+  "main": "index.js",
+  "author": {
+    "name": "Mike Lima",
+    "email": "mike.rodrigues.lima@dasa.com.br"
+  },
+  "engines": {
+    "node": ">=14 <=15"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.1.2",
+    "@nestjs/config": "^1.1.0",
+    "moment": "^2.29.1"
+  },
+  "license": "MIT"
+}
