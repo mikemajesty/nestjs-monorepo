@@ -8,7 +8,7 @@
     "tsConfigPath": "apps/main-api/tsconfig.json"
   },
   "projects": {
-    "main-api": {
+    "main": {
       "type": "application",
       "root": "apps/main-api",
       "entryFile": "main",
@@ -17,13 +17,13 @@
         "tsConfigPath": "apps/main-api/tsconfig.json"
       }
     },
-    "shared": {
+    "modules": {
       "type": "library",
-      "root": "apps/shared",
+      "root": "apps/libs/modules",
       "entryFile": "index",
-      "sourceRoot": "apps/shared/src",
+      "sourceRoot": "apps/libs/modules",
       "compilerOptions": {
-        "tsConfigPath": "apps/shared/tsconfig.json"
+        "tsConfigPath": "apps/libs/tsconfig.json"
       }
     }
   }
