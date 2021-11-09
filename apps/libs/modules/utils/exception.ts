@@ -10,7 +10,7 @@ export type ErrorModel = {
   };
 };
 
-export class AppException extends HttpException {
+export class ApiException extends HttpException {
   context: string;
   uuid: string;
   statusCode: number;

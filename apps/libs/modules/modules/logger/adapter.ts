@@ -1,8 +1,8 @@
-import { AppException } from '../../utils/exception';
+import { ApiException } from '../../utils/exception';
 
 export abstract class ILoggerService {
   abstract setContext(context: string): void;
-  abstract error(exception: AppException): void;
+  abstract error(exception: ApiException): void;
   abstract log(message: string, context?: string): void;
   abstract debug(message: string, context?: string): void;
   abstract warn(message: string, context?: string): void;

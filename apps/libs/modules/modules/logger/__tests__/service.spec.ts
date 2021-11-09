@@ -1,7 +1,7 @@
 import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
-import { AppException } from '../../../utils/exception';
+import { ApiException } from '../../../utils/exception';
 import { ILoggerService } from '../adapter';
 import { LoggerService } from '../service';
 
@@ -23,27 +23,27 @@ describe('LoggerService', () => {
 
   describe('error', () => {
     test('should error successfully', () => {
-      const error = new AppException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
+      const error = new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
 
       loggerService.error(error);
     });
 
     test('should error successfully without context', () => {
-      const error = new AppException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
+      const error = new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
       error.context = undefined;
 
       loggerService.error(error);
     });
 
     test('should error successfully without statusCode', () => {
-      const error = new AppException('Error');
+      const error = new ApiException('Error');
       error.statusCode = undefined;
       error.code = 'TIMEOUT';
       loggerService.error(error);
     });
 
     test('should error successfully without dev env', () => {
-      const error = new AppException('Error', 500);
+      const error = new ApiException('Error', 500);
       error.statusCode = undefined;
       error.context = 'TestLog';
       new LoggerService('dev').error(error);

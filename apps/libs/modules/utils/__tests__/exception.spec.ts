@@ -1,17 +1,17 @@
 import { HttpStatus } from '@nestjs/common';
 
-import { AppException } from '../exception';
+import { ApiException } from '../exception';
 
-describe('AppException', () => {
-  test('should AppException successfully', () => {
+describe('ApiException', () => {
+  test('should ApiException successfully', () => {
     expect(() => {
-      throw new AppException('BAD_GATEWAY', HttpStatus.BAD_GATEWAY);
+      throw new ApiException('BAD_GATEWAY', HttpStatus.BAD_GATEWAY);
     }).toThrowError('BAD_GATEWAY');
   });
 
-  test('should AppException successfully without status', () => {
+  test('should ApiException successfully without status', () => {
     expect(() => {
-      throw new AppException('BAD_REQUEST');
+      throw new ApiException('BAD_REQUEST');
     }).toThrowError('BAD_REQUEST');
   });
 });

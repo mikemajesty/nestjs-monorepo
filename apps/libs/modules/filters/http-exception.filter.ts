@@ -10,11 +10,11 @@ import * as moment from 'moment';
 import { LoggerService } from '../modules/logger/service';
 import { SecretsService } from '../modules/secrets/service';
 import * as errorStatus from '../static/htttp-status.json';
-import { AppException, ErrorModel } from '../utils';
+import { ApiException, ErrorModel } from '../utils';
 
 @Catch()
 export class AppExceptionFilter implements ExceptionFilter {
-  catch(exception: AppException, host: ArgumentsHost): void {
+  catch(exception: ApiException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest<Request>();
