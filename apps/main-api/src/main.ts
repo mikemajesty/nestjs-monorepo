@@ -1,9 +1,7 @@
+import { AppExceptionFilter, ExceptionInterceptor } from '@libs';
+import { LoggerService, SecretsService } from '@libs/modules';
 import { RequestMethod } from '@nestjs/common/enums';
 import { NestFactory } from '@nestjs/core';
-import { ExceptionInterceptor } from 'apps/libs/modules';
-import { AppExceptionFilter } from 'apps/libs/modules';
-import { LoggerService } from 'apps/libs/modules/modules/logger/service';
-import { SecretsService } from 'apps/libs/modules/modules/secrets/service';
 import { name } from 'apps/main-api/package.json';
 
 import { MainModule } from './modules/module';
