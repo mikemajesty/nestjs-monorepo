@@ -1,4 +1,4 @@
-import config from './jest/jest-e2e';
+import config from './jest/config.e2e';
 
 export default {
   ...config,

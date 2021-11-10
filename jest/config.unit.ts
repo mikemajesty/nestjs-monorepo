@@ -18,7 +18,7 @@ export default {
     'node_modules',
     'coverage',
   ],
-  setupFilesAfterEnv: ['<rootDir>/jest/jest-init.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest/main.init.ts'],
   coverageThreshold: {
     global: {
       functions: 50,
