@@ -32,7 +32,7 @@
     "test": "jest",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:coverage": "jest --coverage",
-    "test:e2e": "jest --config ./jest-e2e.ts",
+    "test:e2e": "jest --config ./jest.config.e2e.ts",
     "commit": "cz",
     "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd .."
   },
