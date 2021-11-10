@@ -7,7 +7,7 @@ import { SecretsService } from './service';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: ['.main.env'],
     }),
   ],
   providers: [
