@@ -1,16 +1,6 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
-
-import { compilerOptions } from '../tsconfig.json';
+import config from './config.common';
 
 export default {
-  moduleFileExtensions: ['js', 'json', 'ts'],
-  rootDir: '.',
-  testEnvironment: 'node',
+  ...config,
   testRegex: '.e2e.spec.ts$',
-  transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
-  },
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/',
-  }),
 };
