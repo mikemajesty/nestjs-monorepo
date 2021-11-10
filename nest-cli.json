@@ -25,6 +25,12 @@
       "compilerOptions": {
         "tsConfigPath": "apps/libs/tsconfig.json"
       }
+    },
+    "eslint": {
+      "type": "library",
+      "root": "apps/eslint",
+      "entryFile": ".eslintrc.json",
+      "sourceRoot": "apps/eslint"
     }
   }
 }
