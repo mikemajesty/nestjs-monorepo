@@ -13,7 +13,7 @@ const {
 
 module.exports = {
   displayName: name,
-  roots: ['core', 'backend', 'modules'],
+  roots: ['core', 'modules'],
   name,
   preset: 'ts-jest',
   ...commomConfig.default,
