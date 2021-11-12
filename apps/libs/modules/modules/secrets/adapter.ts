@@ -1,10 +1,11 @@
-export enum MainAPIEnvironment {
-  ENV = 'ENV',
-  PORT = 'PORT_MAIN_API',
-}
+import { MainAPIEnvironment } from './enum';
+
 export abstract class IMainAPISecrets {
   mainAPI: {
-    ENV: MainAPIEnvironment;
     PORT: MainAPIEnvironment;
   };
+}
+
+export abstract class ICommonSecrets {
+  ENV: string;
 }
