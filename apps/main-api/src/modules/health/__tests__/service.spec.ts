@@ -1,4 +1,4 @@
-import { ILoggerService, LoggerService } from '@libs';
+import { ILoggerService, LoggerService } from '@libs/modules';
 import { Test } from '@nestjs/testing';
 
 import { name } from '../../../../package.json';

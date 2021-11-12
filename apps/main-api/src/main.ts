@@ -1,4 +1,4 @@
-import { AppExceptionFilter, ExceptionInterceptor, LoggerService, SecretsService } from '@libs';
+import { AppExceptionFilter, ExceptionInterceptor, LoggerService, SecretsService } from '@libs/modules';
 import { RequestMethod } from '@nestjs/common/enums';
 import { NestFactory } from '@nestjs/core';
 import { name } from 'apps/main-api/package.json';
@@ -14,7 +14,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ExceptionInterceptor());
 
   const {
-    mainAPI: { ENV, PORT },
+    mainAPI: { PORT },
+    ENV,
   } = new SecretsService();
 
   const loggerService = new LoggerService(ENV);
