@@ -10,10 +10,7 @@ export class HealthService implements IHealthService {
 
   async getText(): Promise<string> {
     const appName = `${name} UP!!`;
-    this.loggerService.log(
-      appName,
-      `${HealthService.name}/${this.getText.name}`,
-    );
+    this.loggerService.log(appName, `${HealthService.name}/${this.getText.name}`);
 
     return appName;
   }

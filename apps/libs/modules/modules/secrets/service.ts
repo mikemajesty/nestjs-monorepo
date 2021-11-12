@@ -1,22 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { ISecretsService } from './adapter';
-
-enum Variables {
-  ENV = 'ENV',
-  MAIN_API_PORT = 'PORT_MAIN_API',
-}
+import { IMainAPISecrets, MainAPIEnvironment } from './adapter';
 
 @Injectable()
-export class SecretsService extends ConfigService implements ISecretsService {
+export class SecretsService extends ConfigService implements IMainAPISecrets {
   constructor() {
     super();
   }
 
-  port = {
-    MAIN_API: this.get<number>(Variables.MAIN_API_PORT),
+  mainAPI: {
+    ENV: MainAPIEnvironment.ENV;
+    PORT: MainAPIEnvironment.PORT;
   };
-
-  ENV = this.get<string>(Variables.ENV);
 }

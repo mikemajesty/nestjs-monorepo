@@ -1,9 +1,4 @@
-import {
-  AppExceptionFilter,
-  ExceptionInterceptor,
-  LoggerService,
-  SecretsService,
-} from '@libs';
+import { AppExceptionFilter, ExceptionInterceptor, LoggerService, SecretsService } from '@libs';
 import { RequestMethod } from '@nestjs/common/enums';
 import { NestFactory } from '@nestjs/core';
 import { name } from 'apps/main-api/package.json';
@@ -18,7 +13,9 @@ async function bootstrap() {
   app.useGlobalFilters(new AppExceptionFilter());
   app.useGlobalInterceptors(new ExceptionInterceptor());
 
-  const { ENV, port } = new SecretsService();
+  const {
+    mainAPI: { ENV, PORT },
+  } = new SecretsService();
 
   const loggerService = new LoggerService(ENV);
   app.useLogger(loggerService);
@@ -27,11 +24,8 @@ async function bootstrap() {
     exclude: [{ path: 'health', method: RequestMethod.GET }],
   });
 
-  loggerService.log(
-    `🟢 ${name} listening at ${port.MAIN_API} on ${ENV?.toUpperCase()} 🟢\n`,
-    name,
-  );
+  loggerService.log(`🟢 ${name} listening at ${PORT} on ${ENV?.toUpperCase()} 🟢\n`, name);
 
-  await app.listen(port.MAIN_API);
+  await app.listen(PORT);
 }
 bootstrap();

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-import { ISecretsService } from './adapter';
+import { IMainAPISecrets } from './adapter';
 import { SecretsService } from './service';
 
 @Module({
@@ -12,11 +12,11 @@ import { SecretsService } from './service';
   ],
   providers: [
     {
-      provide: ISecretsService,
+      provide: IMainAPISecrets,
       useClass: SecretsService,
     },
     ConfigService,
   ],
-  exports: [ISecretsService],
+  exports: [IMainAPISecrets],
 })
 export class SecretsModule {}
