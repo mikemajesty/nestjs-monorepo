@@ -9,8 +9,8 @@
     "target": "es2017",
     "sourceMap": true,
     "paths": {
-      "@libs": ["./apps/libs/modules/index.ts", "./apps/libs/core/index.ts"],
-      "@libs/*": ["./apps/libs/modules/*", "./apps/libs/core/*"]
+      "@libs/modules": ["./apps/libs/modules/index.ts"],
+      "@libs/core": ["./apps/libs/core/index.ts"]
     },
     "outDir": "./dist",
     "resolveJsonModule": true,
