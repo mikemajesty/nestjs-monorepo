@@ -1,3 +1,9 @@
+import * as fs from 'fs';
+
+const initFolder = `${__dirname}/init/`;
+
+const initEnvironmentPathList = fs.readdirSync(initFolder).map((file) => initFolder + file);
+
 export default {
   rootDir: '.',
   moduleFileExtensions: ['js', 'json', 'ts'],
@@ -13,6 +19,6 @@ export default {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
-  setupFilesAfterEnv: [`${__dirname}/main.init.ts`],
+  setupFilesAfterEnv: initEnvironmentPathList,
   projects: ['<rootDir>/apps/**/jest.config.js'],
 };
