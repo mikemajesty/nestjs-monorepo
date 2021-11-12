@@ -5,8 +5,7 @@ import { Observable, of } from 'rxjs';
 
 import { ExceptionInterceptor } from '../http-exception.interceptor';
 
-const executionContextMock =
-  jest.genMockFromModule<ExecutionContext>('@nestjs/common');
+const executionContextMock = jest.genMockFromModule<ExecutionContext>('@nestjs/common');
 const callHandlerMOck = jest.genMockFromModule<CallHandler>('@nestjs/common');
 
 describe('ExceptionInterceptor', () => {
@@ -26,10 +25,7 @@ describe('ExceptionInterceptor', () => {
     jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
     callHandlerMOck.handle = () => mock;
 
-    const result = exceptionInterceptor.intercept(
-      executionContextMock,
-      callHandlerMOck,
-    );
+    const result = exceptionInterceptor.intercept(executionContextMock, callHandlerMOck);
 
     expect(result).not.toBeUndefined();
   });
@@ -39,10 +35,7 @@ describe('ExceptionInterceptor', () => {
     jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
     callHandlerMOck.handle = () => mock;
 
-    const result = exceptionInterceptor.intercept(
-      executionContextMock,
-      callHandlerMOck,
-    );
+    const result = exceptionInterceptor.intercept(executionContextMock, callHandlerMOck);
 
     expect(result).not.toBeUndefined();
   });

@@ -41,9 +41,7 @@ describe('HealthController (e2e)', () => {
 
     it(`should getHealth with throw statusCode 500`, async () => {
       service.getText = jest.fn().mockRejectedValue(new ApiException('Error'));
-      return request(app.getHttpServer())
-        .get('/health')
-        .expect({ statusCode: 500, message: 'Error' });
+      return request(app.getHttpServer()).get('/health').expect({ statusCode: 500, message: 'Error' });
     });
   });
 
