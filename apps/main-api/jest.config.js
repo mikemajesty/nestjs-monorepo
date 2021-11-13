@@ -1,7 +1,7 @@
 const {
   name
 } = require('./package.json');
-const commomConfig = require('../../jest/config.common');
+
 const {
   pathsToModuleNameMapper
 } = require('ts-jest/utils');
@@ -10,14 +10,18 @@ const {
   compilerOptions
 } = require('../../tsconfig.json');
 
+const {
+  jestInitFileList
+} = require('../../jest');
 
 module.exports = {
-  rootDir: '.',
+  rootDir: 'src',
   displayName: name,
   name,
   preset: 'ts-jest',
-  ...commomConfig.default,
+  coveragePathIgnorePatterns: ['main.ts'],
+  setupFilesAfterEnv: jestInitFileList,
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/../../',
+    prefix: '<rootDir>/../../../',
   }),
 }
