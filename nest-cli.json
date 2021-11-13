@@ -17,11 +17,20 @@
         "tsConfigPath": "apps/main-api/tsconfig.json"
       }
     },
-    "modules": {
+    "shared": {
       "type": "library",
-      "root": "apps/libs/modules",
+      "root": "apps/libs/shared",
       "entryFile": "index",
-      "sourceRoot": "apps/libs/modules",
+      "sourceRoot": "apps/libs/shared",
+      "compilerOptions": {
+        "tsConfigPath": "apps/libs/tsconfig.json"
+      }
+    },
+    "core": {
+      "type": "library",
+      "root": "apps/libs/core",
+      "entryFile": "index",
+      "sourceRoot": "apps/libs/core",
       "compilerOptions": {
         "tsConfigPath": "apps/libs/tsconfig.json"
       }
