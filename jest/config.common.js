@@ -1,10 +1,10 @@
-import * as fs from 'fs';
+const fs = require('fs');
 
 const initFolder = `${__dirname}/init/`;
 
 const initEnvironmentPathList = fs.readdirSync(initFolder).map((file) => initFolder + file);
 
-export default {
+module.exports = {
   rootDir: '.',
   moduleFileExtensions: ['js', 'json', 'ts'],
   testEnvironment: 'node',
@@ -20,5 +20,5 @@ export default {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
   setupFilesAfterEnv: initEnvironmentPathList,
-  projects: ['<rootDir>/apps/**/jest.config.js'],
+  projects: ['<rootDir>/apps/**/jest.config.js']
 };

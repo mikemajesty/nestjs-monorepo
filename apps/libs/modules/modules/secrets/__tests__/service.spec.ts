@@ -1,27 +1,27 @@
 import { Test } from '@nestjs/testing';
 
-import { IMainAPISecrets } from '../adapter';
+import { ICommonSecrets } from '../adapter';
 import { SecretsService } from '../service';
 
 describe('SecretsService', () => {
-  let mainApiSecrets: IMainAPISecrets;
+  let commonSecrets: ICommonSecrets;
 
   beforeEach(async () => {
     const app = await Test.createTestingModule({
       providers: [
         {
-          provide: IMainAPISecrets,
+          provide: ICommonSecrets,
           useClass: SecretsService,
         },
       ],
     }).compile();
 
-    mainApiSecrets = app.get(IMainAPISecrets);
+    commonSecrets = app.get(ICommonSecrets);
   });
 
   describe('mainAPI', () => {
     test('should get mainAPI secrets successfully', () => {
-      expect(Number(mainApiSecrets.mainAPI.PORT)).toEqual(3000);
+      expect(commonSecrets.mainAPI.PORT).toEqual('3000');
     });
   });
 });
