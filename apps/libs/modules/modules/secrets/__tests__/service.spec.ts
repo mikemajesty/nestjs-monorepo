@@ -19,6 +19,12 @@ describe('SecretsService', () => {
     commonSecrets = app.get(ICommonSecrets);
   });
 
+  describe('common', () => {
+    test('should get common secrets successfully', () => {
+      expect(commonSecrets.ENV).toEqual('test');
+    });
+  });
+
   describe('mainAPI', () => {
     test('should get mainAPI secrets successfully', () => {
       expect(commonSecrets.mainAPI.PORT).toEqual('3000');
