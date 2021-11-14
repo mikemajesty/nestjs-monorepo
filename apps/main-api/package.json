@@ -1,11 +1,11 @@
 {
   "name": "@app/main-api",
   "version": "0.0.1",
-  "description": "Main project",
+  "description": "monorepo main-api",
   "main": "main",
   "author": {
     "name": "Mike Lima",
-    "email": "mike.rodrigues.lima@dasa.com.br"
+    "email": "mike.rodrigues.lima@gmail.com"
   },
   "engines": {
     "node": ">=14 <=15"

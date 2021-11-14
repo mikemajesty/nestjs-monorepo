@@ -1,11 +1,11 @@
 {
   "name": "@app/libs",
   "version": "0.0.1",
-  "description": "project libs",
+  "description": "monorepo libs",
   "main": "index.js",
   "author": {
     "name": "Mike Lima",
-    "email": "mike.rodrigues.lima@dasa.com.br"
+    "email": "mike.rodrigues.lima@gmail.com"
   },
   "engines": {
     "node": ">=14 <=15"
