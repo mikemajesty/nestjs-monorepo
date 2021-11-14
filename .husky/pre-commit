@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname "$0")/husky.sh"
+
+yarn lint
+yarn test
+
+echo '\nI Know What You Did Last Commit\n'
