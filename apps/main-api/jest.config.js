@@ -1,18 +1,10 @@
-const {
-  name
-} = require('./package.json');
+const { name } = require('./package.json');
 
-const {
-  pathsToModuleNameMapper
-} = require('ts-jest/utils');
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
 
-const {
-  compilerOptions
-} = require('../../tsconfig.json');
+const { compilerOptions } = require('../../tsconfig.json');
 
-const {
-  jestInitFileList
-} = require('../../jest');
+const { jestInitFileList } = require('../../jest');
 
 module.exports = {
   rootDir: 'src',
@@ -24,4 +16,4 @@ module.exports = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/../../../',
   }),
-}
+};
