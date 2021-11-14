@@ -27,7 +27,7 @@
     "start:dev": "nest start main-api --watch \"apps/**/*.{ts,js}\"",
     "start:prod": "node dist/apps/main-api/main.js",
     "format": "prettier --write \"apps/**/*.{ts,js}\" ",
-    "lint": "eslint \"apps/**/*.{ts,js,json}\" --fix",
+    "lint": "eslint \"apps/**/*.{ts,js,json}\" --fix && yarn format",
     "test": "jest",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:coverage": "jest --coverage",
