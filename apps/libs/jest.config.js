@@ -16,7 +16,7 @@ const {
 
 module.exports = {
   displayName: name,
-  roots: ['core', 'shared'],
+  roots: ['core', 'shared', 'utils'],
   name,
   preset: 'ts-jest',
   coveragePathIgnorePatterns: ['index.ts'],
