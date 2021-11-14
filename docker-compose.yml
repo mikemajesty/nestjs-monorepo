@@ -9,6 +9,6 @@ services:
       - "3000:3000"
       - "5870:5870"
     env_file: 
-     - .main.env
+     - .env
     volumes:
       - .:/src:cached
