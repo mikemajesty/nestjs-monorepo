@@ -1,3 +1,9 @@
+#### 0.0.4 (2021-11-14)
+
+##### New Features
+
+* **monorepo:**  add new release ([62d7b685](https://github.com/mikemajesty/nestjs-monorepo/commit/62d7b6853cf315bb0d77efa8883ae3a570be622a))
+
 #### 0.0.3 (2021-11-14) - final backend version
 
 ##### Chores
