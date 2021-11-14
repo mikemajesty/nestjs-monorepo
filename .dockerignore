@@ -1,12 +1,25 @@
-node_modules
+# compiled output
 dist
+
+# dependencies
+node_modules
+package-lock.json
+
+# tests
 coverage
+
+# git, vs config
 .git
 .husky
 .vscode
+
+# docs
 CHANGELOG.md
 README.md
+
+# devops
 devops
-package-lock.json
+
+# lint
 commitlint.config.ts
 .gitignore
