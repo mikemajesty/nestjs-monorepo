@@ -22,8 +22,8 @@
   "private": true,
   "scripts": {
     "prebuild": "rimraf dist",
+    "prepare": "husky install",
     "build": "nest build",
-    "build:all": "nest build main-api && nest build libs",
     "format": "prettier --write \"apps/**/*.{ts,js}\" ",
     "start": "nest start",
     "start:main": "nest start main-api --watch \"apps/**/*.{ts,js}\"",
