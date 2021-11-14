@@ -18,14 +18,12 @@
   "editor.formatOnSave": true,
   "eslint.validate": ["javascript"],
   "files.exclude": {
+    "**/node_modules": true,
     "**/*dist*": true,
     "**/*coverage*": true,
     "**/*package-lock.json*": true,
     "**/*yarn.lock*": true
   },
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
-  "prettier.printWidth": 120,
-  "prettier.eslintIntegration": true,
-  "prettier.tslintIntegration": true
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false
 }
