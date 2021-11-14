@@ -9,6 +9,7 @@ import { MainModule } from './modules/module';
 async function bootstrap() {
   const app = await NestFactory.create(MainModule, {
     bufferLogs: true,
+    cors: true,
   });
 
   app.useGlobalFilters(new AppExceptionFilter());

@@ -1,5 +1,5 @@
 {
-  "name": "@app/config.eslint",
+  "name": "@app/eslint.config",
   "version": "0.0.1",
   "description": "monorepo eslint config",
   "main": ".eslintrc.json",
