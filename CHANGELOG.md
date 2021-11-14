@@ -1,3 +1,79 @@
+#### 0.0.3 (2021-11-14)
+
+##### Chores
+
+* **lint:**  improve project lint ([418722e0](https://github.com/mikemajesty/nestjs-monorepo/commit/418722e04cc4cc50c6e9370225b391f1e856b2dd))
+* **husky:**  add pre commit ([52a23750](https://github.com/mikemajesty/nestjs-monorepo/commit/52a237509d191033b4a176c2c6582a8b0859a6bc))
+* **tsconfig:**  add path utils lib support ([2c1acfb5](https://github.com/mikemajesty/nestjs-monorepo/commit/2c1acfb5e094eb46805ded341cedc889d9dc7b4e))
+* **monorepo:**
+  *  add eslintignore information ([fa61a5a9](https://github.com/mikemajesty/nestjs-monorepo/commit/fa61a5a9a3ae663db4aa44d420b5ab08f8a0c88b))
+  *  add lint fo json ([d56f0f46](https://github.com/mikemajesty/nestjs-monorepo/commit/d56f0f46bb09f023ccf3bb7d9283ab9ec85a498a))
+  *  add tab size 120 on settings ([3c732f74](https://github.com/mikemajesty/nestjs-monorepo/commit/3c732f7461dfa4c75cb467a3ef5cecc135bf168b))
+  *  add eslintignore ([e177dd13](https://github.com/mikemajesty/nestjs-monorepo/commit/e177dd1394f43942884eec257822c6f41f8f2b55))
+* **main-api:**
+  *  add information ([5474c7a8](https://github.com/mikemajesty/nestjs-monorepo/commit/5474c7a853791e3218084da8da4f435c16065160))
+  *  add jest.config ([e841b807](https://github.com/mikemajesty/nestjs-monorepo/commit/e841b80791cf1d362158b208dc2727be404860a5))
+  *  add .eslintignore ([ee92bb28](https://github.com/mikemajesty/nestjs-monorepo/commit/ee92bb288f0239047e9c5c1cdb7af49728ce8ecf))
+* **.dockerignore:**  add  informatation ([895c41e4](https://github.com/mikemajesty/nestjs-monorepo/commit/895c41e431ba4d69c4a331a57e20622502125b21))
+* **libs:**
+  *  improve jest structure ([73fad461](https://github.com/mikemajesty/nestjs-monorepo/commit/73fad4610d3165c6c4e389ed674bd90715a476cd))
+  *  change line size ([d1e97c26](https://github.com/mikemajesty/nestjs-monorepo/commit/d1e97c264795bb22e00345cd387f81d7f31914a5))
+  *  add jest.config ([d0119d2c](https://github.com/mikemajesty/nestjs-monorepo/commit/d0119d2c02b72d02aee8d72dc0bb6ea1a3ac847a))
+  *  add .eslintignore ([29cd8e59](https://github.com/mikemajesty/nestjs-monorepo/commit/29cd8e59e0af393a7d7b941c8f75be800ddc59c5))
+* **core:**  add index file ([99d48280](https://github.com/mikemajesty/nestjs-monorepo/commit/99d48280f62fac0013bd80c41fa4554a59d63114))
+* **backend:**  remove module ([d0996be2](https://github.com/mikemajesty/nestjs-monorepo/commit/d0996be2f00df1ccb501aadbbef660798dc481aa))
+* **secrets:**  improve secrets ([092d50ea](https://github.com/mikemajesty/nestjs-monorepo/commit/092d50ead3f10738b9a224f58cbfe27c452da7e5))
+* **env:**  change env name ([c918f92b](https://github.com/mikemajesty/nestjs-monorepo/commit/c918f92b765f0adbf2f80872810bbc493e21f3ba))
+* **package:**  add uuid dependencies ([f71b72e7](https://github.com/mikemajesty/nestjs-monorepo/commit/f71b72e7558ce6b4d48bc89cf644a8518ea354bb))
+
+##### Documentation Changes
+
+* **monorepo:**  improve packages information ([750a1961](https://github.com/mikemajesty/nestjs-monorepo/commit/750a196147036610826e286d505fca165de903b7))
+* **swagger:**  add swagger documentation ([45ca6636](https://github.com/mikemajesty/nestjs-monorepo/commit/45ca6636298546d97fb920c9f6c8e76d58f9089a))
+
+##### New Features
+
+* **monorepo:**
+  *  remove test:debug command and preset on e2e ([f8ab6b6a](https://github.com/mikemajesty/nestjs-monorepo/commit/f8ab6b6ac165adb6574eca4b4b1292eb5631330e))
+  *  add utils subprojects ([00404b03](https://github.com/mikemajesty/nestjs-monorepo/commit/00404b03ac5572d63cff8fef84da7d3291d02a80))
+* **swagger:**  add swaggger utils ([99048a7e](https://github.com/mikemajesty/nestjs-monorepo/commit/99048a7e264e29ff334f7c2da79967fd16a435ef))
+* **libs:**  remove core folder ([92f428e9](https://github.com/mikemajesty/nestjs-monorepo/commit/92f428e9dff8ebc98895e588d4a503cacfe249b9))
+
+##### Refactors
+
+* **monorepo:**
+  *  improve lint ([4a031ac8](https://github.com/mikemajesty/nestjs-monorepo/commit/4a031ac851f14d7e556c3b45b5b4c8e10d8430ad))
+  *  move utils to libs ([65e24fbb](https://github.com/mikemajesty/nestjs-monorepo/commit/65e24fbb317cf56e04819575af7dce71da371800))
+  *  refactor libs structure ([0f4c2ebc](https://github.com/mikemajesty/nestjs-monorepo/commit/0f4c2ebcd4ed76433e6867938eb66e34bf966531))
+  *  refactor eslintignore file ([66055fbf](https://github.com/mikemajesty/nestjs-monorepo/commit/66055fbf841623267aa0ce334dc8e66cf75abfb3))
+  *  refactor modules path ([0ae4b161](https://github.com/mikemajesty/nestjs-monorepo/commit/0ae4b161d400ce0654f7aa980d47c9109e849792))
+  *  change jest config file ([60b26536](https://github.com/mikemajesty/nestjs-monorepo/commit/60b265367e49cd9a2a6bb372923c1430e605a516))
+  *  change jest file config names ([9bdda233](https://github.com/mikemajesty/nestjs-monorepo/commit/9bdda2338ca53e805c3542cc77c6607f07c26937))
+  *  change env name ([9d39862d](https://github.com/mikemajesty/nestjs-monorepo/commit/9d39862da0f5c2a45be40d416d6910784964bd4b))
+* **shared:**  remove utils path support ([8c2a81c7](https://github.com/mikemajesty/nestjs-monorepo/commit/8c2a81c79157c8488992fd7cdedb64ab4ac56826))
+* **jest:**
+  *  fix jest configuration ([b38e1ed9](https://github.com/mikemajesty/nestjs-monorepo/commit/b38e1ed95200606242296b84dffcf442d3f5086f))
+  *  refactor jest structure ([1a2db2fa](https://github.com/mikemajesty/nestjs-monorepo/commit/1a2db2fa6ba401f059af542555dc675496bc56c1))
+  *  refactor jest structure ([b41cf976](https://github.com/mikemajesty/nestjs-monorepo/commit/b41cf976c782750d31d2174df27320965a5bf7d5))
+  *  remove old main.init file ([d6bf6fb5](https://github.com/mikemajesty/nestjs-monorepo/commit/d6bf6fb5b99d51abded9fdc29f7943da54052125))
+  *  change config structure ([8d0661bb](https://github.com/mikemajesty/nestjs-monorepo/commit/8d0661bb174f42525c73bd99469a4757e7403e21))
+* **secrets:**  refactor all files ([82cdd9ee](https://github.com/mikemajesty/nestjs-monorepo/commit/82cdd9eeffe0be8f6e40b99dcb4bd7f97257ed2f))
+* **libs:**  remove backend folder ([65e832f8](https://github.com/mikemajesty/nestjs-monorepo/commit/65e832f8cb7e2f1b915340a57905a49cdda56f10))
+
+##### Code Style Changes
+
+* **package:**  add project description ([8dac636d](https://github.com/mikemajesty/nestjs-monorepo/commit/8dac636d73803955a1b0aaeaec74071a76b2fdc3))
+* **libs:**
+  *  add skip file ([b404aa7e](https://github.com/mikemajesty/nestjs-monorepo/commit/b404aa7e12b88005f39cfbbe22fa3be4e101c111))
+  *  add swagger test skip ([d3a02527](https://github.com/mikemajesty/nestjs-monorepo/commit/d3a025274b4a75d334e2519e7463c2d82994f07a))
+
+##### Tests
+
+* **monorepo:**  improve jest config ([1918d069](https://github.com/mikemajesty/nestjs-monorepo/commit/1918d069b030aa2db0009af3dd54ea7e3df58398))
+* **jest:**  change file extension ([d67a941a](https://github.com/mikemajesty/nestjs-monorepo/commit/d67a941a4db530910bb5d6b16cc978dc01644d39))
+* **libs:**  add tests to common secrets ([870cf7df](https://github.com/mikemajesty/nestjs-monorepo/commit/870cf7dfd4c0fcd5022c0b2c9801fa3ccbd66151))
+* **main:**  rename main api tests ([c1c7fa8a](https://github.com/mikemajesty/nestjs-monorepo/commit/c1c7fa8a97562fa29bf0970b35d767c23b8347b6))
+
 #### 0.0.2 (2021-11-10)
 
 ##### Build System / Dependencies
