@@ -1,12 +1,19 @@
-node_modules/
-coverage/
+# compiled output
 dist/
-jest/
 
+# tests config
+jest/
+coverage/
+
+# js files
 .eslintrc.js
 *.js
 
-package.json
-tsconfig.json
+# dependencies
+node_modules/
 package-lock.json
+package.json
+
+# project config
+tsconfig.json
 tsconfig.build.json
