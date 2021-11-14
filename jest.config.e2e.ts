@@ -8,9 +8,7 @@ export default {
   testRegex: '.*\\.e2e.spec\\.ts$',
   moduleFileExtensions: ['js', 'json', 'ts'],
   testEnvironment: 'node',
-  transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
-  },
+  preset: 'ts-jest',
   setupFilesAfterEnv: jestInitFileList,
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/../',
