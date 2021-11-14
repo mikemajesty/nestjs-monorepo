@@ -35,6 +35,12 @@
         "tsConfigPath": "apps/libs/tsconfig.json"
       }
     },
+    "utils": {
+      "type": "library",
+      "root": "apps/utils",
+      "entryFile": "index.ts",
+      "sourceRoot": "apps/utils"
+    },
     "eslint": {
       "type": "library",
       "root": "apps/eslint",
