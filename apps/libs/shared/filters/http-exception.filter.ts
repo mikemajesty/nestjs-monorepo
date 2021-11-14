@@ -1,10 +1,10 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import * as moment from 'moment';
 
+import { ApiException, ErrorModel } from '../../utils';
 import { LoggerService } from '../modules/logger/service';
 import { SecretsService } from '../modules/secrets/service';
 import * as errorStatus from '../static/htttp-status.json';
-import { ApiException, ErrorModel } from '../utils';
 
 @Catch()
 export class AppExceptionFilter implements ExceptionFilter {

@@ -1,4 +1,5 @@
-import { ApiException, ILoggerService, LoggerService } from '@libs/shared';
+import { ILoggerService, LoggerService } from '@libs/shared';
+import { ApiException } from '@libs/utils';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import * as request from 'supertest';
