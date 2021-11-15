@@ -1,3 +1,14 @@
+#### 0.0.5 (2021-11-15)
+
+##### New Features
+
+* **release:**  add production version 'nestjs-monorepo-prd-0.0.4' ([4fc3f1b0](https://github.com/mikemajesty/nestjs-monorepo/commit/4fc3f1b0189075a6000e877a3e5856c9afe8edc8))
+* **monorepo:**  add new release ([62d7b685](https://github.com/mikemajesty/nestjs-monorepo/commit/62d7b6853cf315bb0d77efa8883ae3a570be622a))
+
+##### Refactors
+
+* **eslint:**  add eslint to all subprojects ([564db93e](https://github.com/mikemajesty/nestjs-monorepo/commit/564db93ef01159d8587b9ff3285e7c0c775d1454))
+
 #### 0.0.4 (2021-11-14)  - final backend version
 
 ##### New Features
