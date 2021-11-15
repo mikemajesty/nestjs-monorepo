@@ -3,7 +3,9 @@ dist
 
 # dependencies
 node_modules
+**/node_modules
 package-lock.json
+**/package-lock.json
 
 # tests
 coverage
@@ -12,6 +14,7 @@ coverage
 .git
 .husky
 .vscode
+**/.vscode
 
 # docs
 CHANGELOG.md
@@ -23,3 +26,4 @@ devops
 # lint
 commitlint.config.ts
 .gitignore
+**/.gitignore

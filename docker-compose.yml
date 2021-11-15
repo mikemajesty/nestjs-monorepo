@@ -1,14 +1,12 @@
 version: "2"
 services:
-  web:
-    container_name: nestjs-monorepo
+  main-api:
+    container_name: monorepo-main-api
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./apps/main-api/Dockerfile
     ports:
       - "3000:3000"
       - "5870:5870"
-    env_file: 
-     - .env
     volumes:
       - .:/src:cached

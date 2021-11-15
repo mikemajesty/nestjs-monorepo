@@ -1,8 +1,5 @@
 # compiled output
 dist/
-build/
-
-public/
 
 # tests config
 jest/

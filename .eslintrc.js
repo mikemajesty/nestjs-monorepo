@@ -1,3 +1,3 @@
-const config = require('@app/config.eslint');
+const config = require('@app/eslint.config');
 
 module.exports = config;

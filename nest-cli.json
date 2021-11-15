@@ -8,7 +8,7 @@
     "tsConfigPath": "apps/main-api/tsconfig.json"
   },
   "projects": {
-    "main": {
+    "main-api": {
       "type": "application",
       "root": "apps/main-api",
       "entryFile": "main",
@@ -37,9 +37,12 @@
     },
     "utils": {
       "type": "library",
-      "root": "apps/utils",
-      "entryFile": "index.ts",
-      "sourceRoot": "apps/utils"
+      "root": "apps/libs/utils",
+      "entryFile": "index",
+      "sourceRoot": "apps/libs/utils",
+      "compilerOptions": {
+        "tsConfigPath": "apps/libs/tsconfig.json"
+      }
     },
     "eslint": {
       "type": "library",

@@ -7,6 +7,9 @@
     "name": "Mike Lima",
     "email": "mike.rodrigues.lima@gmail.com"
   },
+  "scripts": {
+    "lint": "../eslint/node_modules/.bin/eslint \"{core, shared, utils}/**/*.{ts, js, json}\" --fix"
+  },
   "engines": {
     "node": ">=14 <=15"
   },
