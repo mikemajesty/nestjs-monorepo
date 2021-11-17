@@ -1,4 +1,4 @@
-#### 0.0.5 (2021-11-17)
+#### 0.0.6 (2021-11-17) - final backend version
 
 ##### Build System / Dependencies
 
@@ -19,7 +19,7 @@
 
 * **eslint:**  add eslint to all subprojects ([564db93e](https://github.com/mikemajesty/nestjs-monorepo/commit/564db93ef01159d8587b9ff3285e7c0c775d1454))
 
-#### 0.0.4 (2021-11-14)  - final backend version
+#### 0.0.4 (2021-11-14)
 
 ##### New Features
 
