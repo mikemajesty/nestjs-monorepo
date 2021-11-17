@@ -1,3 +1,13 @@
+#### 0.0.5 (2021-11-17)
+
+##### Build System / Dependencies
+
+* **tag-create:**  fix tag create bug ([ef348261](https://github.com/mikemajesty/nestjs-monorepo/commit/ef3482613996ad5c38a1afb88d2205d6e8718737))
+
+##### New Features
+
+* **monorepo:**  add final backend implementation ([60b3f940](https://github.com/mikemajesty/nestjs-monorepo/commit/60b3f9403fe2d74da8781e5c621bfa032d618110))
+
 #### 0.0.5 (2021-11-15)
 
 ##### New Features
