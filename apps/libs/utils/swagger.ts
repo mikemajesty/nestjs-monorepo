@@ -6,20 +6,23 @@ type SwaggerError = {
   status: number;
   route: string;
   message: string | unknown;
+  description?: string;
 };
 
 type SwaggerText = {
   status: number;
   text: string | unknown;
+  description?: string;
 };
 
 type SwaggerJSON = {
   status: number;
   json: unknown;
+  description?: string;
 };
 
 export class Swagger {
-  static defaultResponseError({ message, route, status }: SwaggerError): ApiResponseOptions {
+  static defaultResponseError({ message, route, status, description }: SwaggerError): ApiResponseOptions {
     return {
       schema: {
         example: {
@@ -32,11 +35,12 @@ export class Swagger {
           },
         } as ErrorModel,
       },
-      status: status,
+      description,
+      status,
     };
   }
 
-  static defaultResponseText({ status, text }: SwaggerText): ApiResponseOptions {
+  static defaultResponseText({ status, text, description }: SwaggerText): ApiResponseOptions {
     return {
       content: {
         'text/plain': {
@@ -45,11 +49,12 @@ export class Swagger {
           },
         },
       },
+      description,
       status,
     };
   }
 
-  static defaultResponseJSON({ status, json }: SwaggerJSON): ApiResponseOptions {
+  static defaultResponseJSON({ status, json, description }: SwaggerJSON): ApiResponseOptions {
     return {
       content: {
         'application/json': {
@@ -58,6 +63,7 @@ export class Swagger {
           },
         },
       },
+      description,
       status,
     };
   }

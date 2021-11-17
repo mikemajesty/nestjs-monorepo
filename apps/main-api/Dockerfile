@@ -15,6 +15,8 @@ COPY apps/main-api/tsconfig.json dist/apps/main-api/
 COPY apps/libs/package.json dist/apps/libs/
 COPY apps/libs/tsconfig.json dist/apps/libs/
 
+EXPOSE 3000
+
 RUN yarn --cwd dist/apps/main-api
 RUN yarn --cwd dist/apps/libs
 
@@ -25,6 +27,4 @@ RUN ls /app -al
 
 RUN yarn
 
-EXPOSE 3000
-
-CMD [ "yarn", "start:prod"]
+CMD yarn --cwd app start:main

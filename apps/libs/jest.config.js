@@ -11,7 +11,7 @@ module.exports = {
   roots: ['core', 'shared', 'utils'],
   name,
   preset: 'ts-jest',
-  coveragePathIgnorePatterns: ['index.ts', 'swagger.ts'],
+  coveragePathIgnorePatterns: ['index.ts', 'swagger.ts', 'node_modules'],
   setupFilesAfterEnv: jestInitFileList,
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
 };

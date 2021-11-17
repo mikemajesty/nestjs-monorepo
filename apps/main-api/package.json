@@ -4,7 +4,8 @@
   "description": "monorepo main-api",
   "main": "main",
   "scripts": {
-    "lint": "../eslint/node_modules/.bin/eslint \"src/**/*.{ts, js, json}\" --fix"
+    "lint": "../eslint/node_modules/.bin/eslint \"src/**/*.{ts, js, json}\" --fix",
+    "start:prd": "node main.js"
   },
   "author": {
     "name": "Mike Lima",
