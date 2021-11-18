@@ -1,7 +1,7 @@
-yarn workspace @app/eslint.config install && yarn workspace @app/libs install
+# Nestjs Monorepo 
 
-yarn workspace @app/libs lint
-
+#### Monorepo using nestjs, docker and libs structure. Simple Code base you will like it.
+--
 ```
 .dockerignore
 .env
@@ -32,8 +32,34 @@ apps
    |   |-- core
    |   |   |-- index.ts
    |   |-- jest.config.js
+   |   |-- modules
+   |   |   |-- __tests__
+   |   |   |   |-- module.spec.ts
+   |   |   |-- index.ts
+   |   |   |-- logger
+   |   |   |   |-- __tests__
+   |   |   |   |   |-- module.spec.ts
+   |   |   |   |   |-- service.spec.ts
+   |   |   |   |-- adapter.ts
+   |   |   |   |-- index.ts
+   |   |   |   |-- module.ts
+   |   |   |   |-- service.ts
+   |   |   |-- module.ts
+   |   |   |-- secrets
+   |   |   |   |-- __tests__
+   |   |   |   |   |-- module.spec.ts
+   |   |   |   |   |-- service.spec.ts
+   |   |   |   |-- adapter.ts
+   |   |   |   |-- enum.ts
+   |   |   |   |-- index.ts
+   |   |   |   |-- module.ts
+   |   |   |   |-- service.ts
    |   |-- package.json
-   |   |-- shared
+   |   |-- tsconfig.json
+   |   |-- utils
+   |   |   |-- __tests__
+   |   |   |   |-- exception.spec.ts
+   |   |   |-- exception.ts
    |   |   |-- filters
    |   |   |   |-- __tests__
    |   |   |   |   |-- http-exception.filter.spec.ts
@@ -43,36 +69,8 @@ apps
    |   |   |   |-- __tests__
    |   |   |   |   |-- http-exception.interceptor.spec.ts
    |   |   |   |-- http-exception.interceptor.ts
-   |   |   |-- modules
-   |   |   |   |-- __tests__
-   |   |   |   |   |-- module.spec.ts
-   |   |   |   |-- index.ts
-   |   |   |   |-- logger
-   |   |   |   |   |-- __tests__
-   |   |   |   |   |   |-- module.spec.ts
-   |   |   |   |   |   |-- service.spec.ts
-   |   |   |   |   |-- adapter.ts
-   |   |   |   |   |-- index.ts
-   |   |   |   |   |-- module.ts
-   |   |   |   |   |-- service.ts
-   |   |   |   |-- module.ts
-   |   |   |   |-- secrets
-   |   |   |   |   |-- __tests__
-   |   |   |   |   |   |-- module.spec.ts
-   |   |   |   |   |   |-- service.spec.ts
-   |   |   |   |   |-- adapter.ts
-   |   |   |   |   |-- enum.ts
-   |   |   |   |   |-- index.ts
-   |   |   |   |   |-- module.ts
-   |   |   |   |   |-- service.ts
    |   |   |-- static
    |   |   |   |-- htttp-status.json
-   |   |-- tsconfig.json
-   |   |-- utils
-   |   |   |-- __tests__
-   |   |   |   |-- exception.spec.ts
-   |   |   |-- exception.ts
-   |   |   |-- index.ts
    |   |   |-- swagger.ts
    |-- main-api
    |   |-- .dockerignore
@@ -115,3 +113,63 @@ package.json
 tsconfig.build.json
 tsconfig.json
 ```
+--
+#### Instalation
+
+ - install all dependencies
+    ```bash
+    $ monorepo:install
+    ```
+ - install individual project
+    ```bash
+    $ yarn workspace <workspaceName> install
+    ```
+##### workspace list
+ - @app/eslint.config
+ - @app/libs
+ - @app/main.api
+---
+
+#### Running the app
+ - local
+    ```bash
+    $ yarn start:dev
+    ```
+
+ - dev/hml/prd environment
+    ```bash
+    $ docker-compose up --build
+    ```
+
+#### Tests
+ - unit
+    ```bash
+    # run all tests
+    $ yarn test
+    ```
+    
+    ```bash
+    # run individual tests project
+    $ yarn test main
+    $ yarn test libs
+    ```
+ - e2e
+     ```
+     $ yarn test:e2e
+     ```
+ - coverage
+    ```
+    $ yarn test:coverage
+    ```
+
+#### Lint
+
+ - Run all lint
+    ```bash
+    $ yarn lint
+    ```
+ - Run individual lint project
+    ```
+    $ yarn workspace <workspaceName> lint
+    ```
+
