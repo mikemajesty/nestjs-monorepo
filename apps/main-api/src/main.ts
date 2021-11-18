@@ -1,4 +1,5 @@
-import { AppExceptionFilter, ExceptionInterceptor, LoggerService, SecretsService } from '@libs/shared';
+import { LoggerService, SecretsService } from '@libs/modules';
+import { AppExceptionFilter, ExceptionInterceptor } from '@libs/utils';
 import { RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';

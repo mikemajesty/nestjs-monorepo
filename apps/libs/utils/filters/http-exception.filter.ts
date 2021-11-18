@@ -1,9 +1,8 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import * as moment from 'moment';
 
-import { ApiException, ErrorModel } from '../../utils';
-import { LoggerService } from '../modules/logger/service';
-import { SecretsService } from '../modules/secrets/service';
+import { LoggerService, SecretsService } from '../../modules';
+import { ApiException, ErrorModel } from '../exception';
 import * as errorStatus from '../static/htttp-status.json';
 
 @Catch()

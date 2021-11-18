@@ -1,4 +1,4 @@
-import { ILoggerService } from '@libs/shared';
+import { ILoggerService } from '@libs/modules';
 import { Injectable } from '@nestjs/common';
 
 import { name } from '../../../package.json';

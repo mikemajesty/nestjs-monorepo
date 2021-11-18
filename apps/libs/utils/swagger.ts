@@ -67,4 +67,12 @@ export class Swagger {
       status,
     };
   }
+
+  static defaultRequestJSON(json: unknown): ApiResponseOptions {
+    return {
+      schema: {
+        example: json,
+      },
+    };
+  }
 }

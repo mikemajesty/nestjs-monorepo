@@ -8,4 +8,4 @@ import { SecretsModule } from './secrets/module';
   imports: [SecretsModule, LoggerModule],
   exports: [SecretsModule, LoggerModule],
 })
-export class SharedModule {}
+export class CoreModule {}
