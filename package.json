@@ -1,7 +1,7 @@
 {
   "name": "monorepo",
   "version": "0.0.8",
-  "description": "the best nestjs and react monorepo",
+  "description": "Nestjs monorepo",
   "workspaces": {
     "packages": [
       "./apps/*"

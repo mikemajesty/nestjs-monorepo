@@ -4,7 +4,7 @@ import { jestInitFileList } from './jest';
 import { compilerOptions } from './tsconfig.json';
 
 export default {
-  collectCoverage: true,
+  collectCoverage: false,
   moduleFileExtensions: ['js', 'json', 'ts'],
   rootDir: 'apps',
   testRegex: '.*\\.spec\\.ts$',
