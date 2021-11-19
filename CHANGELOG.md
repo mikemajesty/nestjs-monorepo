@@ -1,3 +1,17 @@
+#### 0.0.7 (2021-11-19)
+
+##### Documentation Changes
+
+* **readme:**
+  *  improve docs ([8d00bbe5](https://github.com/mikemajesty/nestjs-monorepo/commit/8d00bbe5ddee480144d21efaa4260fe8206fbbe7))
+  *  improve docs ([85968dfb](https://github.com/mikemajesty/nestjs-monorepo/commit/85968dfb86a2b24e396e141cfe33b1b1b470d3af))
+  *  improve docs ([662484f5](https://github.com/mikemajesty/nestjs-monorepo/commit/662484f58e17807d5ce5857da0f745ded9a5f881))
+  *  improve documents ([a2fe6799](https://github.com/mikemajesty/nestjs-monorepo/commit/a2fe6799b3728552609ef296798c69cf05b77ecb))
+
+##### Refactors
+
+* **monorepo:**  refactor project structure ([4d759aaf](https://github.com/mikemajesty/nestjs-monorepo/commit/4d759aaf67dde9af89dc1cdacfdd9480075045a4))
+
 #### 0.0.6 (2021-11-17) - final backend version
 
 ##### Build System / Dependencies
