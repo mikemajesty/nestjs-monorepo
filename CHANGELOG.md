@@ -1,3 +1,14 @@
+#### 0.0.8 (2021-11-19)
+
+##### Documentation Changes
+
+* **readme:**  improve docs ([13b3fdba](https://github.com/mikemajesty/nestjs-monorepo/commit/13b3fdba44c8f589550fb1831c0e9b3b9b241f38))
+
+##### New Features
+
+* **httpmodule:**  add http module ([2da6f232](https://github.com/mikemajesty/nestjs-monorepo/commit/2da6f2326415fc714e44e862e70acd7bbec91cdc))
+* **release:**  add production version 'nestjs-monorepo-prd-0.0.8-backend-final' ([f72b964f](https://github.com/mikemajesty/nestjs-monorepo/commit/f72b964f813e3d45ff1b8df8ff637f88f0d25b6a))
+
 #### 0.0.7 (2021-11-19) - final backend version
 
 ##### Documentation Changes
