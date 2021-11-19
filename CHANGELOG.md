@@ -1,10 +1,6 @@
-#### 0.0.8 (2021-11-19) - backend version
+#### 0.0.8 (2021-11-19)
 
-##### Chores
-
-* **monorepo:**  change package description ([e0b12639](https://github.com/mikemajesty/nestjs-monorepo/commit/e0b12639c71ecadd6d188219a0acb8a50b076ac8))
-
-#### 0.0.7 (2021-11-19)
+#### 0.0.7 (2021-11-19) - final backend version
 
 ##### Documentation Changes
 
