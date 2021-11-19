@@ -1,5 +1,3 @@
-#### 0.0.8 (2021-11-19)
-
 #### 0.0.7 (2021-11-19) - final backend version
 
 ##### Documentation Changes
