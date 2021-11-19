@@ -28,10 +28,6 @@ async function bootstrap() {
     exclude: [{ path: 'health', method: RequestMethod.GET }],
   });
 
-  app.setGlobalPrefix('api', {
-    exclude: [{ path: 'health', method: RequestMethod.GET }],
-  });
-
   const config = new DocumentBuilder()
     .setTitle(name)
     .setDescription(description)

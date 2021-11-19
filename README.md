@@ -1,12 +1,12 @@
 # Nestjs Monorepo 
 
-##### Monorepo using nestjs, docker, libs structure, anti corruption layer and SOLID.
+##### Monorepo using nestjs, docker, libs structure, anti corruption layer, unit tests and SOLID.
 
 --
 
 #### Instalation
 
- - install all dependencies
+ - install monorepo dependencies
     ```bash
     $ yarn monorepo:install
     ```
@@ -14,11 +14,10 @@
     ```bash
     $ yarn workspace <workspaceName> install
     ```
- - install individual lib to a project
-
-      ```bash
-      $ yarn workspace <workspaceName> add <libName>
-      ```
+ - install lib on project
+    ```bash
+    $ yarn workspace <workspaceName> add <libName>
+    ```
 ##### workspace list
  - @app/eslint.config
  - @app/libs
@@ -39,12 +38,12 @@
 #### Tests
  - unit
     ```bash
-    # run all tests
+    # run monorepo tests
     $ yarn test
     ```
     
     ```bash
-    # run individual tests project
+    # Run project tests
     $ yarn test main
     $ yarn test libs
     ```
@@ -59,11 +58,11 @@
 
 #### Lint
 
- - Run all lint
+ - Run monorepo lint 
     ```bash
     $ yarn lint
     ```
- - Run individual lint project
+ - Run project lint
     ```
     $ yarn workspace <workspaceName> lint
     ```
@@ -218,5 +217,24 @@ tsconfig.build.json
 tsconfig.json
 ```
 -- Architecture
- - ```/apps/eslint```: Global eslint
- - ```/apps/eslint```: Global eslint
+ - ```/apps/eslint```: Global eslint. All eslint Libs must be here.
+
+ - ```/apps/libs```: Application shared libs.
+ - ```/apps/libs/core```: Core business rules, don't use nestjs libs here, only class and rules that will be shared with other projects
+ - ```/apps/libs/modules```: Application core modules, use only nestjs modules here, you can add modules like: http, databse etc.
+ - ```/apps/libs/modules/logger```: Application logs.
+ - ```/apps/libs/modules/secrets```: Application secrets.
+ - ```/apps/libs/utils```: Application core utilities.
+
+  - ```/apps/main-api```: Application main project.
+
+---
+
+The following is a list of all the people that have contributed to nest-boilerplate. Thanks for your contributions!
+
+[<img alt="mikemajesty" src="https://avatars1.githubusercontent.com/u/11630212?s=460&v=4&s=117" width="117">](https://github.com/mikemajesty)
+
+## License
+
+It is available under the MIT license.
+[License](https://opensource.org/licenses/mit-license.php)
