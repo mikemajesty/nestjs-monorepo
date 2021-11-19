@@ -1,3 +1,9 @@
+#### 0.0.8 (2021-11-19)
+
+##### Chores
+
+* **monorepo:**  change package description ([e0b12639](https://github.com/mikemajesty/nestjs-monorepo/commit/e0b12639c71ecadd6d188219a0acb8a50b076ac8))
+
 #### 0.0.7 (2021-11-19)
 
 ##### Documentation Changes
@@ -12,7 +18,7 @@
 
 * **monorepo:**  refactor project structure ([4d759aaf](https://github.com/mikemajesty/nestjs-monorepo/commit/4d759aaf67dde9af89dc1cdacfdd9480075045a4))
 
-#### 0.0.6 (2021-11-17) - final backend version
+#### 0.0.6 (2021-11-17)
 
 ##### Build System / Dependencies
 
