@@ -104,6 +104,21 @@
       }
     }
     ```
+  - Http
+      ```js 
+      import { IHttpService } from '../common/http/adapter';
+      export class Example {
+         constructor(
+            private readonly httpService: IHttpService,
+         ) {}
+
+         async exemple(): Promise<string> {
+            const { data } = await this.httpService.http.get('http://url');
+
+            return data.message;
+         }
+      }
+      ```
 
 #### Adding a new API
 
