@@ -104,6 +104,14 @@
       }
     }
     ```
+
+#### Adding a new API
+
+ - To add a new API to monorepo, clone and adds on apps folder
+   ```sh
+   $ git clone https://github.com/mikemajesty/monorepo-api-project.git
+   ```
+
 -- Example App Skeleton
 ```
 .dockerignore
