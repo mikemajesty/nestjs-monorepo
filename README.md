@@ -1,7 +1,111 @@
 # Nestjs Monorepo 
 
-#### Monorepo using nestjs, docker and libs structure. Simple Code base you will like it.
+##### Monorepo using nestjs, docker, libs structure, anti corruption layer and SOLID.
+
 --
+
+#### Instalation
+
+ - install all dependencies
+    ```bash
+    $ yarn monorepo:install
+    ```
+ - install project dependencies 
+    ```bash
+    $ yarn workspace <workspaceName> install
+    ```
+ - install individual lib to a project
+
+      ```bash
+      $ yarn workspace <workspaceName> add <libName>
+      ```
+##### workspace list
+ - @app/eslint.config
+ - @app/libs
+ - @app/main.api
+---
+
+#### Running the app
+ - local
+    ```bash
+    $ yarn start:dev
+    ```
+
+ - dev/hml/prd environment
+    ```bash
+    $ docker-compose up --build
+    ```
+
+#### Tests
+ - unit
+    ```bash
+    # run all tests
+    $ yarn test
+    ```
+    
+    ```bash
+    # run individual tests project
+    $ yarn test main
+    $ yarn test libs
+    ```
+ - e2e
+    ```
+    $ yarn test:e2e
+    ```
+ - coverage
+    ```
+    $ yarn test:coverage
+    ```
+
+#### Lint
+
+ - Run all lint
+    ```bash
+    $ yarn lint
+    ```
+ - Run individual lint project
+    ```
+    $ yarn workspace <workspaceName> lint
+    ```
+
+#### Usage
+
+ - logs
+    ```js
+    import { ILoggerService } from '@libs/modules';
+    
+    export class Exmeple {
+      constructor(private readonly loggerService: ILoggerService) {}
+    
+      async exemple(): void {
+        this.loggerService.log('message', 'messageContext');
+      }
+    }
+    ```
+  - Secrets
+    ```js
+    import { ICommonSecrets } from '@libs/modules';
+    
+    export class Exmeple {
+      constructor(private readonly secretService: ICommonSecrets) {}
+    
+      async exemple(): void {
+        this.secretService.PORT;
+      }
+    }
+    ```
+ - Error exception
+
+    ```js
+    import { ApiException } from '@libs/utils';
+    
+    export class Exmeple {
+      async exemple(): void {
+        throw new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR)
+      }
+    }
+    ```
+-- Example App Skeleton
 ```
 .dockerignore
 .env
@@ -113,63 +217,6 @@ package.json
 tsconfig.build.json
 tsconfig.json
 ```
---
-#### Instalation
-
- - install all dependencies
-    ```bash
-    $ monorepo:install
-    ```
- - install individual project
-    ```bash
-    $ yarn workspace <workspaceName> install
-    ```
-##### workspace list
- - @app/eslint.config
- - @app/libs
- - @app/main.api
----
-
-#### Running the app
- - local
-    ```bash
-    $ yarn start:dev
-    ```
-
- - dev/hml/prd environment
-    ```bash
-    $ docker-compose up --build
-    ```
-
-#### Tests
- - unit
-    ```bash
-    # run all tests
-    $ yarn test
-    ```
-    
-    ```bash
-    # run individual tests project
-    $ yarn test main
-    $ yarn test libs
-    ```
- - e2e
-     ```
-     $ yarn test:e2e
-     ```
- - coverage
-    ```
-    $ yarn test:coverage
-    ```
-
-#### Lint
-
- - Run all lint
-    ```bash
-    $ yarn lint
-    ```
- - Run individual lint project
-    ```
-    $ yarn workspace <workspaceName> lint
-    ```
-
+-- Architecture
+ - ```/apps/eslint```: Global eslint
+ - ```/apps/eslint```: Global eslint
