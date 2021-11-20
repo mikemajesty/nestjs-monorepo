@@ -1,19 +1,19 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { CoreModule } from '../module';
+import { LibsModules } from '../module';
 
-describe('CoreModule', () => {
-  let module: CoreModule;
+describe('LibsModules', () => {
+  let module: LibsModules;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      providers: [CoreModule],
+      providers: [LibsModules],
     }).compile();
 
-    module = app.get<CoreModule>(CoreModule);
+    module = app.get<LibsModules>(LibsModules);
   });
 
   it('should be defined', () => {
-    expect(module).toBeInstanceOf(CoreModule);
+    expect(module).toBeInstanceOf(LibsModules);
   });
 });

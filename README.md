@@ -243,7 +243,7 @@ tsconfig.json
  - ```/apps/eslint```: Global eslint. All eslint Libs must be here.
 
  - ```/apps/libs```: Application shared libs.
- - ```/apps/libs/core```: Core business rules, don't use nestjs libs here, only class and rules that will be shared with other projects
+ - ```/apps/libs/core```: Core business rules and integration with others services, don't use nestjs dependecies here, only class and rules that will be shared with other projects
  - ```/apps/libs/modules```: Application core modules, use only nestjs modules here, you can add modules like: http, databse etc.
  - ```/apps/libs/modules/logger```: Application logs.
  - ```/apps/libs/modules/secrets```: Application secrets.

@@ -1,9 +1,9 @@
-import { CoreModule } from '@libs/modules';
+import { LibsModules } from '@libs/modules';
 import { Module } from '@nestjs/common';
 
 import { HealthModule } from './health/module';
 
 @Module({
-  imports: [HealthModule, CoreModule],
+  imports: [HealthModule, LibsModules],
 })
 export class MainModule {}

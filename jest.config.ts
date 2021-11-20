@@ -11,6 +11,7 @@ export default {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
+  coveragePathIgnorePatterns: ['dist', 'node_modules', 'coverage'],
   collectCoverageFrom: ['**/*.(t|j)s'],
   setupFilesAfterEnv: jestInitFileList,
   coverageDirectory: '../coverage',

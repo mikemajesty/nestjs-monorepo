@@ -24,7 +24,7 @@
     "prebuild": "rimraf dist",
     "prepare": "husky install",
     "build": "nest build",
-    "start:dev": "nest start main-api --watch \"apps/**/*.{ts,js}\"",
+    "start:dev": "nest start --debug 0.0.0.0:5870 --watch \"apps/**/*.{ts,js}\"",
     "monorepo:install": "yarn && yarn workspace @app/eslint.config install && yarn workspace @app/libs install && yarn workspace @app/main.api install",
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" --fix",
