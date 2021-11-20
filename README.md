@@ -245,7 +245,8 @@
 ├── jest
 │   ├── common.js
 │   ├── index.js
-│   └── main.js
+│   ├── other-api.js
+│   └── main-api.js
 ├── jest.config.e2e.ts
 ├── jest.config.ts
 ├── nest-cli.json

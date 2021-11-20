@@ -30,4 +30,10 @@ describe('SecretsService', () => {
       expect(commonSecrets.mainAPI.PORT).toEqual('3000');
     });
   });
+
+  describe('otherAPI', () => {
+    test('should get otherAPI secrets successfully', () => {
+      expect(commonSecrets.otherAPI.PORT).toEqual('4000');
+    });
+  });
 });
