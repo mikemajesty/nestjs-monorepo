@@ -1,8 +1,7 @@
 {
-  "name": "@app/main.api",
+  "name": "@app/other.api",
   "version": "0.0.1",
-  "description": "monorepo main-api",
-  "main": "main",
+  "description": "monorepo other-api",
   "scripts": {
     "lint": "../eslint/node_modules/.bin/eslint \"src/**/*.{ts, js, json}\" --fix"
   },

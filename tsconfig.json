@@ -11,7 +11,8 @@
     "paths": {
       "@libs/modules": ["./apps/libs/modules/index.ts"],
       "@libs/core": ["./apps/libs/core/index.ts"],
-      "@libs/utils": ["./apps/libs/utils/index.ts"]
+      "@libs/utils": ["./apps/libs/utils/index.ts"],
+      "apps/*": ["./apps/*"]
     },
     "outDir": "./dist",
     "resolveJsonModule": true,

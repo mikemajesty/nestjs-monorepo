@@ -8,7 +8,7 @@
     "tsConfigPath": "apps/main-api/tsconfig.json"
   },
   "projects": {
-    "main-api": {
+    "@app/main-api": {
       "type": "application",
       "root": "apps/main-api",
       "entryFile": "main",
@@ -17,7 +17,16 @@
         "tsConfigPath": "apps/main-api/tsconfig.json"
       }
     },
-    "modules": {
+    "@app/other-api": {
+      "type": "application",
+      "root": "apps/other-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/other-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/other-api/tsconfig.json"
+      }
+    },
+    "@app/modules": {
       "type": "library",
       "root": "apps/libs/modules",
       "entryFile": "index",
@@ -26,7 +35,7 @@
         "tsConfigPath": "apps/libs/tsconfig.json"
       }
     },
-    "core": {
+    "@app/core": {
       "type": "library",
       "root": "apps/libs/core",
       "entryFile": "index",
@@ -35,7 +44,7 @@
         "tsConfigPath": "apps/libs/tsconfig.json"
       }
     },
-    "utils": {
+    "@app/utils": {
       "type": "library",
       "root": "apps/libs/utils",
       "entryFile": "index",
@@ -44,7 +53,7 @@
         "tsConfigPath": "apps/libs/tsconfig.json"
       }
     },
-    "eslint": {
+    "@app/eslint.config": {
       "type": "library",
       "root": "apps/eslint",
       "entryFile": ".eslintrc.json",

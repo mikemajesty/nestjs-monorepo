@@ -24,8 +24,9 @@
     "prebuild": "rimraf dist",
     "prepare": "husky install",
     "build": "nest build",
-    "start:dev": "nest start --debug 0.0.0.0:5870 --watch \"apps/**/*.{ts,js}\"",
-    "monorepo:install": "yarn && yarn workspace @app/eslint.config install && yarn workspace @app/libs install && yarn workspace @app/main.api install",
+    "start:main-api": "nest start @app/main-api --debug 0.0.0.0:5870 --watch",
+    "start:other-api": "nest start @app/other-api --debug 0.0.0.0:5880 --watch",
+    "monorepo:install": "yarn && yarn workspace @app/eslint.config install && yarn workspace @app/libs install && yarn workspace @app/main.api install && yarn workspace @app/other.api install",
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" --fix",
     "test": "jest",
@@ -33,7 +34,8 @@
     "test:e2e": "jest --config ./jest.config.e2e.ts",
     "commit": "cz",
     "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd ..",
-    "start:main": "node dist/apps/main-api/main.js"
+    "start:main-api:prd": "node dist/apps/main-api/main.js",
+    "start:other-api:prd": "node dist/apps/other-api/main.js"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",

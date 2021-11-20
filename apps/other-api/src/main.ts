@@ -3,7 +3,7 @@ import { AppExceptionFilter, ExceptionInterceptor } from '@libs/utils';
 import { RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { description, name, version } from 'apps/main-api/package.json';
+import { description, name, version } from 'apps/other-api/package.json';
 
 import { MainModule } from './modules/module';
 
@@ -17,7 +17,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ExceptionInterceptor());
 
   const {
-    mainAPI: { PORT },
+    otherAPI: { PORT },
     ENV,
   } = new SecretsService();
 
@@ -42,6 +42,6 @@ async function bootstrap() {
 
   await app.listen(PORT);
 
-  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/api  🔵 \n`, 'Swaggger');
+  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/api 🔵 \n`, 'Swaggger');
 }
 bootstrap();

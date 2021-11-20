@@ -17,8 +17,11 @@ export class ApiException extends HttpException {
   code?: string;
   config?: unknown;
 
-  constructor(error: string, status?: HttpStatus) {
+  constructor(error: string, status?: HttpStatus, context?: string) {
     super(error, status || 500);
     this.statusCode = super.getStatus();
+    if (context) {
+      this.context = context;
+    }
   }
 }
