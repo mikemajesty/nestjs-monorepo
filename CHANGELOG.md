@@ -1,3 +1,21 @@
+#### 0.0.9 (2021-11-21)
+
+##### Documentation Changes
+
+* **readme:**  improve docs ([5f54c713](https://github.com/mikemajesty/nestjs-monorepo/commit/5f54c7132ff45a9e8bf20378580c24ba356c41c8))
+
+##### New Features
+
+* **other-api:**  add new module ([807238fa](https://github.com/mikemajesty/nestjs-monorepo/commit/807238fa06d1a55159355162526b060d6dcbdd2f))
+
+##### Refactors
+
+* **monorepo:**  improve monorepo config ([d6483a37](https://github.com/mikemajesty/nestjs-monorepo/commit/d6483a37b084b8932778e18acfb090f1077003ee))
+
+##### Tests
+
+* **other-api:**  add unit tests ([9e197c1a](https://github.com/mikemajesty/nestjs-monorepo/commit/9e197c1a624859f3c121977cd896ed27a070998f))
+
 #### 0.0.8 (2021-11-19)
 
 ##### Documentation Changes
