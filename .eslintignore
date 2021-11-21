@@ -5,6 +5,7 @@ dist/
 jest/
 coverage/
 
+
 # js files
 .eslintrc.js
 *.js

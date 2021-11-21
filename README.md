@@ -128,6 +128,12 @@
          }
       }
       ```
+### Add new API
+
+  - clone 
+   ```base
+   git clone https://github.com/mikemajesty/other-api.git
+   ```
 
 -- Example App Skeleton
 ```
