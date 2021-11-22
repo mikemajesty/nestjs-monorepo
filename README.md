@@ -28,7 +28,8 @@
 #### Running the app
  - local
     ```bash
-    $ yarn start:dev
+    $ yarn start:main-api
+    $ yarn start:other-api
     ```
 
  - dev/hml/prd environment
@@ -128,7 +129,7 @@
          }
       }
       ```
-### Add new API
+### Adding new API
 
   - clone 
    ```base
