@@ -1,6 +1,14 @@
 # Nestjs Monorepo 
 
-##### Monorepo using nestjs, docker, libs structure, anti corruption layer, unit and e2e tests and SOLID.
+##### Monorepo with nestjs
+ - docker
+ - libs structure
+ - anti corruption layer
+ - swaggger
+ - Tests
+    - unit
+    - e2
+ - SOLID
 
 --
 
