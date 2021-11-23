@@ -16,3 +16,4 @@ jobs:
           heroku_app_name: "nestjsmonorepo"
           heroku_email: "mikee_2008@hotmail.com"
           usedocker: true
+      - run: heroku container:push -a ${{secrets.HEROKU_APP_NAME}} web
