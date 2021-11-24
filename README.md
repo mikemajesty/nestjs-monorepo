@@ -2,12 +2,12 @@
 
 ##### Monorepo with nestjs
  - docker
- - libs structure
+ - libs pattern
  - anti corruption layer
  - swaggger
  - Tests
     - unit
-    - e2
+    - e2e
  - SOLID
 
 --
