@@ -8,7 +8,6 @@
  - Tests
     - unit
     - e2e
- - SOLID
 
 --
 
