@@ -3,9 +3,10 @@
 ##### Monorepo with nestjs
  - docker
  - libs pattern
- - anti corruption layer
- - swaggger
- - Tests
+ - dependency inversion pattern
+ - anti corruption layer pattern
+ - swaggger documentation
+ - tests
     - unit
     - e2e
 
