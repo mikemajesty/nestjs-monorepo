@@ -1,7 +1,9 @@
 import { ApiException } from '@libs/utils';
+import { LogLevel } from '@nestjs/common';
 
 export abstract class ILoggerService {
   abstract setContext(context: string): void;
+  abstract setLogLevels(levels: LogLevel[]): void;
   abstract error(exception: ApiException): void;
   abstract log(message: string, context?: string): void;
   abstract debug(message: string, context?: string): void;

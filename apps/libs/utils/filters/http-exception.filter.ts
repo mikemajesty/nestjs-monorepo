@@ -22,7 +22,7 @@ export class AppExceptionFilter implements ExceptionFilter {
       error: {
         code,
         traceId: exception.uuid,
-        message: errorStatus[code] || exception.message,
+        message: errorStatus[String(code)] || exception.message,
         timestamp: moment(new Date()).format('DD/MM/yyyy HH:mm:ss'),
         path: request.url,
       },
