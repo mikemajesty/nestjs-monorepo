@@ -7,7 +7,6 @@ export class SwagggerResponse {
     500: Swagger.defaultResponseError({
       status: 500,
       route: '/health',
-      message: 'Internal Server Error',
     }),
   };
 }
