@@ -12,14 +12,15 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
   }
 
   error(error: ApiException): void {
-    super.context = [super.context, error.context, this.context].find((c) => c);
+    const context = [this.context, error.context].find((c) => c);
+    super.context = context;
     if (this.env !== 'test') {
       super.error({
         status: [error.statusCode, error.code].find((c) => c),
         traceId: error.uuid,
         ...{
           message: error.message,
-          context: super.context,
+          context: context,
           stack: error.stack,
           request: error.config,
         },
