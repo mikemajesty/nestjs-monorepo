@@ -36,12 +36,12 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('docs', app, document);
 
   loggerService.log(`🟢 ${name} listening at ${PORT} on ${ENV?.toUpperCase()} 🟢\n`, 'Application');
 
   await app.listen(PORT);
 
-  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/api  🔵 \n`, 'Swaggger');
+  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/docs  🔵 \n`, 'Swaggger');
 }
 bootstrap();
