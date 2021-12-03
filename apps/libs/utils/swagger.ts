@@ -1,11 +1,12 @@
 import { ApiResponseOptions } from '@nestjs/swagger';
 
 import { ErrorModel } from './exception';
+import * as htttpStatus from './static/htttp-status.json';
 
 type SwaggerError = {
   status: number;
   route: string;
-  message: string | unknown;
+  message?: string | unknown;
   description?: string;
 };
 
@@ -22,14 +23,14 @@ type SwaggerJSON = {
 };
 
 export class Swagger {
-  static defaultResponseError({ message, route, status, description }: SwaggerError): ApiResponseOptions {
+  static defaultResponseError({ status, route, message, description }: SwaggerError): ApiResponseOptions {
     return {
       schema: {
         example: {
           error: {
             code: status,
             traceId: '<traceId>',
-            message: message,
+            message: message || htttpStatus[String(status)],
             timestamp: '<timestamp>',
             path: route,
           },
