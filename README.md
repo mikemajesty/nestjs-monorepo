@@ -2,7 +2,10 @@
 
 ##### Monorepo with nestjs
  - docker
- - libs pattern
+ - secrets service
+ - logs service
+ - error handler
+ - libs structure
  - dependency inversion pattern
  - anti corruption layer pattern
  - adapter pattern
