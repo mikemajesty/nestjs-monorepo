@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { SecretsService } from '..';
+import { SecretsService } from '../secrets/service';
 import { ILoggerService } from './adapter';
 import { LoggerService } from './service';
 

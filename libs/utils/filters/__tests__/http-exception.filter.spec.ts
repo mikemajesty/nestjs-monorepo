@@ -1,7 +1,7 @@
 import { ArgumentsHost, HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
-import { ILoggerService, LoggerService } from '../../../modules';
+import { ILoggerService } from '../../../modules';
 import { ApiException } from '../../exception';
 import { AppExceptionFilter } from '../http-exception.filter';
 
@@ -17,7 +17,7 @@ describe('AppExceptionFilter', () => {
         AppExceptionFilter,
         {
           provide: ILoggerService,
-          useValue: new LoggerService('test'),
+          useValue: { error: jest.fn() },
         },
       ],
     }).compile();

@@ -13,7 +13,7 @@ describe('LoggerService', () => {
       providers: [
         {
           provide: ILoggerService,
-          useFactory: (env = 'test') => new LoggerService(env),
+          useClass: LoggerService,
         },
       ],
     }).compile();

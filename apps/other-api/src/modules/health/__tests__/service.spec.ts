@@ -1,4 +1,4 @@
-import { ILoggerService, LoggerService } from '@libs/modules';
+import { ILoggerService } from '@libs/modules';
 import { Test } from '@nestjs/testing';
 
 import { name } from '../../../../package.json';
@@ -17,7 +17,7 @@ describe('HealthService', () => {
         },
         {
           provide: ILoggerService,
-          useClass: LoggerService,
+          useValue: { log: jest.fn() },
         },
       ],
     }).compile();

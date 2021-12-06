@@ -1,4 +1,4 @@
-export * from './http';
-export * from './logger';
+export * from './http/adapter';
+export * from './logger/adapter';
 export * from './module';
-export * from './secrets';
+export * from './secrets/adapter';

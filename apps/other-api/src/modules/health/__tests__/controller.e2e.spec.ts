@@ -1,4 +1,4 @@
-import { ILoggerService, LoggerService } from '@libs/modules';
+import { ILoggerService } from '@libs/modules';
 import { ApiException } from '@libs/utils';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -23,7 +23,7 @@ describe('HealthController (e2e)', () => {
         },
         {
           provide: ILoggerService,
-          useClass: LoggerService,
+          useValue: { log: jest.fn() },
         },
       ],
       imports: [],
