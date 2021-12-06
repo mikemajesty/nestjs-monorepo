@@ -12,7 +12,7 @@ const {
 
 const {
   jestInitFileList
-} = require('../jest');
+} = require('../tests');
 
 module.exports = {
   displayName: name,

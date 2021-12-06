@@ -1,6 +1,6 @@
 import { pathsToModuleNameMapper } from 'ts-jest';
 
-import { jestInitFileList } from './jest';
+import { jestInitFileList } from './tests';
 import { compilerOptions } from './tsconfig.json';
 
 export default {
