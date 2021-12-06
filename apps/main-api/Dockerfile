@@ -12,8 +12,8 @@ COPY apps/main-api/package.json dist/apps/main-api/
 COPY apps/main-api/tsconfig.build.json dist/apps/main-api/
 COPY apps/main-api/tsconfig.json dist/apps/main-api/
 
-COPY apps/libs/package.json dist/apps/libs/
-COPY apps/libs/tsconfig.json dist/apps/libs/
+COPY libs/package.json dist/apps/libs/
+COPY libs/tsconfig.json dist/apps/libs/
 
 EXPOSE 3000
 
