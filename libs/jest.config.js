@@ -4,15 +4,15 @@ const {
 
 const {
   pathsToModuleNameMapper
-} = require('ts-jest/utils');
+} = require('ts-jest');
 
 const {
   compilerOptions
-} = require('../../tsconfig.json');
+} = require('../tsconfig.json');
 
 const {
   jestInitFileList
-} = require('../../jest');
+} = require('../jest');
 
 module.exports = {
   displayName: name,

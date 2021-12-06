@@ -1,4 +1,4 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
+import { pathsToModuleNameMapper } from 'ts-jest';
 
 import { jestInitFileList } from './jest';
 import { compilerOptions } from './tsconfig.json';

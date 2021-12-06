@@ -26,38 +26,38 @@
         "tsConfigPath": "apps/other-api/tsconfig.json"
       }
     },
+    "@app/eslint.config": {
+      "type": "library",
+      "root": "tools/eslint",
+      "entryFile": ".eslintrc.json",
+      "sourceRoot": "tools/eslint"
+    },
     "@app/modules": {
       "type": "library",
-      "root": "apps/libs/modules",
+      "root": "libs/modules",
       "entryFile": "index",
-      "sourceRoot": "apps/libs/modules",
+      "sourceRoot": "libs/modules",
       "compilerOptions": {
-        "tsConfigPath": "apps/libs/tsconfig.json"
+        "tsConfigPath": "libs/tsconfig.json"
       }
     },
     "@app/core": {
       "type": "library",
-      "root": "apps/libs/core",
+      "root": "libs/core",
       "entryFile": "index",
-      "sourceRoot": "apps/libs/core",
+      "sourceRoot": "libs/core",
       "compilerOptions": {
-        "tsConfigPath": "apps/libs/tsconfig.json"
+        "tsConfigPath": "libs/tsconfig.json"
       }
     },
     "@app/utils": {
       "type": "library",
-      "root": "apps/libs/utils",
+      "root": "libs/utils",
       "entryFile": "index",
-      "sourceRoot": "apps/libs/utils",
+      "sourceRoot": "libs/utils",
       "compilerOptions": {
-        "tsConfigPath": "apps/libs/tsconfig.json"
+        "tsConfigPath": "libs/tsconfig.json"
       }
-    },
-    "@app/eslint.config": {
-      "type": "library",
-      "root": "apps/eslint",
-      "entryFile": ".eslintrc.json",
-      "sourceRoot": "apps/eslint"
     }
   }
 }

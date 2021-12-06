@@ -1,10 +1,18 @@
-const { name } = require('./package.json');
+const {
+  name
+} = require('./package.json');
 
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const {
+  pathsToModuleNameMapper
+} = require('ts-jest');
 
-const { compilerOptions } = require('../../tsconfig.json');
+const {
+  compilerOptions
+} = require('../../tsconfig.json');
 
-const { jestInitFileList } = require('../../jest');
+const {
+  jestInitFileList
+} = require('../../jest');
 
 module.exports = {
   rootDir: 'src',

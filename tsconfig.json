@@ -9,9 +9,9 @@
     "target": "es2017",
     "sourceMap": true,
     "paths": {
-      "@libs/modules": ["./apps/libs/modules/index.ts"],
-      "@libs/core": ["./apps/libs/core/index.ts"],
-      "@libs/utils": ["./apps/libs/utils/index.ts"],
+      "@libs/modules": ["./libs/modules/index.ts"],
+      "@libs/core": ["./libs/core/index.ts"],
+      "@libs/utils": ["./libs/utils/index.ts"],
       "apps/*": ["./apps/*"]
     },
     "outDir": "./dist",

@@ -21,7 +21,7 @@
     "simple-import-sort/exports": "error",
     "max-len": ["error", { "code": 120 }],
     "no-console": ["error"],
-    "complexity": ["error", 6],
+    "complexity": ["error", 4],
     "spaced-comment": [2, "always"]
   }
 }

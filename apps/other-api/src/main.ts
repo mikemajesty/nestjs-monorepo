@@ -1,4 +1,4 @@
-import { LoggerService, SecretsService } from '@libs/modules';
+import { ICommonSecrets, ILoggerService } from '@libs/modules';
 import { AppExceptionFilter, ExceptionInterceptor } from '@libs/utils';
 import { RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
@@ -19,9 +19,10 @@ async function bootstrap() {
   const {
     otherAPI: { PORT },
     ENV,
-  } = new SecretsService();
+  } = app.get(ICommonSecrets);
 
-  const loggerService = new LoggerService(ENV);
+  const loggerService = app.get(ILoggerService);
+
   app.useLogger(loggerService);
 
   app.setGlobalPrefix('api', {

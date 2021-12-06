@@ -4,7 +4,9 @@
   "description": "Nestjs monorepo",
   "workspaces": {
     "packages": [
-      "./apps/*"
+      "./apps/*",
+      "./libs",
+      "./tools/eslint"
     ]
   },
   "author": {
@@ -27,8 +29,8 @@
     "start:main-api": "nest start @app/main-api --debug 0.0.0.0:5870 --watch",
     "start:other-api": "nest start @app/other-api --debug 0.0.0.0:5880 --watch",
     "monorepo:install": "yarn && yarn workspace @app/eslint.config install && yarn workspace @app/libs install && yarn workspace @app/main.api install && yarn workspace @app/other.api install",
-    "format": "prettier --write \"apps/**/*.{ts, js, json}\" ",
-    "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" --fix",
+    "format": "prettier --write \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" ",
+    "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:e2e": "jest --config ./jest.config.e2e.ts",

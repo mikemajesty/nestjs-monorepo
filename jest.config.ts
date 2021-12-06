@@ -1,4 +1,4 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
+import { pathsToModuleNameMapper } from 'ts-jest';
 
 import { jestInitFileList } from './jest';
 import { compilerOptions } from './tsconfig.json';
@@ -6,7 +6,7 @@ import { compilerOptions } from './tsconfig.json';
 export default {
   collectCoverage: false,
   moduleFileExtensions: ['js', 'json', 'ts'],
-  rootDir: 'apps',
+  roots: ['apps', 'libs'],
   testRegex: '.*\\.spec\\.ts$',
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
