@@ -13,15 +13,15 @@ async function bootstrap() {
     cors: true,
   });
 
-  app.useGlobalFilters(new AppExceptionFilter());
+  const loggerService = app.get(ILoggerService);
+
+  app.useGlobalFilters(new AppExceptionFilter(loggerService));
   app.useGlobalInterceptors(new ExceptionInterceptor());
 
   const {
     mainAPI: { PORT },
     ENV,
   } = app.get(ICommonSecrets);
-
-  const loggerService = app.get(ILoggerService);
 
   app.useLogger(loggerService);
 

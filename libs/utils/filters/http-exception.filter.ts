@@ -1,12 +1,14 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import * as moment from 'moment-timezone';
 
-import { LoggerService, SecretsService } from '../../modules';
+import { ILoggerService } from '../../modules';
 import { ApiException, ErrorModel } from '../exception';
 import * as errorStatus from '../static/htttp-status.json';
 
 @Catch()
 export class AppExceptionFilter implements ExceptionFilter {
+  constructor(private readonly loggerService: ILoggerService) {}
+
   catch(exception: ApiException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
@@ -14,7 +16,7 @@ export class AppExceptionFilter implements ExceptionFilter {
 
     const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    new LoggerService(new SecretsService().ENV).error(exception);
+    this.loggerService.error(exception);
 
     const code = [exception.code, status, HttpStatus.INTERNAL_SERVER_ERROR].find((c) => c);
 
