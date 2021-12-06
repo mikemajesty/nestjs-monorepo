@@ -13,7 +13,7 @@
  - tests
     - unit
     - e2e
---
+---
 
 #### Instalation
 
@@ -149,60 +149,8 @@
 
 -- Example App Skeleton
 ```
+.
 ├── apps
-│   ├── eslint
-│   │   └── package.json
-│   ├── libs
-│   │   ├── core
-│   │   │   └── index.ts
-│   │   ├── jest.config.js
-│   │   ├── modules
-│   │   │   ├── http
-│   │   │   │   ├── adapter.ts
-│   │   │   │   ├── module.ts
-│   │   │   │   ├── service.ts
-│   │   │   │   └── __tests__
-│   │   │   │       ├── module.spec.ts
-│   │   │   │       └── service.spec.ts
-│   │   │   ├── index.ts
-│   │   │   ├── logger
-│   │   │   │   ├── adapter.ts
-│   │   │   │   ├── index.ts
-│   │   │   │   ├── module.ts
-│   │   │   │   ├── service.ts
-│   │   │   │   └── __tests__
-│   │   │   │       ├── module.spec.ts
-│   │   │   │       └── service.spec.ts
-│   │   │   ├── module.ts
-│   │   │   ├── secrets
-│   │   │   │   ├── adapter.ts
-│   │   │   │   ├── enum.ts
-│   │   │   │   ├── index.ts
-│   │   │   │   ├── module.ts
-│   │   │   │   ├── service.ts
-│   │   │   │   └── __tests__
-│   │   │   │       ├── module.spec.ts
-│   │   │   │       └── service.spec.ts
-│   │   │   └── __tests__
-│   │   │       └── module.spec.ts
-│   │   ├── package.json
-│   │   ├── tsconfig.json
-│   │   └── utils
-│   │       ├── exception.ts
-│   │       ├── filters
-│   │       │   ├── http-exception.filter.ts
-│   │       │   └── __tests__
-│   │       │       └── http-exception.filter.spec.ts
-│   │       ├── index.ts
-│   │       ├── interceptors
-│   │       │   ├── http-exception.interceptor.ts
-│   │       │   └── __tests__
-│   │       │       └── http-exception.interceptor.spec.ts
-│   │       ├── static
-│   │       │   └── htttp-status.json
-│   │       ├── swagger.ts
-│   │       └── __tests__
-│   │           └── exception.spec.ts
 │   ├── main-api
 │   │   ├── Dockerfile
 │   │   ├── jest.config.js
@@ -229,7 +177,6 @@
 │       ├── Dockerfile
 │       ├── jest.config.js
 │       ├── package.json
-│       ├── README.md
 │       ├── src
 │       │   ├── main.ts
 │       │   └── modules
@@ -253,16 +200,71 @@
 ├── devops
 │   └── tag-create.sh
 ├── docker-compose.yml
-├── jest
-│   ├── common.js
-│   ├── index.js
-│   ├── other-api.js
-│   └── main-api.js
 ├── jest.config.e2e.ts
 ├── jest.config.ts
+├── libs
+│   ├── core
+│   │   └── index.ts
+│   ├── jest.config.js
+│   ├── modules
+│   │   ├── http
+│   │   │   ├── adapter.ts
+│   │   │   ├── index.ts
+│   │   │   ├── module.ts
+│   │   │   ├── service.ts
+│   │   │   └── __tests__
+│   │   │       ├── module.spec.ts
+│   │   │       └── service.spec.ts
+│   │   ├── index.ts
+│   │   ├── logger
+│   │   │   ├── adapter.ts
+│   │   │   ├── index.ts
+│   │   │   ├── module.ts
+│   │   │   ├── service.ts
+│   │   │   └── __tests__
+│   │   │       ├── module.spec.ts
+│   │   │       └── service.spec.ts
+│   │   ├── module.ts
+│   │   ├── secrets
+│   │   │   ├── adapter.ts
+│   │   │   ├── enum.ts
+│   │   │   ├── index.ts
+│   │   │   ├── module.ts
+│   │   │   ├── service.ts
+│   │   │   └── __tests__
+│   │   │       ├── module.spec.ts
+│   │   │       └── service.spec.ts
+│   │   └── __tests__
+│   │       └── module.spec.ts
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── utils
+│       ├── exception.ts
+│       ├── filters
+│       │   ├── http-exception.filter.ts
+│       │   └── __tests__
+│       │       └── http-exception.filter.spec.ts
+│       ├── index.ts
+│       ├── interceptors
+│       │   ├── http-exception.interceptor.ts
+│       │   └── __tests__
+│       │       └── http-exception.interceptor.spec.ts
+│       ├── static
+│       │   └── htttp-status.json
+│       ├── swagger.ts
+│       └── __tests__
+│           └── exception.spec.ts
 ├── nest-cli.json
 ├── package.json
 ├── README.md
+├── tests
+│   ├── common.js
+│   ├── index.js
+│   ├── main-api.js
+│   └── other-api.js
+├── tools
+│   └── eslint
+│       └── package.json
 ├── tsconfig.build.json
 └── tsconfig.json
 ```
