@@ -270,17 +270,13 @@
 ```
 
 -- Architecture
- - ```/apps/eslint```: Global eslint. All eslint Libs must be here.
-
- - ```/apps/libs```: Application shared libs.
- - ```/apps/libs/core```: Core business rules, don't use nestjs dependecies here, only class and rules that will be shared with other projects
- - ```/apps/libs/modules```: Application core modules, use only nestjs modules here, you can add modules like: http, databse etc.
- - ```/apps/libs/modules/logger```: Application logs.
- - ```/apps/libs/modules/secrets```: Application secrets.
- - ```/apps/libs/utils```: Application core utilities.
-
-  - ```/apps/main-api```: Application main project.
-  - ```/apps/other-api```: Other API to use as you like.
+ - ```├── tools```: Project  tools like: eslint, prettier and etc.
+ - ```├── libs```: Application shared libs.
+ - ```├── libs ├── core```: Core business rules, don't use nestjs dependecies here, only class and rules that will be shared with other projects
+ - ```├── libs ├── modules```: Application modules, use only nestjs modules here, you can add modules like: http, databse etc.
+ - ```├── libs ├── utils```: Application utils, utilities that will shared with your monorepo.
+ - ```├── apps```: Monorepo Applications.
+ - ```├── tests```: Monorepo tests initializer like: env, mocks and configs.
 
 ---
 
