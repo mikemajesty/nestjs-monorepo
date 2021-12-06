@@ -99,6 +99,7 @@
     
       async exemple(): void {
         this.loggerService.log('message', 'messageContext');
+        this.loggerService.error('error', 500, 'errorContext');
       }
     }
     ```
@@ -269,7 +270,8 @@
 └── tsconfig.json
 ```
 
--- Architecture
+---
+ #### Architecture
  - ```├── tools```: Project  tools like: eslint, prettier and etc.
  - ```├── libs```: Application shared libs.
  - ```├── libs ├── core```: Core business rules, don't use nestjs dependecies here, only class and rules that will be shared with other projects
