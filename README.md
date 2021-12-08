@@ -39,8 +39,8 @@
 #### Running the app
  - local
     ```bash
-    $ yarn start:main-api
-    $ yarn start:other-api
+    $ yarn start:main
+    $ yarn start:other
     ```
 
  - dev/hml/prd environment
