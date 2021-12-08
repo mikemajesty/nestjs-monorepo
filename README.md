@@ -1,4 +1,6 @@
-# Nestjs Monorepo 
+# Nestjs Monorepo
+
+Check the [contributing manual](./CONTRIBUTING.md)
 
 ##### Monorepo with nestjs
  - docker
