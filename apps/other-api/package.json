@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "monorepo other-api",
   "scripts": {
-    "lint": "../../tools/eslint/node_modules/.bin/eslint \"src/**/*.{ts, js, json}\" --fix"
+    "format": "../../tools/eslint/node_modules/.bin/prettier --write \"**/*.{ts, js, json}\"",
+    "lint": "yarn format && ../../tools/eslint/node_modules/.bin/eslint \"src/**/*.{ts, js, json}\" --fix"
   },
   "author": {
     "name": "Mike Lima",
