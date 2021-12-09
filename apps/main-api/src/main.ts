@@ -15,6 +15,7 @@ async function bootstrap() {
 
   const loggerService = app.get(ILoggerService);
 
+  loggerService.setContext(name);
   app.useGlobalFilters(new AppExceptionFilter(loggerService));
   app.useGlobalInterceptors(new ExceptionInterceptor());
 

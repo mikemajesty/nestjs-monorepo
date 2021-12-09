@@ -12,7 +12,7 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
   }
 
   error(error: ApiException): void {
-    const context = [this.context, error.context].find((c) => c);
+    const context = this.context;
     super.context = context;
     if (this.env !== 'test') {
       super.error({
@@ -20,7 +20,7 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
         traceId: error.uuid,
         ...{
           message: error.message,
-          context: context,
+          context: error.context,
           stack: error.stack,
           request: error.config,
         },
