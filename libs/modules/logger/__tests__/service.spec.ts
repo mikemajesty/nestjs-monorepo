@@ -41,12 +41,5 @@ describe('LoggerService', () => {
       error.code = 'TIMEOUT';
       loggerService.error(error);
     });
-
-    test('should error successfully without dev env', () => {
-      const error = new ApiException('Error', 500);
-      error.statusCode = undefined;
-      error.context = 'TestLog';
-      new LoggerService('dev').error(error);
-    });
   });
 });
