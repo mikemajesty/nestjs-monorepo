@@ -1,6 +1,5 @@
 import { pathsToModuleNameMapper } from 'ts-jest';
 
-import { jestInitFileList } from './tests';
 import { compilerOptions } from './tsconfig.json';
 
 export default {
@@ -12,7 +11,6 @@ export default {
   },
   coveragePathIgnorePatterns: ['dist', 'node_modules', 'coverage'],
   collectCoverageFrom: ['**/*.(t|j)s'],
-  setupFilesAfterEnv: jestInitFileList,
   coverageDirectory: '../coverage',
   testEnvironment: 'node',
   coverageThreshold: {
