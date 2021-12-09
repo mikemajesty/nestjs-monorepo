@@ -12,16 +12,14 @@ COPY apps/other-api/package.json dist/apps/other-api/
 COPY apps/other-api/tsconfig.build.json dist/apps/other-api/
 COPY apps/other-api/tsconfig.json dist/apps/other-api/
 
-COPY libs/package.json dist/apps/libs/
-COPY libs/tsconfig.json dist/apps/libs/
-
 EXPOSE 4000
 
 RUN yarn --cwd dist/apps/other-api
-RUN yarn --cwd dist/apps/libs
+RUN yarn --cwd dist/apps/libs/modules
+RUN yarn --cwd dist/apps/libs/utils
+RUN yarn --cwd dist/apps/libs/core
 
 RUN ls dist/apps/other-api -al
-RUN ls dist/apps/libs -al
 
 RUN ls /app -al
 

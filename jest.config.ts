@@ -4,7 +4,6 @@ import { jestInitFileList } from './tests';
 import { compilerOptions } from './tsconfig.json';
 
 export default {
-  collectCoverage: false,
   moduleFileExtensions: ['js', 'json', 'ts'],
   roots: ['apps', 'libs'],
   testRegex: '.*\\.spec\\.ts$',
@@ -18,10 +17,10 @@ export default {
   testEnvironment: 'node',
   coverageThreshold: {
     global: {
-      functions: 80,
-      statements: 80,
-      branches: 100,
-      lines: 80,
+      functions: 90,
+      lines: 90,
+      statements: 90,
+      branches: 80,
     },
   },
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),

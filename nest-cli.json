@@ -32,31 +32,31 @@
       "entryFile": ".eslintrc.json",
       "sourceRoot": "tools/eslint"
     },
-    "@app/modules": {
+    "@libs/modules": {
       "type": "library",
       "root": "libs/modules",
       "entryFile": "index",
       "sourceRoot": "libs/modules",
       "compilerOptions": {
-        "tsConfigPath": "libs/tsconfig.json"
+        "tsConfigPath": "libs/modules/tsconfig.json"
       }
     },
-    "@app/core": {
+    "@libs/core": {
       "type": "library",
       "root": "libs/core",
       "entryFile": "index",
       "sourceRoot": "libs/core",
       "compilerOptions": {
-        "tsConfigPath": "libs/tsconfig.json"
+        "tsConfigPath": "libs/core/tsconfig.json"
       }
     },
-    "@app/utils": {
+    "@libs/utils": {
       "type": "library",
       "root": "libs/utils",
       "entryFile": "index",
       "sourceRoot": "libs/utils",
       "compilerOptions": {
-        "tsConfigPath": "libs/tsconfig.json"
+        "tsConfigPath": "libs/utils/tsconfig.json"
       }
     }
   }

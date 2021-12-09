@@ -5,7 +5,7 @@
   "workspaces": {
     "packages": [
       "./apps/*",
-      "./libs",
+      "./libs/*",
       "./tools/eslint"
     ]
   },
@@ -26,7 +26,7 @@
     "prebuild": "rimraf dist",
     "prepare": "husky install",
     "build": "nest build",
-    "monorepo:install": "yarn && yarn workspace @app/eslint.config install && yarn workspace @app/libs install && yarn workspace @app/main.api install && yarn workspace @app/other.api install",
+    "monorepo:install": "yarn && yarn workspace @app/eslint.config install && yarn workspace @libs/modules install && yarn workspace @libs/utils install && yarn workspace @libs/core install && yarn workspace @app/main.api install && yarn workspace @app/other.api install",
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest",

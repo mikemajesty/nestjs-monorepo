@@ -33,9 +33,11 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```
 ##### workspace list
  - @app/eslint.config
- - @app/libs
  - @app/main.api
  - @app/other.api
+ - @libs/utils
+ - @libs/modules
+ - @libs/core
 ---
 
 #### Running the app
@@ -94,20 +96,20 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
  - logs
     ```js
-    import { ILoggerService } from '@libs/modules';
+    import { ILoggerService } from 'libs/modules';
     
     export class Exmeple {
       constructor(private readonly loggerService: ILoggerService) {}
     
       async exemple(): void {
         this.loggerService.log('message', 'messageContext');
-        this.loggerService.error('error', 500, 'errorContext');
+        this.loggerService.error('error', 500,  `${Exmeple.name}/${exemple.name}`);
       }
     }
     ```
   - Secrets
     ```js
-    import { ICommonSecrets } from '@libs/modules';
+    import { ICommonSecrets } from 'libs/modules';
     
     export class Exmeple {
       constructor(private readonly secretService: ICommonSecrets) {}
@@ -120,7 +122,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Error exception
 
     ```js
-    import { ApiException } from '@libs/utils';
+    import { ApiException } from 'libs/utils';
     
     export class Exmeple {
       async exemple(): void {
@@ -130,7 +132,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```
   - Http
       ```js 
-      import { IHttpService } from '@libs/modules';
+      import { IHttpService } from 'libs/modules';
       export class Example {
          constructor(
             private readonly httpService: IHttpService,

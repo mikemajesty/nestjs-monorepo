@@ -1,20 +1,18 @@
 {
-  "name": "@app/libs",
+  "name": "@libs/modules",
   "version": "0.0.1",
-  "description": "monorepo libs",
-  "main": "index.js",
+  "description": "monorepo modules libs",
   "author": {
     "name": "Mike Lima",
     "email": "mike.rodrigues.lima@gmail.com"
   },
   "scripts": {
-    "lint": "../tools/eslint/node_modules/.bin/eslint \"{core, modules, utils}/**/*.{ts, js, json}\" --fix"
+    "lint": "../../tools/eslint/node_modules/.bin/eslint \"**/*.{ts, js, json}\" --fix"
   },
   "engines": {
     "node": ">=14 <=15"
   },
   "dependencies": {
-    "@nestjs/common": "^8.1.2",
     "@nestjs/config": "^1.1.0",
     "axios": "^0.24.0",
     "moment-timezone": "^0.5.34"

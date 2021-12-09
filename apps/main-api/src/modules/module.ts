@@ -1,5 +1,5 @@
-import { LibsModules } from '@libs/modules';
 import { Module } from '@nestjs/common';
+import { LibsModules } from 'libs/modules';
 
 import { HealthModule } from './health/module';
 

@@ -1,7 +1,7 @@
-import { ILoggerService } from '@libs/modules';
-import { ApiException } from '@libs/utils';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { ILoggerService } from 'libs/modules';
+import { ApiException } from 'libs/utils';
 import * as request from 'supertest';
 
 import { name } from '../../../../package.json';

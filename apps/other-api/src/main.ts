@@ -1,9 +1,9 @@
-import { ICommonSecrets, ILoggerService } from '@libs/modules';
-import { AppExceptionFilter, ExceptionInterceptor } from '@libs/utils';
 import { RequestMethod } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/other-api/package.json';
+import { ICommonSecrets, ILoggerService } from 'libs/modules';
+import { AppExceptionFilter, ExceptionInterceptor } from 'libs/utils';
 
 import { MainModule } from './modules/module';
 

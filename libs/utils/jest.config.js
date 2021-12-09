@@ -8,18 +8,18 @@ const {
 
 const {
   compilerOptions
-} = require('../tsconfig.json');
+} = require('../../tsconfig.json');
 
 const {
   jestInitFileList
-} = require('../tests');
+} = require('../../tests');
 
 module.exports = {
   displayName: name,
-  roots: ['core', 'modules', 'utils'],
+  roots: ['.'],
   name,
   preset: 'ts-jest',
-  coveragePathIgnorePatterns: ['index.ts', 'swagger.ts', 'node_modules'],
+  coveragePathIgnorePatterns: ['index.ts', 'node_modules', 'jest.config.js', 'swagger.ts'],
   setupFilesAfterEnv: jestInitFileList,
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
-};
+}
