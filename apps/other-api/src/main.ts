@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/other-api/package.json';
 import { ICommonSecrets, ILoggerService } from 'libs/modules';
-import { AppExceptionFilter, ExceptionInterceptor } from 'libs/utils';
+import { AppExceptionFilter, ExceptionInterceptor, PerformanceInterceptor } from 'libs/utils';
 
 import { MainModule } from './modules/module';
 
@@ -17,7 +17,7 @@ async function bootstrap() {
 
   loggerService.setContext(name);
   app.useGlobalFilters(new AppExceptionFilter(loggerService));
-  app.useGlobalInterceptors(new ExceptionInterceptor());
+  app.useGlobalInterceptors(new ExceptionInterceptor(), new PerformanceInterceptor(loggerService));
 
   const {
     otherAPI: { PORT },

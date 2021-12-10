@@ -11,6 +11,8 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
     this.env = env;
   }
 
+  context = super.context;
+
   error(error: ApiException): void {
     const context = this.context;
     super.context = context;
