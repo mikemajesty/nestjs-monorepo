@@ -1,7 +1,8 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { ILoggerService } from 'libs/modules';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+
+import { ILoggerService } from '../../modules';
 
 @Injectable()
 export class PerformanceInterceptor implements NestInterceptor {
