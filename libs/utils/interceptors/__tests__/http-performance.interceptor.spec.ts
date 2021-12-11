@@ -6,14 +6,13 @@ import { Observable, of } from 'rxjs';
 import { ILoggerService } from '../../../modules';
 import { PerformanceInterceptor } from '../http-performance.interceptor';
 
-const callHandlerMOck: CallHandler = jest.genMockFromModule<CallHandler>('@nestjs/common');
-
-const mockExecutionContext = {
-  getClass: () => ({ name: 'dummy' }),
-  getHandler: () => ({ name: 'dummy' }),
-} as unknown as ExecutionContext;
-
 describe('PerformanceInterceptor', () => {
+  const callHandlerMOck: CallHandler = jest.genMockFromModule<CallHandler>('@nestjs/common');
+
+  const mockExecutionContext = {
+    getClass: () => ({ name: 'dummy' }),
+    getHandler: () => ({ name: 'dummy' }),
+  } as unknown as ExecutionContext;
   let performanceInterceptor: PerformanceInterceptor;
 
   beforeEach(async () => {

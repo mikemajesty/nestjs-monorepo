@@ -5,10 +5,9 @@ import { Observable, of } from 'rxjs';
 
 import { ExceptionInterceptor } from '../http-exception.interceptor';
 
-const executionContextMock = jest.genMockFromModule<ExecutionContext>('@nestjs/common');
-const callHandlerMOck = jest.genMockFromModule<CallHandler>('@nestjs/common');
-
 describe('ExceptionInterceptor', () => {
+  const executionContextMock = jest.genMockFromModule<ExecutionContext>('@nestjs/common');
+  const callHandlerMOck = jest.genMockFromModule<CallHandler>('@nestjs/common');
   let exceptionInterceptor: ExceptionInterceptor;
 
   beforeEach(async () => {
