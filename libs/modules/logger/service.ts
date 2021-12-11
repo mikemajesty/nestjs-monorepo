@@ -1,5 +1,6 @@
 import { ApiException } from '@libs/utils';
 import { ConsoleLogger, Injectable } from '@nestjs/common';
+import { AxiosConverter } from 'nestjs-convert-to-curl';
 
 import { ILoggerService } from './adapter';
 
@@ -11,11 +12,10 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
     this.env = env;
   }
 
-  context = super.context;
-
   error(error: ApiException): void {
     const context = this.context;
     super.context = context;
+
     if (this.env !== 'test') {
       super.error({
         status: [error.statusCode, error.code].find((c) => c),
@@ -28,5 +28,13 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
         },
       });
     }
+
+    if (error.config) {
+      this.warn(AxiosConverter.getCurl(error.config));
+    }
+  }
+
+  log(message: string, context?: string): void {
+    super.log(context ? `${context} - ${message}` : message);
   }
 }

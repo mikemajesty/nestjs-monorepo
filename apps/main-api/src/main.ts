@@ -40,10 +40,10 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
-  loggerService.log(`🟢 ${name} listening at ${PORT} on ${ENV?.toUpperCase()} 🟢\n`, 'Application');
+  loggerService.log(`🟢 ${name} listening at ${PORT} on ${ENV?.toUpperCase()} 🟢\n`);
 
   await app.listen(PORT);
 
-  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/docs  🔵 \n`, 'Swaggger');
+  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/docs  🔵 \n`);
 }
 bootstrap();

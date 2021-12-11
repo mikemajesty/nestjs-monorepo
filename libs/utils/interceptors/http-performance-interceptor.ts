@@ -9,8 +9,6 @@ export class PerformanceInterceptor implements NestInterceptor {
   intercept(ctx: ExecutionContext, next: CallHandler): Observable<unknown> {
     const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
     const now = Date.now();
-    return next
-      .handle()
-      .pipe(tap(() => this.loggerService.log(`${context} ${Date.now() - now}ms`, this.loggerService.context)));
+    return next.handle().pipe(tap(() => this.loggerService.log(`${context} ${Date.now() - now}ms`)));
   }
 }
