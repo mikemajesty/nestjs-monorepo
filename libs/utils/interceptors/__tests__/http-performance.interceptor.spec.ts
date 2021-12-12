@@ -13,6 +13,7 @@ describe('PerformanceInterceptor', () => {
     getClass: () => ({ name: 'dummy' }),
     getHandler: () => ({ name: 'dummy' }),
   } as unknown as ExecutionContext;
+
   let performanceInterceptor: PerformanceInterceptor;
 
   beforeEach(async () => {

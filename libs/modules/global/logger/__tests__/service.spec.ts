@@ -1,7 +1,7 @@
+import { ApiException } from '@libs/utils/exception';
 import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
-import { ApiException } from '../../../utils/exception';
 import { ILoggerService } from '../adapter';
 import { LoggerService } from '../service';
 

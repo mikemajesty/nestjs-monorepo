@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { LibsModules } from 'libs/modules';
+import { GlobalModule } from 'libs/modules';
 
 import { HealthModule } from './health/module';
 
 @Module({
-  imports: [HealthModule, LibsModules],
+  imports: [HealthModule, GlobalModule],
 })
 export class MainModule {}

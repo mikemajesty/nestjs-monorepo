@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { GlobalModule } from '../global';
+import { GlobalModule } from '../module';
 
 describe('GlobalModule', () => {
   let module: GlobalModule;
