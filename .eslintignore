@@ -2,7 +2,7 @@
 dist/
 
 # tests config
-jest/
+tests/
 coverage/
 
 
