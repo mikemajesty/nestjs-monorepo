@@ -8,7 +8,7 @@ import { LoggerService } from './service';
   providers: [
     {
       provide: ILoggerService,
-      useFactory: async (env = new SecretsService().ENV) => new LoggerService(env),
+      useFactory: (env = new SecretsService().ENV) => new LoggerService(env),
     },
   ],
   exports: [ILoggerService],

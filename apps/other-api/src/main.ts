@@ -3,7 +3,14 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/other-api/package.json';
 import { ICommonSecrets, ILoggerService } from 'libs/modules';
-import { ApiException, AppExceptionFilter, ExceptionInterceptor, PerformanceInterceptor } from 'libs/utils';
+import {
+  ApiException,
+  AppExceptionFilter,
+  DEFAULT_TAG,
+  ExceptionInterceptor,
+  PerformanceInterceptor,
+  SWAGGER_API_ROOT,
+} from 'libs/utils';
 
 import { MainModule } from './modules/module';
 
@@ -34,17 +41,17 @@ async function bootstrap() {
     .setTitle(name)
     .setDescription(description)
     .setVersion(version)
-    .addTag('Swagger Documentation')
+    .addTag(DEFAULT_TAG)
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
+  SwaggerModule.setup(SWAGGER_API_ROOT, app, document);
 
   loggerService.log(`🟢 ${name} listening at ${PORT} on ${ENV?.toUpperCase()} 🟢\n`);
 
   await app.listen(PORT);
 
-  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/docs  🔵 \n`);
+  loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/${SWAGGER_API_ROOT}  🔵 \n`);
 
   process.on('unhandledRejection', (error: ApiException) => {
     error.context = 'unhandledRejection';
