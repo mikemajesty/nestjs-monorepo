@@ -32,9 +32,9 @@ Check the [contributing manual](./CONTRIBUTING.md)
     $ yarn workspace <workspaceName> add <libName>
     ```
 ##### workspace list
- - @app/eslint.config
  - @app/main.api
  - @app/other.api
+ - @tools/eslint.config
  - @libs/utils
  - @libs/modules
  - @libs/core
