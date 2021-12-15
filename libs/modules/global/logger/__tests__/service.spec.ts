@@ -19,6 +19,7 @@ describe('LoggerService', () => {
     }).compile();
 
     loggerService = module.get(ILoggerService);
+    loggerService.setContext('Test');
   });
 
   describe('error', () => {
@@ -40,6 +41,25 @@ describe('LoggerService', () => {
       error.statusCode = undefined;
       error.code = 'TIMEOUT';
       loggerService.error(error);
+    });
+
+    test('should axios error successfully', () => {
+      const error = new ApiException('Error');
+      error.config = {
+        method: 'GET',
+        url: 'https://utl',
+      };
+      loggerService.error(error);
+    });
+  });
+
+  describe('log', () => {
+    test('should log successfully', () => {
+      loggerService.log('Message');
+    });
+
+    test('should log successfully with context', () => {
+      loggerService.log('Message', 'context');
     });
   });
 });

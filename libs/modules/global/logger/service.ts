@@ -27,10 +27,9 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
           request: error.config,
         },
       });
-    }
-
-    if (error.config) {
-      this.warn(AxiosConverter.getCurl(error.config));
+      if (error.config) {
+        this.warn(AxiosConverter.getCurl(error.config));
+      }
     }
   }
 

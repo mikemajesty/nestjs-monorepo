@@ -9,7 +9,7 @@ export default {
   moduleFileExtensions: ['js', 'json', 'ts'],
   testEnvironment: 'node',
   preset: 'ts-jest',
-  setupFilesAfterEnv: jestInitFileList,
+  setupFilesAfterEnv: jestInitFileList.map((j: { path: string }) => j.path),
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/../',
   }),
