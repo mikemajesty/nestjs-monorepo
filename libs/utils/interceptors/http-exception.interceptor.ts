@@ -8,6 +8,7 @@ export class ExceptionInterceptor implements NestInterceptor {
   intercept(ctx: ExecutionContext, next: CallHandler): Observable<unknown> {
     return next.handle().pipe(
       catchError((error) => {
+        error.status = error.status || 500;
         const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
         error.uuid = uuidv4();
         error.context = context;

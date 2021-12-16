@@ -3,19 +3,14 @@ import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
 import { ILoggerService } from '../adapter';
-import { LoggerService } from '../service';
+import { LoggerModule } from '../module';
 
 describe('LoggerService', () => {
   let loggerService: ILoggerService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
-      providers: [
-        {
-          provide: ILoggerService,
-          useValue: new LoggerService('test'),
-        },
-      ],
+      imports: [LoggerModule],
     }).compile();
 
     loggerService = module.get(ILoggerService);

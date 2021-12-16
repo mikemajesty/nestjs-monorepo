@@ -1,19 +1,14 @@
 import { Test } from '@nestjs/testing';
 
 import { IHttpService } from '../adapter';
-import { HttpService } from '../service';
+import { HttpModule } from '../module';
 
 describe('HttpService', () => {
   let service: IHttpService;
 
   beforeEach(async () => {
     const app = await Test.createTestingModule({
-      providers: [
-        {
-          provide: IHttpService,
-          useClass: HttpService,
-        },
-      ],
+      imports: [HttpModule],
     }).compile();
 
     service = app.get(IHttpService);

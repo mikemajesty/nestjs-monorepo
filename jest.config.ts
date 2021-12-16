@@ -8,10 +8,10 @@ export default {
   roots: ['apps', 'libs'],
   testRegex: '.*\\.spec\\.ts$',
   transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
+    '^.+\\.ts$': 'ts-jest',
   },
   coveragePathIgnorePatterns: ['dist', 'node_modules', 'coverage'],
-  collectCoverageFrom: ['**/*.(t|j)s'],
+  collectCoverageFrom: ['**/*.ts'],
   coverageDirectory: './coverage',
   testEnvironment: 'node',
   coverageThreshold: {
