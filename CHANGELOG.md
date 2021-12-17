@@ -1,3 +1,40 @@
+#### 0.0.11 (2021-12-17)
+
+##### Chores
+
+* **error handler:**  add unhandledRejection support ([db46d5de](https://github.com/mikemajesty/nestjs-monorepo/commit/db46d5de4901aa2ac7f0f8256caf54cebaa4e2ca))
+* **interceptor:**  add performance interceptors ([80067763](https://github.com/mikemajesty/nestjs-monorepo/commit/80067763d009080871a7e1c0a0d22e7461ad2c39))
+
+##### Documentation Changes
+
+* **readme:**  improve  readme ([6a3b726f](https://github.com/mikemajesty/nestjs-monorepo/commit/6a3b726fb08b4d8103f9e188c10b2571b1448a01))
+* **swaggger:**  refactor swagger documentation ([34866928](https://github.com/mikemajesty/nestjs-monorepo/commit/34866928d1a95f9514f8cc3ff149ba0e4fecd747))
+
+##### New Features
+
+* **axios:**  covert axios error to curl ([9940ee03](https://github.com/mikemajesty/nestjs-monorepo/commit/9940ee03bafaebd1c708439a38b5727e0430339a))
+
+##### Refactors
+
+* **tests:**  refactor tests depedencies ([32bb8863](https://github.com/mikemajesty/nestjs-monorepo/commit/32bb8863ae45677b5b55a2f7b6fd583709b626f4))
+* **jest.config:**  improve tests files ([c21b2f55](https://github.com/mikemajesty/nestjs-monorepo/commit/c21b2f55bf77fe27a10f74b2d64fff2f08fa78a0))
+* **libs:**  refactor libs modules ([314c14b0](https://github.com/mikemajesty/nestjs-monorepo/commit/314c14b0ee296759fa9581c38fe64aafdf34ff43))
+* **loggerservice:**  refactor error messages ([04c20ad7](https://github.com/mikemajesty/nestjs-monorepo/commit/04c20ad7e2f9171e51d1e248f8c2f335c5fb4711))
+
+##### Code Style Changes
+
+* **eslint:**
+  *  fix eslint monorepo lint ([7ba586d2](https://github.com/mikemajesty/nestjs-monorepo/commit/7ba586d28b83a528468b7f277591531a70562c86))
+  *  fix eslint ([e7a752ce](https://github.com/mikemajesty/nestjs-monorepo/commit/e7a752cecec46aab142fc09ac35706dbb4d49878))
+
+##### Tests
+
+* **tests:**  improve tests ([bb8efc64](https://github.com/mikemajesty/nestjs-monorepo/commit/bb8efc64ff9b63c9fde4011431b3d699a3f0b21b))
+* **interceptors:**  fiz mock position ([aded1bac](https://github.com/mikemajesty/nestjs-monorepo/commit/aded1bac9aaeafc069be42df9f624b51ac17a2b7))
+* **http-performance.interceptor:**  add unit tests ([d2788221](https://github.com/mikemajesty/nestjs-monorepo/commit/d27882218976c567c8a3e7315385d863dd0be2e6))
+* **loggerservice:**  remove unit test ([d5175883](https://github.com/mikemajesty/nestjs-monorepo/commit/d51758832022ff3634fe9562ddbac9687b72b637))
+* **monorepo:**  fix env files ([ad8aea13](https://github.com/mikemajesty/nestjs-monorepo/commit/ad8aea13584937f8953dab11344e601067e19032))
+
 #### 0.0.10 (2021-12-09)
 
 ##### Build System / Dependencies
