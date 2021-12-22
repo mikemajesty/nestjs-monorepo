@@ -3,7 +3,7 @@ import { CallHandler } from '@nestjs/common/interfaces';
 import { Test } from '@nestjs/testing';
 import { Observable, of } from 'rxjs';
 
-import { ILoggerService } from '../../../modules';
+import { LoggerModule } from '../../../modules/global/logger/module';
 import { PerformanceInterceptor } from '../http-performance.interceptor';
 
 describe('PerformanceInterceptor', () => {
@@ -19,15 +19,8 @@ describe('PerformanceInterceptor', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     const app = await Test.createTestingModule({
-      providers: [
-        PerformanceInterceptor,
-        {
-          provide: ILoggerService,
-          useValue: {
-            log: jest.fn(),
-          },
-        },
-      ],
+      imports: [LoggerModule],
+      providers: [PerformanceInterceptor],
     }).compile();
 
     performanceInterceptor = app.get(PerformanceInterceptor);

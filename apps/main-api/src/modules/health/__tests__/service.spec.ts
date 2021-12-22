@@ -1,5 +1,6 @@
 import { Test } from '@nestjs/testing';
-import { ILoggerService } from 'libs/modules';
+import { ICatsService } from 'libs/modules/cats/adapter';
+import { LoggerModule } from 'libs/modules/global/logger/module';
 
 import { name } from '../../../../package.json';
 import { IHealthService } from '../adapter';
@@ -10,14 +11,17 @@ describe('HealthService', () => {
 
   beforeEach(async () => {
     const app = await Test.createTestingModule({
+      imports: [LoggerModule],
       providers: [
+        {
+          provide: ICatsService,
+          useValue: {
+            save: jest.fn(),
+          },
+        },
         {
           provide: IHealthService,
           useClass: HealthService,
-        },
-        {
-          provide: ILoggerService,
-          useValue: { log: jest.fn() },
         },
       ],
     }).compile();

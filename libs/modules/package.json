@@ -15,8 +15,10 @@
   },
   "dependencies": {
     "@nestjs/config": "^1.1.0",
+    "@nestjs/mongoose": "^9.0.1",
     "axios": "^0.24.0",
     "moment-timezone": "^0.5.34",
+    "mongoose": "^6.1.2",
     "nestjs-convert-to-curl": "^0.0.3"
   },
   "license": "MIT"

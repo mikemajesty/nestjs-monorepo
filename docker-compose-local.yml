@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  db:
+    image: mongo
+    env_file:
+      - .env
+    ports:
+      - 27017:27017
+  # if you want a mongodb managment
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - 8081:8081
+  #   env_file:
+  #     - .env

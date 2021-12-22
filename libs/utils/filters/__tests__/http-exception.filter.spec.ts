@@ -1,7 +1,7 @@
 import { ArgumentsHost, HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
-import { ILoggerService } from '../../../modules';
+import { LoggerModule } from '../../../modules/global/logger/module';
 import { ApiException } from '../../exception';
 import { AppExceptionFilter } from '../http-exception.filter';
 
@@ -13,13 +13,8 @@ describe('AppExceptionFilter', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     const app = await Test.createTestingModule({
-      providers: [
-        AppExceptionFilter,
-        {
-          provide: ILoggerService,
-          useValue: { error: jest.fn() },
-        },
-      ],
+      imports: [LoggerModule],
+      providers: [AppExceptionFilter],
     }).compile();
 
     appExceptionFilter = app.get(AppExceptionFilter);

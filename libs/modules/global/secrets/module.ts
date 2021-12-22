@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 
 import { ICommonSecrets } from './adapter';
 import { SecretsService } from './service';
@@ -15,7 +15,6 @@ import { SecretsService } from './service';
       provide: ICommonSecrets,
       useClass: SecretsService,
     },
-    ConfigService,
   ],
   exports: [ICommonSecrets],
 })

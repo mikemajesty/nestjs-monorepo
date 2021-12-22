@@ -1,6 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ILoggerService } from 'libs/modules';
+import { ICatsService } from 'libs/modules/cats/adapter';
+import { LoggerModule } from 'libs/modules/global/logger/module';
 import { ApiException } from 'libs/utils';
 import * as request from 'supertest';
 
@@ -18,15 +19,17 @@ describe('HealthController (e2e)', () => {
       controllers: [HealthController],
       providers: [
         {
+          provide: ICatsService,
+          useValue: {
+            save: jest.fn(),
+          },
+        },
+        {
           provide: IHealthService,
           useClass: HealthService,
         },
-        {
-          provide: ILoggerService,
-          useValue: { log: jest.fn() },
-        },
       ],
-      imports: [],
+      imports: [LoggerModule],
     }).compile();
 
     app = module.createNestApplication();
