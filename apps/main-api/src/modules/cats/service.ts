@@ -3,13 +3,13 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 import { ICatsService } from './adapter';
-import { Cat, CatDocument } from './schema';
+import { CatDocument, Cats } from './schema';
 
 @Injectable()
 export class CatsService implements ICatsService {
-  constructor(@InjectModel(Cat.name) private model: Model<CatDocument>) {}
+  constructor(@InjectModel(Cats.name) private model: Model<CatDocument>) {}
 
-  async save(model: Cat): Promise<Cat> {
+  async save(model: Cats): Promise<Cats> {
     return await this.model.create(model);
   }
 }

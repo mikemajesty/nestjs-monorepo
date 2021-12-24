@@ -1,2 +1,2 @@
-export * from './common/index';
-export * from './global/index';
+export * from './common';
+export * from './global';

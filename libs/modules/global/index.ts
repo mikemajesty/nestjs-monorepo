@@ -1,7 +1,9 @@
-export * from '../cats/module';
+export * from './database/constants';
 export * from './database/module';
-export * from './logger/adapter';
+// --
 export * from './module';
+// --
+export * from './logger/adapter';
 export * from './secrets/adapter';
-// only adapters or modules
-// Neeeeeeever services
+// --
+// Neeeeeeever services here

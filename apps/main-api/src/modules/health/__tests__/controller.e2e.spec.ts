@@ -1,6 +1,6 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ICatsService } from 'libs/modules/cats/adapter';
+import { ICatsService } from 'apps/main-api/src/modules/cats/adapter';
 import { LoggerModule } from 'libs/modules/global/logger/module';
 import { ApiException } from 'libs/utils';
 import * as request from 'supertest';
