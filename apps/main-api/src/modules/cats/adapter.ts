@@ -1,5 +1,5 @@
-import { Cats } from './schema';
+import { IRepository } from 'libs/modules';
 
-export abstract class ICatsService {
-  abstract save(model: Cats): Promise<Cats>;
-}
+import { CatDocument } from './schema';
+
+export abstract class ICatsService extends IRepository<CatDocument> {}

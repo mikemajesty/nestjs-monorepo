@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export abstract class CatDTO {
+import { Cats } from './schema';
+
+export class CatDTO implements Cats {
   @ApiProperty({ description: 'Cats name' })
   name: string;
 
@@ -9,4 +11,6 @@ export abstract class CatDTO {
 
   @ApiProperty({ description: 'Cats breed' })
   breed: string;
+
+  timestamp: number = Date.now();
 }

@@ -12,7 +12,7 @@ export class CatsController {
 
   @Post()
   @ApiBody({ type: CatDTO })
-  async save(model: Cats): Promise<Cats> {
-    return await this.catService.save(model);
+  async save(model: CatDTO): Promise<Cats> {
+    return await this.catService.create(model);
   }
 }

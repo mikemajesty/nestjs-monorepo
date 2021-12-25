@@ -1,12 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-import { CatDTO } from './entity';
-
 export type CatDocument = Cats & Document;
 
 @Schema()
-export class Cats implements CatDTO {
+export class Cats {
   @Prop()
   name: string;
 
