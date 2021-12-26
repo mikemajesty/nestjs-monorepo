@@ -1,4 +1,4 @@
-import { Model } from 'mongoose';
+import { FilterQuery, Model, UpdateQuery } from 'mongoose';
 import { Document } from 'mongoose';
 
 import { IRepository } from './interface';
@@ -17,5 +17,18 @@ export class Repository<T extends Document> implements IRepository<T> {
 
   async findAll(): Promise<T[]> {
     return await this.model.find();
+  }
+
+  async find(filter: FilterQuery<T>): Promise<T[]> | Promise<T[]> {
+    return await this.model.find(filter);
+  }
+
+  async remove(filter: FilterQuery<T>): Promise<boolean> {
+    const { deletedCount } = await this.model.remove(filter);
+    return !!deletedCount;
+  }
+
+  async update(filter: FilterQuery<T>, updated: UpdateQuery<T>): Promise<unknown> {
+    return await this.model.updateOne(filter, updated);
   }
 }

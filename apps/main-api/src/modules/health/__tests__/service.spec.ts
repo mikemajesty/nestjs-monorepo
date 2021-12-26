@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { ICatsService } from 'apps/main-api/src/modules/cats/adapter';
+import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
 import { LoggerModule } from 'libs/modules/global/logger/module';
 
 import { name } from '../../../../package.json';
@@ -14,7 +14,7 @@ describe('HealthService', () => {
       imports: [LoggerModule],
       providers: [
         {
-          provide: ICatsService,
+          provide: ICatsRepository,
           useValue: {
             save: jest.fn(),
           },

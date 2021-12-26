@@ -16,6 +16,8 @@
     "editor.formatOnSave": true
   },
   "editor.formatOnSave": true,
+  "jest.rootPath": "../../../node_modules/.bin/jest",
+
   "eslint.validate": ["javascript"],
   "files.exclude": {
     "**/node_modules": true,

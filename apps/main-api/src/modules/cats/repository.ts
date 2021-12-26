@@ -3,11 +3,11 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Repository } from 'libs/modules';
 import { Model } from 'mongoose';
 
-import { ICatsService } from './adapter';
+import { ICatsRepository } from './adapter';
 import { CatDocument, Cats } from './schema';
 
 @Injectable()
-export class CatsService extends Repository<CatDocument> implements ICatsService {
+export class CatsRepository extends Repository<CatDocument> implements ICatsRepository {
   constructor(@InjectModel(Cats.name) private entity: Model<CatDocument>) {
     super(entity);
   }
