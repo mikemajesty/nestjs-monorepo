@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 import { Cats } from './schema';
 
-export class CatDTO implements Cats {
+export class CatsDTO implements Cats {
   @ApiProperty({ description: 'Cats name' })
   name: string;
 

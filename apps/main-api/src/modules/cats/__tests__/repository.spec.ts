@@ -1,5 +1,6 @@
 import { getModelToken } from '@nestjs/mongoose';
 import { Test } from '@nestjs/testing';
+import { Model } from 'mongoose';
 
 import { ICatsRepository } from '../adapter';
 import { CatsRepository } from '../repository';
@@ -7,9 +8,10 @@ import { Cats } from '../schema';
 
 describe('CatsRepository', () => {
   let repository: ICatsRepository;
+  let model: Model<Cats>;
 
   beforeEach(async () => {
-    const app = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       providers: [
         {
           provide: getModelToken(Cats.name),
@@ -22,10 +24,13 @@ describe('CatsRepository', () => {
       ],
     }).compile();
 
-    repository = app.get(ICatsRepository);
+    model = module.get(getModelToken(Cats.name));
+    repository = module.get(ICatsRepository);
   });
 
-  it('should be defined', () => {
-    expect(repository).toBeInstanceOf(CatsRepository);
+  test('should createOrUpdate successfully', async () => {
+    model.find = jest.fn().mockReturnValue(true);
+
+    await expect(repository.dummy()).resolves.toEqual(true);
   });
 });
