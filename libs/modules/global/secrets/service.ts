@@ -12,21 +12,19 @@ export class SecretsService extends ConfigService implements ICommonSecrets {
 
   ENV = this.get<string>('ENV');
 
-  dbMainAPI = {
-    URI: this.get<string>(DatabseEnvironment.URI_MAIN_API),
-    Database: this.get<string>(DatabseEnvironment.DB_MAIN_API),
-  };
-
-  dbOtherAPI = {
-    URI: this.get<string>(DatabseEnvironment.URI_OTHER_API),
-    Database: this.get<string>(DatabseEnvironment.DB_OTHER_API),
-  };
-
   mainAPI = {
     PORT: this.get<number>(MainAPIEnvironment.PORT),
+    db: {
+      URI: this.get<string>(DatabseEnvironment.URI_MAIN_API),
+      Database: this.get<string>(DatabseEnvironment.DB_MAIN_API),
+    },
   };
 
   otherAPI = {
     PORT: this.get<number>(OtherAPIEnvironment.PORT),
+    db: {
+      URI: this.get<string>(DatabseEnvironment.URI_OTHER_API),
+      Database: this.get<string>(DatabseEnvironment.DB_OTHER_API),
+    },
   };
 }

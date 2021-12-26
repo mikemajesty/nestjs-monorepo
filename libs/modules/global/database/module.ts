@@ -3,8 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ICommonSecrets } from 'libs/modules';
 
 import { IRepository, Repository } from '..';
+import { SecretsModule } from '../secrets/module';
 import { SecretsService } from '../secrets/service';
-import { DB_MAIN_API, DB_OTHER_API } from './constants';
 import { DataBaseService } from './service';
 
 @Global()
@@ -17,15 +17,26 @@ import { DataBaseService } from './service';
     },
   ],
   imports: [
+    SecretsModule,
     MongooseModule.forRootAsync({
-      connectionName: DB_MAIN_API,
-      useFactory: ({ dbMainAPI: { Database, URI } }: ICommonSecrets = new SecretsService()) =>
-        new DataBaseService({ Database, URI }).getDefaultConnection(),
+      connectionName: new SecretsService().mainAPI.db.Database,
+      useFactory: (
+        {
+          mainAPI: {
+            db: { Database, URI },
+          },
+        }: ICommonSecrets = new SecretsService(),
+      ) => new DataBaseService({ Database, URI }).getDefaultConnection(),
     }),
     MongooseModule.forRootAsync({
-      connectionName: DB_OTHER_API,
-      useFactory: ({ dbOtherAPI: { Database, URI } }: ICommonSecrets = new SecretsService()) =>
-        new DataBaseService({ Database, URI }).getDefaultConnection(),
+      connectionName: new SecretsService().otherAPI.db.Database,
+      useFactory: (
+        {
+          otherAPI: {
+            db: { Database, URI },
+          },
+        }: ICommonSecrets = new SecretsService(),
+      ) => new DataBaseService({ Database, URI }).getDefaultConnection(),
     }),
   ],
 })

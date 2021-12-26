@@ -3,21 +3,19 @@ import { DatabseEnvironment, MainAPIEnvironment, OtherAPIEnvironment } from './e
 export abstract class ICommonSecrets {
   ENV: string;
 
-  dbMainAPI: {
-    URI: DatabseEnvironment | string;
-    Database: DatabseEnvironment | string;
-  };
-
-  dbOtherAPI: {
-    URI: DatabseEnvironment | string;
-    Database: DatabseEnvironment | string;
-  };
-
   mainAPI: {
     PORT: MainAPIEnvironment | number;
+    db: {
+      URI: DatabseEnvironment | string;
+      Database: DatabseEnvironment | string;
+    };
   };
 
   otherAPI: {
     PORT: OtherAPIEnvironment | number;
+    db: {
+      URI: DatabseEnvironment | string;
+      Database: DatabseEnvironment | string;
+    };
   };
 }

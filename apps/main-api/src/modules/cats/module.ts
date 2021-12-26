@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { DB_MAIN_API } from 'libs/modules';
+import { SecretsService } from 'libs/modules/global/secrets/service';
 
 import { ICatsRepository } from './adapter';
 import { CatsController } from './controller';
@@ -9,7 +9,9 @@ import { Cats, CatSchema } from './schema';
 
 @Module({
   controllers: [CatsController],
-  imports: [MongooseModule.forFeature([{ name: Cats.name, schema: CatSchema }], DB_MAIN_API)],
+  imports: [
+    MongooseModule.forFeature([{ name: Cats.name, schema: CatSchema }], new SecretsService().mainAPI.db.Database),
+  ],
   providers: [
     {
       provide: ICatsRepository,
