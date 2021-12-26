@@ -13,7 +13,7 @@ describe('HealthModule', () => {
     healthModule = app.get<HealthModule>(HealthModule);
   });
 
-  it('should be defined', () => {
+  test('should be defined', () => {
     expect(healthModule).toBeInstanceOf(HealthModule);
   });
 });

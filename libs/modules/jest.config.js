@@ -23,7 +23,7 @@ module.exports = {
   roots: ['.'],
   name,
   preset: 'ts-jest',
-  coveragePathIgnorePatterns: ['index.ts', 'node_modules', 'jest.config.js'],
+  coveragePathIgnorePatterns: ['index.ts', 'node_modules', 'jest.config.js', 'module.ts', 'interface.ts'],
   setupFilesAfterEnv: jestInitFileList.filter(p => p.name.includes(JEST_ENV_FILE_NAME) || p.name.includes(JEST_ENV_COMMON_FILE_NAME)).map(j => j.path),
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
 };
