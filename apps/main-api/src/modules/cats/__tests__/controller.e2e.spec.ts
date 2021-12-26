@@ -13,7 +13,7 @@ import { Cats } from '../schema';
 describe('CatsController (e2e)', () => {
   let app: INestApplication;
 
-  // mock model functions
+  // if you want to mock model functions
   // let model: Model<Cats>;
 
   beforeEach(async () => {

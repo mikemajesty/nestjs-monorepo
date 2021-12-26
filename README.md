@@ -8,10 +8,14 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - logs service
  - error handler
  - libs structure
- - dependency inversion pattern
- - anti corruption layer pattern
- - adapter pattern
+ - Dependency Inversion Pattern
+ - Anti Corruption Layer Pattern
+ - Adapter Pattern
+ - Generic Repository Pattern
  - swaggger documentation
+ - mongodb
+    - mongoose
+    - multiples databases
  - tests
     - unit
     - e2e
