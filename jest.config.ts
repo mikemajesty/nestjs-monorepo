@@ -18,8 +18,8 @@ export default {
     global: {
       functions: 90,
       lines: 90,
-      statements: 90,
-      branches: 70,
+      statements: 80,
+      branches: 80,
     },
   },
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
