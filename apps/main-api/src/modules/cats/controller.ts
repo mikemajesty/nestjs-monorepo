@@ -13,7 +13,7 @@ export class CatsController {
 
   @Post()
   @ApiBody({ type: CatsDTO })
-  @ApiResponse(SwagggerResponse.save[200])
+  @ApiResponse(SwagggerResponse.save[201])
   async save(model: CatsDTO): Promise<Cats> {
     return await this.catRepository.create(model);
   }
