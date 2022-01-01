@@ -12,7 +12,7 @@ export class CatsRepository extends Repository<CatDocument> implements ICatsRepo
     super(entity);
   }
 
-  async dummy(): Promise<Cats[]> {
+  async example(): Promise<Cats[]> {
     return await this.entity.find();
   }
 }

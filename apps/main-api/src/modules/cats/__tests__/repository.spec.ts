@@ -31,6 +31,6 @@ describe('CatsRepository', () => {
   test('should createOrUpdate successfully', async () => {
     model.find = jest.fn().mockReturnValue(true);
 
-    await expect(repository.dummy()).resolves.toEqual(true);
+    await expect(repository.example()).resolves.toEqual(true);
   });
 });

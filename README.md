@@ -64,6 +64,12 @@ Check the [contributing manual](./CONTRIBUTING.md)
     $ docker-compose up --build
     ```
 
+#### Running local mongodb
+```
+$ yarn mongo:dev
+```
+
+
 #### Tests
  - unit
     ```bash
