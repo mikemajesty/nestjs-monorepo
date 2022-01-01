@@ -1,4 +1,4 @@
-import { DatabseEnvironment, MainAPIEnvironment, OtherAPIEnvironment } from './enum';
+import { MainAPIEnvironment, OtherAPIEnvironment } from './enum';
 
 export abstract class ICommonSecrets {
   ENV: string;
@@ -6,16 +6,16 @@ export abstract class ICommonSecrets {
   mainAPI: {
     PORT: MainAPIEnvironment | number;
     db: {
-      URI: DatabseEnvironment | string;
-      Database: DatabseEnvironment | string;
+      URI: MainAPIEnvironment | string;
+      Database: MainAPIEnvironment | string;
     };
   };
 
   otherAPI: {
     PORT: OtherAPIEnvironment | number;
     db: {
-      URI: DatabseEnvironment | string;
-      Database: DatabseEnvironment | string;
+      URI: OtherAPIEnvironment | string;
+      Database: OtherAPIEnvironment | string;
     };
   };
 }
