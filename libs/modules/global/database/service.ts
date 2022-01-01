@@ -8,12 +8,13 @@ type ConnectionModel = {
 export class DataBaseService {
   constructor(private connection: ConnectionModel) {}
 
-  getDefaultConnection(): MongooseModuleOptions {
+  getDefaultConnection(options?: MongooseModuleOptions): MongooseModuleOptions {
     return {
       appName: 'monorepo',
       uri: this.connection.URI,
       dbName: this.connection.Database,
       connectTimeoutMS: 2000,
+      ...options,
     };
   }
 }
