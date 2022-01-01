@@ -1,6 +1,6 @@
 import { Model } from 'mongoose';
 
-import { IRepository } from '../interface';
+import { IRepository } from '../adapter';
 import { Repository } from '../repository';
 
 class EntityDummy extends Model {}
@@ -60,7 +60,7 @@ describe('Repository', () => {
         }),
       });
 
-      await expect(repository.remove({})).resolves.toEqual(true);
+      await expect(repository.remove({})).resolves.toEqual({ deleted: true, deletedCount: 1 });
     });
 
     test('should remove unsuccessfully', async () => {
@@ -70,7 +70,7 @@ describe('Repository', () => {
         }),
       });
 
-      await expect(repository.remove({})).resolves.toEqual(false);
+      await expect(repository.remove({})).resolves.toEqual({ deleted: false, deletedCount: 0 });
     });
   });
 
@@ -80,6 +80,15 @@ describe('Repository', () => {
         updateOne: () => true,
       });
       await expect(repository.update({}, {})).resolves.toEqual(true);
+    });
+  });
+
+  describe('updateMany', () => {
+    test('should update successfully', async () => {
+      const repository = buildMock({
+        updateMany: () => true,
+      });
+      await expect(repository.updateMany({}, {})).resolves.toEqual(true);
     });
   });
 });

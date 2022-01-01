@@ -20,7 +20,7 @@ export class AppExceptionFilter implements ExceptionFilter {
 
     const code = [exception.code, status, HttpStatus.INTERNAL_SERVER_ERROR].find((c) => c);
 
-    const error: ErrorModel = {
+    response.status(status).json({
       error: {
         code,
         traceId: exception.uuid,
@@ -28,8 +28,6 @@ export class AppExceptionFilter implements ExceptionFilter {
         timestamp: moment(new Date()).tz(process.env.TZ).format(),
         path: request.url,
       },
-    };
-
-    response.status(status).json(error);
+    } as ErrorModel);
   }
 }
