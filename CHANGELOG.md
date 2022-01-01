@@ -1,3 +1,37 @@
+#### 0.0.12 (2022-01-01)
+
+##### Chores
+
+* **database module:**  add MongooseModuleOptions parameter support ([ad49c05f](https://github.com/mikemajesty/nestjs-monorepo/commit/ad49c05f819cd0f08148e89b63bf7452d8de2ee4))
+
+##### Documentation Changes
+
+* **readme:**
+  *  improve docs ([9c6faf73](https://github.com/mikemajesty/nestjs-monorepo/commit/9c6faf73bb3d5856d849b130488deeafb6adac14))
+  *  improve docs ([a3bb4ddd](https://github.com/mikemajesty/nestjs-monorepo/commit/a3bb4dddfbb9f0912180c571f075432b6e2e0c57))
+  *  improve informatation ([cbe7fa10](https://github.com/mikemajesty/nestjs-monorepo/commit/cbe7fa10321f349ea7b67d9ecc1e7e5947c9e014))
+* **swagger:**  fix swagger status ([b344a35a](https://github.com/mikemajesty/nestjs-monorepo/commit/b344a35a3c4d117aba97f83ed918a76e838ea965))
+
+##### New Features
+
+* **logger service:**  add identitication to curl message ([dc510ac4](https://github.com/mikemajesty/nestjs-monorepo/commit/dc510ac4030399e170bf4b58a396255036a1af3c))
+* **database:**  add generic repository ([08446dff](https://github.com/mikemajesty/nestjs-monorepo/commit/08446dffbfd2d30c3f059490a6646ea622693202))
+* **mongo:**  add mongo connection ([dc725c64](https://github.com/mikemajesty/nestjs-monorepo/commit/dc725c645074544008ccf29397f9d2597b40d684))
+
+##### Refactors
+
+* **secrets module:**  refactor ([f5005f19](https://github.com/mikemajesty/nestjs-monorepo/commit/f5005f19f868671be6c869bcaf9574708f7a05df))
+* **jest.config:**  add test exclude ([d9804d5d](https://github.com/mikemajesty/nestjs-monorepo/commit/d9804d5dce65960ed723585a8793e03d81d5db9f))
+* **database:**  refactor connection ([23fe51cd](https://github.com/mikemajesty/nestjs-monorepo/commit/23fe51cd5018e1e8935e8ab118f1699f76aeb79c))
+* **cats:**  refactor database and modules cats ([51efe37c](https://github.com/mikemajesty/nestjs-monorepo/commit/51efe37ca64c62c2abbfa8417d9828e4e77f4f8d))
+
+##### Tests
+
+* **main-api:**
+  *  add repostitory tests ([ae89895c](https://github.com/mikemajesty/nestjs-monorepo/commit/ae89895cb690adf271fe8a5de6d1d4ba11275b03))
+  *  add repository tests ([094fab7e](https://github.com/mikemajesty/nestjs-monorepo/commit/094fab7e20e9cfe3ecefb70ad7abda1b55a5a3d5))
+* **repository:**  add tests ([03be9989](https://github.com/mikemajesty/nestjs-monorepo/commit/03be998906c6802e096d35f8ba1bc4ccef4622ff))
+
 #### 0.0.11 (2021-12-17)
 
 ##### Chores
