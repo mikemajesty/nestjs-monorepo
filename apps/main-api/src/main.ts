@@ -1,4 +1,4 @@
-import { RequestMethod } from '@nestjs/common';
+import { HttpStatus, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/main-api/package.json';
@@ -19,6 +19,12 @@ async function bootstrap() {
     bufferLogs: true,
     cors: true,
   });
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      errorHttpStatusCode: HttpStatus.PRECONDITION_FAILED,
+    }),
+  );
 
   const loggerService = app.get(ILoggerService);
 

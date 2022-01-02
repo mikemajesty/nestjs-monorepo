@@ -51,7 +51,9 @@
     "swagger-ui-express": "^4.1.6",
     "uuid": "^8.3.2",
     "@nestjs/mongoose": "^9.0.1",
-    "mongoose": "^6.1.2"
+    "mongoose": "^6.1.2",
+    "class-transformer": "^0.3.2",
+    "class-validator": "^0.13.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",

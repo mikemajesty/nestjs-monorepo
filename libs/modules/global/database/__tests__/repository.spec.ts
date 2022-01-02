@@ -22,7 +22,7 @@ describe('Repository', () => {
         })),
       );
 
-      await expect(repository.create({})).resolves.toEqual({ created: true, id: '<id>', version: 0 } as CreatedModel);
+      await expect(repository.create({})).resolves.toEqual({ created: true, id: '<id>' } as CreatedModel);
     });
 
     test.each([undefined, null, ''])('should create unsuccessfully', async (id) => {
@@ -36,7 +36,6 @@ describe('Repository', () => {
       await expect(repository.create({})).resolves.toEqual({
         created: false,
         id: id,
-        version: 0,
       } as CreatedModel);
     });
   });

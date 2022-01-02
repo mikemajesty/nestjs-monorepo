@@ -16,5 +16,4 @@ export type RemovedModel = {
 export type CreatedModel = {
   id: string;
   created: boolean;
-  version?: number;
 };

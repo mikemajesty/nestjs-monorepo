@@ -4,7 +4,7 @@ import { Swagger } from 'libs/utils';
 export class SwagggerResponse {
   static save = {
     201: Swagger.defaultResponseJSON({
-      json: { id: '<id>', version: 0, created: true } as CreatedModel,
+      json: { id: '<id>', created: true } as CreatedModel,
       status: 201,
       description: 'Save successfully',
     }),
