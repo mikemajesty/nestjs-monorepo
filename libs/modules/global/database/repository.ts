@@ -1,15 +1,25 @@
-import { FilterQuery, Model, QueryOptions, UpdateQuery, UpdateWithAggregationPipeline } from 'mongoose';
+import { FilterQuery, Model, QueryOptions, SaveOptions, UpdateQuery, UpdateWithAggregationPipeline } from 'mongoose';
 import { Document } from 'mongoose';
 
 import { IRepository } from './adapter';
-import { RemovedModel, UpdatedModel } from './entity';
+import { CreatedModel, RemovedModel, UpdatedModel } from './entity';
 
 export class Repository<T extends Document> implements IRepository<T> {
   constructor(private readonly model: Model<T>) {}
 
-  async create(doc: object): Promise<T> {
+  async create(doc: object, saveOptions?: SaveOptions): Promise<CreatedModel> {
     const createdEntity = new this.model(doc);
-    return await createdEntity.save();
+    const savedResult = await createdEntity.save(saveOptions);
+
+    return {
+      created: !!savedResult._id,
+      id: savedResult._id,
+      version: savedResult.__v || 0,
+    };
+  }
+
+  async find(filter: FilterQuery<T>, projection?: unknown, options?: QueryOptions): Promise<T[]> {
+    return await this.model.find(filter, projection, options);
   }
 
   async findById(id: string): Promise<T> {
@@ -20,16 +30,12 @@ export class Repository<T extends Document> implements IRepository<T> {
     return await this.model.find();
   }
 
-  async find(filter: FilterQuery<T>): Promise<T[]> | Promise<T[]> {
-    return await this.model.find(filter);
-  }
-
   async remove(filter: FilterQuery<T>): Promise<RemovedModel> {
     const { deletedCount } = await this.model.remove(filter);
     return { deletedCount, deleted: !!deletedCount };
   }
 
-  async update(
+  async updateOne(
     filter: FilterQuery<T>,
     updated: UpdateWithAggregationPipeline | UpdateQuery<T>,
     options?: QueryOptions,

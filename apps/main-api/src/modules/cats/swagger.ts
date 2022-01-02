@@ -1,8 +1,13 @@
+import { CreatedModel } from 'libs/modules/global/database/entity';
 import { Swagger } from 'libs/utils';
 
 export class SwagggerResponse {
   static save = {
-    201: Swagger.defaultResponseJSON({ json: { _id: '<id>', _v: 0 }, status: 201, description: 'Save successfully' }),
+    201: Swagger.defaultResponseJSON({
+      json: { id: '<id>', version: 0, created: true } as CreatedModel,
+      status: 201,
+      description: 'Save successfully',
+    }),
   };
 }
 

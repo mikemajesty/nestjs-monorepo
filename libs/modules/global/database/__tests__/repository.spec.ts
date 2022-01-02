@@ -1,6 +1,7 @@
 import { Model } from 'mongoose';
 
 import { IRepository } from '../adapter';
+import { CreatedModel } from '../entity';
 import { Repository } from '../repository';
 
 class EntityDummy extends Model {}
@@ -13,12 +14,30 @@ describe('Repository', () => {
 
   describe('create', () => {
     test('should create successfully', async () => {
+      const created = { _id: '<id>', __v: 0 };
+
       const repository = buildMock(
         jest.fn(() => ({
-          save: () => true,
+          save: () => created,
         })),
       );
-      await expect(repository.create({})).resolves.toEqual(true);
+
+      await expect(repository.create({})).resolves.toEqual({ created: true, id: '<id>', version: 0 } as CreatedModel);
+    });
+
+    test.each([undefined, null, ''])('should create unsuccessfully', async (id) => {
+      const notCreated = { _id: id, __v: 0 };
+
+      const repository = buildMock(
+        jest.fn(() => ({
+          save: () => notCreated,
+        })),
+      );
+      await expect(repository.create({})).resolves.toEqual({
+        created: false,
+        id: id,
+        version: 0,
+      } as CreatedModel);
     });
   });
 
@@ -74,12 +93,12 @@ describe('Repository', () => {
     });
   });
 
-  describe('update', () => {
+  describe('updateOne', () => {
     test('should update successfully', async () => {
       const repository = buildMock({
         updateOne: () => true,
       });
-      await expect(repository.update({}, {})).resolves.toEqual(true);
+      await expect(repository.updateOne({}, {})).resolves.toEqual(true);
     });
   });
 

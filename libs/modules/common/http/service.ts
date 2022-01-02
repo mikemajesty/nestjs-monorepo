@@ -8,7 +8,7 @@ export class HttpService implements IHttpService {
   http: Axios;
 
   private defaultConfig: AxiosRequestConfig = {
-    timeout: 1000,
+    timeout: 2000,
   };
 
   constructor() {
