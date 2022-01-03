@@ -20,7 +20,7 @@ import { Cats, CatSchema } from './schema';
           useFactory: (logger: ILoggerService) => {
             const schema = CatSchema;
             schema.pre('save', function () {
-              logger.log(`Hi I'm your ${Cats.name} schama pre save`);
+              logger.log(`Hi I'm your ${Cats.name} schema pre save`);
             });
             return schema;
           },
