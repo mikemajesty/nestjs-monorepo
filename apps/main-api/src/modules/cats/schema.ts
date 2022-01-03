@@ -5,7 +5,8 @@ export type CatDocument = Cats & Document;
 
 @Schema()
 export class Cats {
-  @Prop()
+  // set document index
+  @Prop({ index: true })
   name: string;
 
   @Prop()

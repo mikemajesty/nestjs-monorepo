@@ -1,5 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CreatedModel } from 'libs/modules/global/database/entity';
 
 import { ICatsRepository } from './adapter';
 import { CatsDTO } from './entity';
@@ -11,9 +12,8 @@ export class CatsController {
   constructor(private readonly catRepository: ICatsRepository) {}
 
   @Post()
-  @ApiBody({ type: CatsDTO })
   @ApiResponse(SwagggerResponse.save[201])
-  async save(@Body() model: CatsDTO): Promise<unknown> {
+  async save(@Body() model: CatsDTO): Promise<CreatedModel> {
     return await this.catRepository.create(model);
   }
 }
