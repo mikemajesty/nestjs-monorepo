@@ -28,9 +28,8 @@ describe('CatsRepository', () => {
     repository = module.get(ICatsRepository);
   });
 
-  test('should createOrUpdate successfully', async () => {
-    model.find = jest.fn().mockReturnValue(true);
-
-    await expect(repository.example()).resolves.toEqual(true);
+  test('should be defined', async () => {
+    expect(model).toBeInstanceOf(Object);
+    expect(repository).toBeInstanceOf(CatsRepository);
   });
 });

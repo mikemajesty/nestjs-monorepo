@@ -11,9 +11,4 @@ export class CatsRepository extends Repository<CatDocument> implements ICatsRepo
   constructor(@InjectModel(Cats.name) private entity: Model<CatDocument>) {
     super(entity);
   }
-
-  // custom operator
-  async example(): Promise<Cats[]> {
-    return await this.entity.find();
-  }
 }

@@ -19,7 +19,7 @@ import { Cats, CatSchema } from './schema';
           name: Cats.name,
           useFactory: (logger: ILoggerService) => {
             const schema = CatSchema;
-            schema.pre('save', function () {
+            schema.pre('save', () => {
               logger.log(`Hi I'm your ${Cats.name} schema pre save`);
             });
             return schema;

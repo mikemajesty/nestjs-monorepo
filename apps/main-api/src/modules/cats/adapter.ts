@@ -1,7 +1,5 @@
 import { IRepository } from 'libs/modules';
 
-import { CatDocument, Cats } from './schema';
+import { CatDocument } from './schema';
 
-export abstract class ICatsRepository extends IRepository<CatDocument> {
-  abstract example(): Promise<Cats[]>;
-}
+export abstract class ICatsRepository extends IRepository<CatDocument> {}
