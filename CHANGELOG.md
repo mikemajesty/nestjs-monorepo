@@ -1,3 +1,21 @@
+#### 0.0.13 (2022-01-07)
+
+##### Chores
+
+* **utils:**  change static file ([df664ac5](https://github.com/mikemajesty/nestjs-monorepo/commit/df664ac547ece990fbeb1be573682db4f264ab4c))
+* **cats:**  change log text ([181344b5](https://github.com/mikemajesty/nestjs-monorepo/commit/181344b5c751d17c0f24b5fc6ce8dd08dda7c640))
+
+##### New Features
+
+* **main-api:**  refactor cats module ([da26f4a7](https://github.com/mikemajesty/nestjs-monorepo/commit/da26f4a748d215ce1559f1c2441680e956f320f1))
+* **dabatase module:**  add index and pre save support ([2b64f1ff](https://github.com/mikemajesty/nestjs-monorepo/commit/2b64f1ff5908f166996e90bf723699c33e3126e2))
+* **validator:**  add class validator pipe ([af35b94e](https://github.com/mikemajesty/nestjs-monorepo/commit/af35b94e4c63d739be0fe568004283e57c45fdb7))
+
+##### Refactors
+
+* **global:**  refactor global modules ([a4c2474c](https://github.com/mikemajesty/nestjs-monorepo/commit/a4c2474cf016290fa8c8d8a0f8ac42953e4895c1))
+* **database module:**  add result entity ([e0ece378](https://github.com/mikemajesty/nestjs-monorepo/commit/e0ece378a2b3f84f51f0e0aaa029cdcc2b49400e))
+
 #### 0.0.12 (2022-01-01)
 
 ##### Chores
