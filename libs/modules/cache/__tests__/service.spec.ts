@@ -111,7 +111,7 @@ describe('ICacheService', () => {
       jest.spyOn(Redis, 'createClient').mockImplementation(() => MockUtils.setMock(mock));
 
       await expect(service.hSet(undefined, undefined, undefined)).rejects.toThrowError(
-        new ApiException('Cache key: undefined not set'),
+        new ApiException('Cache key: undefined undefined not set'),
       );
     });
   });
@@ -138,6 +138,56 @@ describe('ICacheService', () => {
 
       await expect(service.pExpire(undefined, undefined)).rejects.toThrowError(
         new ApiException('undefined not set to expired'),
+      );
+    });
+  });
+
+  describe('del', () => {
+    test('should del successfully', async () => {
+      const mock = {
+        del: () => Promise.resolve(true),
+        connect: jest.fn(),
+      };
+
+      jest.spyOn(Redis, 'createClient').mockImplementation(() => MockUtils.setMock(mock));
+
+      await expect(service.del(undefined)).resolves.toBeUndefined();
+    });
+
+    test('should del unsuccessfully', async () => {
+      const mock = {
+        del: () => Promise.resolve(0),
+        connect: jest.fn(),
+      };
+
+      jest.spyOn(Redis, 'createClient').mockImplementation(() => MockUtils.setMock(mock));
+
+      await expect(service.del('key')).rejects.toThrowError(new ApiException('Cache key: key not deleted'));
+    });
+  });
+
+  describe('hDel', () => {
+    test('should hDel successfully', async () => {
+      const mock = {
+        hDel: () => Promise.resolve(true),
+        connect: jest.fn(),
+      };
+
+      jest.spyOn(Redis, 'createClient').mockImplementation(() => MockUtils.setMock(mock));
+
+      await expect(service.hDel(undefined, undefined)).resolves.toBeUndefined();
+    });
+
+    test('should hDel unsuccessfully', async () => {
+      const mock = {
+        hDel: () => Promise.resolve(0),
+        connect: jest.fn(),
+      };
+
+      jest.spyOn(Redis, 'createClient').mockImplementation(() => MockUtils.setMock(mock));
+
+      await expect(service.hDel(undefined, undefined)).rejects.toThrowError(
+        new ApiException('Cache key: undefined undefined not deleted'),
       );
     });
   });

@@ -21,6 +21,8 @@ jest.mock('redis', () => ({
     hSet: jest.fn(),
     hGet: jest.fn(),
     hGetAll: jest.fn(),
-    pExpire: jest.fn()
+    pExpire: jest.fn(),
+    hDel: jest.fn(),
+    del: jest.fn()
   }),
 }));

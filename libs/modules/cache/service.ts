@@ -45,7 +45,7 @@ export class CacheService implements ICacheService {
     const client = await this.connect();
     const set = await client.hSet(key, subKey, value);
     if (!set) {
-      throw new ApiException(`Cache key: ${key} not set`);
+      throw new ApiException(`Cache key: ${key} ${subKey} not set`);
     }
   }
 
@@ -59,6 +59,22 @@ export class CacheService implements ICacheService {
     const expired = await client.pExpire(key, miliseconds);
     if (!expired) {
       throw new ApiException(`${key} not set to expired`);
+    }
+  }
+
+  async del(key: DefaultCacheType): Promise<void> {
+    const client = await this.connect();
+    const deleted = await client.del(key);
+    if (!deleted) {
+      throw new ApiException(`Cache key: ${key} not deleted`);
+    }
+  }
+
+  async hDel(key: CacheKey, subKey: string | string[]): Promise<void> {
+    const client = await this.connect();
+    const deleted = await client.hDel(key, subKey);
+    if (!deleted) {
+      throw new ApiException(`Cache key: ${key} ${subKey} not deleted`);
     }
   }
 }
