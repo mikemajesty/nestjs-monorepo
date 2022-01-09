@@ -18,7 +18,7 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
 
     if (this.env !== 'test') {
       super.error({
-        status: [error.statusCode, error.code].find((c) => c),
+        status: [error.statusCode, error.code, error['status']].find((c) => c),
         traceId: error.uuid,
         ...{
           message: error.message,

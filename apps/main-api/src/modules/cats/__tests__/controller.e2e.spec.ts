@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { LoggerModule } from 'libs/modules/global/logger/module';
+import { ICacheService, LoggerModule } from 'libs/modules';
 import * as request from 'supertest';
 
 import { ICatsRepository } from '../adapter';
@@ -23,6 +23,12 @@ describe('CatsController (e2e)', () => {
         {
           provide: ICatsRepository,
           useClass: CatsRepository,
+        },
+        {
+          provide: ICacheService,
+          useValue: {
+            hSet: jest.fn(),
+          },
         },
         {
           provide: getModelToken(Cats.name),

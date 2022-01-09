@@ -18,7 +18,8 @@
     "@nestjs/config": "^1.1.0",
     "axios": "^0.24.0",
     "moment-timezone": "^0.5.34",
-    "nestjs-convert-to-curl": "^0.0.3"
+    "nestjs-convert-to-curl": "^0.0.3",
+    "redis": "^4.0.1"
   },
   "license": "MIT",
   "devDependencies": {}

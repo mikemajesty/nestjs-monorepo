@@ -14,7 +14,7 @@ describe('Repository', () => {
 
   describe('create', () => {
     test('should create successfully', async () => {
-      const created = { _id: '<id>', __v: 0 };
+      const created = { id: '<id>' };
 
       const repository = buildMock(
         jest.fn(() => ({
@@ -26,7 +26,7 @@ describe('Repository', () => {
     });
 
     test.each([undefined, null, ''])('should create unsuccessfully', async (id) => {
-      const notCreated = { _id: id, __v: 0 };
+      const notCreated = { id: id, __v: 0 };
 
       const repository = buildMock(
         jest.fn(() => ({

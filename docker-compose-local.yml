@@ -7,13 +7,24 @@ services:
       - .env
     ports:
       - 27017:27017
-  # if you want a mongodb managment
-  # mongo-express:
-  #   image: mongo-express
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #   ports:
-  #     - 8081:8081
-  #   env_file:
-  #     - .env
+  mongo-express:
+    image: mongo-express
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8081:8081
+    env_file:
+      - .env
+  redis:
+    image: "redis:alpine"
+    ports:
+      - 6379:6379
+  redis-commander:
+    container_name: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8081:8081"

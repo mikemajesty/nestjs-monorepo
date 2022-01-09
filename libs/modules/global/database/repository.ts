@@ -11,7 +11,7 @@ export class Repository<T extends Document> implements IRepository<T> {
     const createdEntity = new this.model(doc);
     const savedResult = await createdEntity.save(saveOptions);
 
-    return { id: savedResult._id, created: !!savedResult._id };
+    return { id: savedResult.id, created: !!savedResult.id };
   }
 
   async find(filter: FilterQuery<T>, options?: QueryOptions): Promise<T[]> {
