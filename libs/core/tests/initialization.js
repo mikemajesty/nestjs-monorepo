@@ -1,4 +1,4 @@
-// core libs jest init
+// core libs env and mocks initialization
 
 
 

@@ -1,4 +1,4 @@
-// other-api jest init
+// other-api env and mocks initialization
 
 
 

@@ -1,4 +1,4 @@
-// utils libs jest init
+// utils libs env and mocks initialization
 
 
 
