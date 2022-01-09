@@ -1,7 +1,6 @@
-// common jest init
-jest.setTimeout(2000);
+// utils libs jest init
 
-process.env.ENV = 'test';
+
 
 
 

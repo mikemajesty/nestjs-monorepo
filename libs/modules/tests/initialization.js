@@ -11,7 +11,7 @@ jest.mock('moment-timezone', () => jest.fn(() => ({
   })
 })));
 
-jest.mock('../libs/modules/node_modules/redis', () => ({
+jest.mock('redis', () => ({
   createClient: () => ({
     connect: jest.fn(),
     get: jest.fn(),

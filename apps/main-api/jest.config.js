@@ -10,20 +10,13 @@ const {
   compilerOptions
 } = require('../../tsconfig.json');
 
-const {
-  jestInitFileList
-} = require('../../tests');
-
-const JEST_ENV_FILE_NAME = 'main-api';
-const JEST_ENV_COMMON_FILE_NAME = 'common';
-
 module.exports = {
   rootDir: 'src',
   displayName: name,
   name,
   preset: 'ts-jest',
   coveragePathIgnorePatterns: ['main.ts', 'swagger.ts', 'node_modules', 'module.ts', 'interface.ts'],
-  setupFilesAfterEnv: jestInitFileList.filter(p => p.name.includes(JEST_ENV_FILE_NAME) || p.name.includes(JEST_ENV_COMMON_FILE_NAME)).map(j => j.path),
+  setupFilesAfterEnv: ['../../../tests/common-initialization.js', '../tests/initialization.js'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/../../../',
   }),

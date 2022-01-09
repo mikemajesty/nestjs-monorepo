@@ -8,4 +8,4 @@ export * from './filters/http-exception.filter';
 export * from './interceptors/http-exception.interceptor';
 export * from './interceptors/http-performance.interceptor';
 // --
-export * from './test/mock-utils';
+export * from './tests/mock-utils';
