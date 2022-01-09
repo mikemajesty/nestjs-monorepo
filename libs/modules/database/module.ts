@@ -1,12 +1,14 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ICommonSecrets } from 'libs/modules';
 
-import { IRepository, Repository } from '..';
-import { SecretsModule } from '../secrets/module';
-import { SecretsService } from '../secrets/service';
+import { SecretsModule } from '../global/secrets/module';
+import { SecretsService } from '../global/secrets/service';
+import { IRepository } from './adapter';
+import { Repository } from './repository';
 import { DataBaseService } from './service';
 
+@Global()
 @Module({
   providers: [
     DataBaseService,

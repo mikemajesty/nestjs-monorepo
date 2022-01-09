@@ -16,10 +16,10 @@ export default {
   testEnvironment: 'node',
   coverageThreshold: {
     global: {
-      functions: 90,
-      lines: 90,
-      statements: 80,
-      branches: 80,
+      functions: 95,
+      lines: 95,
+      statements: 85,
+      branches: 85,
     },
   },
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),

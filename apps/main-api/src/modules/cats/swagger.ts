@@ -1,4 +1,4 @@
-import { CreatedModel } from 'libs/modules/global/database/entity';
+import { CreatedModel } from 'libs/modules';
 import { Swagger } from 'libs/utils';
 
 export class SwagggerResponse {
@@ -7,6 +7,11 @@ export class SwagggerResponse {
       json: { id: '<id>', created: true } as CreatedModel,
       status: 201,
       description: 'Save successfully',
+    }),
+    500: Swagger.defaultResponseError({
+      status: 500,
+      route: 'api/cats',
+      description: 'Save unsuccessfully',
     }),
   };
 }

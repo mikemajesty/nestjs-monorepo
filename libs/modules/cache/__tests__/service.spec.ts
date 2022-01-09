@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import * as Redis from 'redis';
 
-import { ApiException, MockUtils } from '../../../../utils';
+import { ApiException, MockUtils } from '../../../utils';
 import { ICacheService } from '../adapter';
 import { CacheService } from '../service';
 
@@ -13,7 +13,7 @@ describe('ICacheService', () => {
       providers: [
         {
           provide: ICacheService,
-          useFactory: (env = 'mock') => new CacheService(env),
+          useFactory: (env = 'redis:redis:0000') => new CacheService(env),
         },
       ],
     }).compile();

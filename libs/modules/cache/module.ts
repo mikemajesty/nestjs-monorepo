@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 
-import { ICommonSecrets } from '../secrets/adapter';
-import { SecretsService } from '../secrets/service';
+import { ICommonSecrets } from '../global/secrets/adapter';
+import { SecretsService } from '../global/secrets/service';
 import { ICacheService } from './adapter';
 import { CacheService } from './service';
 
+@Global()
 @Module({
   providers: [
     {

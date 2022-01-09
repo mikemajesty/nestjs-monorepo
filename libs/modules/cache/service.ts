@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { createClient } from 'redis';
 
-import { ApiException } from '../../../utils';
+import { ApiException } from '../../utils';
 import { DefaultCacheType, ICacheService } from './adapter';
 import { CacheKey } from './enum';
 
