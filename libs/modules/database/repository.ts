@@ -19,7 +19,7 @@ export class Repository<T extends Document> implements IRepository<T> {
   }
 
   async findById(id: string): Promise<T> {
-    return this.model.findById(id);
+    return await this.model.findById(id);
   }
 
   async findAll(): Promise<T[]> {

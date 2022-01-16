@@ -3,7 +3,7 @@ import { FilterQuery, QueryOptions, SaveOptions, UpdateQuery, UpdateWithAggregat
 import { CreatedModel, RemovedModel, UpdatedModel } from './entity';
 
 export interface IDataBaseService {
-  connect(uri: string, dbName: string): unknown | void;
+  connect(uri: string, dbName: string): void;
 }
 
 export abstract class IRepository<T> {
