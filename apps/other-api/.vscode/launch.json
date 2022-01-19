@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: @app/other.api",
+      "type": "node",
+      "request": "attach",
+      "remoteRoot": "/src",
+      "localRoot": "${workspaceFolder}",
+      "protocol": "inspector",
+      "port": 5880,
+      "restart": true,
+      "address": "0.0.0.0",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "node",
+      "args": ["--runInBand", "--config=${workspaceFolder}/jest.config.js"],
+      "request": "launch",
+      "console": "integratedTerminal",
+      "name": "Debug: @app/other.api Jest",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": ["test"],
+      "port": 9229,
+      "sourceMaps": true
+    }  
+  ]
+ }
