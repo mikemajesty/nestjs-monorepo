@@ -3,6 +3,7 @@ import { CacheKey } from './enum';
 export type DefaultCacheType = string | number | Buffer;
 
 export abstract class ICacheService {
+  abstract client: unknown;
   abstract connect(): Promise<unknown>;
   abstract set(cache: CacheKey, value: DefaultCacheType): Promise<void>;
   abstract get(key: DefaultCacheType): Promise<unknown>;
