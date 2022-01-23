@@ -10,7 +10,7 @@ describe('DataBaseService', () => {
       providers: [
         {
           provide: DataBaseService,
-          useFactory: () => new DataBaseService({ Database: 'mock', URI: 'mongodb:mock' }),
+          useFactory: () => new DataBaseService({ URI: 'mongodb:mock' }),
         },
       ],
     }).compile();
@@ -23,7 +23,6 @@ describe('DataBaseService', () => {
       expect(service.getDefaultConnection()).toEqual({
         appName: 'monorepo',
         connectTimeoutMS: 2000,
-        dbName: 'mock',
         uri: 'mongodb:mock',
       });
     });

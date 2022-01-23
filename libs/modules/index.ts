@@ -6,8 +6,9 @@ export * from './common';
 export * from './global';
 // --
 export * from './database/adapter';
+export * from './database/auth.module';
+export * from './database/cats.module';
 export * from './database/entity';
-export * from './database/module';
 export * from './database/repository';
 // --
 

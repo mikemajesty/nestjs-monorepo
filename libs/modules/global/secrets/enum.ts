@@ -1,11 +1,14 @@
-export enum MainAPIEnvironment {
-  PORT = 'PORT_MAIN_API',
-  DB_NAME = 'MONGO_INITDB_DATABASE',
-  DB_URI = 'MONGO_INITDB_URI',
+export enum DataBaseEnvironment {
+  CATS_DB_URI = 'MONGO_INITDB_URI',
+  CATS_CONNECTION_NAME = 'CATS',
+  AUTH_DB_URI = 'MONGO_AUTH_URI',
+  AUTH_CONNECTION_NAME = 'AUTH',
 }
 
-export enum OtherAPIEnvironment {
-  PORT = 'PORT_OTHER_API',
-  DB_NAME = 'MONGO_OTHER_API_DATABASE',
-  DB_URI = 'MONGO_OTHER_API_URI',
+export enum MainAPIEnvironment {
+  PORT = 'PORT_MAIN_API',
+}
+
+export enum AuthAPIEnvironment {
+  PORT = 'PORT_AUTH_API',
 }

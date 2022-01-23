@@ -10,11 +10,11 @@ services:
       - "5870:5870"
     volumes:
       - .:/src:cached
-  other-api:
-    container_name: monorepo-other-api
+  auth-api:
+    container_name: monorepo-auth-api
     build:
       context: .
-      dockerfile: ./apps/other-api/Dockerfile
+      dockerfile: ./apps/auth-api/Dockerfile
     ports:
       - "4000:4000"
       - "5880:5880"

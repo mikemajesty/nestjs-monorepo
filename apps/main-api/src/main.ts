@@ -61,6 +61,7 @@ async function bootstrap() {
 
   process.on('unhandledRejection', (error: ApiException) => {
     error.context = 'unhandledRejection';
+    error.statusCode = 500;
     loggerService.error(error);
   });
 }

@@ -31,6 +31,7 @@ describe('ICacheService', () => {
       const mock = {
         get: () => true,
       };
+
       service.client = MockUtils.setMock(mock);
 
       await expect(service.get(undefined)).resolves.toEqual(true);

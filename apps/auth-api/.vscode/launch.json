@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug: @app/other.api",
+      "name": "Debug: @app/auth.api",
       "type": "node",
       "request": "attach",
       "remoteRoot": "/src",
@@ -18,7 +18,7 @@
       "args": ["--runInBand", "--config=${workspaceFolder}/jest.config.js"],
       "request": "launch",
       "console": "integratedTerminal",
-      "name": "Debug: @app/other.api Jest",
+      "name": "Debug: @app/auth.api Jest",
       "runtimeExecutable": "yarn",
       "cwd": "${workspaceFolder}",
       "runtimeArgs": ["test"],

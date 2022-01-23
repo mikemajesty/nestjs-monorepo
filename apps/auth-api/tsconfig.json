@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": false,
-    "outDir": "../../dist/apps/other-api"
+    "outDir": "../../dist/apps/auth-api"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

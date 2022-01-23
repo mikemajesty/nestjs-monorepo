@@ -1,7 +1,6 @@
 import { MongooseModuleOptions } from '@nestjs/mongoose';
 
 type ConnectionModel = {
-  Database: string;
   URI: string;
 };
 
@@ -12,7 +11,6 @@ export class DataBaseService {
     return {
       appName: 'monorepo',
       uri: this.connection.URI,
-      dbName: this.connection.Database,
       connectTimeoutMS: 2000,
       ...options,
     };

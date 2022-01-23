@@ -47,7 +47,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
 ##### workspace list
 <!--$ yarn workspaces info -->
  - @app/main.api
- - @app/other.api
+ - @app/auth.api
  - @tools/eslint.config
  - @libs/utils
  - @libs/modules
@@ -58,8 +58,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - local
 
     ```bash
-    $ yarn start:other:dev
-    $ yarn start:other:dev
+    $ yarn start:auth:dev
+    $ yarn start:auth:dev
     ```
 
  - dev/hml/prd environment
@@ -84,7 +84,7 @@ $ yarn mongo:dev
     ```bash
     # Run project tests
     $ yarn test main.api
-    $ yarn test other.api
+    $ yarn test auth.api
     $ yarn test libs
     ```
  - e2e
@@ -171,7 +171,7 @@ $ yarn mongo:dev
 
   - clone 
    ```base
-   git clone https://github.com/mikemajesty/other-api.git
+   git clone https://github.com/mikemajesty/auth-api.git
    ```
 
 -- Example App 
@@ -214,7 +214,7 @@ $ yarn mongo:dev
 │   │   │   └── initialization.js
 │   │   ├── tsconfig.build.json
 │   │   └── tsconfig.json
-│   └── other-api
+│   └── auth-api
 │       ├── Dockerfile
 │       ├── jest.config.js
 │       ├── package.json

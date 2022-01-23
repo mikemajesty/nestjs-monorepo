@@ -27,7 +27,7 @@
     "prepare": "husky install",
     "build": "nest build",
     "infra:local": "docker-compose -f docker-compose-local.yml up --build",
-    "monorepo:install": "yarn && yarn workspace @tools/eslint.config install && yarn workspace @libs/modules install && yarn workspace @libs/utils install && yarn workspace @libs/core install && yarn workspace @app/main.api install && yarn workspace @app/other.api install",
+    "monorepo:install": "yarn && yarn workspace @tools/eslint.config install && yarn workspace @libs/modules install && yarn workspace @libs/utils install && yarn workspace @libs/core install && yarn workspace @app/main.api install && yarn workspace @app/auth.api install",
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest",
@@ -35,9 +35,9 @@
     "test:e2e": "jest --config ./jest.config.e2e.ts",
     "commit": "cz",
     "start:main:dev": "nest start @app/main-api --debug 0.0.0.0:5870 --watch",
-    "start:other:dev": "nest start @app/other-api --debug 0.0.0.0:5880 --watch",
+    "start:auth:dev": "nest start @app/auth-api --debug 0.0.0.0:5880 --watch",
     "start:main:prd": "node dist/apps/main-api/main.js",
-    "start:other:prd": "node dist/apps/other-api/main.js",
+    "start:auth:prd": "node dist/apps/auth-api/main.js",
     "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd .."
   },
   "dependencies": {

@@ -1,23 +1,20 @@
-import { MainAPIEnvironment, OtherAPIEnvironment } from './enum';
+import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './enum';
 
 export abstract class ICommonSecrets {
   ENV: string;
 
   REDIS_URL: string;
 
-  mainAPI: {
-    PORT: MainAPIEnvironment | number;
-    db: {
-      URI: MainAPIEnvironment | string;
-      Database: MainAPIEnvironment | string;
-    };
+  database: {
+    CATS: { URI: DataBaseEnvironment | string };
+    AUTH: { URI: DataBaseEnvironment | string };
   };
 
-  otherAPI: {
-    PORT: OtherAPIEnvironment | number;
-    db: {
-      URI: OtherAPIEnvironment | string;
-      Database: OtherAPIEnvironment | string;
-    };
+  mainAPI: {
+    PORT: MainAPIEnvironment | number;
+  };
+
+  authAPI: {
+    PORT: AuthAPIEnvironment | number;
   };
 }

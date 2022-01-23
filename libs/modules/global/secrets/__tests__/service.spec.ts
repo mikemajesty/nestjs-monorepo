@@ -26,9 +26,9 @@ describe('SecretsService', () => {
     });
   });
 
-  describe('otherAPI', () => {
-    test('should get otherAPI secrets successfully', () => {
-      expect(commonSecrets.otherAPI.PORT).toEqual('4000');
+  describe('authAPI', () => {
+    test('should get authAPI secrets successfully', () => {
+      expect(commonSecrets.authAPI.PORT).toEqual('4000');
     });
   });
 });

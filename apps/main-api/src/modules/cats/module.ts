@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ILoggerService } from 'libs/modules';
-import { SecretsService } from 'libs/modules/global/secrets/service';
+import { DataBaseEnvironment, ILoggerService } from 'libs/modules';
 
 import { ICatsRepository } from './adapter';
 import { CatsController } from './controller';
@@ -27,7 +26,7 @@ import { Cats, CatSchema } from './schema';
           inject: [ILoggerService],
         },
       ],
-      new SecretsService().mainAPI.db.Database,
+      DataBaseEnvironment.CATS_CONNECTION_NAME,
     ),
   ],
   providers: [

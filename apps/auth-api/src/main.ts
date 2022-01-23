@@ -1,7 +1,7 @@
 import { HttpStatus, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { description, name, version } from 'apps/other-api/package.json';
+import { description, name, version } from 'apps/auth-api/package.json';
 import { ICommonSecrets, ILoggerService } from 'libs/modules';
 import {
   ApiException,
@@ -33,7 +33,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new ExceptionInterceptor(), new PerformanceInterceptor(loggerService));
 
   const {
-    otherAPI: { PORT },
+    authAPI: { PORT },
     ENV,
   } = app.get(ICommonSecrets);
 
@@ -60,6 +60,7 @@ async function bootstrap() {
   loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/${SWAGGER_API_ROOT}  🔵 \n`);
 
   process.on('unhandledRejection', (error: ApiException) => {
+    error.statusCode = 500;
     error.context = 'unhandledRejection';
     loggerService.error(error);
   });

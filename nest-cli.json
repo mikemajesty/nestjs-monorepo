@@ -17,13 +17,13 @@
         "tsConfigPath": "apps/main-api/tsconfig.json"
       }
     },
-    "@app/other-api": {
+    "@app/auth-api": {
       "type": "application",
-      "root": "apps/other-api",
+      "root": "apps/auth-api",
       "entryFile": "main",
-      "sourceRoot": "apps/other-api/src",
+      "sourceRoot": "apps/auth-api/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/other-api/tsconfig.json"
+        "tsConfigPath": "apps/auth-api/tsconfig.json"
       }
     },
     "@tools/eslint.config": {

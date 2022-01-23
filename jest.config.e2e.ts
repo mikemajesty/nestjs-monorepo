@@ -11,7 +11,7 @@ export default {
   setupFilesAfterEnv: [
     '../tests/common-initialization.js',
     './main-api/tests/initialization.js',
-    './other-api/tests/initialization.js',
+    './auth-api/tests/initialization.js',
     '../libs/modules/tests/initialization.js',
     '../libs/core/tests/initialization.js',
     '../libs/utils/tests/initialization.js',
