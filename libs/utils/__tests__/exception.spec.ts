@@ -14,4 +14,9 @@ describe('ApiException', () => {
       throw new ApiException('BAD_REQUEST');
     }).toThrowError('BAD_REQUEST');
   });
+
+  test('should ApiException successfully with context', () => {
+    const error = new ApiException('BAD_REQUEST', HttpStatus.BAD_GATEWAY, 'Error');
+    expect(error).toBeInstanceOf(ApiException);
+  });
 });

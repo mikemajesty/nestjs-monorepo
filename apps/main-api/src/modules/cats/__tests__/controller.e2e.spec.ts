@@ -1,7 +1,8 @@
 import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ICacheService, LoggerModule } from 'libs/modules';
+import { ICacheService } from 'libs/modules';
+import { LoggerModule } from 'libs/modules/global';
 import * as request from 'supertest';
 
 import { ICatsRepository } from '../adapter';

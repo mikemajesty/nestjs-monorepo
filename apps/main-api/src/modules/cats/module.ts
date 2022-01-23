@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { DataBaseEnvironment, ILoggerService } from 'libs/modules';
+import { DataBaseEnvironment, ILoggerService } from 'libs/modules/global';
 
 import { ICatsRepository } from './adapter';
 import { CatsController } from './controller';

@@ -2,7 +2,7 @@ import { HttpStatus, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/main-api/package.json';
-import { ICommonSecrets, ILoggerService } from 'libs/modules';
+import { ICommonSecrets, ILoggerService } from 'libs/modules/global';
 import {
   ApiException,
   AppExceptionFilter,

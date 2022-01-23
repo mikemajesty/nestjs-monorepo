@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
-import { AuthDatabaseModule, CommonModule, GlobalModule } from 'libs/modules';
+import { AuthDatabaseModule } from 'libs/modules';
+import { CommonModule } from 'libs/modules/common';
+import { GlobalModule } from 'libs/modules/global';
 
 import { HealthModule } from './health/module';
 
