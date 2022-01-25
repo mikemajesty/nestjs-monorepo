@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 
-import { ApiException, MockUtils } from '../../../utils';
+import { ApiException } from '../../../utils';
 import { ICacheService } from '../adapter';
 import { CacheService } from '../service';
 
@@ -32,7 +32,7 @@ describe('ICacheService', () => {
         get: () => true,
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.get(undefined)).resolves.toEqual(true);
     });
@@ -44,7 +44,7 @@ describe('ICacheService', () => {
         set: () => Promise.resolve('OK'),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.set(undefined, undefined)).resolves.toBeUndefined();
     });
@@ -54,7 +54,7 @@ describe('ICacheService', () => {
         set: () => Promise.resolve('NOK'),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.set(undefined, undefined)).rejects.toThrowError(
         new ApiException('Cache key: undefined not set'),
@@ -68,7 +68,7 @@ describe('ICacheService', () => {
         hGet: () => true,
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.hGet(undefined, undefined)).resolves.toEqual(true);
     });
@@ -80,7 +80,7 @@ describe('ICacheService', () => {
         hGetAll: () => true,
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.hGetAll(undefined)).resolves.toEqual(true);
     });
@@ -92,7 +92,7 @@ describe('ICacheService', () => {
         hSet: () => Promise.resolve(1),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.hSet(undefined, undefined, undefined)).resolves.toBeUndefined();
     });
@@ -102,7 +102,7 @@ describe('ICacheService', () => {
         hSet: () => Promise.resolve(0),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.hSet(undefined, undefined, undefined)).rejects.toThrowError(
         new ApiException('Cache key: undefined undefined not set'),
@@ -116,7 +116,7 @@ describe('ICacheService', () => {
         pExpire: () => Promise.resolve(true),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.pExpire(undefined, undefined)).resolves.toBeUndefined();
     });
@@ -126,7 +126,7 @@ describe('ICacheService', () => {
         pExpire: () => Promise.resolve(0),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.pExpire(undefined, undefined)).rejects.toThrowError(
         new ApiException('undefined not set to expired'),
@@ -140,7 +140,7 @@ describe('ICacheService', () => {
         del: () => Promise.resolve(true),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.del(undefined)).resolves.toBeUndefined();
     });
@@ -150,7 +150,7 @@ describe('ICacheService', () => {
         del: () => Promise.resolve(0),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.del('key')).rejects.toThrowError(new ApiException('Cache key: key not deleted'));
     });
@@ -162,7 +162,7 @@ describe('ICacheService', () => {
         hDel: () => Promise.resolve(true),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.hDel(undefined, undefined)).resolves.toBeUndefined();
     });
@@ -172,7 +172,7 @@ describe('ICacheService', () => {
         hDel: () => Promise.resolve(0),
       };
 
-      service.client = MockUtils.setMock(mock);
+      service.client = mock;
 
       await expect(service.hDel(undefined, undefined)).rejects.toThrowError(
         new ApiException('Cache key: undefined undefined not deleted'),
