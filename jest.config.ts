@@ -3,7 +3,7 @@ import { pathsToModuleNameMapper } from 'ts-jest';
 import { compilerOptions } from './tsconfig.json';
 
 export default {
-  collectCoverage: true,
+  collectCoverage: false,
   moduleFileExtensions: ['js', 'json', 'ts'],
   roots: ['apps', 'libs'],
   testRegex: '.*\\.spec\\.ts$',
