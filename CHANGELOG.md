@@ -1,3 +1,9 @@
+#### 0.0.15 (2022-01-25)
+
+##### Refactors
+
+* **monorepo:**  remove redis ([1c00a717](https://github.com/mikemajesty/nestjs-monorepo/commit/1c00a7178e8c141fbe222bce530ef8652426e540))
+
 #### 0.0.14 (2022-01-25)
 
 ##### Chores
