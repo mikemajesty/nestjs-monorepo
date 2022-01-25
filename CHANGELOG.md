@@ -1,3 +1,39 @@
+#### 0.0.14 (2022-01-25)
+
+##### Chores
+
+* **jest initialization:**  refactor envs and mocks ([b3dbcff8](https://github.com/mikemajesty/nestjs-monorepo/commit/b3dbcff81d497ecf9caae9d3099d76a29b11611b))
+
+##### Documentation Changes
+
+* **main-api:**  imporve docs ([196ffe32](https://github.com/mikemajesty/nestjs-monorepo/commit/196ffe32e5ebde30257b00fc375d756b0baeea30))
+* **readme:**  set new tree folders ([bec6763a](https://github.com/mikemajesty/nestjs-monorepo/commit/bec6763aaa2eb6ba7f4253580082129e2b0b0c9d))
+
+##### New Features
+
+* **monorepo:**  improve configuration ([5a938042](https://github.com/mikemajesty/nestjs-monorepo/commit/5a938042689f158d91cfb10defd7ffe01712aa4c))
+* **http module:**  add axios config support ([2e0d6170](https://github.com/mikemajesty/nestjs-monorepo/commit/2e0d61706393bdd982ee4d3786abb406e683b84d))
+* **redis:**  add redis functions ([de99fd97](https://github.com/mikemajesty/nestjs-monorepo/commit/de99fd97bf10202e78a788d72468c6de6d18af5b))
+* **libs:**  add redis module ([29181bf0](https://github.com/mikemajesty/nestjs-monorepo/commit/29181bf03714f9039f584f8ec633a8456a32b689))
+
+##### Bug Fixes
+
+* **database:**  fix repository implementation ([8cab1f54](https://github.com/mikemajesty/nestjs-monorepo/commit/8cab1f54ff7c428dc5f6402b55777088c7044d97))
+
+##### Refactors
+
+* **monorepo:**
+  *  remove coverage boolean ([366830b1](https://github.com/mikemajesty/nestjs-monorepo/commit/366830b170c60412af9802de07f651d18ec070d5))
+  *  refactor all projects ([c8f52bf5](https://github.com/mikemajesty/nestjs-monorepo/commit/c8f52bf58b18f03bfad28be4da6f17c624658457))
+  *  refactor redis module ([2f48f61a](https://github.com/mikemajesty/nestjs-monorepo/commit/2f48f61aac67bee68b8e37b2c48d319188766c56))
+* **global module:**  refactor global module ([4071a889](https://github.com/mikemajesty/nestjs-monorepo/commit/4071a889f0167f017fd4bbe9c14f3a8cb141f655))
+* **tests:**  refactor tests initialization ([36af9f14](https://github.com/mikemajesty/nestjs-monorepo/commit/36af9f14f1555df30799ccb4c007991249ae2ad8))
+
+##### Tests
+
+* **cache:**  refactor cache tests ([5f3c0c67](https://github.com/mikemajesty/nestjs-monorepo/commit/5f3c0c67379300f57aea824228d4d3f642e6efd1))
+* **monorepo:**  add more tests ([80332e62](https://github.com/mikemajesty/nestjs-monorepo/commit/80332e623622e364a478972792b19b9a83fdb216))
+
 #### 0.0.13 (2022-01-07)
 
 ##### Chores
