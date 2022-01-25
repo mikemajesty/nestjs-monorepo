@@ -1,6 +1,5 @@
 import { getModelToken } from '@nestjs/mongoose';
 import { Test } from '@nestjs/testing';
-import { ICacheService } from 'libs/modules';
 import { Model } from 'mongoose';
 
 import { ICatsRepository } from '../adapter';
@@ -21,12 +20,6 @@ describe('CatsRepository', () => {
         {
           provide: ICatsRepository,
           useClass: CatsRepository,
-        },
-        {
-          provide: ICacheService,
-          useValue: {
-            hSet: jest.fn(),
-          },
         },
       ],
     }).compile();

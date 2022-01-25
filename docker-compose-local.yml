@@ -16,17 +16,3 @@ services:
       - 8082:8082
     env_file:
       - .env
-  redis:
-    image: "redis:alpine"
-    ports:
-      - 6379:6379
-  redis-commander:
-    container_name: redis-commander
-    image: rediscommander/redis-commander:latest
-    restart: always
-    depends_on:
-      - redis
-    env_file:
-      - .env
-    ports:
-      - "8081:8081"

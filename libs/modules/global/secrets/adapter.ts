@@ -3,8 +3,6 @@ import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './e
 export abstract class ICommonSecrets {
   ENV: string;
 
-  REDIS_URL: string;
-
   database: {
     CATS: { URI: DataBaseEnvironment | string };
     AUTH: { URI: DataBaseEnvironment | string };

@@ -17,8 +17,6 @@ export class SecretsService extends ConfigService implements ICommonSecrets {
     AUTH: { URI: this.get<string>(DataBaseEnvironment.AUTH_DB_URI) },
   };
 
-  REDIS_URL = this.get<string>('REDIS_URL');
-
   mainAPI = {
     PORT: this.get<number>(MainAPIEnvironment.PORT),
   };

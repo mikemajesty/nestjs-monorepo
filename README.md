@@ -19,8 +19,6 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
  - swaggger documentation
 
- - Redis
-
  - Mongodb
     - mongoose
     - multiples databases
