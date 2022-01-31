@@ -38,6 +38,9 @@
     "start:auth:dev": "nest start @app/auth-api --debug 0.0.0.0:5880 --watch",
     "start:main:prd": "node dist/apps/main-api/main.js",
     "start:auth:prd": "node dist/apps/auth-api/main.js",
+    "add:module": "monorepo-nestjs-cli --module",
+    "add:test": "monorepo-nestjs-cli --test",
+    "add:app": "monorepo-nestjs-cli --app",
     "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd .."
   },
   "dependencies": {
