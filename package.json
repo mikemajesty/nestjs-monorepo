@@ -44,7 +44,6 @@
     "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd .."
   },
   "dependencies": {
-    "@mikemajesty/monorepo-nestjs-cli": "^0.0.3",
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/mongoose": "^9.0.1",
@@ -60,6 +59,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@mikemajesty/monorepo-nestjs-cli": "^0.0.3",
     "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
     "@nestjs/cli": "^8.0.0",
