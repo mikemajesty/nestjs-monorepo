@@ -32,6 +32,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Node: 14 > < 15
  - Docker
  - npm install -g commitizen
+ - npm i -g @mikemajesty/monorepo-nestjs-cli
 
 #### Instalation
 
