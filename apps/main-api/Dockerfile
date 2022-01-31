@@ -25,4 +25,4 @@ RUN ls /app -al
 
 RUN yarn
 
-CMD yarn --cwd app start:main:prd
+CMD yarn --cwd app start:main-api:prd

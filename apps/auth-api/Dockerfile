@@ -25,4 +25,4 @@ RUN ls /app -al
 
 RUN yarn
 
-CMD yarn --cwd apps start:auth:prd
+CMD yarn --cwd apps start:auth-api:prd
