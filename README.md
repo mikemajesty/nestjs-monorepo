@@ -88,7 +88,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
 #### Running local mongodb
 ```bash
-$ yarn mongo:dev
+$ yarn infra:local
 ```
 
 
