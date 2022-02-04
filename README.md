@@ -62,8 +62,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - local
 
     ```bash
-    $ yarn start:auth:dev
-    $ yarn start:auth:dev
+    $ yarn start:other-api:dev
+    $ yarn start:main-api:dev
     ```
 
  - dev/hml/prd environment
@@ -71,6 +71,20 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```bash
     $ docker-compose up --build
     ```
+ 
+#### Add new features
+  - add new module
+  ```bash
+    yarn add:module
+  ```
+  - add new api
+  ```bash
+    yarn add:app
+  ```
+  - add new test
+  ```bash
+    yarn add:test
+  ```
 
 #### Running local mongodb
 ```bash
