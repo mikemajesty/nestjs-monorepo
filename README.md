@@ -58,8 +58,6 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - @libs/core
 ---
 
----
-
 #### Running the app
  - local
 
