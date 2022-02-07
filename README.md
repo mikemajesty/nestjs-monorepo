@@ -58,6 +58,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - @libs/core
 ---
 
+---
+
 #### Running the app
  - local
 
@@ -72,6 +74,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
     $ docker-compose up --build
     ```
  
+---
+
 #### Add new features
   - add new module
     ```bash
@@ -85,13 +89,14 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```bash
       yarn add:test
     ```
+---
 
 #### Running local mongodb
 ```bash
 $ yarn infra:local
 ```
 
-
+---
 #### Tests
  - unit
     ```bash
@@ -113,6 +118,7 @@ $ yarn infra:local
     ```
     $ yarn test:coverage
     ```
+---
 
 #### Lint
 
@@ -124,14 +130,14 @@ $ yarn infra:local
     ```
     $ yarn workspace <workspaceName> lint
     ```
-
+---
 #### Build
 
  - Run project build
     ```
     $ yarn build <workspaceName>
     ```
-
+---
 #### Usage
 
  - logs
@@ -185,25 +191,28 @@ $ yarn infra:local
          }
       }
       ```
+---
 ##### Adding new API
 
   - clone
    ```base
    $ yarn monorepo-nestjs-cli --app
    ```
+---
 ##### Adding new module
 
   - clone
    ```base
    $ yarn monorepo-nestjs-cli --module
    ```
+---
 ##### Adding new test
 
   - clone
    ```base
    $ yarn monorepo-nestjs-cli --test
    ```
-
+---
 -- Example App 
 
 ```bash
