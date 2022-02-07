@@ -74,17 +74,17 @@ Check the [contributing manual](./CONTRIBUTING.md)
  
 #### Add new features
   - add new module
-  ```bash
-    yarn add:module
-  ```
+    ```bash
+      yarn add:module
+    ```
   - add new api
-  ```bash
-    yarn add:app
-  ```
+    ```bash
+      yarn add:app
+    ```
   - add new test
-  ```bash
-    yarn add:test
-  ```
+    ```bash
+      yarn add:test
+    ```
 
 #### Running local mongodb
 ```bash
