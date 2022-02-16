@@ -1,29 +1,20 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/main-api/src",
+  "sourceRoot": "apps/student-api/src",
   "monorepo": true,
-  "root": "apps/main-api",
+  "root": "apps/student-api",
   "compilerOptions": {
     "webpack": true,
-    "tsConfigPath": "apps/main-api/tsconfig.json"
+    "tsConfigPath": "apps/student-api/tsconfig.json"
   },
   "projects": {
-    "@app/main-api": {
+    "@app/student-api": {
       "type": "application",
-      "root": "apps/main-api",
+      "root": "apps/student-api",
       "entryFile": "main",
-      "sourceRoot": "apps/main-api/src",
+      "sourceRoot": "apps/student-api/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/main-api/tsconfig.json"
-      }
-    },
-    "@app/auth-api": {
-      "type": "application",
-      "root": "apps/auth-api",
-      "entryFile": "main",
-      "sourceRoot": "apps/auth-api/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/auth-api/tsconfig.json"
+        "tsConfigPath": "apps/student-api/tsconfig.json"
       }
     },
     "@tools/eslint.config": {

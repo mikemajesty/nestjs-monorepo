@@ -1,18 +1,16 @@
-import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './enum';
+import { DataBaseEnvironment, MainAPIEnvironment } from './enum';
 
 export abstract class ICommonSecrets {
   ENV: string;
 
   database: {
-    CATS: { URI: DataBaseEnvironment | string };
-    AUTH: { URI: DataBaseEnvironment | string };
+    host: DataBaseEnvironment | string;
+    username: DataBaseEnvironment | string;
+    password: DataBaseEnvironment | string;
+    dbName: DataBaseEnvironment | string;
   };
 
   mainAPI: {
     PORT: MainAPIEnvironment | number;
-  };
-
-  authAPI: {
-    PORT: AuthAPIEnvironment | number;
   };
 }

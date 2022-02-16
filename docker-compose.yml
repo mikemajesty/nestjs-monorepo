@@ -1,22 +1,24 @@
 version: "2"
 services:
-  main-api:
-    container_name: monorepo-main-api
+  student-api:
+    container_name: monorepo-student-api
     build:
       context: .
-      dockerfile: ./apps/main-api/Dockerfile
+      dockerfile: ./apps/student-api/Dockerfile
     ports:
       - "3000:3000"
       - "5870:5870"
     volumes:
       - .:/src:cached
-  auth-api:
-    container_name: monorepo-auth-api
-    build:
-      context: .
-      dockerfile: ./apps/auth-api/Dockerfile
-    ports:
-      - "4000:4000"
-      - "5880:5880"
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
     volumes:
-      - .:/src:cached
+      - postgresql-data:/var/lib/postgresql/data
+      - ./docker/initdb:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+
+volumes:
+  postgresql-data:

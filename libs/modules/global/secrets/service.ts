@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { ICommonSecrets } from './adapter';
-import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './enum';
+import { DataBaseEnvironment, MainAPIEnvironment } from './enum';
 
 @Injectable()
 export class SecretsService extends ConfigService implements ICommonSecrets {
@@ -10,18 +10,16 @@ export class SecretsService extends ConfigService implements ICommonSecrets {
     super();
   }
 
-  ENV = this.get<string>('ENV');
-
   database = {
-    CATS: { URI: this.get<string>(DataBaseEnvironment.CATS_DB_URI) },
-    AUTH: { URI: this.get<string>(DataBaseEnvironment.AUTH_DB_URI) },
+    host: this.get<string>(DataBaseEnvironment.DB_HOST),
+    username: this.get<string>(DataBaseEnvironment.DB_USERNAME),
+    password: this.get<string>(DataBaseEnvironment.DB_PASSWORD),
+    dbName: this.get<string>(DataBaseEnvironment.DB_DATABASE),
   };
+
+  ENV = this.get<string>('ENV');
 
   mainAPI = {
     PORT: this.get<number>(MainAPIEnvironment.PORT),
-  };
-
-  authAPI = {
-    PORT: this.get<number>(AuthAPIEnvironment.PORT),
   };
 }

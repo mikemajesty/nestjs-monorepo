@@ -1,18 +1,22 @@
-import { MongooseModuleOptions } from '@nestjs/mongoose';
+import { Injectable, Scope } from '@nestjs/common';
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-type ConnectionModel = {
-  URI: string;
-};
+import { ICommonSecrets } from '../global';
 
-export class DataBaseService {
-  constructor(private connection: ConnectionModel) {}
+@Injectable({ scope: Scope.TRANSIENT })
+export class DatabaseService {
+  constructor(private secretService: ICommonSecrets) {}
 
-  getDefaultConnection(options?: MongooseModuleOptions): MongooseModuleOptions {
+  getConfig(): TypeOrmModuleOptions {
     return {
-      appName: 'monorepo',
-      uri: this.connection.URI,
-      connectTimeoutMS: 2000,
-      ...options,
+      type: 'mysql',
+      host: this.secretService.database.host,
+      username: this.secretService.database.username,
+      password: this.secretService.database.password,
+      database: this.secretService.database.dbName,
+      synchronize: this.secretService.ENV !== 'prd',
+      migrationsRun: true,
+      autoLoadEntities: true,
     };
   }
 }

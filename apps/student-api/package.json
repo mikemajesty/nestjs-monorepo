@@ -1,0 +1,19 @@
+{
+  "name": "@app/main.api",
+  "version": "0.0.1",
+  "description": "monorepo student-api",
+  "main": "main",
+  "scripts": {
+    "format": "../../tools/eslint/node_modules/.bin/prettier --write \"**/*.{ts, js, json}\"",
+    "test": "../../node_modules/jest/bin/jest.js",
+    "lint": "yarn format && ../../tools/eslint/node_modules/.bin/eslint \"src/**/*.{ts, js, json}\" --fix"
+  },
+  "author": {
+    "name": "Mike Lima",
+    "email": "mike.rodrigues.lima@gmail.com"
+  },
+  "engines": {
+    "node": ">=14 <=15"
+  },
+  "license": "MIT"
+}

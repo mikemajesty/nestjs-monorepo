@@ -10,8 +10,7 @@ export default {
   preset: 'ts-jest',
   setupFilesAfterEnv: [
     '../tests/common-initialization.js',
-    './main-api/tests/initialization.js',
-    './auth-api/tests/initialization.js',
+    './student-api/tests/initialization.js',
     '../libs/modules/tests/initialization.js',
     '../libs/core/tests/initialization.js',
     '../libs/utils/tests/initialization.js',
