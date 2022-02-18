@@ -34,6 +34,7 @@
     "test:e2e": "jest --config ./jest.config.e2e.ts",
     "commit": "cz",
     "start:student-api:dev": "nest start @app/student-api --debug 0.0.0.0:5870 --watch",
+    "start:student-client": "yarn --cwd \"apps/student-client\" start",
     "start:student-api:prd": "node dist/apps/student-api/main.js",
     "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd .."
   },
