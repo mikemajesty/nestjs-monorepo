@@ -9,7 +9,6 @@ export class ExceptionInterceptor implements NestInterceptor {
     return next.handle().pipe(
       catchError((error) => {
         error.status = error.status || 500;
-
         const isClassValidatorError = [
           error.status === HttpStatus.PRECONDITION_FAILED,
           Array.isArray(error?.response?.message),

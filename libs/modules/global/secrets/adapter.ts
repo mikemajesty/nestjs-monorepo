@@ -1,4 +1,4 @@
-import { DataBaseEnvironment, MainAPIEnvironment } from './enum';
+import { DataBaseEnvironment, StudentAPIEnvironment } from './enum';
 
 export abstract class ICommonSecrets {
   ENV: string;
@@ -11,6 +11,6 @@ export abstract class ICommonSecrets {
   };
 
   mainAPI: {
-    PORT: MainAPIEnvironment | number;
+    PORT: StudentAPIEnvironment | number;
   };
 }

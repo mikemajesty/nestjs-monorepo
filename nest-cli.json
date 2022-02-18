@@ -5,6 +5,9 @@
   "root": "apps/student-api",
   "compilerOptions": {
     "webpack": true,
+    "plugins": [
+      "@nestjs/graphql/plugin"
+    ],
     "tsConfigPath": "apps/student-api/tsconfig.json"
   },
   "projects": {

@@ -1,5 +1,5 @@
 {
-  "name": "@app/main.api",
+  "name": "@app/student.api",
   "version": "0.0.1",
   "description": "monorepo student-api",
   "main": "main",

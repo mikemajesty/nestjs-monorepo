@@ -15,8 +15,10 @@ export class DatabaseService {
       password: this.secretService.database.password,
       database: this.secretService.database.dbName,
       synchronize: this.secretService.ENV !== 'prd',
+      connectTimeout: 2000,
       migrationsRun: true,
       autoLoadEntities: true,
+      entities: ['../../../apps/**/src/modules/**/entity{.ts, .js}'],
     };
   }
 }

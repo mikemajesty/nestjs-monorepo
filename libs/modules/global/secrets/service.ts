@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { ICommonSecrets } from './adapter';
-import { DataBaseEnvironment, MainAPIEnvironment } from './enum';
+import { DataBaseEnvironment, StudentAPIEnvironment } from './enum';
 
 @Injectable()
 export class SecretsService extends ConfigService implements ICommonSecrets {
@@ -20,6 +20,6 @@ export class SecretsService extends ConfigService implements ICommonSecrets {
   ENV = this.get<string>('ENV');
 
   mainAPI = {
-    PORT: this.get<number>(MainAPIEnvironment.PORT),
+    PORT: this.get<number>(StudentAPIEnvironment.PORT),
   };
 }

@@ -6,7 +6,6 @@ import { DatabaseService } from './service';
 
 @Module({
   imports: [
-    DatabaseService,
     TypeOrmModule.forRootAsync({
       useFactory: async (secretsService: DatabaseService = new DatabaseService(new SecretsService())) => {
         return secretsService.getConfig();

@@ -13,14 +13,18 @@ export class AppExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest<Request>();
-
     const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
     this.loggerService.error(exception);
 
     const code = [exception.code, status, HttpStatus.INTERNAL_SERVER_ERROR].find((c) => c);
 
-    response.status(status).json({
+    if (!request) {
+      // is graphql request
+      return;
+    }
+
+    response.status(code).json({
       error: {
         code,
         traceId: exception.uuid,

@@ -1,24 +1,52 @@
 version: "2"
 services:
-  student-api:
-    container_name: monorepo-student-api
-    build:
-      context: .
-      dockerfile: ./apps/student-api/Dockerfile
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      webnet:
+        aliases:
+          - adminer
+    depends_on:
+      - db
+    env_file:
+      - .env
     ports:
-      - "3000:3000"
-      - "5870:5870"
-    volumes:
-      - .:/src:cached
+      - 8080:8080
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
+    ports:
+      - 3306:3306
+    networks:
+      webnet:
+        aliases:
+          - mysql
     volumes:
-      - postgresql-data:/var/lib/postgresql/data
-      - ./docker/initdb:/docker-entrypoint-initdb.d
-    environment:
-      MYSQL_ROOT_PASSWORD: admin
+      - db_data:/var/lib/mysql
+    env_file:
+      - .env
+  # student-api:
+  #   container_name: monorepo-student-api
+  #   env_file:
+  #     - .env
+  #   networks:
+  #     webnet:
+  #       aliases:
+  #         - student-api
+  #   depends_on:
+  #     - db
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/student-api/Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #     - "5870:5870"
+  #   volumes:
+  #     - .:/src:cached
 
+networks:
+  webnet:
 volumes:
-  postgresql-data:
+  db_data:
