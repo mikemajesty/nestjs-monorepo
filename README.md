@@ -4,7 +4,11 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
 <!-- Galera seguinte, tive algumas horas para fazer o teste e como nunca tinha estudado graphql, ficou muita coisa sem fazer, como: testes para o graphql module, um front decente e outras coisas, eu tenho um monorepo(Aaaaaaamo) e  resolvi adaptar para o teste, espero que gostem. Aaaaa ficaram alguns erros na hora de rodar o lint apos adicionar o react e não tive tempo para investigar o pq-->
 
-<!-- Qualquer problema para rodar o teste, só me mandar msm: 15 997624783-->
+<!-- Qualquer problema para rodar o teste, só me mandar msm: 15 997624783
+
+https://github.com/mikemajesty
+
+-->
 
 ##### Monorepo with nestjs and React
  - Docker
@@ -66,7 +70,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```
  - open: ```http://localhost:8080/``` then log with parameters 
 
-<img src="https://ibb.co/wr0smjS">
+[<img alt="mikemajesty" src="https://ibb.co/wr0smjS" width="117">](https://ibb.co/wr0smjS)
 
  then create a table "student"
 
