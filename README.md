@@ -66,7 +66,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```
  - open: ```http://localhost:8080/``` then log with parameters 
 
- ![image info](http://[::1]:3000/graphql)]
+<img src="http://[::1]:3000/graphql">
 
  then create a table "student"
 
