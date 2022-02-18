@@ -4,7 +4,7 @@
   "description": "Nestjs monorepo",
   "workspaces": {
     "packages": [
-      "./apps/*",
+      "./apps/student-api",
       "./libs/*",
       "./tools/eslint"
     ]
@@ -26,7 +26,7 @@
     "prebuild": "rimraf dist",
     "prepare": "husky install",
     "build": "nest build",
-    "monorepo:install": "yarn && yarn workspace @tools/eslint.config install && yarn workspace @libs/modules install && yarn workspace @libs/utils install && yarn workspace @libs/core install && yarn workspace @app/main.api install && yarn workspace @app/auth.api install",
+    "monorepo:install": "yarn && yarn workspace @tools/eslint.config install && yarn workspace @libs/modules install && yarn workspace @libs/utils install && yarn workspace @libs/core install && yarn workspace @app/student.api install && yarn --cwd apps/student-client install",
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest",

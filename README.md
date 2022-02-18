@@ -2,7 +2,11 @@
 
 Check the [contributing manual](./CONTRIBUTING.md)
 
-##### Monorepo with nestjs
+<!-- Galera seguinte, tive algumas horas para fazer o teste e como nunca tinha estudado graphql, ficou muita coisa sem fazer, como: testes para o graphql module, um front decente e outras coisas, eu tenho um monorepo(Aaaaaaamo) e  resolvi adaptar para o teste, espero que gostem. Aaaaa ficaram alguns erros na hora de rodar o lint apos adicionar o react e não tive tempo para investigar o pq-->
+
+<!-- Qualquer problema para rodar o teste, só me mandar msm: 15 997624783-->
+
+##### Monorepo with nestjs and React
  - Docker
  
  - Secrets Service
@@ -19,9 +23,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
  - swaggger documentation
 
- - Mongodb
-    - mongoose
-    - multiples databases
+ - MySql
+ - Graphql
 
  - Tests
     - unit
@@ -31,8 +34,6 @@ Check the [contributing manual](./CONTRIBUTING.md)
 #### Prerequisite
  - Node: 14 > < 15
  - Docker
- - npm install -g commitizen
- - npm i -g @mikemajesty/monorepo-nestjs-cli
 
 #### Instalation
 
@@ -50,8 +51,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```
 ##### workspace list
 <!--$ yarn workspaces info -->
- - @app/main.api
- - @app/auth.api
+ - @app/student.api
  - @tools/eslint.config
  - @libs/utils
  - @libs/modules
@@ -62,21 +62,45 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - local
 
     ```bash
-    $ yarn start:auth:dev
-    $ yarn start:auth:dev
-    ```
-
- - dev/hml/prd environment
-
-    ```bash
     $ docker-compose up --build
     ```
+ - open: ```http://localhost:8080/``` then log with parameters 
+ <img alt="mikemajesty" src="./img/adminer.png")/> 
+ then create a table "student"
 
-#### Running local mongodb
-```bash
-$ yarn mongo:dev
+
+#### graphql
+
+ - list
+
+```js
+// http://[::1]:3000/graphql
+query {
+  getAll {
+    name
+    cpf,
+    email
+  }
+}
+
+ - create
+ ```js 
+# http://[::1]:3000/graphql
+ mutation {
+     createStudent(data:{
+      name:"mike",
+      email:"mike.lima@gmail.com",
+      cpf:"teste"
+    }
+    ){
+    id
+  }
+}
+
+ ```
+
+
 ```
-
 
 #### Tests
  - unit
@@ -87,8 +111,7 @@ $ yarn mongo:dev
     
     ```bash
     # Run project tests
-    $ yarn test main.api
-    $ yarn test auth.api
+    $ yarn test student.api
     $ yarn test libs
     ```
  - e2e
