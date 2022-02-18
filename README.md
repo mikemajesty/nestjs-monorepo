@@ -4,6 +4,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
 <!-- Galera seguinte, tive algumas horas para fazer o teste e como nunca tinha estudado graphql, ficou muita coisa sem fazer, como: testes para o graphql module, um front decente e outras coisas, eu tenho um monorepo(Aaaaaaamo) e  resolvi adaptar para o teste, espero que gostem. Aaaaa ficaram alguns erros na hora de rodar o lint apos adicionar o react e não tive tempo para investigar o pq-->
 
+<!-- a table so aparece se abaixar o scroll do mouse :( -->
 <!-- Qualquer problema para rodar o teste, só me mandar msm: 15 997624783
 
 https://github.com/mikemajesty
