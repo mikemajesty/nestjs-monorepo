@@ -65,16 +65,17 @@ Check the [contributing manual](./CONTRIBUTING.md)
     $ docker-compose up --build
     ```
  - open: ```http://localhost:8080/``` then log with parameters 
- <img alt="mikemajesty" src="./img/adminer.png")/> 
- then create a table "student"
 
+ ![image info](http://[::1]:3000/graphql)]
+
+ then create a table "student"
 
 #### graphql
 
  - list
 
 ```js
-// http://[::1]:3000/graphql
+// 
 query {
   getAll {
     name
@@ -82,6 +83,7 @@ query {
     email
   }
 }
+```
 
  - create
  ```js 
@@ -96,9 +98,6 @@ query {
     id
   }
 }
-
- ```
-
 
 ```
 
