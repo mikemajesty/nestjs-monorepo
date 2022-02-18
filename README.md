@@ -62,8 +62,6 @@ https://github.com/mikemajesty
 ---
 
 #### Running the app
- - local
-
     ```bash
     $ docker-compose up --build
     ```
@@ -78,7 +76,7 @@ https://github.com/mikemajesty
  - list
 
 ```js
-// 
+// http://[::1]:3000/graphql
 query {
   getAll {
     name
@@ -90,7 +88,7 @@ query {
 
  - create
  ```js 
-# http://[::1]:3000/graphql
+// http://[::1]:3000/graphql
  mutation {
      createStudent(data:{
       name:"mike",
