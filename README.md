@@ -7,7 +7,6 @@ Check the [contributing manual](./CONTRIBUTING.md)
 <!-- Qualquer problema para rodar o teste, só me mandar msm: 15 997624783
 
 https://github.com/mikemajesty
-
 -->
 
 ##### Monorepo with nestjs and React
@@ -70,7 +69,7 @@ https://github.com/mikemajesty
     ```
  - open: ```http://localhost:8080/``` then log with parameters 
 
-[<img alt="mikemajesty" src="https://ibb.co/wr0smjS" width="117">](https://ibb.co/wr0smjS)
+<img alt="mikemajesty" src="https://raw.githubusercontent.com/mikemajesty/nestjs-monorepo/teste-descomplica/img/adminer.png">
 
  then create a table "student"
 
