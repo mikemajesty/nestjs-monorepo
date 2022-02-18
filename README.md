@@ -102,6 +102,12 @@ query {
 
 ```
 
+### Student Front
+
+```bash
+http://localhost:3006/
+```
+
 #### Tests
  - unit
     ```bash
