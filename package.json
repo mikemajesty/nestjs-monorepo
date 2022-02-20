@@ -4,7 +4,7 @@
   "description": "Nestjs monorepo",
   "workspaces": {
     "packages": [
-      "./apps/student-api",
+      "./apps/*",
       "./libs/*",
       "./tools/eslint"
     ]

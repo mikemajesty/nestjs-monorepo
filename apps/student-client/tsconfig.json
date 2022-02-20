@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "jsx": "react",
     "declaration": false,
     "outDir": "../../dist/apps/student-client"
   },

@@ -20,6 +20,15 @@
         "tsConfigPath": "apps/student-api/tsconfig.json"
       }
     },
+    "@app/student-client": {
+      "type": "application",
+      "root": "apps/student-client",
+      "entryFile": "App",
+      "sourceRoot": "apps/student-client/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/student-client/tsconfig.json"
+      }
+    },
     "@tools/eslint.config": {
       "type": "library",
       "root": "tools/eslint",

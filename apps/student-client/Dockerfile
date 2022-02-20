@@ -1,5 +1,7 @@
 FROM node:14
 
+COPY . dist/.env
+RUN ls dist -al
 ADD apps/student-client dist/apps/student-client/
 
 WORKDIR /dist/apps/student-client
