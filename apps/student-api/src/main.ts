@@ -26,6 +26,7 @@ async function bootstrap() {
     }),
   );
 
+  app.enableCors();
   const loggerService = app.get(ILoggerService);
 
   loggerService.setContext(name);

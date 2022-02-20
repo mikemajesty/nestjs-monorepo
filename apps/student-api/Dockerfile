@@ -1,6 +1,6 @@
 FROM node:14
 
-ADD . /app
+COPY . /app
 
 WORKDIR /app
 
