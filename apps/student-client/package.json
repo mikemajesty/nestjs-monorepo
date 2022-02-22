@@ -2,15 +2,14 @@
   "name": "@app/student.client",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "scripts": {
     "format": "../../tools/eslint/node_modules/.bin/prettier --write \"src/*.{tsx, ts, json}\"",
     "lint": "yarn format && ../../tools/eslint/node_modules/.bin/eslint \"src/*.{tsx, ts, json}\" --fix",
-    "start": "dotenv -e ../../.env react-scripts start",
+    "start": "../../node_modules/env-cmd/bin/env-cmd.js -f ../../.env ../../node_modules/react-scripts/bin/react-scripts.js start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "../../node_modules/react-scripts/bin/react-scripts.js test",
+    "eject": "../../node_modules/react-scripts/bin/react-scripts.js eject"
   },
   "eslintConfig": {
     "extends": [
@@ -30,7 +29,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "dotenv-cli": "^5.0.0"
-  }
+  "devDependencies": {}
 }

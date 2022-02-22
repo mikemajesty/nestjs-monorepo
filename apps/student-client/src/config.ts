@@ -1,6 +1,6 @@
 const config = {
   url: {
-    studentApi: process.env.STUDENT_API_URL,
+    studentApi: process.env.REACT_APP_STUDENT_API_URL,
   },
 };
 

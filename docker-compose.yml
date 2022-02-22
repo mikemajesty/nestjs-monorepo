@@ -27,16 +27,16 @@ services:
       - db_data:/var/lib/mysql
     env_file:
       - .env
-  student-api:
+  student.api:
     container_name: monorepo-student-api
     env_file:
       - .env
+    depends_on:
+      - db
     networks:
       webnet:
         aliases:
-          - student-api
-    depends_on:
-      - db
+          - student.api
     build:
       context: .
       dockerfile: ./apps/student-api/Dockerfile
@@ -45,14 +45,12 @@ services:
       - "5870:5870"
     volumes:
       - .:/src:cached
-  student-client:
+  student.client:
     container_name: monorepo-student-client
-    env_file:
-      - .env
     networks:
       webnet:
         aliases:
-          - student-client
+          - student.client
     build:
       context: .
       dockerfile: ./apps/student-client/Dockerfile

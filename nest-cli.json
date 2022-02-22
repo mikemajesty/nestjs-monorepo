@@ -24,7 +24,7 @@
       "type": "application",
       "root": "apps/student-client",
       "entryFile": "App",
-      "sourceRoot": "apps/student-client/src",
+      "sourceRoot": "apps/student-client/src/modules/App",
       "compilerOptions": {
         "tsConfigPath": "apps/student-client/tsconfig.json"
       }

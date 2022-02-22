@@ -6,7 +6,7 @@ export default {
   collectCoverage: false,
   moduleFileExtensions: ['js', 'json', 'ts'],
   roots: ['apps', 'libs'],
-  testRegex: '.*\\.spec\\.ts$',
+  testRegex: '.*\\.spec\\.{ts, tsx}$',
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
