@@ -192,21 +192,18 @@ $ yarn infra:local
 ---
 ##### Adding new API
 
-  - clone
    ```base
    $ yarn monorepo-nestjs-cli --app
    ```
 ---
 ##### Adding new module
 
-  - clone
    ```base
    $ yarn monorepo-nestjs-cli --module
    ```
 ---
 ##### Adding new test
 
-  - clone
    ```base
    $ yarn monorepo-nestjs-cli --test
    ```
