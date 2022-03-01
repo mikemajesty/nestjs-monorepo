@@ -1,12 +1,12 @@
 import * as React from 'react';
 import logo from '../../logo.svg';
 import './App.css';
-import { api } from '../../services/httpService';
-import Config from '../../config';
+import { api } from '../../services/http';
+import Secrets from '../../services/secrets';
 
 function App() {
   const [student, setStudentHealth] = React.useState();
-  api({ url: `${Config.url.studentApi}/health`, method: 'GET' })
+  api({ url: `${Secrets.url.studentApi}/health`, method: 'GET' })
     .then(health => setStudentHealth(health))
 
   return (

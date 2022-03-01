@@ -30,12 +30,11 @@
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest",
-    "test:coverage": "jest --coverage",
     "test:e2e": "jest --config ./jest.config.e2e.ts",
     "commit": "cz",
     "start:student-api:dev": "nest start @app/student-api --debug 0.0.0.0:5870 --watch",
-    "start:student-client": "yarn --cwd \"apps/student-client\" start",
     "start:student-api:prd": "node dist/apps/student-api/main.js",
+    "start:student-client": "yarn --cwd \"apps/student-client\" start",
     "tag:production": "changelog generate && cd devops && bash ./tag-create.sh && cd .."
   },
   "dependencies": {
@@ -49,8 +48,6 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.0",
-    "@types/node": "^16.11.25",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "apollo-server-express": "^3.6.3",
@@ -90,8 +87,7 @@
     "ts-jest": "^27.0.3",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.0.0",
-    "tsconfig-paths": "^3.10.1",
-    "typescript": "^4.3.5"
+    "tsconfig-paths": "^3.10.1"
   },
   "config": {
     "commitizen": {
