@@ -62,7 +62,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - local
 
     ```bash
-    $ yarn start:other-api:dev
+    $ yarn start:auth-api:dev
     $ yarn start:main-api:dev
     ```
 
