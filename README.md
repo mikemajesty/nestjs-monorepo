@@ -190,24 +190,6 @@ $ yarn infra:local
       }
       ```
 ---
-##### Adding new API
-
-   ```base
-   $ yarn monorepo-nestjs-cli --app
-   ```
----
-##### Adding new module
-
-   ```base
-   $ yarn monorepo-nestjs-cli --module
-   ```
----
-##### Adding new test
-
-   ```base
-   $ yarn monorepo-nestjs-cli --test
-   ```
----
 -- Example App 
 
 ```bash
