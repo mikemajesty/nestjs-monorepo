@@ -1,17 +1,17 @@
 import { Test } from '@nestjs/testing';
 
-import { ICommonSecrets } from '../adapter';
+import { ISecretsService } from '../adapter';
 import { SecretsModule } from '../module';
 
 describe('SecretsService', () => {
-  let commonSecrets: ICommonSecrets;
+  let commonSecrets: ISecretsService;
 
   beforeEach(async () => {
     const app = await Test.createTestingModule({
       imports: [SecretsModule],
     }).compile();
 
-    commonSecrets = app.get(ICommonSecrets);
+    commonSecrets = app.get(ISecretsService);
   });
 
   describe('common', () => {

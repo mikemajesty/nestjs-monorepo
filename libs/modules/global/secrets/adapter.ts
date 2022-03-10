@@ -1,6 +1,6 @@
 import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './enum';
 
-export abstract class ICommonSecrets {
+export abstract class ISecretsService {
   ENV: string;
 
   database: {

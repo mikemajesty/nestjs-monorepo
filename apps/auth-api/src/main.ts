@@ -2,7 +2,7 @@ import { HttpStatus, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/auth-api/package.json';
-import { ICommonSecrets, ILoggerService } from 'libs/modules/global';
+import { ILoggerService, ISecretsService } from 'libs/modules/global';
 import {
   ApiException,
   AppExceptionFilter,
@@ -35,7 +35,7 @@ async function bootstrap() {
   const {
     authAPI: { PORT },
     ENV,
-  } = app.get(ICommonSecrets);
+  } = app.get(ISecretsService);
 
   app.useLogger(loggerService);
 

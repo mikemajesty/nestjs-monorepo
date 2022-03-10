@@ -1,4 +1,4 @@
-// auth-api env and mocks initialization
+// main-api env and mocks initialization
 
 
 

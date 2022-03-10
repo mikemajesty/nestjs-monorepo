@@ -92,6 +92,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
 #### Running local mongodb
 ```bash
 $ yarn infra:local
+# http://0.0.0.0:8082/ to access mongo
 ```
 
 ---

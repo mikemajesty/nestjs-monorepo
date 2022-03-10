@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { ICommonSecrets } from '../global';
+import { ISecretsService } from '../global';
 import { DataBaseEnvironment } from '../global/secrets/enum';
 import { SecretsModule } from '../global/secrets/module';
 import { IRepository } from './adapter';
@@ -24,8 +24,8 @@ import { DataBaseService } from './service';
         database: {
           AUTH: { URI },
         },
-      }: ICommonSecrets) => new DataBaseService({ URI }).getDefaultConnection(),
-      inject: [ICommonSecrets],
+      }: ISecretsService) => new DataBaseService({ URI }).getDefaultConnection(),
+      inject: [ISecretsService],
     }),
   ],
 })

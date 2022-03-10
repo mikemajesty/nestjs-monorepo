@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
-import { ICommonSecrets } from './adapter';
+import { ISecretsService } from './adapter';
 import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './enum';
 
 @Injectable()
-export class SecretsService extends ConfigService implements ICommonSecrets {
+export class SecretsService extends ConfigService implements ISecretsService {
   constructor() {
     super();
   }
