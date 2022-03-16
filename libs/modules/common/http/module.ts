@@ -7,7 +7,7 @@ import { HttpService } from './service';
   providers: [
     {
       provide: IHttpService,
-      useFactory: () => new HttpService(),
+      useClass: HttpService,
     },
   ],
   exports: [IHttpService],
