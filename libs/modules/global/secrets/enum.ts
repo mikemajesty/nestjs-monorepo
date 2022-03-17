@@ -1,8 +1,8 @@
 export enum DataBaseEnvironment {
   CATS_DB_URI = 'MONGO_INITDB_URI',
-  CATS_CONNECTION_NAME = 'CATS',
+  CATS_CONNECTION_NAME = 'monorepo_cats',
   AUTH_DB_URI = 'MONGO_AUTH_URI',
-  AUTH_CONNECTION_NAME = 'AUTH',
+  AUTH_CONNECTION_NAME = 'monorepo_auth',
 }
 
 export enum MainAPIEnvironment {
