@@ -1,10 +1,12 @@
 import { MongooseModuleOptions } from '@nestjs/mongoose';
 
+import { IDataBaseService } from '..';
+
 type ConnectionModel = {
   URI: string;
 };
 
-export class DataBaseService {
+export class DataBaseService implements IDataBaseService {
   constructor(private connection: ConnectionModel) {}
 
   getDefaultConnection(options?: MongooseModuleOptions): MongooseModuleOptions {
