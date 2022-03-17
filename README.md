@@ -48,6 +48,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```bash
     $ yarn workspace <workspaceName> add <libName>
     ```
+
 ##### workspace list
 <!--$ yarn workspaces info -->
  - @app/main.api
