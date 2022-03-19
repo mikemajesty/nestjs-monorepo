@@ -4,26 +4,27 @@ import { Test } from '@nestjs/testing';
 import { Observable, of } from 'rxjs';
 
 import { LoggerModule } from '../../../modules/global/logger/module';
-import { PerformanceInterceptor } from '../http-performance.interceptor';
+import { HttpLoggerInterceptor } from '../http-logger.interceptor';
 
-describe('PerformanceInterceptor', () => {
+describe('HttpLoggerInterceptor', () => {
   const callHandlerMOck: CallHandler = jest.genMockFromModule<CallHandler>('@nestjs/common');
 
   const mockExecutionContext = {
     getClass: () => ({ name: 'dummy' }),
     getHandler: () => ({ name: 'dummy' }),
+    getArgs: () => [{ host: '0.0.0.0', originalUrl: 'api' }],
   } as unknown as ExecutionContext;
 
-  let performanceInterceptor: PerformanceInterceptor;
+  let httpLoggerInterceptor: HttpLoggerInterceptor;
 
   beforeEach(async () => {
     jest.clearAllMocks();
     const app = await Test.createTestingModule({
       imports: [LoggerModule],
-      providers: [PerformanceInterceptor],
+      providers: [HttpLoggerInterceptor],
     }).compile();
 
-    performanceInterceptor = app.get(PerformanceInterceptor);
+    httpLoggerInterceptor = app.get(HttpLoggerInterceptor);
   });
 
   test('should catch successfully', async () => {
@@ -31,7 +32,7 @@ describe('PerformanceInterceptor', () => {
     jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
     callHandlerMOck.handle = () => mock;
 
-    const result = performanceInterceptor.intercept(mockExecutionContext, callHandlerMOck);
+    const result = httpLoggerInterceptor.intercept(mockExecutionContext, callHandlerMOck);
 
     expect(result).not.toBeUndefined();
   });
