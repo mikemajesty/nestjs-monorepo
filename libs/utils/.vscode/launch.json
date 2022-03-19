@@ -6,7 +6,7 @@
       "args": ["--runInBand", "--config=${workspaceFolder}/jest.config.js"],
       "request": "launch",
       "console": "integratedTerminal",
-      "name": "Debug: @libs/utils Jest",
+      "name": "Test: @libs/utils",
       "runtimeExecutable": "yarn",
       "cwd": "${workspaceFolder}",
       "runtimeArgs": ["test"],

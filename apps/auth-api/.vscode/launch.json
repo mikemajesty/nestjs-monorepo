@@ -2,28 +2,38 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug: @app/auth.api",
+      "name": "App: @app/auth.api",
       "type": "node",
-      "request": "attach",
-      "remoteRoot": "/src",
-      "localRoot": "${workspaceFolder}",
-      "protocol": "inspector",
-      "port": 5880,
-      "restart": true,
-      "address": "0.0.0.0",
-      "skipFiles": ["<node_internals>/**"]
+      "request": "launch",
+      "localRoot": "${workspaceFolder}/../../",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "start:auth-api:dev"
+      ],
+      "console": "integratedTerminal",
+      "smartStep": true,
+      "sourceMaps": true,
+      "remoteRoot": "${workspaceFolder}/src",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
     },
     {
+      "name": "Test: @app/auth.api",
       "type": "node",
-      "args": ["--runInBand", "--config=${workspaceFolder}/jest.config.js"],
+      "args": [
+        "--runInBand",
+        "--config=${workspaceFolder}/jest.config.js"
+      ],
       "request": "launch",
       "console": "integratedTerminal",
-      "name": "Debug: @app/auth.api Jest",
       "runtimeExecutable": "yarn",
       "cwd": "${workspaceFolder}",
-      "runtimeArgs": ["test"],
+      "runtimeArgs": [
+        "test"
+      ],
       "port": 9229,
       "sourceMaps": true
-    }  
+    }
   ]
- }
+}
