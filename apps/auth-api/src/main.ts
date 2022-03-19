@@ -8,7 +8,7 @@ import {
   AppExceptionFilter,
   DEFAULT_TAG,
   ExceptionInterceptor,
-  PerformanceInterceptor,
+  HttpLoggerInterceptor,
   SWAGGER_API_ROOT,
 } from 'libs/utils';
 
@@ -30,7 +30,7 @@ async function bootstrap() {
 
   loggerService.setContext(name);
   app.useGlobalFilters(new AppExceptionFilter(loggerService));
-  app.useGlobalInterceptors(new ExceptionInterceptor(), new PerformanceInterceptor(loggerService));
+  app.useGlobalInterceptors(new ExceptionInterceptor(), new HttpLoggerInterceptor(loggerService));
 
   const {
     authAPI: { PORT },
