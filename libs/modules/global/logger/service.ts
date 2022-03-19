@@ -29,7 +29,7 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
       });
 
       if (error.config) {
-        this.warn(`${error.uuid}: ${AxiosConverter.getCurl(error.config)}`);
+        this.warn(`${error.uuid}: ${AxiosConverter.getCurl(error)}`);
       }
     }
   }
