@@ -1,6 +1,6 @@
 {
   "name": "monorepo",
-  "version": "0.0.16",
+  "version": "0.0.2",
   "description": "Nestjs monorepo",
   "workspaces": {
     "packages": [
