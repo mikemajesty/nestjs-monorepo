@@ -4,6 +4,16 @@
 
 * **devops:**  fix build version ([f425858b](https://github.com/mikemajesty/nestjs-monorepo/commit/f425858b47b2e5ef7a777670183b284ad65b765d))
 
+##### New Features
+
+* **release:**  update monerepo version: 'v0.0.18' ([a8d8f11a](https://github.com/mikemajesty/nestjs-monorepo/commit/a8d8f11a2c32dbf5610d21fa6176f64871a5ca1e))
+
+#### 0.0.17 (2022-03-20)
+
+##### Build System / Dependencies
+
+* **devops:**  fix build version ([f425858b](https://github.com/mikemajesty/nestjs-monorepo/commit/f425858b47b2e5ef7a777670183b284ad65b765d))
+
 #### 0.0.16 (2022-03-20)
 
 ##### Chores
