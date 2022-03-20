@@ -1,6 +1,6 @@
 {
   "name": "@app/main.api",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "monorepo main-api",
   "main": "main",
   "scripts": {
