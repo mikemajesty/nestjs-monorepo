@@ -1,3 +1,9 @@
+#### 0.0.17 (2022-03-20)
+
+##### Build System / Dependencies
+
+* **devops:**  fix build version ([f425858b](https://github.com/mikemajesty/nestjs-monorepo/commit/f425858b47b2e5ef7a777670183b284ad65b765d))
+
 #### 0.0.16 (2022-03-20)
 
 ##### Chores

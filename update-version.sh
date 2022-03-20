@@ -2,9 +2,9 @@
 
 nextVersion=$(npm --no-git-tag-version version patch)
 
-PACKAGES=$(cat ../package.json | jq -r '.workspaces.packages | join(" ")')
+PACKAGES=$(cat package.json | jq -r '.workspaces.packages | join(" ")')
 
-path=$(pwd)/../
+path=$(pwd)
 
 git add $path/package.json
 
