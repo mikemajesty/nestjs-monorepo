@@ -33,6 +33,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Docker
  - npm install -g commitizen
  - npm i -g @mikemajesty/monorepo-nestjs-cli
+ - sudo apt-get install jq -y
 
 #### Instalation
 

@@ -2,7 +2,7 @@ import { Test } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
 import { LoggerModule } from 'libs/modules/global/logger/module';
 
-import { name } from '../../../../package.json';
+import { name, version } from '../../../../package.json';
 import { IHealthService } from '../adapter';
 import { HealthService } from '../service';
 
@@ -31,7 +31,8 @@ describe('HealthService', () => {
 
   describe('getText', () => {
     test('should getText successfully', async () => {
-      await expect(healthService.getText()).resolves.toEqual(`${name} UP!!`);
+      const text = `${name}-${version} UP!!`;
+      await expect(healthService.getText()).resolves.toEqual(text);
     });
   });
 });

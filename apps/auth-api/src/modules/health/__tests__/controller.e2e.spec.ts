@@ -4,7 +4,7 @@ import { ILoggerService } from 'libs/modules/global';
 import { ApiException } from 'libs/utils';
 import * as request from 'supertest';
 
-import { name } from '../../../../package.json';
+import { name, version } from '../../../../package.json';
 import { IHealthService } from '../adapter';
 import { HealthController } from '../controller';
 import { HealthService } from '../service';
@@ -35,7 +35,7 @@ describe('HealthController (e2e)', () => {
   });
 
   describe('/health (GET)', () => {
-    const text = `${name} UP!!`;
+    const text = `${name}-${version} UP!!`;
     it(`should return ${text}`, async () => {
       return request(app.getHttpServer()).get('/health').expect(text);
     });

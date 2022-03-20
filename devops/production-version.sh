@@ -14,7 +14,6 @@ TAG_NAME=$NAME-$ENVIROMENT-v$NODE_VERSION-d$(date '+%d-%m-%Y')
 
 echo "Creating production tag '${TAG_NAME}'..."
 
-git add $WORKING_DIR/package.json
 git add $WORKING_DIR/CHANGELOG.md
 git commit -m "feat(release): add production version '${TAG_NAME}'"
 git tag -a $TAG_NAME -m "${TAG_NAME}"

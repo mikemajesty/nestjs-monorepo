@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { ILoggerService } from 'libs/modules/global';
 
-import { name } from '../../../../package.json';
+import { name, version } from '../../../../package.json';
 import { IHealthService } from '../adapter';
 import { HealthService } from '../service';
 
@@ -27,7 +27,7 @@ describe('HealthService', () => {
 
   describe('getText', () => {
     test('should getText successfully', async () => {
-      await expect(healthService.getText()).resolves.toEqual(`${name} UP!!`);
+      await expect(healthService.getText()).resolves.toEqual(`${name}-${version} UP!!`);
     });
   });
 });
