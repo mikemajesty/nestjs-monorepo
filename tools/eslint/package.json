@@ -1,6 +1,6 @@
 {
   "name": "@tools/eslint.config",
-  "version": "v0.0.2",
+  "version": "v0.0.4",
   "description": "monorepo eslint config",
   "main": ".eslintrc.json",
   "author": {

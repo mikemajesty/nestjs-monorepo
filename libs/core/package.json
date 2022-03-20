@@ -1,6 +1,6 @@
 {
   "name": "@libs/core",
-  "version": "v0.0.2",
+  "version": "v0.0.4",
   "description": "monorepo core libs",
   "author": {
     "name": "Mike Lima",
