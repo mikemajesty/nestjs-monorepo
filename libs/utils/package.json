@@ -1,6 +1,6 @@
 {
   "name": "@libs/utils",
-  "version": "0.0.28",
+  "version": "0.0.1",
   "description": "monorepo utils libs",
   "author": {
     "name": "Mike Lima",

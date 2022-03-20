@@ -1,6 +1,6 @@
 {
   "name": "@libs/modules",
-  "version": "0.0.28",
+  "version": "0.0.1",
   "description": "monorepo modules libs",
   "author": {
     "name": "Mike Lima",
