@@ -5,7 +5,7 @@ import { IHttpService } from './adapter';
 
 @Injectable()
 export class HttpService implements IHttpService {
-  server(config?: AxiosRequestConfig): Axios {
+  instance(config?: AxiosRequestConfig): Axios {
     return axios.create(config || { timeout: 5000 });
   }
 }

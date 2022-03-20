@@ -16,11 +16,11 @@ describe('HttpService', () => {
 
   describe('HttpService', () => {
     test('should server successfully without parameters', () => {
-      expect(service.server()).not.toBeUndefined();
+      expect(service.instance()).not.toBeUndefined();
     });
 
     test('should server successfully with parameters', () => {
-      expect(service.server({ timeout: 1000 })).not.toBeUndefined();
+      expect(service.instance({ timeout: 1000 })).not.toBeUndefined();
     });
   });
 });
