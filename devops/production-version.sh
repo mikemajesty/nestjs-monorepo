@@ -10,7 +10,7 @@ NODE_VERSION=$(node -p -e "require('../package.json').version")
 
 NAME=nestjs-monorepo
 
-TAG_NAME=$NAME-$ENVIROMENT-v$NODE_VERSION-d$(date '+%d-%m-%Y')
+TAG_NAME=$NAME-$ENVIROMENT-v$NODE_VERSION
 
 echo "Creating production tag '${TAG_NAME}'..."
 
