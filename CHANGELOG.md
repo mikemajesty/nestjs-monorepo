@@ -1,3 +1,119 @@
+#### 0.0.16 (2022-03-20)
+
+##### Chores
+
+* **env:**  add comments env ([5907d7a2](https://github.com/mikemajesty/nestjs-monorepo/commit/5907d7a28f359da44aa0ad2325a100402d910b5d))
+
+##### Documentation Changes
+
+* **monorepo:**  add a cute text in CONTRIBUTIING.md ([58e057ac](https://github.com/mikemajesty/nestjs-monorepo/commit/58e057ac35d756c53a6fe5d28b74fc202ceae79a))
+
+##### New Features
+
+* **health:**  change health text ([4b0b8519](https://github.com/mikemajesty/nestjs-monorepo/commit/4b0b8519598487cdc03d8be3ffdd49e5821b6962))
+* **release:**
+  *  update monerepo version: 'v0.0.4' ([49913b77](https://github.com/mikemajesty/nestjs-monorepo/commit/49913b773aa33cc138e8077aa30f174d9da9aff8))
+  *  update monerepo version: 'v0.0.3' ([22e75d0d](https://github.com/mikemajesty/nestjs-monorepo/commit/22e75d0d5c067fc5b109dbd44c56665470e575cb))
+  *  update monerepo version: 'v0.0.2' ([9cb96aa9](https://github.com/mikemajesty/nestjs-monorepo/commit/9cb96aa99469c5c7aff015935f2d591eda60b647))
+  *  update monerepo version: 'v0.0.8' ([91654d63](https://github.com/mikemajesty/nestjs-monorepo/commit/91654d634ffcc46668367701ceae0d46ed4eef6d))
+  *  update monerepo version: 'v0.0.7' ([05213979](https://github.com/mikemajesty/nestjs-monorepo/commit/052139795c02f7444c434fcf970afbecb2d05ca9))
+  *  update monerepo version: 'v0.0.5' ([c915ec5a](https://github.com/mikemajesty/nestjs-monorepo/commit/c915ec5aecbbd11d50acd4f4c19d3629c837654c))
+  *  update monerepo version: 'v0.0.3' ([983bf7d7](https://github.com/mikemajesty/nestjs-monorepo/commit/983bf7d7fd64ccb86266d97fa441df3304332950))
+  *  update monerepo version: 'v0.0.17' ([7189bf46](https://github.com/mikemajesty/nestjs-monorepo/commit/7189bf4612dc97ebdbd182487c5b964b5e9baa19))
+  *  update monerepo version: 'v0.0.15' ([a1242576](https://github.com/mikemajesty/nestjs-monorepo/commit/a1242576fbd4d0148bbe8df60b75b56a90e3d889))
+  *  update monerepo version: 'v0.0.13' ([cc7d9852](https://github.com/mikemajesty/nestjs-monorepo/commit/cc7d9852a2bc95c018f9baebf72cc90abec36ee4))
+  *  update monerepo version: 'v0.0.11' ([f02b104d](https://github.com/mikemajesty/nestjs-monorepo/commit/f02b104d84d329581e29eaa14375abdb78e2aeab))
+  *  update monerepo version: 'v0.0.9' ([78847c24](https://github.com/mikemajesty/nestjs-monorepo/commit/78847c24af684d24b193f85d53b1d0a64129fc18))
+  *  update monerepo version: 'v0.0.7' ([0a0f589b](https://github.com/mikemajesty/nestjs-monorepo/commit/0a0f589b547c04b8c93c8a6c0ff5f1ba2800a4a5))
+  *  update monerepo version: 'v0.0.5' ([c09efeff](https://github.com/mikemajesty/nestjs-monorepo/commit/c09efeff328fcd1f1a43fee71c42ae07a2c880bf))
+  *  update monerepo version: 'v0.0.8' ([616b413c](https://github.com/mikemajesty/nestjs-monorepo/commit/616b413c401be42aa101071907f9ab43d7425935))
+  *  update monerepo version: 'v0.0.35' ([98a6ca54](https://github.com/mikemajesty/nestjs-monorepo/commit/98a6ca54c1e49eda2cfc22222c62eee50164e82f))
+  *  update monerepo version: 'v0.0.28' ([443ff136](https://github.com/mikemajesty/nestjs-monorepo/commit/443ff13655ca0fa73f66bba48c6536feaca96a1c))
+  *  update monerepo version: 'v0.0.27' ([c9103eed](https://github.com/mikemajesty/nestjs-monorepo/commit/c9103eed54ad187fb4883748bc1213c7f1b3f669))
+  *  update monerepo version: 'v0.0.26' ([ab6c7476](https://github.com/mikemajesty/nestjs-monorepo/commit/ab6c7476a1649e4ef85f18488e319a142fecbf0b))
+  *  update monerepo version: 'v0.0.25' ([513c00f8](https://github.com/mikemajesty/nestjs-monorepo/commit/513c00f8e54e9d953e0eb7da71cb6e0b6c8e8ce1))
+  *  update monerepo version: 'v0.0.24' ([43b2e495](https://github.com/mikemajesty/nestjs-monorepo/commit/43b2e495458f647ded9db8c63ed4057cece480fc))
+* **module libs:**  update nestjs-convert-to-curl ([4d49ac0a](https://github.com/mikemajesty/nestjs-monorepo/commit/4d49ac0a5848e984c90e0006b7416dce98964710))
+* **monorepo tests:**  improve debug app ([e1270ef7](https://github.com/mikemajesty/nestjs-monorepo/commit/e1270ef7167a45eebf88d6994cc044f2c3040908))
+* **database module:**  refactor database implementation ([af9d1585](https://github.com/mikemajesty/nestjs-monorepo/commit/af9d158589c22a0d62d81bcef0906e77fccd691d))
+* **http module:**  remove htto module of health module ([4db495c0](https://github.com/mikemajesty/nestjs-monorepo/commit/4db495c01e50b21c917e1da0e49cb0e7d55887d2))
+
+##### Bug Fixes
+
+* **main modules:**  fix import name ([37253e1e](https://github.com/mikemajesty/nestjs-monorepo/commit/37253e1e89926565115bcbcdda5a821bdedf166c))
+
+##### Other Changes
+
+* //github.com/mikemajesty/nestjs-monorepo into main ([ff34bc7a](https://github.com/mikemajesty/nestjs-monorepo/commit/ff34bc7a421ec4a6f29202ee56d2ecc305981dbd))
+
+##### Refactors
+
+* **interceptors utils:**  refactor interceptor logger ([6ecfbbca](https://github.com/mikemajesty/nestjs-monorepo/commit/6ecfbbca2a3ef21a8d4565c429c42bab5de23fc3))
+* **libs module:**  refactor dabatase name ([00ac2cbc](https://github.com/mikemajesty/nestjs-monorepo/commit/00ac2cbc7bafb2a601047c82d42c045005f460db))
+* **libs:**  improve secrets class name ([8888c2a8](https://github.com/mikemajesty/nestjs-monorepo/commit/8888c2a835fc26ed75f43501ceed9c7464e88e58))
+
+##### Tests
+
+* **http module:**  fix tests ([6e2e30e0](https://github.com/mikemajesty/nestjs-monorepo/commit/6e2e30e024a74e925392c8b42259962bd9ceddff))
+
+#### 0.0.15 (2022-03-20)
+
+##### Chores
+
+* **env:**  add comments env ([5907d7a2](https://github.com/mikemajesty/nestjs-monorepo/commit/5907d7a28f359da44aa0ad2325a100402d910b5d))
+
+##### Documentation Changes
+
+* **monorepo:**  add a cute text in CONTRIBUTIING.md ([58e057ac](https://github.com/mikemajesty/nestjs-monorepo/commit/58e057ac35d756c53a6fe5d28b74fc202ceae79a))
+
+##### New Features
+
+* **health:**  change health text ([4b0b8519](https://github.com/mikemajesty/nestjs-monorepo/commit/4b0b8519598487cdc03d8be3ffdd49e5821b6962))
+* **release:**
+  *  update monerepo version: 'v0.0.4' ([49913b77](https://github.com/mikemajesty/nestjs-monorepo/commit/49913b773aa33cc138e8077aa30f174d9da9aff8))
+  *  update monerepo version: 'v0.0.3' ([22e75d0d](https://github.com/mikemajesty/nestjs-monorepo/commit/22e75d0d5c067fc5b109dbd44c56665470e575cb))
+  *  update monerepo version: 'v0.0.2' ([9cb96aa9](https://github.com/mikemajesty/nestjs-monorepo/commit/9cb96aa99469c5c7aff015935f2d591eda60b647))
+  *  update monerepo version: 'v0.0.8' ([91654d63](https://github.com/mikemajesty/nestjs-monorepo/commit/91654d634ffcc46668367701ceae0d46ed4eef6d))
+  *  update monerepo version: 'v0.0.7' ([05213979](https://github.com/mikemajesty/nestjs-monorepo/commit/052139795c02f7444c434fcf970afbecb2d05ca9))
+  *  update monerepo version: 'v0.0.5' ([c915ec5a](https://github.com/mikemajesty/nestjs-monorepo/commit/c915ec5aecbbd11d50acd4f4c19d3629c837654c))
+  *  update monerepo version: 'v0.0.3' ([983bf7d7](https://github.com/mikemajesty/nestjs-monorepo/commit/983bf7d7fd64ccb86266d97fa441df3304332950))
+  *  update monerepo version: 'v0.0.17' ([7189bf46](https://github.com/mikemajesty/nestjs-monorepo/commit/7189bf4612dc97ebdbd182487c5b964b5e9baa19))
+  *  update monerepo version: 'v0.0.15' ([a1242576](https://github.com/mikemajesty/nestjs-monorepo/commit/a1242576fbd4d0148bbe8df60b75b56a90e3d889))
+  *  update monerepo version: 'v0.0.13' ([cc7d9852](https://github.com/mikemajesty/nestjs-monorepo/commit/cc7d9852a2bc95c018f9baebf72cc90abec36ee4))
+  *  update monerepo version: 'v0.0.11' ([f02b104d](https://github.com/mikemajesty/nestjs-monorepo/commit/f02b104d84d329581e29eaa14375abdb78e2aeab))
+  *  update monerepo version: 'v0.0.9' ([78847c24](https://github.com/mikemajesty/nestjs-monorepo/commit/78847c24af684d24b193f85d53b1d0a64129fc18))
+  *  update monerepo version: 'v0.0.7' ([0a0f589b](https://github.com/mikemajesty/nestjs-monorepo/commit/0a0f589b547c04b8c93c8a6c0ff5f1ba2800a4a5))
+  *  update monerepo version: 'v0.0.5' ([c09efeff](https://github.com/mikemajesty/nestjs-monorepo/commit/c09efeff328fcd1f1a43fee71c42ae07a2c880bf))
+  *  update monerepo version: 'v0.0.8' ([616b413c](https://github.com/mikemajesty/nestjs-monorepo/commit/616b413c401be42aa101071907f9ab43d7425935))
+  *  update monerepo version: 'v0.0.35' ([98a6ca54](https://github.com/mikemajesty/nestjs-monorepo/commit/98a6ca54c1e49eda2cfc22222c62eee50164e82f))
+  *  update monerepo version: 'v0.0.28' ([443ff136](https://github.com/mikemajesty/nestjs-monorepo/commit/443ff13655ca0fa73f66bba48c6536feaca96a1c))
+  *  update monerepo version: 'v0.0.27' ([c9103eed](https://github.com/mikemajesty/nestjs-monorepo/commit/c9103eed54ad187fb4883748bc1213c7f1b3f669))
+  *  update monerepo version: 'v0.0.26' ([ab6c7476](https://github.com/mikemajesty/nestjs-monorepo/commit/ab6c7476a1649e4ef85f18488e319a142fecbf0b))
+  *  update monerepo version: 'v0.0.25' ([513c00f8](https://github.com/mikemajesty/nestjs-monorepo/commit/513c00f8e54e9d953e0eb7da71cb6e0b6c8e8ce1))
+  *  update monerepo version: 'v0.0.24' ([43b2e495](https://github.com/mikemajesty/nestjs-monorepo/commit/43b2e495458f647ded9db8c63ed4057cece480fc))
+* **module libs:**  update nestjs-convert-to-curl ([4d49ac0a](https://github.com/mikemajesty/nestjs-monorepo/commit/4d49ac0a5848e984c90e0006b7416dce98964710))
+* **monorepo tests:**  improve debug app ([e1270ef7](https://github.com/mikemajesty/nestjs-monorepo/commit/e1270ef7167a45eebf88d6994cc044f2c3040908))
+* **database module:**  refactor database implementation ([af9d1585](https://github.com/mikemajesty/nestjs-monorepo/commit/af9d158589c22a0d62d81bcef0906e77fccd691d))
+* **http module:**  remove htto module of health module ([4db495c0](https://github.com/mikemajesty/nestjs-monorepo/commit/4db495c01e50b21c917e1da0e49cb0e7d55887d2))
+
+##### Bug Fixes
+
+* **main modules:**  fix import name ([37253e1e](https://github.com/mikemajesty/nestjs-monorepo/commit/37253e1e89926565115bcbcdda5a821bdedf166c))
+
+##### Other Changes
+
+* //github.com/mikemajesty/nestjs-monorepo into main ([ff34bc7a](https://github.com/mikemajesty/nestjs-monorepo/commit/ff34bc7a421ec4a6f29202ee56d2ecc305981dbd))
+
+##### Refactors
+
+* **interceptors utils:**  refactor interceptor logger ([6ecfbbca](https://github.com/mikemajesty/nestjs-monorepo/commit/6ecfbbca2a3ef21a8d4565c429c42bab5de23fc3))
+* **libs module:**  refactor dabatase name ([00ac2cbc](https://github.com/mikemajesty/nestjs-monorepo/commit/00ac2cbc7bafb2a601047c82d42c045005f460db))
+* **libs:**  improve secrets class name ([8888c2a8](https://github.com/mikemajesty/nestjs-monorepo/commit/8888c2a835fc26ed75f43501ceed9c7464e88e58))
+
+##### Tests
+
+* **http module:**  fix tests ([6e2e30e0](https://github.com/mikemajesty/nestjs-monorepo/commit/6e2e30e024a74e925392c8b42259962bd9ceddff))
+
 #### 0.0.15 (2022-01-25)
 
 ##### Refactors
