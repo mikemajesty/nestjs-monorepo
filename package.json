@@ -1,6 +1,6 @@
 {
   "name": "monorepo",
-  "version": "0.0.22",
+  "version": "0.0.26",
   "description": "Nestjs monorepo",
   "workspaces": {
     "packages": [
@@ -41,7 +41,7 @@
     "add:module": "monorepo-nestjs-cli --module",
     "add:test": "monorepo-nestjs-cli --test",
     "add:app": "monorepo-nestjs-cli --app",
-    "tag:production": "cd devops && bash ./update-version.sh && cd .."
+    "tag:production": "bash ./update-version.sh && cd devops && bash ./production-version.sh && cd .."
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
