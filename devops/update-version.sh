@@ -2,6 +2,9 @@
 
 nextVersion=$(npm --no-git-tag-version version patch)
 
+
+export WORKING_DIR=../
+
 PACKAGES=$(cat package.json | jq -r '.workspaces.packages | join(" ")')
 
 path=$(pwd)
