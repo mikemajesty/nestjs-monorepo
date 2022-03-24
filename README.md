@@ -32,8 +32,6 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Node: 14 => <= 15
  - Docker
  - npm install -g commitizen
- - npm i -g @mikemajesty/monorepo-nestjs-cli
- - sudo apt-get install jq -y
 
 #### Instalation
 
@@ -77,6 +75,10 @@ Check the [contributing manual](./CONTRIBUTING.md)
 ---
 
 #### Add new features
+```bash
+npm i -g @mikemajesty/monorepo-nestjs-cli
+```
+
   - add new module
     ```bash
       yarn add:module
@@ -139,63 +141,10 @@ $ yarn infra:local
     $ yarn build <workspaceName>
     ```
 ---
-#### Usage
 
- - logs
-    ```js
-    import { ILoggerService } from 'libs/modules';
-    
-    export class Exmeple {
-      constructor(private readonly loggerService: ILoggerService) {}
-    
-      async exemple(): void {
-        this.loggerService.log('message', 'messageContext');
-        this.loggerService.error('error', 500,  `${Exmeple.name}/${exemple.name}`);
-      }
-    }
-    ```
-  - Secrets
-    ```js
-    import { ICommonSecrets } from 'libs/modules';
-    
-    export class Exmeple {
-      constructor(private readonly secretService: ICommonSecrets) {}
-    
-      async exemple(): void {
-        this.secretService.PORT;
-      }
-    }
-    ```
- - Error exception
+-- App Skeleton 
 
-    ```js
-    import { ApiException } from 'libs/utils';
-    
-    export class Exmeple {
-      async exemple(): void {
-        throw new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR)
-      }
-    }
-    ```
-  - Http
-      ```js 
-      import { IHttpService } from 'libs/modules';
-      export class Example {
-         constructor(
-            private readonly httpService: IHttpService,
-         ) {}
-
-         async exemple(): Promise<string> {
-            const { data } = await this.httpService.http.get('http://url');
-
-            return data.message;
-         }
-      }
-      ```
----
--- Example App 
-
-```bash
+```
 .
 ├── apps
 │   ├── auth-api
@@ -261,7 +210,7 @@ $ yarn infra:local
 ├── commitlint.config.ts
 ├── CONTRIBUTING.md
 ├── devops
-│   └── tag-create.sh
+│   └── production-version.sh
 ├── docker-compose-local.yml
 ├── docker-compose.yml
 ├── jest.config.e2e.ts
@@ -337,9 +286,9 @@ $ yarn infra:local
 │       ├── index.ts
 │       ├── interceptors
 │       │   ├── http-exception.interceptor.ts
-│       │   ├── http-performance.interceptor.ts
+│       │   ├── http-logger.interceptor.ts
 │       │   └── __tests__
-│       │       ├── http-exception.interceptor.spec.ts
+│       │       ├── http-logger.interceptor.spec.ts
 │       │       └── http-performance.interceptor.spec.ts
 │       ├── jest.config.js
 │       ├── package.json
@@ -362,7 +311,8 @@ $ yarn infra:local
 │   └── eslint
 │       └── package.json
 ├── tsconfig.build.json
-└── tsconfig.json
+├── tsconfig.json
+└── update-version.sh
 ```
 
 ---
