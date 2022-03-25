@@ -52,6 +52,7 @@
     "class-transformer": "^0.3.2",
     "class-validator": "^0.13.1",
     "mongoose": "^6.1.2",
+    "nestjs-convert-to-curl": "^0.0.13",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",

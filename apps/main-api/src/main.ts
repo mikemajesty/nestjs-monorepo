@@ -11,6 +11,7 @@ import {
   HttpLoggerInterceptor,
   SWAGGER_API_ROOT,
 } from 'libs/utils';
+import { LogAxiosErrorInterceptor } from 'nestjs-convert-to-curl';
 
 import { MainModule } from './modules/module';
 
@@ -30,7 +31,11 @@ async function bootstrap() {
 
   loggerService.setContext(name);
   app.useGlobalFilters(new AppExceptionFilter(loggerService));
-  app.useGlobalInterceptors(new ExceptionInterceptor(), new HttpLoggerInterceptor(loggerService));
+  app.useGlobalInterceptors(
+    new ExceptionInterceptor(),
+    new HttpLoggerInterceptor(loggerService),
+    new LogAxiosErrorInterceptor(),
+  );
 
   const {
     mainAPI: { PORT },

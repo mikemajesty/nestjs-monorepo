@@ -20,7 +20,11 @@ export class ExceptionInterceptor implements NestInterceptor {
         }
 
         const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
-        error.uuid = uuidv4();
+
+        if (!error?.uuid) {
+          error.uuid = uuidv4();
+        }
+
         error.context = context;
         throw error;
       }),

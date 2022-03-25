@@ -1,6 +1,5 @@
 import { ApiException } from '@libs/utils';
 import { ConsoleLogger, Injectable } from '@nestjs/common';
-import { AxiosConverter } from 'nestjs-convert-to-curl';
 
 import { ILoggerService } from './adapter';
 
@@ -27,10 +26,6 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
           request: error.config,
         },
       });
-
-      if (error.config) {
-        this.warn(`${error.uuid}: ${AxiosConverter.getCurl(error)}`);
-      }
     }
   }
 
