@@ -18,6 +18,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Generic Repository Pattern
 
  - swaggger documentation
+ 
+ - Redis 
 
  - Mongodb
     - mongoose
