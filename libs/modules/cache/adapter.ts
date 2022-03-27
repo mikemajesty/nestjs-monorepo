@@ -11,4 +11,7 @@ export abstract class ICacheService {
   abstract get(key: RedisKeyArgument): Promise<unknown>;
   abstract setMulti(redisList: RedisKeyValue[]): Promise<void>;
   abstract pExpire(key: RedisKeyArgument, miliseconds: number): Promise<void>;
+  abstract hGet(key: RedisKeyArgument, field: RedisKeyArgument): Promise<unknown | unknown[]>;
+  abstract hSet(key: RedisKeyArgument, field: RedisKeyArgument, value: RedisValeuArgument): Promise<void>;
+  abstract hGetAll(key: RedisKeyArgument): Promise<unknown | unknown[]>;
 }

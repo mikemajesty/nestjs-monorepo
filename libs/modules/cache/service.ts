@@ -55,4 +55,17 @@ export class CacheService implements ICacheService {
     const expired = await this.client.pExpire(key, miliseconds);
     if (!expired) throw new ApiException(`Set expire error key: ${key}`, HttpStatus.INTERNAL_SERVER_ERROR, 'Cache');
   }
+
+  async hGet(key: RedisKeyArgument, field: RedisKeyArgument): Promise<unknown | unknown[]> {
+    return await this.client.hGet(key, field);
+  }
+
+  async hSet(key: RedisKeyArgument, field: RedisKeyArgument, value: RedisValeuArgument): Promise<void> {
+    const set = await this.client.hSet(key, field, value);
+    if (!set) throw new ApiException(`Cache key: ${key} ${field} not set`);
+  }
+
+  async hGetAll(key: RedisKeyArgument): Promise<unknown | unknown[]> {
+    return await this.client.hGetAll(key);
+  }
 }

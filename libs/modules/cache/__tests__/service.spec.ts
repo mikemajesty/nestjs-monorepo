@@ -129,4 +129,49 @@ describe('ICacheService', () => {
       await expect(service.pExpire(KEY, 1000)).rejects.toThrow(`Set expire error key: ${KEY}`);
     });
   });
+
+  describe('hGet', () => {
+    test('should hGet successfully', async () => {
+      const mock = {
+        hGet: () => true,
+      };
+
+      service.client = MockUtils.setMock(mock);
+      await expect(service.hGet('keyMock', 'fieldMock')).resolves.toEqual(true);
+    });
+  });
+
+  describe('hSet', () => {
+    test('should hSet successfully', async () => {
+      const mock = {
+        hSet: () => true,
+      };
+
+      service.client = MockUtils.setMock(mock);
+      await expect(service.hSet('keyMock', 'fieldMock', 'valueMock')).resolves.toBeUndefined();
+    });
+
+    test('should hSet unsuccessfully', async () => {
+      const KEY = 'keyMock';
+      const FIELD = 'fieldMock';
+
+      const mock = {
+        hSet: () => false,
+      };
+
+      service.client = MockUtils.setMock(mock);
+      await expect(service.hSet(KEY, FIELD, 'valueMock')).rejects.toThrowError(`Cache key: ${KEY} ${FIELD} not set`);
+    });
+  });
+
+  describe('hGetAll', () => {
+    test('should hGetAll successfully', async () => {
+      const mock = {
+        hGetAll: () => true,
+      };
+
+      service.client = MockUtils.setMock(mock);
+      await expect(service.hGetAll('keyMock')).resolves.toEqual(true);
+    });
+  });
 });
