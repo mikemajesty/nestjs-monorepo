@@ -2,7 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { ISecretsService } from '../global';
-import { DataBaseEnvironment } from '../global/secrets/enum';
+import { TableName } from '../global/secrets/enum';
 import { SecretsModule } from '../global/secrets/module';
 import { IDataBaseService, IRepository } from './adapter';
 import { Repository } from './repository';
@@ -23,7 +23,7 @@ import { DataBaseService } from './service';
   imports: [
     SecretsModule,
     MongooseModule.forRootAsync({
-      connectionName: DataBaseEnvironment.CATS_CONNECTION_NAME,
+      connectionName: TableName.CATS,
       useFactory: ({
         database: {
           CATS: { URI },

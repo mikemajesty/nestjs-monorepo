@@ -93,10 +93,11 @@ npm i -g @mikemajesty/monorepo-nestjs-cli
     ```
 ---
 
-#### Running local mongodb
+#### Running local mongodb/redis
 ```bash
 $ yarn infra:local
 # http://0.0.0.0:8082/ to access mongo
+# http://0.0.0.0:8081/ to access redis
 ```
 
 ---

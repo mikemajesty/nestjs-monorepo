@@ -1,11 +1,12 @@
-import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './enum';
+import { AuthAPIEnvironment, MainAPIEnvironment } from './enum';
 
 export abstract class ISecretsService {
   ENV: string;
+  REDIS_URL: string;
 
   database: {
-    CATS: { URI: DataBaseEnvironment | string };
-    AUTH: { URI: DataBaseEnvironment | string };
+    CATS: { URI: string };
+    AUTH: { URI: string };
   };
 
   mainAPI: {

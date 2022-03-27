@@ -28,8 +28,4 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
       });
     }
   }
-
-  log(message: string, context?: string): void {
-    super.log(context ? `${context} - ${message}` : message);
-  }
 }

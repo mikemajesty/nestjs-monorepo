@@ -8,7 +8,6 @@ type ConnectionModel = {
 
 export class DataBaseService implements IDataBaseService {
   constructor(private connection: ConnectionModel) {}
-
   getDefaultConnection(options?: MongooseModuleOptions): MongooseModuleOptions {
     return {
       appName: 'monorepo',

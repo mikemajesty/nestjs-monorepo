@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import { ISecretsService } from './adapter';
-import { AuthAPIEnvironment, DataBaseEnvironment, MainAPIEnvironment } from './enum';
+import { AuthAPIEnvironment, MainAPIEnvironment } from './enum';
 
 @Injectable()
 export class SecretsService extends ConfigService implements ISecretsService {
@@ -10,11 +10,13 @@ export class SecretsService extends ConfigService implements ISecretsService {
     super();
   }
 
+  REDIS_URL = this.get<string>('REDIS_URL');
+
   ENV = this.get<string>('ENV');
 
   database = {
-    CATS: { URI: this.get<string>(DataBaseEnvironment.CATS_DB_URI) },
-    AUTH: { URI: this.get<string>(DataBaseEnvironment.AUTH_DB_URI) },
+    CATS: { URI: this.get<string>('MONGO_INITDB_URI') },
+    AUTH: { URI: this.get<string>('MONGO_AUTH_URI') },
   };
 
   mainAPI = {

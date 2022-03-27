@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { DataBaseEnvironment, ILoggerService } from 'libs/modules/global';
+import { ILoggerService } from 'libs/modules/global';
+import { TableName } from 'libs/modules/global/secrets/enum';
 
 import { ICatsRepository } from './adapter';
 import { CatsController } from './controller';
@@ -26,7 +27,7 @@ import { Cats, CatSchema } from './schema';
           inject: [ILoggerService],
         },
       ],
-      DataBaseEnvironment.CATS_CONNECTION_NAME,
+      TableName.CATS,
     ),
   ],
   providers: [
