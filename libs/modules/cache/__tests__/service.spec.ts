@@ -1,6 +1,6 @@
+import { MockUtils } from '@libs/utils/tests/mock-utils';
 import { Test } from '@nestjs/testing';
 
-import { MockUtils } from '../../../utils';
 import { ICacheService } from '../adapter';
 import { CacheService } from '../service';
 

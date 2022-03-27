@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
-import { CatsDatabaseModule, RedisModule } from 'libs/modules';
-import { CommonModule } from 'libs/modules/common';
-import { GlobalModule } from 'libs/modules/global';
+import { CatsDatabaseModule } from 'libs/modules';
+import { RedisModule } from 'libs/modules/cache/module';
+import { CommonModule } from 'libs/modules/common/module';
+import { GlobalModule } from 'libs/modules/global/module';
 
 import { CatsModule } from '../modules/cats/module';
 import { HealthModule } from './health/module';

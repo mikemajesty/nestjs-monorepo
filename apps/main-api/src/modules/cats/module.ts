@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ILoggerService } from 'libs/modules/global';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { TableName } from 'libs/modules/global/secrets/enum';
 
 import { ICatsRepository } from './adapter';

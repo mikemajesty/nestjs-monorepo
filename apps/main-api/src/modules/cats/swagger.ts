@@ -1,5 +1,5 @@
 import { CreatedModel } from 'libs/modules';
-import { Swagger } from 'libs/utils';
+import { Swagger } from 'libs/utils/documentation/swagger';
 
 export class SwagggerResponse {
   static save = {

@@ -1,7 +1,7 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { ISecretsService } from '../global';
+import { ISecretsService } from '../global/secrets/adapter';
 import { TableName } from '../global/secrets/enum';
 import { SecretsModule } from '../global/secrets/module';
 import { IDataBaseService, IRepository } from './adapter';

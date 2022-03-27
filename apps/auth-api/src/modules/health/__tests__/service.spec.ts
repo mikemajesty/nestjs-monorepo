@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { ILoggerService } from 'libs/modules/global';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 
 import { name, version } from '../../../../package.json';
 import { IHealthService } from '../adapter';

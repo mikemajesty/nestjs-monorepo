@@ -1,5 +1,5 @@
 import { name } from 'apps/main-api/package.json';
-import { Swagger } from 'libs/utils';
+import { Swagger } from 'libs/utils/documentation/swagger';
 
 export class SwagggerResponse {
   static getHealth = {

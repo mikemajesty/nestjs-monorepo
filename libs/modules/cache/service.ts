@@ -2,8 +2,8 @@ import { HttpStatus } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { createClient, RedisClientOptions, RedisClientType } from 'redis';
 
-import { ApiException } from '../../utils';
-import { ILoggerService } from '../global';
+import { ApiException } from '../../../libs/utils';
+import { ILoggerService } from '../global/logger/adapter';
 import { ICacheService } from './adapter';
 import { RedisKeyArgument, RedisKeyValue, RedisValeuArgument } from './types';
 

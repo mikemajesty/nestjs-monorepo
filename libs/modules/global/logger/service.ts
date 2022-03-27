@@ -1,5 +1,5 @@
-import { ApiException } from '@libs/utils';
 import { ConsoleLogger, Injectable } from '@nestjs/common';
+import { ApiException } from 'libs/utils';
 
 import { ILoggerService } from './adapter';
 
