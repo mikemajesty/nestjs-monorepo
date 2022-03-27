@@ -1,3 +1,16 @@
+#### 0.0.18 (2022-03-27)
+
+##### Documentation Changes
+
+* **readme:**  improve docs ([76cd32ab](https://github.com/mikemajesty/nestjs-monorepo/commit/76cd32ab674632393000f2fc3f88a66ae50291f2))
+
+##### New Features
+
+* **monorepo:**
+  *  update nestjs-convert-to-curl version ([38c18e01](https://github.com/mikemajesty/nestjs-monorepo/commit/38c18e01df723440d20d041569b91f760304361d))
+  *  add get curl error interceptor ([c21fce11](https://github.com/mikemajesty/nestjs-monorepo/commit/c21fce11a9a7a49cc392cabedfb20daaab3579a1))
+* **redis module:**  add redis module ([d4a33f33](https://github.com/mikemajesty/nestjs-monorepo/commit/d4a33f33259e68b03ab8b258cd64da0d54d38fc7))
+
 #### 0.0.17 (2022-03-20)
 
 ##### Build System / Dependencies
