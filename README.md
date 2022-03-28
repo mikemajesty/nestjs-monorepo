@@ -78,9 +78,9 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
 #### Add new features
 ```bash
-npm i -g @mikemajesty/monorepo-nestjs-cli
+$ npm i -g monorepo-nestjs-cli
 ```
-
+```bash
   - add new module
     ```bash
       yarn add:module
@@ -92,7 +92,7 @@ npm i -g @mikemajesty/monorepo-nestjs-cli
   - add new test
     ```bash
       yarn add:test
-    ```
+```
 ---
 
 #### Running local mongodb/redis
