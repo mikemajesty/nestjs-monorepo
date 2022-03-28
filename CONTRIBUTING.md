@@ -1,6 +1,3 @@
-It's good to see you here, this is empty yet, help us change it.
-
----
 #### Usage
 
   - logs
