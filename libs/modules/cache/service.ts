@@ -60,9 +60,8 @@ export class CacheService implements ICacheService {
     return await this.client.hGet(key, field);
   }
 
-  async hSet(key: RedisKeyArgument, field: RedisKeyArgument, value: RedisValeuArgument): Promise<void> {
-    const set = await this.client.hSet(key, field, value);
-    if (!set) throw new ApiException(`Cache key: ${key} ${field} not set`);
+  async hSet(key: RedisKeyArgument, field: RedisKeyArgument, value: RedisValeuArgument): Promise<number> {
+    return await this.client.hSet(key, field, value);
   }
 
   async hGetAll(key: RedisKeyArgument): Promise<unknown | unknown[]> {

@@ -144,11 +144,11 @@ describe('ICacheService', () => {
   describe('hSet', () => {
     test('should hSet successfully', async () => {
       const mock = {
-        hSet: () => true,
+        hSet: () => 1,
       };
 
       service.client = MockUtils.setMock(mock);
-      await expect(service.hSet('keyMock', 'fieldMock', 'valueMock')).resolves.toBeUndefined();
+      await expect(service.hSet('keyMock', 'fieldMock', 'valueMock')).resolves.toEqual(1);
     });
 
     test('should hSet unsuccessfully', async () => {
@@ -156,11 +156,11 @@ describe('ICacheService', () => {
       const FIELD = 'fieldMock';
 
       const mock = {
-        hSet: () => false,
+        hSet: () => 0,
       };
 
       service.client = MockUtils.setMock(mock);
-      await expect(service.hSet(KEY, FIELD, 'valueMock')).rejects.toThrowError(`Cache key: ${KEY} ${FIELD} not set`);
+      await expect(service.hSet(KEY, FIELD, 'valueMock')).resolves.toEqual(0);
     });
   });
 
