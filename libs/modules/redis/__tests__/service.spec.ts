@@ -2,7 +2,7 @@ import { MockUtils } from '@libs/utils/tests/mock-utils';
 import { Test } from '@nestjs/testing';
 
 import { ICacheService } from '../adapter';
-import { CacheService } from '../service';
+import { RedisService } from '../service';
 
 describe('ICacheService', () => {
   let service: ICacheService;
@@ -13,7 +13,7 @@ describe('ICacheService', () => {
         {
           provide: ICacheService,
           useFactory: (config: { url: 'redis:redis:0000' }) =>
-            new CacheService(config, MockUtils.setMock({ log: jest.fn(), warn: jest.fn() })),
+            new RedisService(config, MockUtils.setMock({ log: jest.fn(), warn: jest.fn() })),
         },
       ],
     }).compile();

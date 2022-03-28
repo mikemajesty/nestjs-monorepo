@@ -1,14 +1,14 @@
+import { ApiException } from '@libs/utils';
 import { HttpStatus } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { createClient, RedisClientOptions, RedisClientType } from 'redis';
 
-import { ApiException } from '../../../libs/utils';
 import { ILoggerService } from '../global/logger/adapter';
 import { ICacheService } from './adapter';
 import { RedisKeyArgument, RedisKeyValue, RedisValeuArgument } from './types';
 
 @Injectable()
-export class CacheService implements ICacheService {
+export class RedisService implements ICacheService {
   client: RedisClientType;
   private successKey = 'OK';
 

@@ -3,7 +3,7 @@ import { Global, Module } from '@nestjs/common';
 import { ILoggerService } from '../global/logger/adapter';
 import { ISecretsService } from '../global/secrets/adapter';
 import { ICacheService } from './adapter';
-import { CacheService } from './service';
+import { RedisService } from './service';
 
 @Global()
 @Module({
@@ -11,7 +11,7 @@ import { CacheService } from './service';
     {
       provide: ICacheService,
       useFactory: async ({ REDIS_URL }: ISecretsService, logger: ILoggerService) => {
-        const cacheService = new CacheService({ url: REDIS_URL }, logger);
+        const cacheService = new RedisService({ url: REDIS_URL }, logger);
         await cacheService.connect();
         return cacheService;
       },
