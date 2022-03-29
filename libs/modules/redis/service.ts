@@ -18,27 +18,25 @@ export class RedisService implements ICacheService {
 
   async connect(): Promise<RedisClientType> {
     await this.client.connect();
-    this.logger.log('Redis connected!', 'Cache');
+    this.logger.log('Redis connected!', RedisService.name);
     return this.client;
   }
 
   async set(key: RedisKeyArgument, value: RedisValeuArgument, config?: unknown): Promise<void> {
     const setResult = await this.client.set(key, value, config);
-    if (setResult !== this.successKey) throw new ApiException(`Cache ${this.set.name} error: ${key} ${value}`);
+    if (setResult !== this.successKey) this.throwException(`Cache ${this.set.name} error: ${key} ${value}`);
   }
 
   async get(key: RedisKeyArgument): Promise<unknown> {
     const getResult = await this.client.get(key);
-    if (!getResult) this.logger.warn(`Not found key: ${key}`, 'Cache');
+    if (!getResult) this.logger.warn(`Not found key: ${key}`, RedisService.name);
 
     return getResult;
   }
 
   async del(key: RedisKeyArgument): Promise<void> {
     const deleted = await this.client.del(key);
-    if (!deleted) {
-      throw new ApiException(`Cache key: ${key} not deleted`);
-    }
+    if (!deleted) this.throwException(`Cache key: ${key} not deleted`);
   }
 
   async setMulti(redisList: RedisKeyValue[]): Promise<void> {
@@ -53,7 +51,7 @@ export class RedisService implements ICacheService {
 
   async pExpire(key: RedisKeyArgument, miliseconds: number): Promise<void> {
     const expired = await this.client.pExpire(key, miliseconds);
-    if (!expired) throw new ApiException(`Set expire error key: ${key}`, HttpStatus.INTERNAL_SERVER_ERROR, 'Cache');
+    if (!expired) this.throwException(`Set expire error key: ${key}`);
   }
 
   async hGet(key: RedisKeyArgument, field: RedisKeyArgument): Promise<unknown | unknown[]> {
@@ -66,5 +64,9 @@ export class RedisService implements ICacheService {
 
   async hGetAll(key: RedisKeyArgument): Promise<unknown | unknown[]> {
     return await this.client.hGetAll(key);
+  }
+
+  private throwException(error: string) {
+    throw new ApiException(error, HttpStatus.INTERNAL_SERVER_ERROR, RedisService.name);
   }
 }

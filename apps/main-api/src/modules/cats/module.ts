@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConnectionName } from 'libs/modules/database/enum';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
-import { TableName } from 'libs/modules/global/secrets/enum';
 
 import { ICatsRepository } from './adapter';
 import { CatsController } from './controller';
@@ -12,7 +12,7 @@ import { Cats, CatSchema } from './schema';
   controllers: [CatsController],
   imports: [
     // if you does't need of pre save, use this line
-    // MongooseModule.forFeature([{ name: Cats.name, schema: CatSchema }], new SecretsService().mainAPI.db.Database),
+    // MongooseModule.forFeature([{ name: Cats.name, schema: CatSchema }], ConnectionName.CATS),
     MongooseModule.forFeatureAsync(
       [
         {
@@ -27,7 +27,7 @@ import { Cats, CatSchema } from './schema';
           inject: [ILoggerService],
         },
       ],
-      TableName.CATS,
+      ConnectionName.CATS,
     ),
   ],
   providers: [
