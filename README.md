@@ -51,7 +51,10 @@ Check the [contributing manual](./CONTRIBUTING.md)
     ```
 
 ##### workspace list
-<!--$ yarn workspaces info -->
+ ```bash
+ $ yarn workspaces info
+ ```
+ 
  - @app/main.api
  - @app/auth.api
  - @tools/eslint.config
