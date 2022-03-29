@@ -80,19 +80,21 @@ Check the [contributing manual](./CONTRIBUTING.md)
 ```bash
 $ npm i -g monorepo-nestjs-cli
 ```
-```bash
   - add new module
-    ```bash
+    ```
       yarn add:module
     ```
+     
   - add new api
-    ```bash
+    ```
       yarn add:app
     ```
+     
   - add new test
-    ```bash
+    ```
       yarn add:test
-```
+    ```
+     
 ---
 
 #### Running local mongodb/redis
