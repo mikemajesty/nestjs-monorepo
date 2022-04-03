@@ -155,169 +155,206 @@ $ yarn infra:local
 ```
 .
 ├── apps
-│   ├── auth-api
-│   │   ├── Dockerfile
-│   │   ├── jest.config.js
-│   │   ├── package.json
-│   │   ├── src
-│   │   │   ├── main.ts
-│   │   │   └── modules
-│   │   │       ├── health
-│   │   │       │   ├── adapter.ts
-│   │   │       │   ├── controller.ts
-│   │   │       │   ├── module.ts
-│   │   │       │   ├── service.ts
-│   │   │       │   ├── swagger.ts
-│   │   │       │   └── __tests__
-│   │   │       │       ├── controller.e2e.spec.ts
-│   │   │       │       ├── module.spec.ts
-│   │   │       │       └── service.spec.ts
-│   │   │       ├── module.ts
-│   │   │       └── __tests__
-│   │   │           └── module.spec.ts
-│   │   ├── tests
-│   │   │   └── initialization.js
-│   │   ├── tsconfig.build.json
-│   │   └── tsconfig.json
-│   └── main-api
-│       ├── Dockerfile
-│       ├── jest.config.js
-│       ├── package.json
-│       ├── src
-│       │   ├── main.ts
-│       │   └── modules
-│       │       ├── cats
-│       │       │   ├── adapter.ts
-│       │       │   ├── controller.ts
-│       │       │   ├── entity.ts
-│       │       │   ├── module.ts
-│       │       │   ├── repository.ts
-│       │       │   ├── schema.ts
-│       │       │   ├── swagger.ts
-│       │       │   └── __tests__
-│       │       │       ├── controller.e2e.spec.ts
-│       │       │       └── repository.spec.ts
-│       │       ├── health
-│       │       │   ├── adapter.ts
-│       │       │   ├── controller.ts
-│       │       │   ├── module.ts
-│       │       │   ├── service.ts
-│       │       │   ├── swagger.ts
-│       │       │   └── __tests__
-│       │       │       ├── controller.e2e.spec.ts
-│       │       │       ├── module.spec.ts
-│       │       │       └── service.spec.ts
-│       │       ├── module.ts
-│       │       └── __tests__
-│       │           └── module.spec.ts
-│       ├── tests
-│       │   └── initialization.js
-│       ├── tsconfig.build.json
-│       └── tsconfig.json
+│   ├── auth-api
+│   │   ├── Dockerfile
+│   │   ├── jest.config.js
+│   │   ├── package.json
+│   │   ├── src
+│   │   │   ├── main.ts
+│   │   │   └── modules
+│   │   │       ├── health
+│   │   │       │   ├── adapter.ts
+│   │   │       │   ├── controller.ts
+│   │   │       │   ├── module.ts
+│   │   │       │   ├── service.ts
+│   │   │       │   ├── swagger.ts
+│   │   │       │   └── __tests__
+│   │   │       │       ├── controller.e2e.spec.ts
+│   │   │       │       ├── module.spec.ts
+│   │   │       │       └── service.spec.ts
+│   │   │       ├── login
+│   │   │       │   ├── adapter.ts
+│   │   │       │   ├── controller.ts
+│   │   │       │   ├── module.ts
+│   │   │       │   ├── service.ts
+│   │   │       │   ├── swagger.ts
+│   │   │       │   └── __tests__
+│   │   │       │       ├── controller.e2e.spec.ts
+│   │   │       │       └── service.spec.ts
+│   │   │       ├── module.ts
+│   │   │       ├── __tests__
+│   │   │       │   └── module.spec.ts
+│   │   │       └── user
+│   │   │           ├── adapter.ts
+│   │   │           ├── entity.ts
+│   │   │           ├── module.ts
+│   │   │           ├── repository.ts
+│   │   │           └── schema.ts
+│   │   ├── tests
+│   │   │   └── initialization.js
+│   │   ├── tsconfig.build.json
+│   │   └── tsconfig.json
+│   └── main-api
+│       ├── Dockerfile
+│       ├── jest.config.js
+│       ├── package.json
+│       ├── src
+│       │   ├── main.ts
+│       │   └── modules
+│       │       ├── cats
+│       │       │   ├── adapter.ts
+│       │       │   ├── controller.ts
+│       │       │   ├── entity.ts
+│       │       │   ├── module.ts
+│       │       │   ├── repository.ts
+│       │       │   ├── schema.ts
+│       │       │   ├── swagger.ts
+│       │       │   └── __tests__
+│       │       │       ├── controller.e2e.spec.ts
+│       │       │       └── repository.spec.ts
+│       │       ├── health
+│       │       │   ├── adapter.ts
+│       │       │   ├── controller.ts
+│       │       │   ├── module.ts
+│       │       │   ├── service.ts
+│       │       │   ├── swagger.ts
+│       │       │   └── __tests__
+│       │       │       ├── controller.e2e.spec.ts
+│       │       │       ├── module.spec.ts
+│       │       │       └── service.spec.ts
+│       │       ├── module.ts
+│       │       └── __tests__
+│       │           └── module.spec.ts
+│       ├── tests
+│       │   └── initialization.js
+│       ├── tsconfig.build.json
+│       └── tsconfig.json
 ├── CHANGELOG.md
 ├── commitlint.config.ts
 ├── CONTRIBUTING.md
 ├── devops
-│   └── production-version.sh
+│   └── production-version.sh
 ├── docker-compose-local.yml
 ├── docker-compose.yml
 ├── jest.config.e2e.ts
 ├── jest.config.ts
 ├── libs
-│   ├── core
-│   │   ├── index.ts
-│   │   ├── jest.config.js
-│   │   ├── package.json
-│   │   ├── tests
-│   │   │   └── initialization.js
-│   │   └── tsconfig.json
-│   ├── modules
-│   │   ├── common
-│   │   │   ├── http
-│   │   │   │   ├── adapter.ts
-│   │   │   │   ├── module.ts
-│   │   │   │   ├── service.ts
-│   │   │   │   └── __tests__
-│   │   │   │       ├── module.spec.ts
-│   │   │   │       └── service.spec.ts
-│   │   │   ├── index.ts
-│   │   │   ├── module.ts
-│   │   │   └── __tests__
-│   │   │       └── module.spec.ts
-│   │   ├── database
-│   │   │   ├── adapter.ts
-│   │   │   ├── auth.module.ts
-│   │   │   ├── cats.module.ts
-│   │   │   ├── entity.ts
-│   │   │   ├── repository.ts
-│   │   │   ├── service.ts
-│   │   │   └── __tests__
-│   │   │       ├── repository.spec.ts
-│   │   │       └── service.spec.ts
-│   │   ├── global
-│   │   │   ├── index.ts
-│   │   │   ├── logger
-│   │   │   │   ├── adapter.ts
-│   │   │   │   ├── module.ts
-│   │   │   │   ├── service.ts
-│   │   │   │   └── __tests__
-│   │   │   │       ├── module.spec.ts
-│   │   │   │       └── service.spec.ts
-│   │   │   ├── module.ts
-│   │   │   ├── secrets
-│   │   │   │   ├── adapter.ts
-│   │   │   │   ├── enum.ts
-│   │   │   │   ├── module.ts
-│   │   │   │   ├── service.ts
-│   │   │   │   └── __tests__
-│   │   │   │       ├── module.spec.ts
-│   │   │   │       └── service.spec.ts
-│   │   │   └── __tests__
-│   │   │       └── module.spec.ts
-│   │   ├── index.ts
-│   │   ├── jest.config.js
-│   │   ├── package.json
-│   │   ├── __tests__
-│   │   │   └── module.spec.ts
-│   │   ├── tests
-│   │   │   └── initialization.js
-│   │   └── tsconfig.json
-│   └── utils
-│       ├── documentation
-│       │   ├── constants.ts
-│       │   └── swagger.ts
-│       ├── exception.ts
-│       ├── filters
-│       │   ├── http-exception.filter.ts
-│       │   └── __tests__
-│       │       └── http-exception.filter.spec.ts
-│       ├── index.ts
-│       ├── interceptors
-│       │   ├── http-exception.interceptor.ts
-│       │   ├── http-logger.interceptor.ts
-│       │   └── __tests__
-│       │       ├── http-logger.interceptor.spec.ts
-│       │       └── http-performance.interceptor.spec.ts
-│       ├── jest.config.js
-│       ├── package.json
-│       ├── static
-│       │   └── htttp-status.json
-│       ├── __tests__
-│       │   └── exception.spec.ts
-│       ├── tests
-│       │   ├── initialization.js
-│       │   ├── mock-utils.ts
-│       │   └── __tests__
-│       │       └── mock-utils.spec.ts
-│       └── tsconfig.json
+│   ├── core
+│   │   ├── index.ts
+│   │   ├── jest.config.js
+│   │   ├── package.json
+│   │   ├── tests
+│   │   │   └── initialization.js
+│   │   └── tsconfig.json
+│   ├── modules
+│   │   ├── auth
+│   │   │   └── token
+│   │   │       ├── adapter.ts
+│   │   │       ├── module.ts
+│   │   │       ├── service.ts
+│   │   │       ├── __tests__
+│   │   │       │   └── service.spec.ts
+│   │   │       └── types.ts
+│   │   ├── common
+│   │   │   ├── http
+│   │   │   │   ├── adapter.ts
+│   │   │   │   ├── module.ts
+│   │   │   │   ├── service.ts
+│   │   │   │   └── __tests__
+│   │   │   │       ├── module.spec.ts
+│   │   │   │       └── service.spec.ts
+│   │   │   ├── module.ts
+│   │   │   └── __tests__
+│   │   │       └── module.spec.ts
+│   │   ├── database
+│   │   │   ├── adapter.ts
+│   │   │   ├── auth.module.ts
+│   │   │   ├── cats.module.ts
+│   │   │   ├── entity.ts
+│   │   │   ├── enum.ts
+│   │   │   ├── repository.ts
+│   │   │   ├── service.ts
+│   │   │   └── __tests__
+│   │   │       ├── repository.spec.ts
+│   │   │       └── service.spec.ts
+│   │   ├── global
+│   │   │   ├── logger
+│   │   │   │   ├── adapter.ts
+│   │   │   │   ├── module.ts
+│   │   │   │   ├── service.ts
+│   │   │   │   └── __tests__
+│   │   │   │       ├── module.spec.ts
+│   │   │   │       └── service.spec.ts
+│   │   │   ├── module.ts
+│   │   │   ├── secrets
+│   │   │   │   ├── adapter.ts
+│   │   │   │   ├── enum.ts
+│   │   │   │   ├── module.ts
+│   │   │   │   ├── service.ts
+│   │   │   │   └── __tests__
+│   │   │   │       ├── module.spec.ts
+│   │   │   │       └── service.spec.ts
+│   │   │   └── __tests__
+│   │   │       └── module.spec.ts
+│   │   ├── index.ts
+│   │   ├── jest.config.js
+│   │   ├── package.json
+│   │   ├── redis
+│   │   │   ├── adapter.ts
+│   │   │   ├── module.ts
+│   │   │   ├── service.ts
+│   │   │   ├── __tests__
+│   │   │   │   └── service.spec.ts
+│   │   │   └── types.ts
+│   │   ├── __tests__
+│   │   │   └── module.spec.ts
+│   │   ├── tests
+│   │   │   └── initialization.js
+│   │   └── tsconfig.json
+│   └── utils
+│       ├── documentation
+│       │   ├── constants.ts
+│       │   └── swagger.ts
+│       ├── exception.ts
+│       ├── filters
+│       │   ├── http-exception.filter.ts
+│       │   └── __tests__
+│       │       └── http-exception.filter.spec.ts
+│       ├── index.ts
+│       ├── interceptors
+│       │   ├── exception
+│       │   │   ├── http-exception.interceptor.ts
+│       │   │   └── __tests__
+│       │   │       └── http-exception.interceptor.spec.ts
+│       │   └── logger
+│       │       ├── http-logger.interceptor.ts
+│       │       └── __tests__
+│       │           └── http-logger.interceptor.spec.ts
+│       ├── jest.config.js
+│       ├── middleware
+│       │   └── auth
+│       │       ├── is-logged.middleware.ts
+│       │       └── __tests__
+│       │           └── is-logged.middleware.spec.ts
+│       ├── package.json
+│       ├── static
+│       │   └── htttp-status.json
+│       ├── __tests__
+│       │   └── exception.spec.ts
+│       ├── tests
+│       │   ├── initialization.js
+│       │   ├── mock-utils.ts
+│       │   └── __tests__
+│       │       └── mock-utils.spec.ts
+│       └── tsconfig.json
 ├── nest-cli.json
 ├── package.json
 ├── README.md
 ├── tests
-│   └── common-initialization.js
+│   └── common-initialization.js
 ├── tools
-│   └── eslint
-│       └── package.json
+│   └── eslint
+│       └── package.json
 ├── tsconfig.build.json
 ├── tsconfig.json
 └── update-version.sh
