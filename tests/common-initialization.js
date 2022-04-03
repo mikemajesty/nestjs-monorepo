@@ -4,6 +4,8 @@ jest.setTimeout(2000);
 
 process.env.ENV = 'test';
 
+// token
+process.env.SECRET_JWT = '12345'
 
 
 

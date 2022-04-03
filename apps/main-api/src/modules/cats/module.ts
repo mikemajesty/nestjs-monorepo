@@ -1,7 +1,9 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { TokenModule } from 'libs/modules/auth/token/module';
 import { ConnectionName } from 'libs/modules/database/enum';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { IsLoggedMiddleware } from 'libs/utils/middleware/auth/is-logged.middleware';
 
 import { ICatsRepository } from './adapter';
 import { CatsController } from './controller';
@@ -13,6 +15,7 @@ import { Cats, CatSchema } from './schema';
   imports: [
     // if you does't need of pre save, use this line
     // MongooseModule.forFeature([{ name: Cats.name, schema: CatSchema }], ConnectionName.CATS),
+    TokenModule,
     MongooseModule.forFeatureAsync(
       [
         {
@@ -38,4 +41,8 @@ import { Cats, CatSchema } from './schema';
   ],
   exports: [ICatsRepository],
 })
-export class CatsModule {}
+export class CatsModule implements NestModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(IsLoggedMiddleware).forRoutes({ path: 'cats*', method: RequestMethod.ALL });
+  }
+}

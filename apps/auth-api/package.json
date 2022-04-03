@@ -14,5 +14,9 @@
   "engines": {
     "node": ">=14 <=15"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.8"
+  }
 }

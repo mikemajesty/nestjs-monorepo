@@ -20,10 +20,11 @@ export class SecretsService extends ConfigService implements ISecretsService {
   };
 
   mainAPI = {
-    PORT: this.get<number>(MainAPIEnvironment.PORT),
+    port: this.get<number>(MainAPIEnvironment.PORT),
   };
 
   authAPI = {
-    PORT: this.get<number>(AuthAPIEnvironment.PORT),
+    port: this.get<number>(AuthAPIEnvironment.PORT),
+    jwtToken: this.get<string>(AuthAPIEnvironment.SECRET_JWT),
   };
 }

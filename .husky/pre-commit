@@ -2,6 +2,6 @@
 . "$(dirname "$0")/husky.sh"
 
 yarn lint
-yarn test
+yarn test:coverage 
 
 echo '\nI Know What You Did Last Commit\n'

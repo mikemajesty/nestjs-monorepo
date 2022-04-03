@@ -1,5 +1,6 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import * as moment from 'moment-timezone';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ILoggerService } from '../../modules/global/logger/adapter';
 import { ApiException, ErrorModel } from '../exception';
@@ -15,6 +16,10 @@ export class AppExceptionFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
 
     const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
+
+    if (!exception.uuid) {
+      exception.uuid = uuidv4();
+    }
 
     this.loggerService.error(exception);
 

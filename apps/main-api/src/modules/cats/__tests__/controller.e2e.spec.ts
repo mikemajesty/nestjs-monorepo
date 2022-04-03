@@ -6,7 +6,7 @@ import * as request from 'supertest';
 
 import { ICatsRepository } from '../adapter';
 import { CatsController } from '../controller';
-import { CatsDTO } from '../entity';
+import { CatsEntity } from '../entity';
 import { CatsRepository } from '../repository';
 import { Cats } from '../schema';
 
@@ -43,7 +43,7 @@ describe('CatsController (e2e)', () => {
 
   describe('/cats (POST)', () => {
     it(`should save successfully`, async () => {
-      const dummy: Cats = new CatsDTO();
+      const dummy: Cats = new CatsEntity();
       return request(app.getHttpServer()).post('/cats').send(dummy).expect(201);
     });
   });

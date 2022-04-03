@@ -22,13 +22,13 @@ describe('SecretsService', () => {
 
   describe('mainAPI', () => {
     test('should get mainAPI secrets successfully', () => {
-      expect(commonSecrets.mainAPI.PORT).toEqual('3000');
+      expect(commonSecrets.mainAPI.port).toEqual('3000');
     });
   });
 
   describe('authAPI', () => {
     test('should get authAPI secrets successfully', () => {
-      expect(commonSecrets.authAPI.PORT).toEqual('4000');
+      expect(commonSecrets.authAPI.port).toEqual('4000');
     });
   });
 });

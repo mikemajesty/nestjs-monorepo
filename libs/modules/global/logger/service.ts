@@ -22,8 +22,9 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
         ...{
           message: error.message,
           context: error.context,
+          user: error?.user,
           stack: error.stack,
-          request: error.config,
+          request: error?.config,
         },
       });
     }
