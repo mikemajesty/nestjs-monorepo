@@ -4,4 +4,5 @@ export enum MainAPIEnvironment {
 
 export enum AuthAPIEnvironment {
   PORT = 'PORT_AUTH_API',
+  SECRET_JWT = 'SECRET_JWT',
 }

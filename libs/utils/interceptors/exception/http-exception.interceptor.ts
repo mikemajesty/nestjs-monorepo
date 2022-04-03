@@ -16,9 +16,12 @@ export class ExceptionInterceptor implements NestInterceptor {
         ].every((e) => e);
 
         if (isClassValidatorError) {
-          error.message = error.response.message;
+          error.message = error?.response?.message;
         }
 
+        const headers = ctx.getArgs()[0]?.headers;
+
+        error.user = headers.user;
         const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
 
         if (!error?.uuid) {

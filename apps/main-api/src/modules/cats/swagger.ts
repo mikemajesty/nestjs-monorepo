@@ -6,12 +6,17 @@ export class SwagggerResponse {
     201: Swagger.defaultResponseJSON({
       json: { id: '<id>', created: true } as CreatedModel,
       status: 201,
-      description: 'Save successfully',
+      description: 'save successfully',
+    }),
+    401: Swagger.defaultResponseError({
+      status: 401,
+      route: 'api/cats',
+      description: 'unauthorized',
     }),
     500: Swagger.defaultResponseError({
       status: 500,
       route: 'api/cats',
-      description: 'Save unsuccessfully',
+      description: 'save unsuccessfully',
     }),
   };
 }

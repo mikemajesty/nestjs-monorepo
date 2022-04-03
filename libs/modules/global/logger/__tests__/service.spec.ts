@@ -47,14 +47,4 @@ describe('LoggerService', () => {
       loggerService.error(error);
     });
   });
-
-  describe('log', () => {
-    test('should log successfully', () => {
-      loggerService.log('Message');
-    });
-
-    test('should log successfully with context', () => {
-      loggerService.log('Message', 'context');
-    });
-  });
 });
