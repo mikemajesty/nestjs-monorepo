@@ -1,6 +1,4 @@
-import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
-import { ApiException } from 'libs/utils';
 
 import { IUserRepository } from '../../user/adapter';
 import { ILoginService } from '../adapter';
@@ -12,6 +10,7 @@ describe('LoginService', () => {
 
   beforeEach(async () => {
     jest.clearAllMocks();
+
     const app = await Test.createTestingModule({
       imports: [],
       providers: [
@@ -31,6 +30,7 @@ describe('LoginService', () => {
     loginService = app.get(ILoginService);
     userRepository = app.get(IUserRepository);
   });
+
   describe('login', () => {
     test('should login successfully', async () => {
       const user = { login: 'mock', pass: 'pass' };
@@ -38,9 +38,9 @@ describe('LoginService', () => {
       await expect(loginService.login(user)).resolves.toEqual(user);
     });
 
-    test('should throw "not found" error', async () => {
-      userRepository.logged = jest.fn().mockRejectedValue(new ApiException('not found', HttpStatus.NOT_FOUND));
-      await expect(loginService.login(null)).rejects.toThrowError('not found');
+    test('should throw "not found login" error', async () => {
+      userRepository.logged = jest.fn().mockResolvedValue(null);
+      await expect(loginService.login(null)).rejects.toThrowError('username or password is invalid.');
     });
   });
 });

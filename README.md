@@ -234,7 +234,7 @@ $ yarn infra:local
 ├── CHANGELOG.md
 ├── commitlint.config.ts
 ├── CONTRIBUTING.md
-├── devops
+├── deploy
 │   └── production-version.sh
 ├── docker-compose-local.yml
 ├── docker-compose.yml
