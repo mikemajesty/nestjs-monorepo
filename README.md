@@ -8,6 +8,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Secrets Service
  - Logs Service
 
+ - Authentication
+
  - Error Handler
 
  - Libs Structure
