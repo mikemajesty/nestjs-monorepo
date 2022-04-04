@@ -19,7 +19,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Adapter Pattern
  - Generic Repository Pattern
 
- - swaggger documentation
+ - Swaggger Documentation
  
  - Redis 
 
