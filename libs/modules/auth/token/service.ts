@@ -8,7 +8,7 @@ import { Token } from './types';
 
 @Injectable()
 export class TokenService implements ITokenService {
-  constructor(private secret: ISecretsService) {}
+  constructor(private readonly secret: ISecretsService) {}
 
   sign(model: object, options?: jwt.SignOptions): Token {
     const token = jwt.sign(

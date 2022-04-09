@@ -6,7 +6,7 @@ import { ApiException } from '../../exception';
 
 @Injectable()
 export class IsLoggedMiddleware implements NestMiddleware {
-  constructor(private tokenService: ITokenService) {}
+  constructor(private readonly tokenService: ITokenService) {}
   async use(req: Request, res: Response, next: NextFunction): Promise<void> {
     const tokenHeader = req.headers.authorization;
 

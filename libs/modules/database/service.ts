@@ -7,13 +7,17 @@ type ConnectionModel = {
 };
 
 export class DataBaseService implements IDataBaseService {
-  constructor(private connection: ConnectionModel) {}
+  constructor(private readonly connection: ConnectionModel) {}
+
   getDefaultConnection(options?: MongooseModuleOptions): MongooseModuleOptions {
-    return {
+    const connectionOptions = options || {
       appName: 'monorepo',
       uri: this.connection.URI,
+      minPoolSize: 5,
       connectTimeoutMS: 2000,
       ...options,
     };
+
+    return connectionOptions;
   }
 }

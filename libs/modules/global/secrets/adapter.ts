@@ -5,8 +5,8 @@ export abstract class ISecretsService {
   REDIS_URL: string;
 
   database: {
-    CATS: { URI: string };
-    AUTH: { URI: string };
+    cats: { URI: string };
+    auth: { URI: string };
   };
 
   mainAPI: {

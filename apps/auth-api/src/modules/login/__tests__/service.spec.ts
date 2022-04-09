@@ -32,15 +32,15 @@ describe('LoginService', () => {
   });
 
   describe('login', () => {
+    const user = { login: 'mock', pass: 'pass' };
     test('should login successfully', async () => {
-      const user = { login: 'mock', pass: 'pass' };
-      userRepository.logged = jest.fn().mockResolvedValue(user);
+      userRepository.findOne = jest.fn().mockResolvedValue(user);
       await expect(loginService.login(user)).resolves.toEqual(user);
     });
 
     test('should throw "not found login" error', async () => {
-      userRepository.logged = jest.fn().mockResolvedValue(null);
-      await expect(loginService.login(null)).rejects.toThrowError('username or password is invalid.');
+      userRepository.findOne = jest.fn().mockResolvedValue(null);
+      await expect(loginService.login(user)).rejects.toThrowError('username or password is invalid.');
     });
   });
 });

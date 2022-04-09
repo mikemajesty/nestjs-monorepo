@@ -10,10 +10,10 @@ import { RedisKeyArgument, RedisKeyValue, RedisValeuArgument } from './types';
 @Injectable()
 export class RedisService implements ICacheService {
   client: RedisClientType;
-  private successKey = 'OK';
+  private readonly successKey = 'OK';
 
-  constructor(config: RedisClientOptions, private logger: ILoggerService) {
-    this.client = createClient(config);
+  constructor(private readonly config: RedisClientOptions, private readonly logger: ILoggerService) {
+    this.client = createClient(this.config);
   }
 
   async connect(): Promise<RedisClientType> {

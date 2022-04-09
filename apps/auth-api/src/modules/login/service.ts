@@ -7,10 +7,10 @@ import { ILoginService } from './adapter';
 
 @Injectable()
 export class LoginService implements ILoginService {
-  constructor(private userRepository: IUserRepository) {}
+  constructor(private readonly userRepository: IUserRepository) {}
 
   async login(model: UserEntity): Promise<UserEntity> {
-    const user = await this.userRepository.logged(model);
+    const user = await this.userRepository.findOne({ login: model.login, pass: model.pass });
     if (!user) throw new ApiException(`username or password is invalid.`, HttpStatus.PRECONDITION_FAILED);
     return user;
   }

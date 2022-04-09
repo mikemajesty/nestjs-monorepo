@@ -26,7 +26,7 @@ import { DataBaseService } from './service';
       connectionName: ConnectionName.AUTH,
       useFactory: ({
         database: {
-          AUTH: { URI },
+          auth: { URI },
         },
       }: ISecretsService) => new DataBaseService({ URI }).getDefaultConnection(),
       inject: [ISecretsService],

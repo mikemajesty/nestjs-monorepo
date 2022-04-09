@@ -70,6 +70,16 @@ describe('Repository', () => {
     });
   });
 
+  describe('findOne', () => {
+    test('should findOne successfully', async () => {
+      const repository = buildMock({
+        findOne: () => true,
+      });
+
+      await expect(repository.findOne({} as unknown)).resolves.toEqual(true);
+    });
+  });
+
   describe('remove', () => {
     test('should remove successfully', async () => {
       const repository = buildMock({

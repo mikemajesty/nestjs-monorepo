@@ -5,10 +5,8 @@ import { ILoggerService } from './adapter';
 
 @Injectable()
 export class LoggerService extends ConsoleLogger implements ILoggerService {
-  private env: string;
-  constructor(env: string) {
+  constructor(private readonly env: string) {
     super();
-    this.env = env;
   }
 
   error(error: ApiException): void {

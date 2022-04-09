@@ -8,7 +8,7 @@ import { CatDocument, Cats } from './schema';
 
 @Injectable()
 export class CatsRepository extends Repository<CatDocument> implements ICatsRepository {
-  constructor(@InjectModel(Cats.name) private entity: Model<CatDocument>) {
+  constructor(@InjectModel(Cats.name) private readonly entity: Model<CatDocument>) {
     super(entity);
   }
 }
