@@ -2,15 +2,15 @@ import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
 import { ApiException } from '../../../../utils';
+import { GlobalModule } from '../../module';
 import { ILoggerService } from '../adapter';
-import { LoggerModule } from '../module';
 
 describe('LoggerService', () => {
   let loggerService: ILoggerService;
 
   beforeEach(async () => {
     const module = await Test.createTestingModule({
-      imports: [LoggerModule],
+      imports: [GlobalModule],
     }).compile();
 
     loggerService = module.get(ILoggerService);

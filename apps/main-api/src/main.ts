@@ -29,6 +29,7 @@ async function bootstrap() {
 
   loggerService.setContext(name);
   app.useGlobalFilters(new AppExceptionFilter(loggerService));
+
   app.useGlobalInterceptors(
     new ExceptionInterceptor(),
     new HttpLoggerInterceptor(loggerService),

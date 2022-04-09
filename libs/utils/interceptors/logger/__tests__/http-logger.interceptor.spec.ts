@@ -3,7 +3,7 @@ import { CallHandler } from '@nestjs/common/interfaces';
 import { Test } from '@nestjs/testing';
 import { Observable, of } from 'rxjs';
 
-import { LoggerModule } from '../../../../modules/global/logger/module';
+import { GlobalModule } from '../../../../modules/global/module';
 import { HttpLoggerInterceptor } from '../http-logger.interceptor';
 
 describe('HttpLoggerInterceptor', () => {
@@ -20,7 +20,7 @@ describe('HttpLoggerInterceptor', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     const app = await Test.createTestingModule({
-      imports: [LoggerModule],
+      imports: [GlobalModule],
       providers: [HttpLoggerInterceptor],
     }).compile();
 

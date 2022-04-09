@@ -24,19 +24,19 @@ export class RedisService implements ICacheService {
 
   async set(key: RedisKeyArgument, value: RedisValeuArgument, config?: unknown): Promise<void> {
     const setResult = await this.client.set(key, value, config);
-    if (setResult !== this.successKey) this.throwException(`Cache ${this.set.name} error: ${key} ${value}`);
+    if (setResult !== this.successKey) this.throwException(`cache ${this.set.name} error: ${key} ${value}`);
   }
 
   async get(key: RedisKeyArgument): Promise<unknown> {
     const getResult = await this.client.get(key);
-    if (!getResult) this.logger.warn(`Not found key: ${key}`, RedisService.name);
+    if (!getResult) this.logger.warn(`key: ${key} not found.`, RedisService.name);
 
     return getResult;
   }
 
   async del(key: RedisKeyArgument): Promise<void> {
     const deleted = await this.client.del(key);
-    if (!deleted) this.throwException(`Cache key: ${key} not deleted`);
+    if (!deleted) this.throwException(`cache key: ${key} not deleted`);
   }
 
   async setMulti(redisList: RedisKeyValue[]): Promise<void> {
@@ -51,7 +51,7 @@ export class RedisService implements ICacheService {
 
   async pExpire(key: RedisKeyArgument, miliseconds: number): Promise<void> {
     const expired = await this.client.pExpire(key, miliseconds);
-    if (!expired) this.throwException(`Set expire error key: ${key}`);
+    if (!expired) this.throwException(`set expire error key: ${key}`);
   }
 
   async hGet(key: RedisKeyArgument, field: RedisKeyArgument): Promise<unknown | unknown[]> {

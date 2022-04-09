@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
-import { LoggerModule } from 'libs/modules/global/logger/module';
+import { GlobalModule } from 'libs/modules/global/module';
 
 import { name, version } from '../../../../package.json';
 import { IHealthService } from '../adapter';
@@ -11,7 +11,7 @@ describe('HealthService', () => {
 
   beforeEach(async () => {
     const app = await Test.createTestingModule({
-      imports: [LoggerModule],
+      imports: [GlobalModule],
       providers: [
         {
           provide: ICatsRepository,

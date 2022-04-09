@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { LoggerModule } from 'libs/modules/global/logger/module';
+import { GlobalModule } from 'libs/modules/global/module';
 import * as request from 'supertest';
 
 import { ICatsRepository } from '../adapter';
@@ -31,7 +31,7 @@ describe('CatsController (e2e)', () => {
           })),
         },
       ],
-      imports: [LoggerModule],
+      imports: [GlobalModule],
     }).compile();
 
     // mock model functions

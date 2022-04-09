@@ -45,7 +45,7 @@ describe('ICacheService', () => {
       };
 
       service.client = MockUtils.setMock(mock);
-      await expect(service.set(KEY_MOCK, 'valueMock')).rejects.toThrowError(`Cache set error: ${KEY_MOCK} valueMock`);
+      await expect(service.set(KEY_MOCK, 'valueMock')).rejects.toThrowError(`cache set error: ${KEY_MOCK} valueMock`);
     });
   });
 
@@ -89,7 +89,7 @@ describe('ICacheService', () => {
       service.client = MockUtils.setMock(mock);
       const KEY = 'keyMock';
 
-      await expect(service.del(KEY)).rejects.toThrow(`Cache key: ${KEY} not deleted`);
+      await expect(service.del(KEY)).rejects.toThrow(`cache key: ${KEY} not deleted`);
     });
   });
 
@@ -126,7 +126,7 @@ describe('ICacheService', () => {
       };
 
       service.client = MockUtils.setMock(mock);
-      await expect(service.pExpire(KEY, 1000)).rejects.toThrow(`Set expire error key: ${KEY}`);
+      await expect(service.pExpire(KEY, 1000)).rejects.toThrow(`set expire error key: ${KEY}`);
     });
   });
 

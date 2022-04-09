@@ -15,7 +15,6 @@ export class DataBaseService implements IDataBaseService {
       uri: this.connection.URI,
       minPoolSize: 5,
       connectTimeoutMS: 2000,
-      ...options,
     };
 
     return connectionOptions;

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { SecretsService } from '../secrets/service';
+import { ISecretsService } from '../secrets/adapter';
 import { ILoggerService } from './adapter';
 import { LoggerService } from './service';
 
@@ -8,7 +8,8 @@ import { LoggerService } from './service';
   providers: [
     {
       provide: ILoggerService,
-      useFactory: (env = new SecretsService().ENV) => new LoggerService(env),
+      useFactory: ({ ENV }: ISecretsService) => new LoggerService(ENV),
+      inject: [ISecretsService],
     },
   ],
   exports: [ILoggerService],
