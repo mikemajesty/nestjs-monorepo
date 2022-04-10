@@ -19,7 +19,7 @@ export default {
       functions: 95,
       lines: 95,
       statements: 95,
-      branches: 60,
+      branches: 50,
     },
   },
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),

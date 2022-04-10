@@ -18,11 +18,10 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
         status: [error.statusCode, error.code, error['status']].find((c) => c),
         traceId: error.uuid,
         ...{
-          message: error.message,
+          message: error['response'] ? error['response']?.data || error['response'] : error.message,
           context: error.context,
           user: error?.user,
           stack: error.stack,
-          request: error?.config,
         },
       });
     }
