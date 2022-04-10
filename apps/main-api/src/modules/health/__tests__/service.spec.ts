@@ -1,6 +1,8 @@
 import { Test } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { GlobalModule } from 'libs/modules/global/module';
+import { ICacheService } from 'libs/modules/redis/adapter';
 
 import { name, version } from '../../../../package.json';
 import { IHealthService } from '../adapter';
@@ -14,14 +16,13 @@ describe('HealthService', () => {
       imports: [GlobalModule],
       providers: [
         {
-          provide: ICatsRepository,
-          useValue: {
-            save: jest.fn(),
-          },
-        },
-        {
           provide: IHealthService,
-          useClass: HealthService,
+          useFactory: () =>
+            new HealthService(
+              { isConnected: jest.fn() } as unknown as ICatsRepository,
+              { isConnected: jest.fn() } as unknown as ICacheService,
+              { log: jest.fn() } as unknown as ILoggerService,
+            ),
         },
       ],
     }).compile();

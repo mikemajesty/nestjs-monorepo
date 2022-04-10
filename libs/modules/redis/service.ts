@@ -10,10 +10,14 @@ import { RedisKeyArgument, RedisKeyValue, RedisValeuArgument } from './types';
 @Injectable()
 export class RedisService implements ICacheService {
   client: RedisClientType;
-  private readonly successKey = 'OK';
 
   constructor(private readonly config: RedisClientOptions, private readonly logger: ILoggerService) {
     this.client = createClient(this.config);
+  }
+
+  async isConnected(): Promise<void> {
+    const ping = await this.client.ping();
+    if (ping !== 'PONG') this.throwException('redis disconnected.');
   }
 
   async connect(): Promise<RedisClientType> {
@@ -24,7 +28,7 @@ export class RedisService implements ICacheService {
 
   async set(key: RedisKeyArgument, value: RedisValeuArgument, config?: unknown): Promise<void> {
     const setResult = await this.client.set(key, value, config);
-    if (setResult !== this.successKey) this.throwException(`cache ${this.set.name} error: ${key} ${value}`);
+    if (setResult !== 'OK') this.throwException(`cache ${this.set.name} error: ${key} ${value}`);
   }
 
   async get(key: RedisKeyArgument): Promise<unknown> {

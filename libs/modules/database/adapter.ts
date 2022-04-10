@@ -8,6 +8,7 @@ export abstract class IDataBaseService {
 }
 
 export abstract class IRepository<T> {
+  abstract isConnected(): Promise<void>;
   abstract create(document: object, saveOptions?: SaveOptions): Promise<CreatedModel>;
   abstract findById(id: string | number): Promise<T>;
   abstract findAll(): Promise<T[]>;

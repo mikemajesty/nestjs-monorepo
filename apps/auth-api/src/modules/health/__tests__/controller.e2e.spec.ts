@@ -5,6 +5,7 @@ import { ApiException } from 'libs/utils';
 import * as request from 'supertest';
 
 import { name, version } from '../../../../package.json';
+import { IUserRepository } from '../../user/adapter';
 import { IHealthService } from '../adapter';
 import { HealthController } from '../controller';
 import { HealthService } from '../service';
@@ -19,11 +20,11 @@ describe('HealthController (e2e)', () => {
       providers: [
         {
           provide: IHealthService,
-          useClass: HealthService,
-        },
-        {
-          provide: ILoggerService,
-          useValue: { log: jest.fn() },
+          useFactory: () =>
+            new HealthService(
+              { isConnected: jest.fn() } as unknown as IUserRepository,
+              { log: jest.fn() } as unknown as ILoggerService,
+            ),
         },
       ],
       imports: [],
@@ -36,6 +37,7 @@ describe('HealthController (e2e)', () => {
 
   describe('/health (GET)', () => {
     const text = `${name}-${version} UP!!`;
+
     it(`should return ${text}`, async () => {
       return request(app.getHttpServer()).get('/health').expect(text);
     });

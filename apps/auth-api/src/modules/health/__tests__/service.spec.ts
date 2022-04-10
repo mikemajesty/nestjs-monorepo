@@ -2,6 +2,7 @@ import { Test } from '@nestjs/testing';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 
 import { name, version } from '../../../../package.json';
+import { IUserRepository } from '../../user/adapter';
 import { IHealthService } from '../adapter';
 import { HealthService } from '../service';
 
@@ -10,14 +11,15 @@ describe('HealthService', () => {
 
   beforeEach(async () => {
     const app = await Test.createTestingModule({
+      imports: [],
       providers: [
         {
           provide: IHealthService,
-          useClass: HealthService,
-        },
-        {
-          provide: ILoggerService,
-          useValue: { log: jest.fn() },
+          useFactory: () =>
+            new HealthService(
+              { isConnected: jest.fn() } as unknown as IUserRepository,
+              { log: jest.fn() } as unknown as ILoggerService,
+            ),
         },
       ],
     }).compile();

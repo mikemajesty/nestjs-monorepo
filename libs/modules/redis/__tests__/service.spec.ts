@@ -27,6 +27,26 @@ describe('ICacheService', () => {
     });
   });
 
+  describe('isConnected', () => {
+    test('should connect successfully', async () => {
+      const mock = {
+        ping: () => 'PONG',
+      };
+
+      service.client = MockUtils.setMock(mock);
+      await expect(service.isConnected()).resolves.toBeUndefined();
+    });
+
+    test('should connect unsuccessfully', async () => {
+      const mock = {
+        ping: () => false,
+      };
+
+      service.client = MockUtils.setMock(mock);
+      await expect(service.isConnected()).rejects.toThrowError('redis disconnected.');
+    });
+  });
+
   describe('set', () => {
     test('should set successfully', async () => {
       const mock = {

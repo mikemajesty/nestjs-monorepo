@@ -4,6 +4,7 @@ import { RedisKeyArgument, RedisKeyValue, RedisValeuArgument } from './types';
 
 export abstract class ICacheService {
   abstract client: RedisClientType;
+  abstract isConnected(): Promise<void>;
   abstract connect(): Promise<RedisClientType>;
   abstract set(key: RedisKeyArgument, value: RedisValeuArgument, config?: unknown): Promise<void>;
   abstract del(key: RedisKeyArgument): Promise<void>;

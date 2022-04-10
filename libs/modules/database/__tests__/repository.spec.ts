@@ -50,6 +50,24 @@ describe('Repository', () => {
     });
   });
 
+  describe('isConnected', () => {
+    test('should isConnected successfully', async () => {
+      const repository = buildMock({
+        db: { readyState: 1 },
+      });
+
+      await expect(repository.isConnected()).resolves.toBeUndefined();
+    });
+
+    test('should throw disconnected error', async () => {
+      const repository = buildMock({
+        db: { readyState: 0, name: 'mock' },
+      });
+
+      await expect(repository.isConnected()).rejects.toThrowError('db mock disconnected');
+    });
+  });
+
   describe('findAll', () => {
     test('should findAll successfully', async () => {
       const repository = buildMock({

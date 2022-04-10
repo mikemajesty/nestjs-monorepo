@@ -1,11 +1,15 @@
 import { INestApplication } from '@nestjs/common';
+import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { GlobalModule } from 'libs/modules/global/module';
+import { ICacheService } from 'libs/modules/redis/adapter';
 import { ApiException } from 'libs/utils';
 import * as request from 'supertest';
 
 import { name, version } from '../../../../package.json';
+import { Cats } from '../../cats/schema';
 import { IHealthService } from '../adapter';
 import { HealthController } from '../controller';
 import { HealthService } from '../service';
@@ -19,14 +23,17 @@ describe('HealthController (e2e)', () => {
       controllers: [HealthController],
       providers: [
         {
-          provide: ICatsRepository,
-          useValue: {
-            save: jest.fn(),
-          },
+          provide: IHealthService,
+          useFactory: () =>
+            new HealthService(
+              { isConnected: jest.fn() } as unknown as ICatsRepository,
+              { isConnected: jest.fn() } as unknown as ICacheService,
+              { log: jest.fn() } as unknown as ILoggerService,
+            ),
         },
         {
-          provide: IHealthService,
-          useClass: HealthService,
+          provide: getModelToken(Cats.name),
+          useValue: {},
         },
       ],
       imports: [GlobalModule],
@@ -36,7 +43,7 @@ describe('HealthController (e2e)', () => {
     service = module.get(IHealthService);
     await app.init();
   });
-
+  // TODO
   describe('/health (GET)', () => {
     const text = `${name}-${version} UP!!`;
     it(`should return ${text}`, async () => {
