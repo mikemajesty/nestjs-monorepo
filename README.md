@@ -1,4 +1,4 @@
-# Nestjs Monorepo
+# Nestjs Monorepo Boilerplate
 
 Check the [contributing manual](./CONTRIBUTING.md)
 
