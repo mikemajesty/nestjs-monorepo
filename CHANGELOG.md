@@ -1,3 +1,44 @@
+#### 0.0.19 (2022-04-11)
+
+##### Documentation Changes
+
+* **reamde:**  improve docs ([8c96259d](https://github.com/mikemajesty/nestjs-monorepo/commit/8c96259d74fe0af79e487e85b8ef79da9164e499))
+* **readme:**
+  *  improve documentation ([6221f859](https://github.com/mikemajesty/nestjs-monorepo/commit/6221f859bd5d8705559d5bda62af1fc68837bf48))
+  *  improve readme ([cd6dec03](https://github.com/mikemajesty/nestjs-monorepo/commit/cd6dec03d76ed152371d18ea6ac1d179c3fdc1ec))
+* **contributing:**  improve docs ([f8a5fd90](https://github.com/mikemajesty/nestjs-monorepo/commit/f8a5fd90fb0bd3147efb014f4d64ac872b043843))
+
+##### New Features
+
+* **health module:**  add health app ([1d58948e](https://github.com/mikemajesty/nestjs-monorepo/commit/1d58948e898cb8e1b04dd614cd2d088f2a8fc895))
+* **auth module:**  add auth implementation ([abc50dcb](https://github.com/mikemajesty/nestjs-monorepo/commit/abc50dcbda6e01808c028265298f96a04eb0a285))
+* **redid module:**  refactor code ([52679fad](https://github.com/mikemajesty/nestjs-monorepo/commit/52679fadd7ca69252387b308caa41a63b3b2074b))
+* **monorepo:**  refator monorepo libs routes ([8885d66d](https://github.com/mikemajesty/nestjs-monorepo/commit/8885d66d3a86a311158c15649f80398bd602433c))
+* **redis module:**  add more methods ([ae329dea](https://github.com/mikemajesty/nestjs-monorepo/commit/ae329dea708718121625fb9a2c8300b7c799ecc2))
+
+##### Bug Fixes
+
+* **libs module:**  fix import name ([5adc93e4](https://github.com/mikemajesty/nestjs-monorepo/commit/5adc93e475a7f5513df5e906bd9a347401a34fbb))
+* **monorepo:**  remove internal     "@mikemajesty/monorepo-nestjs-cli": "^0.0.7", ([c5bcbcd7](https://github.com/mikemajesty/nestjs-monorepo/commit/c5bcbcd7dd2aaf6807b9b85b12c1296d13227b24))
+
+##### Other Changes
+
+* //github.com/mikemajesty/nestjs-monorepo into main ([de68929e](https://github.com/mikemajesty/nestjs-monorepo/commit/de68929e428257dd32492bf66422b71eb6e2ff64))
+* //github.com/mikemajesty/nestjs-monorepo into main ([68ecd3f1](https://github.com/mikemajesty/nestjs-monorepo/commit/68ecd3f15c51c20c4c085821c3be5f03aafbf428))
+
+##### Refactors
+
+* **libs modules:**  refactor libs modules ([f6bbed9b](https://github.com/mikemajesty/nestjs-monorepo/commit/f6bbed9b8e2d0babf2555fcd485dffeb8f42972d))
+* **monorepo:**
+  *  refactor import names ([d04ed46f](https://github.com/mikemajesty/nestjs-monorepo/commit/d04ed46f8205d56c7d61edfe0710332e34d894bc))
+  *  refactor all modules with readonly properties ([4b292e95](https://github.com/mikemajesty/nestjs-monorepo/commit/4b292e95c2c0fe871a2514aeef2cc8bbc3e6f2ac))
+* **redis module:**  update cache module name ([350fdbc8](https://github.com/mikemajesty/nestjs-monorepo/commit/350fdbc881385306510ccab4dda27c3dde233434))
+* **libs moule:**  update redis hSet ([75587d0a](https://github.com/mikemajesty/nestjs-monorepo/commit/75587d0a4aae5062049f210a4162f84ad807e880))
+
+##### Tests
+
+* **user module:**  add repository test ([6fccf9c1](https://github.com/mikemajesty/nestjs-monorepo/commit/6fccf9c1a641679eb4736586b29f063c9d05481f))
+
 #### 0.0.18 (2022-03-27)
 
 ##### Documentation Changes
