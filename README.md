@@ -36,6 +36,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Node: 14 => <= 15
  - Docker
  - npm install -g commitizen
+ - npm install -g changelog
 
 #### Instalation
 
@@ -83,7 +84,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
 #### Add new features
 ```bash
-$ npm i -g monorepo-nestjs-cli
+$ npm i -g @mikemajesty/monorepo-nestjs-cli
 ```
   - add new module
     ```
