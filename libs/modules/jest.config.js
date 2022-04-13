@@ -17,5 +17,5 @@ module.exports = {
   preset: 'ts-jest',
   coveragePathIgnorePatterns: ['index.ts', 'node_modules', 'jest.config.js', 'module.ts', 'adapter.ts', 'enum.ts'],
   setupFilesAfterEnv: ['../../tests/common-initialization.js', './tests/initialization.js'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/../../' }),
 };

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { ISecretsService } from 'libs/modules/global/secrets/adapter';
+import { SecretsModule } from 'libs/modules/global/secrets/module';
 
-import { ISecretsService } from '../../../global/secrets/adapter';
-import { SecretsModule } from '../../../global/secrets/module';
 import { ITokenService } from '../adapter';
 import { TokenService } from '../service';
 

@@ -1,8 +1,8 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import * as moment from 'moment-timezone';
 import { v4 as uuidv4 } from 'uuid';
 
-import { ILoggerService } from '../../modules/global/logger/adapter';
 import { ApiException, ErrorModel } from '../exception';
 import * as errorStatus from '../static/htttp-status.json';
 

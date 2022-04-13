@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
+import { ITokenService } from 'libs/modules/auth/token/adapter';
+import { MockUtils } from 'libs/utils/tests/mock-utils';
 
-import { ITokenService } from '../../../../modules/auth/token/adapter';
-import { MockUtils } from '../../../../utils/tests/mock-utils';
 import { IsLoggedMiddleware } from '../is-logged.middleware';
 
 describe('IsLoggedMiddleware', () => {

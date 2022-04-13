@@ -1,7 +1,7 @@
 import { ArgumentsHost, HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+import { GlobalModule } from 'libs/modules/global/module';
 
-import { GlobalModule } from '../../../modules/global/module';
 import { ApiException } from '../../exception';
 import { AppExceptionFilter } from '../http-exception.filter';
 

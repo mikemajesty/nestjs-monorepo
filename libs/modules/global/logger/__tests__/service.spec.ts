@@ -1,7 +1,7 @@
 import { HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+import { ApiException } from 'libs/utils';
 
-import { ApiException } from '../../../../utils';
 import { GlobalModule } from '../../module';
 import { ILoggerService } from '../adapter';
 

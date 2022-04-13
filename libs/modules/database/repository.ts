@@ -1,8 +1,8 @@
 import { HttpStatus } from '@nestjs/common';
+import { ApiException } from 'libs/utils';
 import { FilterQuery, Model, QueryOptions, SaveOptions, UpdateQuery, UpdateWithAggregationPipeline } from 'mongoose';
 import { Document } from 'mongoose';
 
-import { ApiException } from '../../utils';
 import { IRepository } from './adapter';
 import { CreatedModel, RemovedModel, UpdatedModel } from './entity';
 

@@ -1,9 +1,9 @@
 import { ExecutionContext } from '@nestjs/common';
 import { CallHandler } from '@nestjs/common/interfaces';
 import { Test } from '@nestjs/testing';
+import { GlobalModule } from 'libs/modules/global/module';
 import { Observable, of } from 'rxjs';
 
-import { GlobalModule } from '../../../../modules/global/module';
 import { ExceptionInterceptor } from '../http-exception.interceptor';
 
 describe('ExceptionInterceptor', () => {

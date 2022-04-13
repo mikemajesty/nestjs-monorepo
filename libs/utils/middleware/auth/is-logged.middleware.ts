@@ -1,7 +1,7 @@
 import { HttpStatus, Injectable, NestMiddleware } from '@nestjs/common';
 import { NextFunction, Request, Response } from 'express';
+import { ITokenService } from 'libs/modules/auth/token/adapter';
 
-import { ITokenService } from '../../../modules/auth/token/adapter';
 import { ApiException } from '../../exception';
 
 @Injectable()

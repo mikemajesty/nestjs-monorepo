@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
+import { MockUtils } from 'libs/utils/tests/mock-utils';
 
-import { MockUtils } from '../../../utils/tests/mock-utils';
 import { ICacheService } from '../adapter';
 import { RedisService } from '../service';
 

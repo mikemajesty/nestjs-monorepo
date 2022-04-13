@@ -1,8 +1,8 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
+import { ISecretsService } from 'libs/modules/global/secrets/adapter';
+import { ApiException } from 'libs/utils';
 
-import { ISecretsService } from '../../../modules/global/secrets/adapter';
-import { ApiException } from '../../../utils';
 import { ITokenService as ITokenService } from './adapter';
 import { Token } from './types';
 
