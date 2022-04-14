@@ -3,6 +3,7 @@ import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import * as moment from 'moment-timezone';
 import { v4 as uuidv4 } from 'uuid';
 
+import { getTimeExecution } from '..';
 import { ApiException, ErrorModel } from '../exception';
 import * as errorStatus from '../static/htttp-status.json';
 
@@ -14,6 +15,9 @@ export class AppExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest<Request>();
+
+    const time = getTimeExecution((request.headers as unknown as { time: number })?.time);
+    exception.time = time;
 
     const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
@@ -30,7 +34,7 @@ export class AppExceptionFilter implements ExceptionFilter {
         code,
         traceId: exception.uuid,
         message: errorStatus[String(code)] || exception.message,
-        timestamp: moment(new Date()).tz(process.env.TZ).format(),
+        timestamp: moment(new Date()).tz(process.env.TZ).format('DD/MM/yyyy HH:mm:ss'),
         path: request.url,
       },
     } as ErrorModel);

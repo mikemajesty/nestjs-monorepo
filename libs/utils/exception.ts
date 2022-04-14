@@ -17,6 +17,7 @@ export class ApiException extends HttpException {
   code?: string;
   config?: unknown;
   user?: string;
+  time?: string;
 
   constructor(error: string | object, status?: HttpStatus, context?: string) {
     super(error, status || 500);
