@@ -15,8 +15,10 @@ export class SecretsService extends ConfigService implements ISecretsService {
   ENV = this.get<string>('ENV');
 
   database = {
-    cats: { URI: this.get<string>('MONGO_INITDB_URI') },
-    auth: { URI: this.get<string>('MONGO_AUTH_URI') },
+    host: this.get<string>('MONGO_HOST'),
+    port: this.get<string>('MONGO_PORT'),
+    user: this.get<string>('MONGO_INITDB_ROOT_USERNAME'),
+    pass: this.get<string>('MONGO_INITDB_ROOT_PASSWORD'),
   };
 
   mainAPI = {

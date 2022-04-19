@@ -3,16 +3,18 @@ import { MongooseModuleOptions } from '@nestjs/mongoose';
 import { IDataBaseService } from '..';
 
 type ConnectionModel = {
-  URI: string;
+  host: string;
+  port: string | number;
+  user: string;
+  pass: string;
+  dbName: string;
 };
 
 export class DataBaseService implements IDataBaseService {
-  constructor(private readonly connection: ConnectionModel) {}
-
-  getDefaultConnection(options?: MongooseModuleOptions): MongooseModuleOptions {
-    const connectionOptions = options || {
+  getDefaultConnection(config: ConnectionModel): MongooseModuleOptions {
+    const connectionOptions = {
       appName: 'monorepo',
-      uri: this.connection.URI,
+      uri: `mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.dbName}?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256`,
       minPoolSize: 5,
       connectTimeoutMS: 2000,
     };

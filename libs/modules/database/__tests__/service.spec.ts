@@ -10,7 +10,7 @@ describe('DataBaseService', () => {
       providers: [
         {
           provide: DataBaseService,
-          useFactory: () => new DataBaseService({ URI: 'mongodb:mock' }),
+          useClass: DataBaseService,
         },
       ],
     }).compile();
@@ -20,9 +20,14 @@ describe('DataBaseService', () => {
 
   describe('getDefaultConnection', () => {
     test('should verify required properties', () => {
-      const con = service.getDefaultConnection();
-      expect(con).toHaveProperty('uri');
-      expect(con).toHaveProperty('minPoolSize');
+      const con = service.getDefaultConnection({ dbName: 'db', host: 'mongo', pass: 'pass', port: 10, user: 'user' });
+
+      expect(con).toEqual({
+        appName: 'monorepo',
+        uri: 'mongodb://user:pass@mongo:10/db?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-256',
+        minPoolSize: 5,
+        connectTimeoutMS: 2000,
+      });
     });
   });
 });

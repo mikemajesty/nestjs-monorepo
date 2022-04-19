@@ -24,11 +24,8 @@ import { DataBaseService } from './service';
     SecretsModule,
     MongooseModule.forRootAsync({
       connectionName: ConnectionName.AUTH,
-      useFactory: ({
-        database: {
-          auth: { URI },
-        },
-      }: ISecretsService) => new DataBaseService({ URI }).getDefaultConnection(),
+      useFactory: ({ database: { host, port, pass, user } }: ISecretsService) =>
+        new DataBaseService().getDefaultConnection({ dbName: 'monorepo_auth', host, pass, port, user }),
       inject: [ISecretsService],
     }),
   ],

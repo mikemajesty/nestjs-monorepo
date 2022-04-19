@@ -5,8 +5,10 @@ export abstract class ISecretsService {
   REDIS_URL: string;
 
   database: {
-    cats: { URI: string };
-    auth: { URI: string };
+    host: string;
+    port: string;
+    user: string;
+    pass: string;
   };
 
   mainAPI: {
