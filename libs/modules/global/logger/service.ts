@@ -1,6 +1,5 @@
 import { ConsoleLogger, Injectable } from '@nestjs/common';
 import { ApiException } from 'libs/utils';
-import * as moment from 'moment-timezone';
 
 import { ILoggerService } from './adapter';
 
@@ -18,7 +17,6 @@ export class LoggerService extends ConsoleLogger implements ILoggerService {
       super.error({
         status: [error.statusCode, error.code, error['status']].find((c) => c),
         runtime: error.time,
-        time: moment(new Date()).tz(process.env.TZ).format('DD/MM/yyyy HH:mm:ss'),
         traceId: error.uuid,
         ...{
           message: error['response'] ? error['response']?.data || error['response'] : error.message,

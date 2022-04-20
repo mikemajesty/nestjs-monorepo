@@ -24,7 +24,7 @@ export class HttpLoggerInterceptor implements NestInterceptor {
           context: context,
           url: `${host}${path}`,
           runtime: seconds,
-          time: moment(new Date()).tz(process.env.TZ).format('DD/MM/yyyy HH:mm:ss'),
+          time: moment(new Date()).tz(process.env.TZ).format(),
         };
         this.loggerService.log(JSON.stringify(logger, null, 1));
       }),

@@ -34,7 +34,7 @@ export class AppExceptionFilter implements ExceptionFilter {
         code,
         traceId: exception.uuid,
         message: errorStatus[String(code)] || exception.message,
-        timestamp: moment(new Date()).tz(process.env.TZ).format('DD/MM/yyyy HH:mm:ss'),
+        timestamp: moment(new Date()).tz(process.env.TZ).format(),
         path: request.url,
       },
     } as ErrorModel);
