@@ -12,19 +12,18 @@ export type ErrorModel = {
 
 export class ApiException extends HttpException {
   context: string;
-  uuid: string;
+  traceId: string;
   statusCode: number;
   code?: string;
   config?: unknown;
   user?: string;
-  time?: string;
 
-  constructor(error: string | object, status?: HttpStatus, context?: string) {
+  constructor(error: string | object, status?: HttpStatus, private readonly ctx?: string) {
     super(error, status || 500);
     this.statusCode = super.getStatus();
 
-    if (context) {
-      this.context = context;
+    if (ctx) {
+      this.context = ctx;
     }
   }
 }

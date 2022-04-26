@@ -1,30 +1,219 @@
-import { ConsoleLogger, Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, Scope } from '@nestjs/common';
+import { green, isColorSupported, red, yellow } from 'colorette';
+import { PinoRequestConverter } from 'convert-pino-request-to-curl';
 import { ApiException } from 'libs/utils';
+import * as moment from 'moment-timezone';
+import { levels, LevelWithSilent, Logger, pino } from 'pino';
+import { HttpLogger, pinoHttp } from 'pino-http';
+import pinoPretty from 'pino-pretty';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ILoggerService } from './adapter';
+import { ErrorType, MessageType } from './type';
 
-@Injectable()
-export class LoggerService extends ConsoleLogger implements ILoggerService {
-  constructor(private readonly env: string) {
-    super();
+@Injectable({ scope: Scope.REQUEST })
+export class LoggerService implements ILoggerService {
+  pino: HttpLogger;
+  private context: string;
+  private app: string;
+
+  private readonly customLevels = { ...levels.values, ...{ log: 30 } };
+
+  connect(logLevel: LevelWithSilent): void {
+    const level = { logLevel: levels.values[String(logLevel)] };
+
+    const pinoLogger = pino(
+      {
+        customLevels: logLevel ? level : this.customLevels,
+        useOnlyCustomLevels: true,
+      },
+      pinoPretty(this.getPinoConfig()),
+    );
+
+    this.pino = pinoHttp(this.getPinoHttpConfig(pinoLogger));
   }
 
-  error(error: ApiException): void {
-    const context = this.context;
-    super.context = context;
+  setContext(ctx: string): void {
+    this.context = ctx;
+  }
 
-    if (this.env !== 'test') {
-      super.error({
-        status: [error.statusCode, error.code, error['status']].find((c) => c),
-        runtime: error.time,
-        traceId: error.uuid,
-        ...{
-          message: error['response'] ? error['response']?.data || error['response'] : error.message,
-          context: error.context,
-          user: error?.user,
-          stack: error.stack,
-        },
-      });
+  setApplication(app: string): void {
+    this.app = app;
+  }
+
+  log(message: string): void {
+    const msg = green(message);
+    this.pino.logger['log'](msg);
+  }
+
+  info({ message, context, obj }: MessageType): void {
+    const msg = green(message);
+
+    this.setContext(context);
+
+    if (obj) {
+      this.pino.logger.info(obj, msg);
+      return;
     }
+
+    this.pino.logger.info(msg);
+  }
+
+  error(error: ErrorType, message?: string, context?: string): void {
+    const errorResponse = this.getErrorResponse(error);
+
+    const response =
+      error?.name === ApiException.name ? { statusCode: error['statusCode'], message: error?.message } : errorResponse;
+    this.pino.logger.error(
+      {
+        ...(response as object),
+        context: context || this.context,
+        type: error?.name === 'Error' ? ApiException.name : error?.name,
+        traceId: this.getTraceId(error),
+        date: moment(new Date()).tz(process.env.TZ).format(),
+        application: this.app,
+        stack: error.stack,
+      },
+      red(message),
+    );
+  }
+
+  fatal(error: ErrorType, message?: string, context?: string): void {
+    const response =
+      error?.name === ApiException.name
+        ? { statusCode: error['statusCode'], message: error?.message }
+        : error.getResponse();
+    this.pino.logger.fatal(
+      {
+        ...(response as object),
+        context: context || this.context,
+        type: error?.name === 'Error' ? ApiException.name : error?.name,
+        traceId: this.getTraceId(error),
+        date: moment(new Date()).tz(process.env.TZ).format(),
+        application: this.app,
+        stack: error.stack,
+      },
+      red(message),
+    );
+
+    process.exit(1);
+  }
+
+  warn({ message, context, obj }: MessageType): void {
+    const msg = yellow(message);
+
+    this.setContext(context);
+
+    if (obj) {
+      this.pino.logger.warn(obj, msg);
+      return;
+    }
+
+    this.pino.logger.warn(msg);
+  }
+
+  private getErrorResponse(error: ErrorType) {
+    const isFunction = typeof error.getResponse === 'function';
+    return [
+      {
+        conditional: typeof error === 'string',
+        value: new InternalServerErrorException(error).getResponse(),
+      },
+      {
+        conditional: isFunction && typeof error.getResponse() === 'string',
+        value: new ApiException(
+          error.getResponse(),
+          error.getStatus() || error['status'],
+          error['context'],
+        ).getResponse(),
+      },
+      {
+        conditional: isFunction && typeof error.getResponse() === 'object',
+        value: error?.getResponse(),
+      },
+    ].find((c) => c.conditional)?.value;
+  }
+
+  private getPinoConfig() {
+    return {
+      colorize: isColorSupported,
+      levelFirst: true,
+      ignore: 'pid,hostname',
+      quietReqLogger: true,
+      messageFormat: (log: unknown, messageKey: string) => {
+        const message = log[String(messageKey)];
+        const ctx = [this.context, this.app]?.find((c: string) => c);
+        if (ctx) return `[${ctx}] ${message}`;
+
+        return `${message}`;
+      },
+      customPrettifiers: {
+        time: (timestamp: unknown) =>
+          `[${moment(new Date(Number(timestamp)))
+            .tz(process.env.TZ)
+            .format('DD/MM/yyyy HH:mm:ss')}]`,
+      },
+    };
+  }
+
+  private getPinoHttpConfig(pinoLogger: Logger) {
+    return {
+      logger: pinoLogger,
+      quietReqLogger: true,
+      customSuccessMessage: (res) => {
+        return `request success with status code: ${res.statusCode}`;
+      },
+      customErrorMessage: function (error: Error, res) {
+        return `request error with status code: ${res.statusCode}`;
+      },
+      customAttributeKeys: {
+        req: 'request',
+        res: 'response',
+        err: 'error',
+        responseTime: 'timeTaken',
+        reqId: 'traceId',
+      },
+      serializers: {
+        err: pino.stdSerializers.err,
+        req: (req) => {
+          return {
+            method: req.method,
+            curl: PinoRequestConverter.getCurl(req),
+          };
+        },
+        res: pino.stdSerializers.res,
+      },
+      customProps: (req): unknown => {
+        const context = this.context || req.context;
+
+        const path = `${req.protocol}://${req.headers.host}${req.url}`;
+
+        this.pino.logger.setBindings({ traceId: req.id, application: this.app, context: context, path });
+
+        return {
+          traceId: req.id,
+          application: this.app,
+          context: context,
+          path,
+          date: moment(new Date()).tz(process.env.TZ).format(),
+        };
+      },
+      customLogLevel: (res, err) => {
+        if ([res.statusCode >= 400, err].some((s) => s)) {
+          return 'error';
+        }
+
+        if ([res.statusCode >= 300, res.statusCode <= 400].every((s) => s)) {
+          return 'silent';
+        }
+
+        return [res?.log?.level, 'info'].find((l) => l);
+      },
+    };
+  }
+
+  private getTraceId(error): string {
+    if (typeof error === 'string') return uuidv4();
+    return [error.traceId, this.pino.logger.bindings()?.tranceId].find((e) => e);
   }
 }

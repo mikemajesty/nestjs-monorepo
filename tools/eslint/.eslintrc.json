@@ -21,7 +21,7 @@
     "simple-import-sort/exports": "error",
     "max-len": ["error", { "code": 120,  "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true, "ignoreStrings": true, "ignoreUrls": true   }],
     "no-console": ["error"],
-    "complexity": ["error", 4],
+    "complexity": ["error", 5],
     "spaced-comment": [2, "always"]
   }
 }

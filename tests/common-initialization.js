@@ -16,3 +16,9 @@ jest.mock('redis', () => ({
   ...jest.createMockFromModule('redis'),
   RedisClientType: () => ({ ping: () => 'PONG' })
 }))
+
+jest.mock('moment-timezone', () => jest.fn(() => ({
+  tz: () => ({
+    format: jest.fn(),
+  })
+})));

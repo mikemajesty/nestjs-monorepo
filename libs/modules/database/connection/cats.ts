@@ -1,12 +1,12 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { ISecretsService } from '../global/secrets/adapter';
-import { SecretsModule } from '../global/secrets/module';
-import { IDataBaseService, IRepository } from './adapter';
-import { ConnectionName } from './enum';
-import { Repository } from './repository';
-import { DataBaseService } from './service';
+import { ISecretsService } from '../../global/secrets/adapter';
+import { SecretsModule } from '../../global/secrets/module';
+import { IDataBaseService, IRepository } from '../adapter';
+import { ConnectionName } from '../enum';
+import { Repository } from '../repository';
+import { DataBaseService } from '../service';
 
 @Global()
 @Module({
@@ -25,7 +25,7 @@ import { DataBaseService } from './service';
     MongooseModule.forRootAsync({
       connectionName: ConnectionName.CATS,
       useFactory: ({ database: { host, port, pass, user } }: ISecretsService) =>
-        new DataBaseService().getDefaultConnection({ dbName: 'monorepo_cats', host, pass, user, port }),
+        new DataBaseService().getDefaultConnection({ dbName: ConnectionName.CATS, host, pass, user, port }),
       inject: [ISecretsService],
     }),
   ],

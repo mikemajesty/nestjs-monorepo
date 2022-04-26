@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { LevelWithSilent } from 'pino';
 
 import { ISecretsService } from './adapter';
 import { AuthAPIEnvironment, MainAPIEnvironment } from './enum';
@@ -13,6 +14,8 @@ export class SecretsService extends ConfigService implements ISecretsService {
   REDIS_URL = this.get<string>('REDIS_URL');
 
   ENV = this.get<string>('ENV');
+
+  LOG_LEVEL = this.get<LevelWithSilent>('LOG_LEVEL');
 
   database = {
     host: this.get<string>('MONGO_HOST'),

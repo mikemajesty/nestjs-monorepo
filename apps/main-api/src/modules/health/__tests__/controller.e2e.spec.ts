@@ -2,6 +2,7 @@ import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
+import { IHttpService } from 'libs/modules/common/http/adapter';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { GlobalModule } from 'libs/modules/global/module';
 import { ICacheService } from 'libs/modules/redis/adapter';
@@ -29,6 +30,7 @@ describe('HealthController (e2e)', () => {
               { isConnected: jest.fn() } as unknown as ICatsRepository,
               { isConnected: jest.fn() } as unknown as ICacheService,
               { log: jest.fn() } as unknown as ILoggerService,
+              { log: jest.fn() } as unknown as IHttpService,
             ),
         },
         {

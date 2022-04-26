@@ -17,7 +17,9 @@
   "dependencies": {
     "@nestjs/config": "^1.1.0",
     "axios": "^0.24.0",
-    "moment-timezone": "^0.5.34",
+    "colorette": "^2.0.16",
+    "convert-pino-request-to-curl": "^0.0.28",
+    "pino": "^7.10.0",
     "redis": "^4.0.4"
   },
   "license": "MIT"

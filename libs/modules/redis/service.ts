@@ -22,7 +22,7 @@ export class RedisService implements ICacheService {
 
   async connect(): Promise<RedisClientType> {
     await this.client.connect();
-    this.logger.log('Redis connected!', RedisService.name);
+    this.logger.log('Redis connected!');
     return this.client;
   }
 
@@ -33,7 +33,7 @@ export class RedisService implements ICacheService {
 
   async get(key: RedisKeyArgument): Promise<unknown> {
     const getResult = await this.client.get(key);
-    if (!getResult) this.logger.warn(`key: ${key} not found.`, RedisService.name);
+    if (!getResult) this.logger.warn({ message: `key: ${key} not found.`, context: RedisService.name });
 
     return getResult;
   }
