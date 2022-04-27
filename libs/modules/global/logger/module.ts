@@ -8,8 +8,8 @@ import { LoggerService } from './service';
   providers: [
     {
       provide: ILoggerService,
-      useFactory: ({ LOG_LEVEL }: ISecretsService) => {
-        const logger = new LoggerService();
+      useFactory: ({ LOG_LEVEL, ELK_URL }: ISecretsService) => {
+        const logger = new LoggerService(ELK_URL);
         logger.connect(LOG_LEVEL);
         return logger;
       },

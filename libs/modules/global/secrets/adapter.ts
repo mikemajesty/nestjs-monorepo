@@ -6,6 +6,8 @@ export abstract class ISecretsService {
   ENV: string;
   REDIS_URL: string;
 
+  ELK_URL: string;
+
   LOG_LEVEL: LevelWithSilent;
 
   database: {

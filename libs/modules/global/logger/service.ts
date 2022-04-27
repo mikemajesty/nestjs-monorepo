@@ -3,8 +3,10 @@ import { green, isColorSupported, red, yellow } from 'colorette';
 import { PinoRequestConverter } from 'convert-pino-request-to-curl';
 import { ApiException } from 'libs/utils';
 import * as moment from 'moment-timezone';
-import { levels, LevelWithSilent, Logger, pino } from 'pino';
+import { LevelWithSilent, Logger, pino } from 'pino';
+import * as pinoElastic from 'pino-elasticsearch';
 import { HttpLogger, pinoHttp } from 'pino-http';
+import { multistream } from 'pino-multi-stream';
 import pinoPretty from 'pino-pretty';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -16,18 +18,33 @@ export class LoggerService implements ILoggerService {
   pino: HttpLogger;
   private context: string;
   private app: string;
+  private streamToElastic: unknown;
 
-  private readonly customLevels = { ...levels.values, ...{ log: 30 } };
+  constructor(private readonly elkUrl: string) {
+    const index = `monorepo-logs-${moment(new Date()).tz(process.env.TZ).format('yyyy-MM')}`;
+
+    this.streamToElastic = pinoElastic({
+      index,
+      consistency: 'one',
+      node: this.elkUrl,
+      'es-version': 7,
+      'flush-bytes': 1000,
+    });
+  }
 
   connect(logLevel: LevelWithSilent): void {
-    const level = { logLevel: levels.values[String(logLevel)] };
-
     const pinoLogger = pino(
       {
-        customLevels: logLevel ? level : this.customLevels,
-        useOnlyCustomLevels: true,
+        useLevelLabels: true,
+        level: logLevel || 'trace',
       },
-      pinoPretty(this.getPinoConfig()),
+      multistream([
+        {
+          level: 'trace',
+          stream: pinoPretty(this.getPinoConfig()),
+        },
+        { level: 'info', stream: this.streamToElastic },
+      ]),
     );
 
     this.pino = pinoHttp(this.getPinoHttpConfig(pinoLogger));
@@ -43,7 +60,7 @@ export class LoggerService implements ILoggerService {
 
   log(message: string): void {
     const msg = green(message);
-    this.pino.logger['log'](msg);
+    this.pino.logger.trace(msg);
   }
 
   info({ message, context, obj }: MessageType): void {
@@ -83,6 +100,7 @@ export class LoggerService implements ILoggerService {
       error?.name === ApiException.name
         ? { statusCode: error['statusCode'], message: error?.message }
         : error.getResponse();
+
     this.pino.logger.fatal(
       {
         ...(response as object),
@@ -161,7 +179,7 @@ export class LoggerService implements ILoggerService {
       logger: pinoLogger,
       quietReqLogger: true,
       customSuccessMessage: (res) => {
-        return `request success with status code: ${res.statusCode}`;
+        return `request ${res.statusCode >= 400 ? red('errro') : green('success')} with status code: ${res.statusCode}`;
       },
       customErrorMessage: function (error: Error, res) {
         return `request error with status code: ${res.statusCode}`;

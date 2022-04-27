@@ -11,6 +11,8 @@ export class SecretsService extends ConfigService implements ISecretsService {
     super();
   }
 
+  ELK_URL = this.get<string>('ELK_URL');
+
   REDIS_URL = this.get<string>('REDIS_URL');
 
   ENV = this.get<string>('ENV');
