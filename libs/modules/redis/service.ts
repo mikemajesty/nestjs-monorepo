@@ -22,7 +22,7 @@ export class RedisService implements ICacheService {
 
   async connect(): Promise<RedisClientType> {
     await this.client.connect();
-    this.logger.log('Redis connected!');
+    this.logger.info({ message: 'Redis connected!\n' });
     return this.client;
   }
 

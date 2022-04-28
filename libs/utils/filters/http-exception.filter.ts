@@ -19,7 +19,7 @@ export class AppExceptionFilter implements ExceptionFilter {
         ? exception.getStatus()
         : exception['status'] || HttpStatus.INTERNAL_SERVER_ERROR;
 
-    exception.traceId = [exception.traceId, request['id']].find((t) => t);
+    exception.traceid = [exception.traceid, request['id']].find((t) => t);
 
     this.handlerExternalErrors(exception);
 
@@ -30,7 +30,7 @@ export class AppExceptionFilter implements ExceptionFilter {
     response.status(status).json({
       error: {
         code,
-        traceId: exception.traceId,
+        traceid: exception.traceid,
         message: errorStatus[String(code)] || exception.message,
         timestamp: moment(new Date()).tz(process.env.TZ).format(),
         path: request.url,

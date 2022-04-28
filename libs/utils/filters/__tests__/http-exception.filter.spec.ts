@@ -1,6 +1,6 @@
 import { ArgumentsHost, HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
-import { GlobalModule } from 'libs/modules/global/module';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 
 import { ApiException } from '../../exception';
 import { AppExceptionFilter } from '../http-exception.filter';
@@ -13,8 +13,15 @@ describe('AppExceptionFilter', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     const app = await Test.createTestingModule({
-      imports: [GlobalModule],
-      providers: [AppExceptionFilter],
+      providers: [
+        AppExceptionFilter,
+        {
+          provide: ILoggerService,
+          useValue: {
+            error: jest.fn(),
+          },
+        },
+      ],
     }).compile();
 
     appExceptionFilter = app.get(AppExceptionFilter);
@@ -35,7 +42,7 @@ describe('AppExceptionFilter', () => {
     appExceptionFilter.catch(error, mock);
   });
 
-  test('should catch successfully without "code and context"', () => {
+  test('should catch successfully without code and context', () => {
     const error = new ApiException('Error');
 
     error.statusCode = undefined;
@@ -52,7 +59,7 @@ describe('AppExceptionFilter', () => {
     appExceptionFilter.catch(error, mock);
   });
 
-  test('should catch successfully with unknown "status"', () => {
+  test('should catch successfully with unknown status', () => {
     const error = new ApiException('Error', 1000);
 
     error.statusCode = undefined;

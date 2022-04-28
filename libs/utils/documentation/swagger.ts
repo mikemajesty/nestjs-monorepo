@@ -29,7 +29,7 @@ export class Swagger {
         example: {
           error: {
             code: status,
-            traceId: '<traceId>',
+            traceid: '<traceid>',
             message: message || htttpStatus[String(status)],
             timestamp: '<timestamp>',
             path: route,

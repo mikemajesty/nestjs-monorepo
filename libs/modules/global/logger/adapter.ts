@@ -8,6 +8,9 @@ export abstract class ILoggerService {
   abstract connect(logLevel: LevelWithSilent): void;
   abstract setContext(ctx: string): void;
   abstract setApplication(app: string): void;
+  /**
+   * @deprecated The method should not be used
+   */
   abstract log(message: string): void;
   abstract error(error: ErrorType, message?: string, context?: string): void;
   abstract fatal(error: ErrorType, message?: string, context?: string): void;

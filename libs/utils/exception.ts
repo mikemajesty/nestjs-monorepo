@@ -3,7 +3,7 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 export type ErrorModel = {
   error: {
     code: string | number;
-    traceId: string;
+    traceid: string;
     message: string;
     timestamp: string;
     path: string;
@@ -12,7 +12,7 @@ export type ErrorModel = {
 
 export class ApiException extends HttpException {
   context: string;
-  traceId: string;
+  traceid: string;
   statusCode: number;
   code?: string;
   config?: unknown;

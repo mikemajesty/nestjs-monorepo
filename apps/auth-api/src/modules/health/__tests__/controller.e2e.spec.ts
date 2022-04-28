@@ -23,7 +23,7 @@ describe('HealthController (e2e)', () => {
           useFactory: () =>
             new HealthService(
               { isConnected: jest.fn() } as unknown as IUserRepository,
-              { log: jest.fn() } as unknown as ILoggerService,
+              { info: jest.fn() } as unknown as ILoggerService,
             ),
         },
       ],

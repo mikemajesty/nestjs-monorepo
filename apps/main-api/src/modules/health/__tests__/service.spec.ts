@@ -1,8 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
-import { IHttpService } from 'libs/modules/common/http/adapter';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
-import { GlobalModule } from 'libs/modules/global/module';
 import { ICacheService } from 'libs/modules/redis/adapter';
 
 import { name, version } from '../../../../package.json';
@@ -14,7 +12,7 @@ describe('HealthService', () => {
 
   beforeEach(async () => {
     const app = await Test.createTestingModule({
-      imports: [GlobalModule],
+      imports: [],
       providers: [
         {
           provide: IHealthService,
@@ -22,8 +20,7 @@ describe('HealthService', () => {
             new HealthService(
               { isConnected: jest.fn() } as unknown as ICatsRepository,
               { isConnected: jest.fn() } as unknown as ICacheService,
-              { log: jest.fn() } as unknown as ILoggerService,
-              { log: jest.fn() } as unknown as IHttpService,
+              { info: jest.fn() } as unknown as ILoggerService,
             ),
         },
       ],

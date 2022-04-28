@@ -19,10 +19,12 @@ export abstract class ISecretsService {
 
   mainAPI: {
     port: MainAPIEnvironment | number;
+    url: MainAPIEnvironment | number;
   };
 
   authAPI: {
     port: AuthAPIEnvironment | number;
     jwtToken: AuthAPIEnvironment | string;
+    url: AuthAPIEnvironment | string;
   };
 }

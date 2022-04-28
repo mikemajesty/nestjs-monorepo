@@ -13,6 +13,7 @@ export class HealthService implements IHealthService {
     const appName = `${name}-${version} UP!!`;
     this.loggerService.info({ message: appName, context: `HealthService/getText` });
     await this.userRepository.isConnected();
+
     return appName;
   }
 }

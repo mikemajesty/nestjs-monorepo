@@ -21,7 +21,7 @@ export class LoggerService implements ILoggerService {
   private streamToElastic: unknown;
 
   constructor(private readonly elkUrl: string) {
-    const index = `monorepo-logs-${moment(new Date()).tz(process.env.TZ).format('yyyy-MM')}`;
+    const index = `monorepo-logs-${this.getDateFormat(new Date(), 'yyyy-MM')}`;
 
     this.streamToElastic = pinoElastic({
       index,
@@ -86,8 +86,8 @@ export class LoggerService implements ILoggerService {
         ...(response as object),
         context: context || this.context,
         type: error?.name === 'Error' ? ApiException.name : error?.name,
-        traceId: this.getTraceId(error),
-        date: moment(new Date()).tz(process.env.TZ).format(),
+        traceid: this.getTraceId(error),
+        date: this.getDateFormat(),
         application: this.app,
         stack: error.stack,
       },
@@ -106,8 +106,8 @@ export class LoggerService implements ILoggerService {
         ...(response as object),
         context: context || this.context,
         type: error?.name === 'Error' ? ApiException.name : error?.name,
-        traceId: this.getTraceId(error),
-        date: moment(new Date()).tz(process.env.TZ).format(),
+        traceid: this.getTraceId(error),
+        date: this.getDateFormat(),
         application: this.app,
         stack: error.stack,
       },
@@ -166,10 +166,7 @@ export class LoggerService implements ILoggerService {
         return `${message}`;
       },
       customPrettifiers: {
-        time: (timestamp: unknown) =>
-          `[${moment(new Date(Number(timestamp)))
-            .tz(process.env.TZ)
-            .format('DD/MM/yyyy HH:mm:ss')}]`,
+        time: (timestamp: unknown) => `[${this.getDateFormat(new Date(Number(timestamp)), 'DD/MM/yyyy HH:mm:ss')}]`,
       },
     };
   }
@@ -182,17 +179,20 @@ export class LoggerService implements ILoggerService {
         return `request ${res.statusCode >= 400 ? red('errro') : green('success')} with status code: ${res.statusCode}`;
       },
       customErrorMessage: function (error: Error, res) {
-        return `request error with status code: ${res.statusCode}`;
+        return `request ${red('error')} with status code: ${res.statusCode} `;
+      },
+      genReqId: (req) => {
+        return req.headers.traceid;
       },
       customAttributeKeys: {
         req: 'request',
         res: 'response',
         err: 'error',
         responseTime: 'timeTaken',
-        reqId: 'traceId',
+        reqId: 'traceid',
       },
       serializers: {
-        err: pino.stdSerializers.err,
+        err: () => undefined,
         req: (req) => {
           return {
             method: req.method,
@@ -204,16 +204,23 @@ export class LoggerService implements ILoggerService {
       customProps: (req): unknown => {
         const context = this.context || req.context;
 
+        const traceid = req?.headers?.traceid || req.id;
+
         const path = `${req.protocol}://${req.headers.host}${req.url}`;
 
-        this.pino.logger.setBindings({ traceId: req.id, application: this.app, context: context, path });
-
-        return {
-          traceId: req.id,
+        this.pino.logger.setBindings({
+          traceid,
           application: this.app,
           context: context,
           path,
-          date: moment(new Date()).tz(process.env.TZ).format(),
+        });
+
+        return {
+          traceid,
+          application: this.app,
+          context: context,
+          path,
+          date: this.getDateFormat(),
         };
       },
       customLogLevel: (res, err) => {
@@ -225,13 +232,17 @@ export class LoggerService implements ILoggerService {
           return 'silent';
         }
 
-        return [res?.log?.level, 'info'].find((l) => l);
+        return 'info';
       },
     };
   }
 
+  private getDateFormat(date = new Date(), format?: string): string {
+    return moment(date).tz(process.env.TZ).format(format);
+  }
+
   private getTraceId(error): string {
     if (typeof error === 'string') return uuidv4();
-    return [error.traceId, this.pino.logger.bindings()?.tranceId].find((e) => e);
+    return [error.traceid, this.pino.logger.bindings()?.tranceId].find((e) => e);
   }
 }

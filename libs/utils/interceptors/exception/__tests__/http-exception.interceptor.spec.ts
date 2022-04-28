@@ -1,7 +1,6 @@
 import { ExecutionContext } from '@nestjs/common';
 import { CallHandler } from '@nestjs/common/interfaces';
 import { Test } from '@nestjs/testing';
-import { GlobalModule } from 'libs/modules/global/module';
 import { Observable, of } from 'rxjs';
 
 import { ExceptionInterceptor } from '../http-exception.interceptor';
@@ -14,7 +13,7 @@ describe('ExceptionInterceptor', () => {
   beforeEach(async () => {
     jest.clearAllMocks();
     const app = await Test.createTestingModule({
-      imports: [GlobalModule],
+      imports: [],
       providers: [ExceptionInterceptor],
     }).compile();
 

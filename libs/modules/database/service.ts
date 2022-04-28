@@ -24,6 +24,6 @@ export class DataBaseService implements IDataBaseService {
   }
 
   private getConnectionString(config: ConnectionModel): string {
-    return `mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.dbName}?serverSelectionTimeoutMS=50000&connectTimeoutMS=50000&authSource=admin&authMechanism=SCRAM-SHA-256`;
+    return `mongodb://${config.user}:${config.pass}@${config.host}:${config.port}/${config.dbName}?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&authSource=admin&authMechanism=SCRAM-SHA-256`;
   }
 }

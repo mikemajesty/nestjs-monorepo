@@ -23,7 +23,11 @@ export class ExceptionInterceptor implements NestInterceptor {
         error.user = headers.user;
         const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
 
-        error.context = context;
+        if (typeof error === 'object' && !error.traceid) {
+          error.traceid = headers.traceid;
+        }
+
+        error.context = error.context = context;
         throw error;
       }),
     );
