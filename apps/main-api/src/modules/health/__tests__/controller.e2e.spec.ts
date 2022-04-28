@@ -28,7 +28,7 @@ describe('HealthController (e2e)', () => {
             new HealthService(
               { isConnected: jest.fn() } as unknown as ICatsRepository,
               { isConnected: jest.fn() } as unknown as ICacheService,
-              { log: jest.fn() } as unknown as ILoggerService,
+              { info: jest.fn() } as unknown as ILoggerService,
             ),
         },
         {
@@ -43,7 +43,7 @@ describe('HealthController (e2e)', () => {
     service = module.get(IHealthService);
     await app.init();
   });
-  // TODO
+
   describe('/health (GET)', () => {
     const text = `${name}-${version} UP!!`;
     it(`should return ${text}`, async () => {

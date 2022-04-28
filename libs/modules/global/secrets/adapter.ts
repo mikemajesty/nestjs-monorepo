@@ -1,8 +1,14 @@
+import { LevelWithSilent } from 'pino';
+
 import { AuthAPIEnvironment, MainAPIEnvironment } from './enum';
 
 export abstract class ISecretsService {
   ENV: string;
   REDIS_URL: string;
+
+  ELK_URL: string;
+
+  LOG_LEVEL: LevelWithSilent;
 
   database: {
     host: string;
@@ -13,10 +19,12 @@ export abstract class ISecretsService {
 
   mainAPI: {
     port: MainAPIEnvironment | number;
+    url: MainAPIEnvironment | number;
   };
 
   authAPI: {
     port: AuthAPIEnvironment | number;
     jwtToken: AuthAPIEnvironment | string;
+    url: AuthAPIEnvironment | string;
   };
 }

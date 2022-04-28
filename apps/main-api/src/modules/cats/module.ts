@@ -43,6 +43,6 @@ import { Cats, CatSchema } from './schema';
 })
 export class CatsModule implements NestModule {
   configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(IsLoggedMiddleware).forRoutes({ path: 'cats*', method: RequestMethod.ALL });
+    consumer.apply(IsLoggedMiddleware).forRoutes({ path: '/cats', method: RequestMethod.ALL });
   }
 }

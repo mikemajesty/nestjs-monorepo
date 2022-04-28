@@ -4,12 +4,10 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/main-api/package.json';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { ISecretsService } from 'libs/modules/global/secrets/adapter';
-import { ApiException } from 'libs/utils';
 import { DEFAULT_TAG, SWAGGER_API_ROOT } from 'libs/utils/documentation/constants';
 import { AppExceptionFilter } from 'libs/utils/filters/http-exception.filter';
 import { ExceptionInterceptor } from 'libs/utils/interceptors/exception/http-exception.interceptor';
 import { HttpLoggerInterceptor } from 'libs/utils/interceptors/logger/http-logger.interceptor';
-import { LogAxiosErrorInterceptor } from 'nestjs-convert-to-curl';
 
 import { MainModule } from './modules/module';
 
@@ -27,14 +25,10 @@ async function bootstrap() {
 
   const loggerService = app.get(ILoggerService);
 
-  loggerService.setContext(name);
+  loggerService.setApplication(name);
   app.useGlobalFilters(new AppExceptionFilter(loggerService));
 
-  app.useGlobalInterceptors(
-    new ExceptionInterceptor(),
-    new HttpLoggerInterceptor(loggerService),
-    new LogAxiosErrorInterceptor(),
-  );
+  app.useGlobalInterceptors(new ExceptionInterceptor(), new HttpLoggerInterceptor(loggerService));
 
   const {
     mainAPI: { port: PORT },
@@ -64,17 +58,23 @@ async function bootstrap() {
 
   loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/${SWAGGER_API_ROOT}  🔵 \n`);
 
-  process.on('unhandledRejection', (error: ApiException) => {
-    error.context = 'unhandledRejection';
-    error.statusCode = 500;
-    loggerService.error(error);
-  });
+  // process.on('unhandledRejection', (error: ApiException) => {
+  //   loggerService.error(
+  //     new InternalServerErrorException(),
+  //     error.message || JSON.stringify(error),
+  //     'unhandledRejection',
+  //   );
+  //   process.exit(2);
+  // });
 
-  process.on('uncaughtException', (error: ApiException) => {
-    error.context = 'uncaughtException';
-    error.statusCode = 500;
-    loggerService.error(error);
-  });
+  // process.on('uncaughtException', (error: ApiException) => {
+  //   loggerService.error(
+  //     new InternalServerErrorException(),
+  //     error.message || JSON.stringify(error),
+  //     'uncaughtException',
+  //   );
+  //   process.exit(2);
+  // });
 }
 
 bootstrap();

@@ -16,10 +16,12 @@ export class HealthService implements IHealthService {
 
   async getText(): Promise<string> {
     const appName = `${name}-${version} UP!!`;
-    this.loggerService.log(appName, `${HealthService.name}/${this.getText.name}`);
 
     await this.redisService.isConnected();
     await this.catsRepository.isConnected();
+
+    this.loggerService.info({ message: appName });
+
     return appName;
   }
 }

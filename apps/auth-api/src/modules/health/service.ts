@@ -11,8 +11,9 @@ export class HealthService implements IHealthService {
 
   async getText(): Promise<string> {
     const appName = `${name}-${version} UP!!`;
-    this.loggerService.log(appName, `${HealthService.name}/${this.getText.name}`);
+    this.loggerService.info({ message: appName, context: `HealthService/getText` });
     await this.userRepository.isConnected();
+
     return appName;
   }
 }

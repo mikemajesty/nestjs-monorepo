@@ -1,7 +1,7 @@
 import { ExecutionContext } from '@nestjs/common';
 import { CallHandler } from '@nestjs/common/interfaces';
 import { Test } from '@nestjs/testing';
-import { GlobalModule } from 'libs/modules/global/module';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { Observable, of } from 'rxjs';
 
 import { HttpLoggerInterceptor } from '../http-logger.interceptor';
@@ -12,16 +12,20 @@ describe('HttpLoggerInterceptor', () => {
   const mockExecutionContext = {
     getClass: () => ({ name: 'dummy' }),
     getHandler: () => ({ name: 'dummy' }),
-    getArgs: () => [{ host: '0.0.0.0', originalUrl: 'api' }],
+    getArgs: () => [{ host: '0.0.0.0', originalUrl: 'api' }, { req: { headers: {} } }],
   } as unknown as ExecutionContext;
-
   let httpLoggerInterceptor: HttpLoggerInterceptor;
 
   beforeEach(async () => {
     jest.clearAllMocks();
     const app = await Test.createTestingModule({
-      imports: [GlobalModule],
-      providers: [HttpLoggerInterceptor],
+      providers: [
+        HttpLoggerInterceptor,
+        {
+          provide: ILoggerService,
+          useValue: { pino: jest.fn() },
+        },
+      ],
     }).compile();
 
     httpLoggerInterceptor = app.get(HttpLoggerInterceptor);

@@ -15,5 +15,8 @@
     "node": ">=14 <=15"
   },
   "dependencies": {},
+  "devDependencies": {
+    "pino-pretty": "^7.6.1"
+  },
   "license": "MIT"
 }

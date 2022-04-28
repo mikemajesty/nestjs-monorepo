@@ -1,5 +1,6 @@
 import { Test } from '@nestjs/testing';
 import { ITokenService } from 'libs/modules/auth/token/adapter';
+import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { MockUtils } from 'libs/utils/tests/mock-utils';
 
 import { IsLoggedMiddleware } from '../is-logged.middleware';
@@ -21,12 +22,19 @@ describe('IsLoggedMiddleware', () => {
           provide: IsLoggedMiddleware,
           useClass: IsLoggedMiddleware,
         },
+        {
+          provide: ILoggerService,
+          useValue: {
+            pino: jest.fn(),
+          },
+        },
       ],
     }).compile();
 
     isLoggedMiddleware = app.get(IsLoggedMiddleware);
     tokenService = app.get(ITokenService);
   });
+
   describe('use', () => {
     test('should throw "no token provided" errro', async () => {
       await expect(
