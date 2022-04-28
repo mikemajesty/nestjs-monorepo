@@ -6,7 +6,11 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Docker
  
  - Secrets Service
- - Logs Service
+ 
+ - Logs
+   - Pinojs
+   - Logger Service
+   - Save logs in elasticsearch
 
  - Authentication
 
