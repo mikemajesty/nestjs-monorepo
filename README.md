@@ -7,10 +7,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  
  - Secrets Service
  
- - Logs
-   - Pinojs
-   - Logger Service
-   - Save logs in elasticsearch
+ - Logs Service
 
  - Authentication
 
