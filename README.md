@@ -31,6 +31,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Tests
     - unit
     - e2e
+    - 90% coverage
 ---
 
 #### Prerequisite
