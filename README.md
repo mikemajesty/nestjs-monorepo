@@ -55,6 +55,14 @@ Check the [contributing manual](./CONTRIBUTING.md)
     $ yarn workspace <workspaceName> add <libName>
     ```
 
+----
+#### Running local mongodb/redis/elastic
+```bash
+$ yarn infra:local
+# http://0.0.0.0:8082/ to access mongo
+# http://0.0.0.0:8081/ to access redis
+```
+---
 ##### workspace list
  ```bash
  $ yarn workspaces info
@@ -102,15 +110,6 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
     ```
       yarn add:test
     ```
-     
----
-
-#### Running local mongodb/redis
-```bash
-$ yarn infra:local
-# http://0.0.0.0:8082/ to access mongo
-# http://0.0.0.0:8081/ to access redis
-```
 
 ---
 #### Tests
