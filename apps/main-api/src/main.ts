@@ -57,24 +57,6 @@ async function bootstrap() {
   await app.listen(PORT);
 
   loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/${SWAGGER_API_ROOT}  🔵 \n`);
-
-  // process.on('unhandledRejection', (error: ApiException) => {
-  //   loggerService.error(
-  //     new InternalServerErrorException(),
-  //     error.message || JSON.stringify(error),
-  //     'unhandledRejection',
-  //   );
-  //   process.exit(2);
-  // });
-
-  // process.on('uncaughtException', (error: ApiException) => {
-  //   loggerService.error(
-  //     new InternalServerErrorException(),
-  //     error.message || JSON.stringify(error),
-  //     'uncaughtException',
-  //   );
-  //   process.exit(2);
-  // });
 }
 
 bootstrap();

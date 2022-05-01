@@ -11,3 +11,13 @@ jest.mock('redis', () => ({
     connect: jest.fn(),
   }),
 }));
+
+
+jest.mock('pino-elasticsearch', () => jest.fn());
+jest.mock('pino-http', () => ({
+  HttpLogger: jest.fn(),
+  pinoHttp: jest.fn()
+}));
+
+jest.spyOn(process, 'exit').mockReturnValue(true)
+

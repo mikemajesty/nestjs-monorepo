@@ -1,10 +1,9 @@
-import { HttpStatus, InternalServerErrorException, RequestMethod, ValidationPipe } from '@nestjs/common';
+import { HttpStatus, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/auth-api/package.json';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { ISecretsService } from 'libs/modules/global/secrets/adapter';
-import { ApiException } from 'libs/utils';
 import { DEFAULT_TAG, SWAGGER_API_ROOT } from 'libs/utils/documentation/constants';
 import { AppExceptionFilter } from 'libs/utils/filters/http-exception.filter';
 import { ExceptionInterceptor } from 'libs/utils/interceptors/exception/http-exception.interceptor';
@@ -59,21 +58,5 @@ async function bootstrap() {
   await app.listen(PORT);
 
   loggerService.log(`🔵 Swagger listening at ${await app.getUrl()}/${SWAGGER_API_ROOT}  🔵 \n`);
-
-  process.on('unhandledRejection', (error: ApiException) => {
-    loggerService.error(
-      new InternalServerErrorException(),
-      error.message || JSON.stringify(error),
-      'unhandledRejection',
-    );
-  });
-
-  process.on('uncaughtException', (error: ApiException) => {
-    loggerService.error(
-      new InternalServerErrorException(),
-      error.message || JSON.stringify(error),
-      'uncaughtException',
-    );
-  });
 }
 bootstrap();

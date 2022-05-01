@@ -1,10 +1,14 @@
-import { HttpStatus } from '@nestjs/common';
+import { HttpStatus, InternalServerErrorException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { ApiException } from 'libs/utils';
+import { MockUtils } from 'libs/utils/tests/mock-utils';
+import { pinoHttp } from 'pino-http';
 
 import { ILoggerService } from '../adapter';
+import { LoggerService } from '../service';
+import { ErrorType } from '../type';
 
-describe.skip('LoggerService', () => {
+describe('LoggerService', () => {
   let loggerService: ILoggerService;
 
   beforeEach(async () => {
@@ -13,43 +17,153 @@ describe.skip('LoggerService', () => {
       providers: [
         {
           provide: ILoggerService,
-          useValue: {},
+          useValue: new LoggerService('dummyURL'),
         },
       ],
     }).compile();
 
     loggerService = module.get(ILoggerService);
     loggerService.setContext('Test');
+    loggerService.setApplication('Test');
+
+    loggerService.pino = MockUtils.setMock({
+      logger: {
+        error: jest.fn(),
+        warn: jest.fn(),
+        info: jest.fn(),
+        trace: jest.fn(),
+        fatal: jest.fn(),
+        bindings: () => true,
+      },
+    });
   });
 
   describe('error', () => {
-    test('should error successfully', () => {
+    test('should log ApiException error', () => {
       const error = new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
 
       loggerService.error(error);
+
+      expect(loggerService.pino.logger.error).toHaveBeenCalled();
     });
 
-    test('should error successfully without context', () => {
-      const error = new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
-      error.context = undefined;
+    test('should log error with string Exception', () => {
+      loggerService.error('ERROR' as unknown as ErrorType);
 
-      loggerService.error(error);
+      expect(loggerService.pino.logger.error).toHaveBeenCalled();
     });
 
-    test('should error successfully without statusCode', () => {
-      const error = new ApiException('Error');
-      error.statusCode = undefined;
-      error.code = 'TIMEOUT';
-      loggerService.error(error);
+    test('should log error with getResponse string and getStatus function', () => {
+      loggerService.error({ getResponse: () => 'ERROR', getStatus: () => 200 } as unknown as ErrorType);
+
+      expect(loggerService.pino.logger.error).toHaveBeenCalled();
     });
 
-    test('should axios error successfully', () => {
-      const error = new ApiException('Error');
-      error.config = {
-        method: 'GET',
-        url: 'https://utl',
-      };
-      loggerService.error(error);
+    test('should log error with getResponse string and status property', () => {
+      loggerService.error({
+        getResponse: () => 'ERROR',
+        getStatus: () => undefined,
+        status: 200,
+      } as unknown as ErrorType);
+
+      expect(loggerService.pino.logger.error).toHaveBeenCalled();
+    });
+
+    test('should throw error of not mapped conditional', () => {
+      try {
+        loggerService.error({
+          getResponse: {},
+          getStatus: () => undefined,
+          status: 200,
+        } as unknown as ErrorType);
+      } catch (error) {
+        expect(error.message).toEqual(`Cannot read property 'value' of undefined`);
+      }
+    });
+
+    test('should log default node error', () => {
+      loggerService.error(new Error('ERROR') as unknown as ErrorType);
+
+      expect(loggerService.pino.logger.error).toHaveBeenCalled();
+    });
+
+    test('should log error with  getResponse function', () => {
+      loggerService.error(new InternalServerErrorException(), 'ERROR', 'InternalServerErrorException');
+
+      expect(loggerService.pino.logger.error).toHaveBeenCalled();
+    });
+  });
+
+  describe('fatal', () => {
+    test('should log fatal error', () => {
+      loggerService.fatal(new InternalServerErrorException(), 'Error', 'Context');
+      expect(loggerService.pino.logger.fatal).toHaveBeenCalled();
+    });
+
+    test('should log fatal error with global context', () => {
+      loggerService.setContext('ctx');
+      loggerService.fatal(new InternalServerErrorException(), 'Error');
+      expect(loggerService.pino.logger.fatal).toHaveBeenCalled();
+    });
+  });
+
+  describe('warn', () => {
+    test('should warn without obj', () => {
+      loggerService.warn({ message: 'message', context: 'context' });
+
+      expect(loggerService.pino.logger.warn).toHaveBeenCalled();
+    });
+
+    test('should warn without obj and context', () => {
+      loggerService.warn({ message: 'message' });
+
+      expect(loggerService.pino.logger.warn).toHaveBeenCalled();
+    });
+
+    test('should warn with all options', () => {
+      loggerService.warn({ message: 'message', context: 'context', obj: {} });
+
+      expect(loggerService.pino.logger.warn).toHaveBeenCalled();
+    });
+  });
+
+  describe('log', () => {
+    test('should log successfully', () => {
+      loggerService.log('dummyMessage');
+
+      expect(loggerService.pino.logger.trace).toHaveBeenCalled();
+    });
+  });
+
+  describe('info', () => {
+    test('should info without obj', () => {
+      loggerService.info({ message: 'message', context: 'context' });
+
+      expect(loggerService.pino.logger.info).toHaveBeenCalled();
+    });
+
+    test('should info without obj and context', () => {
+      loggerService.info({ message: 'message' });
+
+      expect(loggerService.pino.logger.info).toHaveBeenCalled();
+    });
+
+    test('should info with all options', () => {
+      loggerService.info({ message: 'message', context: 'context', obj: {} });
+
+      expect(loggerService.pino.logger.info).toHaveBeenCalled();
+    });
+  });
+
+  describe('connect', () => {
+    test('should connect successfully', () => {
+      loggerService.connect('error');
+      expect(pinoHttp).toHaveBeenCalled();
+    });
+
+    test('should connect successfully without loglevel', () => {
+      loggerService.connect();
+      expect(pinoHttp).toHaveBeenCalled();
     });
   });
 });

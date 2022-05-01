@@ -80,7 +80,10 @@ export class LoggerService implements ILoggerService {
     const errorResponse = this.getErrorResponse(error);
 
     const response =
-      error?.name === ApiException.name ? { statusCode: error['statusCode'], message: error?.message } : errorResponse;
+      error?.name === ApiException.name
+        ? { statusCode: error['statusCode'], message: error?.message }
+        : errorResponse.value();
+
     this.pino.logger.error(
       {
         ...(response as object),
@@ -96,16 +99,11 @@ export class LoggerService implements ILoggerService {
   }
 
   fatal(error: ErrorType, message?: string, context?: string): void {
-    const response =
-      error?.name === ApiException.name
-        ? { statusCode: error['statusCode'], message: error?.message }
-        : error.getResponse();
-
     this.pino.logger.fatal(
       {
-        ...(response as object),
+        ...(error.getResponse() as object),
         context: context || this.context,
-        type: error?.name === 'Error' ? ApiException.name : error?.name,
+        type: error.name,
         traceid: this.getTraceId(error),
         date: this.getDateFormat(),
         application: this.app,
@@ -128,28 +126,6 @@ export class LoggerService implements ILoggerService {
     }
 
     this.pino.logger.warn(msg);
-  }
-
-  private getErrorResponse(error: ErrorType) {
-    const isFunction = typeof error.getResponse === 'function';
-    return [
-      {
-        conditional: typeof error === 'string',
-        value: new InternalServerErrorException(error).getResponse(),
-      },
-      {
-        conditional: isFunction && typeof error.getResponse() === 'string',
-        value: new ApiException(
-          error.getResponse(),
-          error.getStatus() || error['status'],
-          error['context'],
-        ).getResponse(),
-      },
-      {
-        conditional: isFunction && typeof error.getResponse() === 'object',
-        value: error?.getResponse(),
-      },
-    ].find((c) => c.conditional)?.value;
   }
 
   private getPinoConfig() {
@@ -235,6 +211,29 @@ export class LoggerService implements ILoggerService {
         return 'info';
       },
     };
+  }
+
+  private getErrorResponse(error: ErrorType) {
+    const isFunction = typeof error.getResponse === 'function';
+    return [
+      {
+        conditional: typeof error === 'string',
+        value: () => new InternalServerErrorException(error).getResponse(),
+      },
+      {
+        conditional: isFunction && typeof error.getResponse() === 'string',
+        value: () =>
+          new ApiException(error.getResponse(), error.getStatus() || error['status'], error['context']).getResponse(),
+      },
+      {
+        conditional: isFunction && typeof error.getResponse() === 'object',
+        value: () => error?.getResponse(),
+      },
+      {
+        conditional: error?.name === Error.name,
+        value: () => new InternalServerErrorException(error.message).getResponse(),
+      },
+    ].find((c) => c.conditional);
   }
 
   private getDateFormat(date = new Date(), format?: string): string {
