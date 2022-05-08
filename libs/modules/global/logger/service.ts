@@ -214,7 +214,7 @@ export class LoggerService implements ILoggerService {
   }
 
   private getErrorResponse(error: ErrorType) {
-    const isFunction = typeof error.getResponse === 'function';
+    const isFunction = typeof error?.getResponse === 'function';
     return [
       {
         conditional: typeof error === 'string',
