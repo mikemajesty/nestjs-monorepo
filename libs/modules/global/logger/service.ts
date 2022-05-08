@@ -230,7 +230,7 @@ export class LoggerService implements ILoggerService {
         value: () => error?.getResponse(),
       },
       {
-        conditional: error?.name === Error.name,
+        conditional: error?.name === Error.name || error?.name == TypeError.name,
         value: () => new InternalServerErrorException(error.message).getResponse(),
       },
     ].find((c) => c.conditional);
