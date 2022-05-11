@@ -31,7 +31,7 @@
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest --detectOpenHandles",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage --detectOpenHandles",
     "test:e2e": "jest --config ./jest.config.e2e.ts",
     "commit": "cz",
     "start:main-api:dev": "nest start @app/main-api --debug --watch",
