@@ -22,12 +22,3 @@ jest.mock('moment-timezone', () => jest.fn(() => ({
     format: jest.fn(),
   })
 })));
-
-jest.mock('../libs/modules/node_modules/pino-elasticsearch', () => jest.fn());
-jest.mock('../libs/modules/node_modules/pino-multi-stream', () => ({
-  multistream: jest.fn()
-}));
-
-jest.mock('../libs/modules/node_modules/convert-pino-request-to-curl', () => ({
-  PinoRequestConverter: { getCurl: jest.fn() }
-}));

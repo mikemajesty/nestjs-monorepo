@@ -8,6 +8,11 @@ export abstract class ISecretsService {
 
   ELK_URL: string;
 
+  MONGO_EXPRESS_URL: string;
+  JEAGER_URL: string;
+  REDIS_COMMANDER_URL: string;
+  KIBANA_URL: string;
+
   LOG_LEVEL: LevelWithSilent;
 
   database: {

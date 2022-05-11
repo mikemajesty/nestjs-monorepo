@@ -21,8 +21,6 @@ export class AppExceptionFilter implements ExceptionFilter {
 
     exception.traceid = [exception.traceid, request['id']].find((t) => t);
 
-    this.handlerExternalErrors(exception);
-
     this.loggerService.error(exception, exception.message, exception.context);
 
     const code = [exception.code, status, HttpStatus.INTERNAL_SERVER_ERROR].find((c) => c);
@@ -36,12 +34,5 @@ export class AppExceptionFilter implements ExceptionFilter {
         path: request.url,
       },
     } as ErrorModel);
-  }
-
-  private handlerExternalErrors(exception: ApiException) {
-    if (exception['isAxiosError']) {
-      exception.getResponse = () => ({ statusCode: exception['status'] || exception.code, message: exception.message });
-      exception.getStatus = () => exception['status'] || exception.code;
-    }
   }
 }

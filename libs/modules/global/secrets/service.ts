@@ -13,6 +13,11 @@ export class SecretsService extends ConfigService implements ISecretsService {
 
   ELK_URL = this.get<string>('ELK_URL');
 
+  MONGO_EXPRESS_URL = this.get<string>('MONGO_EXPRESS_URL');
+  REDIS_COMMANDER_URL = this.get<string>('REDIS_COMMANDER_URL');
+  JEAGER_URL = this.get<string>('JEAGER_URL');
+  KIBANA_URL = this.get<string>('KIBANA_URL');
+
   REDIS_URL = this.get<string>('REDIS_URL');
 
   ENV = this.get<string>('ENV');

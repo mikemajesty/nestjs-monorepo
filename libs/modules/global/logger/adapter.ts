@@ -9,7 +9,7 @@ export abstract class ILoggerService {
   abstract setContext(ctx: string): void;
   abstract setApplication(app: string): void;
   /**
-   * @deprecated The method should be used in main.ts
+   * @deprecated The method should be use only in main.ts
    */
   abstract log(message: string): void;
   abstract error(error: ErrorType, message?: string, context?: string): void;

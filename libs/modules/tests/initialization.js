@@ -14,6 +14,15 @@ jest.mock('redis', () => ({
 
 
 jest.mock('pino-elasticsearch', () => jest.fn());
+
+jest.mock('pino-multi-stream', () => ({
+  multistream: jest.fn()
+}));
+
+jest.mock('convert-pino-request-to-curl', () => ({
+  PinoRequestConverter: { getCurl: jest.fn() }
+}));
+
 jest.mock('pino-http', () => ({
   HttpLogger: jest.fn(),
   pinoHttp: jest.fn()

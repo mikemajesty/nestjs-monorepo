@@ -17,7 +17,6 @@
   "dependencies": {
     "@nestjs/config": "^1.1.0",
     "axios": "^0.24.0",
-    "colorette": "^2.0.16",
     "convert-pino-request-to-curl": "^0.0.28",
     "pino": "^7.10.0",
     "pino-elasticsearch": "^6.2.0",
