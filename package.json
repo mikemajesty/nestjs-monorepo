@@ -31,7 +31,7 @@
     "format": "prettier --write \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" ",
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest --detectOpenHandles",
-    "test:coverage": "jest --coverage --detectOpenHandles",
+    "test:coverage": "jest --coverage --detectOpenHandles && yarn make-badges",
     "test:e2e": "jest --config ./jest.config.e2e.ts",
     "commit": "cz",
     "start:main-api:dev": "nest start @app/main-api --debug --watch",
@@ -41,6 +41,7 @@
     "add:module": "monorepo-nestjs-cli --module",
     "add:test": "monorepo-nestjs-cli --test",
     "add:app": "monorepo-nestjs-cli --app",
+    "make-badges": "yarn jest-badges-readme",
     "tag:production": "changelog generate && bash ./update-version.sh && cd deploy && bash ./production-version.sh && cd .."
   },
   "dependencies": {
@@ -51,6 +52,7 @@
     "@nestjs/swagger": "^5.1.4",
     "class-transformer": "^0.3.2",
     "class-validator": "^0.13.2",
+    "colorette": "^2.0.16",
     "jaeger-client": "^3.19.0",
     "jsonwebtoken": "^8.5.1",
     "moment-timezone": "^0.5.34",
@@ -63,8 +65,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.1.6",
-    "uuid": "^8.3.2",
-    "colorette": "^2.0.16"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^14.1.0",
@@ -72,6 +73,7 @@
     "@nestjs/cli": "^8.0.0",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
+    "@olavoparno/jest-badges-readme": "^1.5.1",
     "@types/express": "^4.17.13",
     "@types/jaeger-client": "^3.18.3",
     "@types/jest": "^27.0.1",
