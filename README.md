@@ -2,9 +2,13 @@
 
 Check the [contributing manual](./CONTRIBUTING.md)
 
+
+<div align="center">
 | Statements | Branches | Functions | Lines |
 | -----------|----------|-----------|-------|
 | ![Statements](https://img.shields.io/badge/Coverage-92.6%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-67.88%25-red.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-85.39%25-yellow.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-92.55%25-brightgreen.svg "Make me better!") |
+</div>
+
 
 ##### Monorepo with nestjs
  - Docker
