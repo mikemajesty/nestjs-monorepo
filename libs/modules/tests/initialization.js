@@ -12,7 +12,6 @@ jest.mock('redis', () => ({
   }),
 }));
 
-
 jest.mock('pino-elasticsearch', () => jest.fn());
 
 jest.mock('pino-multi-stream', () => ({

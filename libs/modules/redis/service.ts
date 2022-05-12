@@ -12,7 +12,7 @@ export class RedisService implements ICacheService {
   client: RedisClientType;
 
   constructor(private readonly config: RedisClientOptions, private readonly logger: ILoggerService) {
-    this.client = createClient(this.config);
+    this.client = createClient(this.config) as RedisClientType;
   }
 
   async isConnected(): Promise<void> {
