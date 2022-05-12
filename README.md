@@ -198,14 +198,18 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 │   │   │           ├── entity.ts
 │   │   │           ├── module.ts
 │   │   │           ├── repository.ts
-│   │   │           └── schema.ts
+│   │   │           ├── schema.ts
+│   │   │           └── __tests__
+│   │   │               └── repository.spec.ts
 │   │   ├── tests
 │   │   │   └── initialization.js
 │   │   ├── tsconfig.build.json
-│   │   └── tsconfig.json
+│   │   ├── tsconfig.json
+│   │   └── yarn.lock
 │   └── main-api
 │       ├── Dockerfile
 │       ├── jest.config.js
+│       ├── node_modules
 │       ├── package.json
 │       ├── src
 │       │   ├── main.ts
@@ -277,8 +281,9 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 │   │   │       └── module.spec.ts
 │   │   ├── database
 │   │   │   ├── adapter.ts
-│   │   │   ├── auth.module.ts
-│   │   │   ├── cats.module.ts
+│   │   │   ├── connection
+│   │   │   │   ├── auth.ts
+│   │   │   │   └── cats.ts
 │   │   │   ├── entity.ts
 │   │   │   ├── enum.ts
 │   │   │   ├── repository.ts
@@ -291,9 +296,10 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 │   │   │   │   ├── adapter.ts
 │   │   │   │   ├── module.ts
 │   │   │   │   ├── service.ts
-│   │   │   │   └── __tests__
-│   │   │   │       ├── module.spec.ts
-│   │   │   │       └── service.spec.ts
+│   │   │   │   ├── __tests__
+│   │   │   │   │   ├── module.spec.ts
+│   │   │   │   │   └── service.spec.ts
+│   │   │   │   └── type.ts
 │   │   │   ├── module.ts
 │   │   │   ├── secrets
 │   │   │   │   ├── adapter.ts
@@ -337,6 +343,7 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 │       │   │       └── http-exception.interceptor.spec.ts
 │       │   └── logger
 │       │       ├── http-logger.interceptor.ts
+│       │       ├── http-tracing.interceptor.ts
 │       │       └── __tests__
 │       │           └── http-logger.interceptor.spec.ts
 │       ├── jest.config.js
@@ -346,6 +353,7 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 │       │       └── __tests__
 │       │           └── is-logged.middleware.spec.ts
 │       ├── package.json
+│       ├── request.ts
 │       ├── static
 │       │   └── htttp-status.json
 │       ├── __tests__
