@@ -105,7 +105,6 @@ export class TracingInterceptor implements NestInterceptor {
     return next.handle().pipe(
       tap(() => {
         req.tracing.setTag('statusCode', res.statusCode);
-        req.tracing.setTag('statusMessage', res.statusMessage);
         req.tracing.finish();
       }),
     );
