@@ -66,6 +66,8 @@ Check the [contributing manual](./CONTRIBUTING.md)
 $ yarn infra:local
 # http://0.0.0.0:8082/ to access mongo
 # http://0.0.0.0:8081/ to access redis
+# http://0.0.0.0:5601/app/home to access kibana
+# http://0.0.0.0:16686/search to access jeager
 ```
 ---
 ##### workspace list
