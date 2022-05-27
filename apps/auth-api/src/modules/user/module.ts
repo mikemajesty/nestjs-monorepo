@@ -1,18 +1,20 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { getConnectionToken } from '@nestjs/mongoose';
 import { ConnectionName } from 'libs/modules/database/enum';
+import { Connection, Model } from 'mongoose';
 
 import { IUserRepository } from './adapter';
 import { UserRepository } from './repository';
-import { User, UserSchema } from './schema';
+import { User, UserDocument, UserSchema } from './schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: User.name, schema: UserSchema }], ConnectionName.AUTH)],
   controllers: [],
   providers: [
     {
       provide: IUserRepository,
-      useClass: UserRepository,
+      useFactory: (connection: Connection) =>
+        new UserRepository(connection.model(User.name, UserSchema) as unknown as Model<UserDocument>),
+      inject: [getConnectionToken(ConnectionName.AUTH)],
     },
   ],
   exports: [IUserRepository],

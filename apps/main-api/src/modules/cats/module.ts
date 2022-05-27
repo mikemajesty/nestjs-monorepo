@@ -1,42 +1,24 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { getConnectionToken } from '@nestjs/mongoose';
 import { TokenModule } from 'libs/modules/auth/token/module';
 import { ConnectionName } from 'libs/modules/database/enum';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { IsLoggedMiddleware } from 'libs/utils/middleware/auth/is-logged.middleware';
+import { Connection, Model } from 'mongoose';
 
 import { ICatsRepository } from './adapter';
 import { CatsController } from './controller';
 import { CatsRepository } from './repository';
-import { Cats, CatSchema } from './schema';
+import { CatDocument, Cats, CatSchema } from './schema';
 
 @Module({
   controllers: [CatsController],
-  imports: [
-    // if you does't need of pre save, use this line
-    // MongooseModule.forFeature([{ name: Cats.name, schema: CatSchema }], ConnectionName.CATS),
-    TokenModule,
-    MongooseModule.forFeatureAsync(
-      [
-        {
-          name: Cats.name,
-          useFactory: (logger: ILoggerService) => {
-            const schema = CatSchema;
-            schema.pre('save', () => {
-              logger.log(`Hi I'm your ${Cats.name} schema pre save`);
-            });
-            return schema;
-          },
-          inject: [ILoggerService],
-        },
-      ],
-      ConnectionName.CATS,
-    ),
-  ],
+  imports: [TokenModule],
   providers: [
     {
       provide: ICatsRepository,
-      useClass: CatsRepository,
+      useFactory: (connection: Connection) =>
+        new CatsRepository(connection.model(Cats.name, CatSchema) as unknown as Model<CatDocument>),
+      inject: [getConnectionToken(ConnectionName.CATS)],
     },
   ],
   exports: [ICatsRepository],
