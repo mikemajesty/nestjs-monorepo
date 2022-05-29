@@ -1,6 +1,6 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
-import * as moment from 'moment-timezone';
+import { DateTime } from 'luxon';
 
 import { ApiException, ErrorModel } from '../exception';
 import * as errorStatus from '../static/htttp-status.json';
@@ -30,7 +30,7 @@ export class AppExceptionFilter implements ExceptionFilter {
         code,
         traceid: exception.traceid,
         message: errorStatus[String(code)] || exception.message,
-        timestamp: moment(new Date()).tz(process.env.TZ).format(),
+        timestamp: DateTime.fromJSDate(new Date()).setZone(process.env.TZ).toFormat('dd/MM/yyyy HH:mm:ss'),
         path: request.url,
       },
     } as ErrorModel);

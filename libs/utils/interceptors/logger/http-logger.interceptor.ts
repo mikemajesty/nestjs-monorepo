@@ -9,13 +9,16 @@ export class HttpLoggerInterceptor implements NestInterceptor {
   intercept(ctx: ExecutionContext, next: CallHandler): Observable<unknown> {
     const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
 
-    ctx.getArgs()[1].req['context'] = context;
+    const req = ctx.switchToHttp().getRequest();
+    const res = ctx.switchToHttp().getResponse();
 
-    if (!ctx.getArgs()[1].req.headers?.traceid) {
-      ctx.getArgs()[1].req.headers.traceid = uuidv4();
+    req['context'] = context;
+
+    if (!req.headers?.traceid) {
+      req.headers.traceid = uuidv4();
     }
 
-    this.loggerService.pino(ctx.getArgs()[1].req, ctx.getArgs()[0].res);
+    this.loggerService.pino(req, res);
     return next.handle();
   }
 }

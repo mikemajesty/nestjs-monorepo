@@ -8,7 +8,7 @@
   },
   "scripts": {
     "format": "../../tools/eslint/node_modules/.bin/prettier --write \"**/*.{ts, js, json}\"",
-    "test": "../../node_modules/jest/bin/jest.js",
+    "test": "../../node_modules/jest/bin/jest.js --maxWorkers=50%",
     "lint": "yarn format && ../../tools/eslint/node_modules/.bin/eslint \"**/*.{ts, js, json}\" --fix"
   },
   "engines": {

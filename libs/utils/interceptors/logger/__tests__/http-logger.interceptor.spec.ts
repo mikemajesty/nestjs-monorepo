@@ -9,11 +9,6 @@ import { HttpLoggerInterceptor } from '../http-logger.interceptor';
 describe('HttpLoggerInterceptor', () => {
   const callHandlerMOck: CallHandler = jest.genMockFromModule<CallHandler>('@nestjs/common');
 
-  const mockExecutionContext = {
-    getClass: () => ({ name: 'dummy' }),
-    getHandler: () => ({ name: 'dummy' }),
-    getArgs: () => [{ host: '0.0.0.0', originalUrl: 'api' }, { req: { headers: {} } }],
-  } as unknown as ExecutionContext;
   let httpLoggerInterceptor: HttpLoggerInterceptor;
 
   beforeEach(async () => {
@@ -31,10 +26,38 @@ describe('HttpLoggerInterceptor', () => {
     httpLoggerInterceptor = app.get(HttpLoggerInterceptor);
   });
 
-  test('should catch successfully', async () => {
+  test('should catch successfully without traceid', async () => {
     const mock = jest.genMockFromModule<Observable<unknown>>('rxjs');
     jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
     callHandlerMOck.handle = () => mock;
+
+    const mockExecutionContext = {
+      getClass: () => ({ name: 'dummy' }),
+      getHandler: () => ({ name: 'dummy' }),
+      switchToHttp: () => ({
+        getRequest: () => ({ headers: {} }),
+        getResponse: () => ({ headers: {} }),
+      }),
+    } as unknown as ExecutionContext;
+
+    const result = httpLoggerInterceptor.intercept(mockExecutionContext, callHandlerMOck);
+
+    expect(result).not.toBeUndefined();
+  });
+
+  test('should catch successfully with traceid', async () => {
+    const mock = jest.genMockFromModule<Observable<unknown>>('rxjs');
+    jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
+    callHandlerMOck.handle = () => mock;
+
+    const mockExecutionContext = {
+      getClass: () => ({ name: 'dummy' }),
+      getHandler: () => ({ name: 'dummy' }),
+      switchToHttp: () => ({
+        getRequest: () => ({ headers: { traceid: 'dummy' } }),
+        getResponse: () => ({ headers: {} }),
+      }),
+    } as unknown as ExecutionContext;
 
     const result = httpLoggerInterceptor.intercept(mockExecutionContext, callHandlerMOck);
 

@@ -9,7 +9,7 @@
   "scripts": {
     "format": "../../tools/eslint/node_modules/.bin/prettier --write \"**/*.{ts, js, json}\"",
     "lint": "yarn format && ../../tools/eslint/node_modules/.bin/eslint \"**/*.{ts, js, json}\" --fix",
-    "test": "../../node_modules/jest/bin/jest.js"
+    "test": "../../node_modules/jest/bin/jest.js --maxWorkers=50%"
   },
   "engines": {
     "node": ">=14 <=15"
@@ -19,10 +19,13 @@
     "axios": "^0.24.0",
     "convert-pino-request-to-curl": "^0.0.28",
     "pino": "^7.10.0",
-    "pino-http": "^6.6.0",
     "pino-elasticsearch": "^6.2.0",
+    "pino-http": "^6.6.0",
     "pino-multi-stream": "^6.0.0",
     "redis": "^4.0.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/pino-multi-stream": "^5.1.3"
+  }
 }

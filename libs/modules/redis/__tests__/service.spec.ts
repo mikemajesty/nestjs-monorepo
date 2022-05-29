@@ -13,7 +13,7 @@ describe('ICacheService', () => {
         {
           provide: ICacheService,
           useFactory: (config: { url: 'redis:redis:0000' }) =>
-            new RedisService(config, MockUtils.setMock({ info: jest.fn(), warn: jest.fn() })),
+            new RedisService(config, MockUtils.setMock({ log: jest.fn(), warn: jest.fn() })),
         },
       ],
     }).compile();

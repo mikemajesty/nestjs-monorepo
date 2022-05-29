@@ -14,8 +14,12 @@ jest.mock('redis', () => ({
   RedisClientType: () => ({ ping: () => 'PONG' })
 }))
 
-jest.mock('moment-timezone', () => jest.fn(() => ({
-  tz: () => ({
-    format: jest.fn(),
+jest.mock('luxon', () => ({
+  DateTime: ({
+    fromJSDate: () => ({
+      setZone: () => ({
+        toFormat: () => '2020-01-01T00:00:00.000Z'
+      })
+    }),
   })
-})));
+}));

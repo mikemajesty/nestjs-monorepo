@@ -2,6 +2,7 @@ import { HttpStatus, Injectable, NestMiddleware } from '@nestjs/common';
 import { NextFunction, Request, Response } from 'express';
 import { ITokenService } from 'libs/modules/auth/token/adapter';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { v4 as uuidv4 } from 'uuid';
 
 import { ApiException } from '../../exception';
 
@@ -12,6 +13,10 @@ export class IsLoggedMiddleware implements NestMiddleware {
     const tokenHeader = req.headers.authorization;
 
     if (!tokenHeader) {
+      if (!req.headers?.traceid) {
+        req.headers.traceid = uuidv4();
+      }
+
       this.loggerService.pino(req, res);
       throw new ApiException('no token provided', HttpStatus.UNAUTHORIZED, req.originalUrl);
     }

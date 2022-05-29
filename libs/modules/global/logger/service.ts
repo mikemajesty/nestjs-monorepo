@@ -2,12 +2,13 @@ import { Injectable, InternalServerErrorException, Scope } from '@nestjs/common'
 import { green, isColorSupported, red, yellow } from 'colorette';
 import { PinoRequestConverter } from 'convert-pino-request-to-curl';
 import { ApiException } from 'libs/utils';
-import * as moment from 'moment-timezone';
+import { DateTime } from 'luxon';
 import { LevelWithSilent, Logger, pino } from 'pino';
 import * as pinoElastic from 'pino-elasticsearch';
 import { HttpLogger, pinoHttp } from 'pino-http';
 import { multistream } from 'pino-multi-stream';
 import pinoPretty from 'pino-pretty';
+import { Transform } from 'stream';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ILoggerService } from './adapter';
@@ -18,7 +19,7 @@ export class LoggerService implements ILoggerService {
   pino: HttpLogger;
   private context: string;
   private app: string;
-  private streamToElastic: unknown;
+  private streamToElastic: Transform;
 
   constructor(private readonly elkUrl: string) {
     const index = `monorepo-logs-${this.getDateFormat(new Date(), 'yyyy-MM')}`;
@@ -90,7 +91,7 @@ export class LoggerService implements ILoggerService {
         context: context || this.context,
         type: error?.name === 'Error' ? ApiException.name : error?.name,
         traceid: this.getTraceId(error),
-        date: this.getDateFormat(),
+        timestamp: this.getDateFormat(),
         application: this.app,
         stack: error.stack,
       },
@@ -105,7 +106,7 @@ export class LoggerService implements ILoggerService {
         context: context || this.context,
         type: error.name,
         traceid: this.getTraceId(error),
-        date: this.getDateFormat(),
+        timestamp: this.getDateFormat(),
         application: this.app,
         stack: error.stack,
       },
@@ -142,7 +143,9 @@ export class LoggerService implements ILoggerService {
         return `${message}`;
       },
       customPrettifiers: {
-        time: (timestamp: unknown) => `[${this.getDateFormat(new Date(Number(timestamp)), 'DD/MM/yyyy HH:mm:ss')}]`,
+        time: () => {
+          return `[${this.getDateFormat()}]`;
+        },
       },
     };
   }
@@ -189,6 +192,7 @@ export class LoggerService implements ILoggerService {
           application: this.app,
           context: context,
           path,
+          timestamp: this.getDateFormat(),
         });
 
         return {
@@ -196,7 +200,7 @@ export class LoggerService implements ILoggerService {
           application: this.app,
           context: context,
           path,
-          date: this.getDateFormat(),
+          timestamp: this.getDateFormat(),
         };
       },
       customLogLevel: (res, err) => {
@@ -236,8 +240,8 @@ export class LoggerService implements ILoggerService {
     ].find((c) => c.conditional);
   }
 
-  private getDateFormat(date = new Date(), format?: string): string {
-    return moment(date).tz(process.env.TZ).format(format);
+  private getDateFormat(date = new Date(), format = 'dd/MM/yyyy HH:mm:ss'): string {
+    return DateTime.fromJSDate(date).setZone(process.env.TZ).toFormat(format);
   }
 
   private getTraceId(error): string {
