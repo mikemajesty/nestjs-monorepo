@@ -100,7 +100,10 @@ export class TracingInterceptor implements NestInterceptor {
     req.tracing.setTag('body', req.body);
     req.tracing.setTag('query', req.query);
     req.tracing.setTag('context', context);
-    req.tracing.setTag('traceId', req.id);
+
+    if (req.id) {
+      req.tracing.setTag('traceId', req.id);
+    }
 
     return next.handle().pipe(
       tap(() => {

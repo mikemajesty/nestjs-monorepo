@@ -83,7 +83,7 @@ export class LoggerService implements ILoggerService {
     const response =
       error?.name === ApiException.name
         ? { statusCode: error['statusCode'], message: error?.message }
-        : errorResponse.value();
+        : errorResponse?.value();
 
     this.pino.logger.error(
       {

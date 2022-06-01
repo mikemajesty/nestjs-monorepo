@@ -16,6 +16,7 @@ export class HttpLoggerInterceptor implements NestInterceptor {
 
     if (!req.headers?.traceid) {
       req.headers.traceid = uuidv4();
+      req.id = req.headers.traceid;
     }
 
     this.loggerService.pino(req, res);

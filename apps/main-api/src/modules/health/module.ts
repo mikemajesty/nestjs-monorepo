@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { HttpModule } from 'libs/modules/common/http/module';
 import { RedisModule } from 'libs/modules/redis/module';
 
 import { CatsModule } from '../cats/module';
@@ -8,7 +7,7 @@ import { HealthController } from './controller';
 import { HealthService } from './service';
 
 @Module({
-  imports: [RedisModule, CatsModule, HttpModule],
+  imports: [RedisModule, CatsModule],
   controllers: [HealthController],
   providers: [
     {

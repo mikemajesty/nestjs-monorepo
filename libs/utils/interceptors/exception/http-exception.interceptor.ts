@@ -16,7 +16,8 @@ export class ExceptionInterceptor implements NestInterceptor {
         ].every((e) => e);
 
         if (isClassValidatorError) {
-          error.message = error?.response?.message;
+          error.message = error?.response?.message.join(', ');
+          error.response.message = error.message;
         }
 
         const request: ApiRequest = ctx.switchToHttp().getRequest();
@@ -35,8 +36,9 @@ export class ExceptionInterceptor implements NestInterceptor {
 
         if (request?.tracing) {
           request.tracing.setTag(request.tracing.tags.ERROR, true);
-          request.tracing.setTag('statusCode', error.status);
           request.tracing.setTag('message', error.message);
+          request.tracing.setTag('statusCode', error.status);
+          request.tracing.addTags({ traceId: error.traceid });
           request.tracing.finish();
         }
 
@@ -49,9 +51,10 @@ export class ExceptionInterceptor implements NestInterceptor {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private sanitizeExternalError(error: any) {
     if (typeof error?.response === 'object' && error?.isAxiosError) {
-      error['getReponse'] = () => ({ ...error?.response?.data?.error });
+      error['getResponse'] = () => ({ ...error?.response?.data?.error });
       error['getStatus'] = () => error?.response?.data?.error?.code || error?.status;
       error.message = error?.response?.data?.error?.message || error.message;
+      error.traceid = error?.response?.data?.error?.traceid;
     }
   }
 }

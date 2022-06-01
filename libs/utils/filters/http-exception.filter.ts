@@ -23,13 +23,11 @@ export class AppExceptionFilter implements ExceptionFilter {
 
     this.loggerService.error(exception, exception.message, exception.context);
 
-    const code = [exception.code, status, HttpStatus.INTERNAL_SERVER_ERROR].find((c) => c);
-
     response.status(status).json({
       error: {
-        code,
+        code: status,
         traceid: exception.traceid,
-        message: errorStatus[String(code)] || exception.message,
+        message: errorStatus[String(status)] || exception.message,
         timestamp: DateTime.fromJSDate(new Date()).setZone(process.env.TZ).toFormat('dd/MM/yyyy HH:mm:ss'),
         path: request.url,
       },

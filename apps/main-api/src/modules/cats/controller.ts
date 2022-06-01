@@ -1,6 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatedModel } from 'libs/modules';
+import { ISecretsService } from 'libs/modules/global/secrets/adapter';
 
 import { ICatsRepository } from './adapter';
 import { CatsEntity } from './entity';
@@ -10,7 +11,7 @@ import { SwagggerResponse } from './swagger';
 @ApiTags('cats')
 @ApiBearerAuth()
 export class CatsController {
-  constructor(private readonly catRepository: ICatsRepository) {}
+  constructor(private readonly catRepository: ICatsRepository, private readonly secretService: ISecretsService) {}
 
   @Post()
   @ApiResponse(SwagggerResponse.save[201])
