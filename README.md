@@ -99,7 +99,7 @@ $ yarn infra:local
  
 ---
 
-#### Add new features
+#### Add new features [mac/linux]
 ```bash
 $ npm i -g @mikemajesty/monorepo-nestjs-cli
 ```
