@@ -16,7 +16,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "pino-pretty": "^7.6.1",
     "opentracing": "^0.14.7"
   },
   "license": "MIT"

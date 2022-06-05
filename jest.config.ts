@@ -24,8 +24,5 @@ export default {
   },
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
   projects: ['<rootDir>/**/jest.config.js'],
-  coverageReporters: [
-    "json-summary",
-    "lcov"
-  ],
+  coverageReporters: ['json-summary', 'lcov'],
 };
