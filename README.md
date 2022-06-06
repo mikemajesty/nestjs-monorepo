@@ -395,7 +395,7 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
  - ```├── libs ├── utils```: Application utils, utilities that will shared with your monorepo.
  - ```├── apps```: Monorepo Applications.
  - ```├── tests```: Monorepo tests initializer like: env, mocks and configs.
- - ```├── secrets```: Monorepo secrets.
+ - ```├── libs ├── modules ├── global ├── secrets```: Monorepo secrets.
 
 ---
 
