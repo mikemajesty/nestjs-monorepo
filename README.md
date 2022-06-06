@@ -13,6 +13,13 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Secrets Service
  
  - Logs Service
+   - Pinojs
+   - Elastic
+   - Tracing
+
+ - Observability
+   - Jeager
+   - Opentracing
 
  - Authentication
 
