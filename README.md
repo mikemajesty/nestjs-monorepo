@@ -28,7 +28,7 @@ Check the [contributing manual](./CONTRIBUTING.md)
 
  - Dependency Inversion Pattern
  - Anti Corruption Layer Pattern
- - Adapter Pattern
+ - Interface Adapter Pattern
  - Generic Repository Pattern
 
  - Swaggger Documentation
