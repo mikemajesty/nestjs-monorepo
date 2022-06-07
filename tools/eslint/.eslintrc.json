@@ -4,15 +4,30 @@
     "project": "tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint/eslint-plugin", "simple-import-sort", "security"],
-  "extends": ["plugin:@typescript-eslint/recommended", "plugin:prettier/recommended", "plugin:security/recommended", "plugin:you-dont-need-lodash-underscore/compatible"],
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "simple-import-sort",
+    "security",
+    "sonarjs",
+    "jest"
+  ],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:security/recommended",
+    "plugin:you-dont-need-lodash-underscore/compatible",
+    "plugin:sonarjs/recommended",
+    "plugin:jest/recommended"
+  ],
   "root": true,
   "env": {
     "node": true,
-    "jest": true
+    "jest": true,
+    "jest/globals": true
   },
   "ignorePatterns": [".eslintrc.json"],
   "rules": {
+    "jest/expect-expect": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "@typescript-eslint/no-explicit-any": ["error"],

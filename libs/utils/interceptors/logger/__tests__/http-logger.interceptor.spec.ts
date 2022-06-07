@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
 import { HttpLoggerInterceptor } from '../http-logger.interceptor';
 
 describe('HttpLoggerInterceptor', () => {
-  const callHandlerMOck: CallHandler = jest.genMockFromModule<CallHandler>('@nestjs/common');
+  const callHandlerMOck: CallHandler = jest.createMockFromModule<CallHandler>('@nestjs/common');
 
   let httpLoggerInterceptor: HttpLoggerInterceptor;
 
@@ -27,7 +27,7 @@ describe('HttpLoggerInterceptor', () => {
   });
 
   test('should catch successfully without traceid', async () => {
-    const mock = jest.genMockFromModule<Observable<unknown>>('rxjs');
+    const mock = jest.createMockFromModule<Observable<unknown>>('rxjs');
     jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
     callHandlerMOck.handle = () => mock;
 
@@ -46,7 +46,7 @@ describe('HttpLoggerInterceptor', () => {
   });
 
   test('should catch successfully with traceid', async () => {
-    const mock = jest.genMockFromModule<Observable<unknown>>('rxjs');
+    const mock = jest.createMockFromModule<Observable<unknown>>('rxjs');
     jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
     callHandlerMOck.handle = () => mock;
 

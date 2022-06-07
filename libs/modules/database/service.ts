@@ -14,13 +14,11 @@ type ConnectionModel = {
 @Injectable()
 export class DataBaseService implements IDataBaseService {
   getDefaultConnection(config: ConnectionModel): MongooseModuleOptions {
-    const connectionOptions = {
+    return {
       appName: 'monorepo',
       uri: this.getConnectionString(config),
       connectTimeoutMS: 2000,
     };
-
-    return connectionOptions;
   }
 
   private getConnectionString(config: ConnectionModel): string {

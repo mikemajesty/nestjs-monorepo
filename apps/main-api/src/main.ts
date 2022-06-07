@@ -66,7 +66,9 @@ async function bootstrap() {
 
   await app.listen(PORT);
 
-  loggerService.log(`🔵 swagger listening at ${bold(`${url}/${SWAGGER_API_ROOT}`)}`);
+  const openApiURL = `${url}/${SWAGGER_API_ROOT}`;
+
+  loggerService.log(`🔵 swagger listening at ${bold(openApiURL)}`);
   loggerService.log(`🔵 mongo-express listening at ${bold(MONGO_EXPRESS_URL)}`);
   loggerService.log(`🔵 redis-commander listening at ${bold(REDIS_COMMANDER_URL)}`);
   loggerService.log(`🔵 kibana listening at ${bold(KIBANA_URL)}`);

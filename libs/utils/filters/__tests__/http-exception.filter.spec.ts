@@ -5,7 +5,7 @@ import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { ApiException } from '../../exception';
 import { AppExceptionFilter } from '../http-exception.filter';
 
-const mock = jest.genMockFromModule<ArgumentsHost>('@nestjs/common');
+const mock = jest.createMockFromModule<ArgumentsHost>('@nestjs/common');
 
 describe('AppExceptionFilter', () => {
   let appExceptionFilter: AppExceptionFilter;
@@ -24,12 +24,6 @@ describe('AppExceptionFilter', () => {
       ],
     }).compile();
 
-    appExceptionFilter = app.get(AppExceptionFilter);
-  });
-
-  test('should catch successfully', () => {
-    const error = new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
-
     mock.switchToHttp = () => ({
       getNext: jest.fn(),
       getResponse: jest.fn().mockReturnValue({
@@ -39,6 +33,13 @@ describe('AppExceptionFilter', () => {
         url: 'url',
       }),
     });
+
+    appExceptionFilter = app.get(AppExceptionFilter);
+  });
+
+  test('should catch successfully', () => {
+    const error = new ApiException('Error', HttpStatus.INTERNAL_SERVER_ERROR);
+
     appExceptionFilter.catch(error, mock);
   });
 
@@ -47,15 +48,7 @@ describe('AppExceptionFilter', () => {
 
     error.statusCode = undefined;
     error.context = undefined;
-    mock.switchToHttp = () => ({
-      getNext: jest.fn(),
-      getResponse: jest.fn().mockReturnValue({
-        status: () => ({ json: jest.fn() }),
-      }),
-      getRequest: jest.fn().mockReturnValue({
-        url: 'url',
-      }),
-    });
+
     appExceptionFilter.catch(error, mock);
   });
 
@@ -64,31 +57,12 @@ describe('AppExceptionFilter', () => {
 
     error.statusCode = undefined;
     error.context = undefined;
-    mock.switchToHttp = () => ({
-      getNext: jest.fn(),
-      getResponse: jest.fn().mockReturnValue({
-        status: () => ({ json: jest.fn() }),
-      }),
-      getRequest: jest.fn().mockReturnValue({
-        url: 'url',
-      }),
-    });
 
     appExceptionFilter.catch(error, mock);
   });
 
   test('should catch successfully without error message', () => {
-    const error = jest.genMockFromModule<ApiException>('@nestjs/common');
-
-    mock.switchToHttp = () => ({
-      getNext: jest.fn(),
-      getResponse: jest.fn().mockReturnValue({
-        status: () => ({ json: jest.fn() }),
-      }),
-      getRequest: jest.fn().mockReturnValue({
-        url: 'url',
-      }),
-    });
+    const error = jest.createMockFromModule<ApiException>('@nestjs/common');
 
     appExceptionFilter.catch(error, mock);
   });

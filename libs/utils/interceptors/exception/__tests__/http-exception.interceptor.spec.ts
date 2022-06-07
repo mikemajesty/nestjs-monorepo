@@ -6,8 +6,8 @@ import { Observable, of } from 'rxjs';
 import { ExceptionInterceptor } from '../http-exception.interceptor';
 
 describe('ExceptionInterceptor', () => {
-  const executionContextMock = jest.genMockFromModule<ExecutionContext>('@nestjs/common');
-  const callHandlerMOck = jest.genMockFromModule<CallHandler>('@nestjs/common');
+  const executionContextMock = jest.createMockFromModule<ExecutionContext>('@nestjs/common');
+  const callHandlerMOck = jest.createMockFromModule<CallHandler>('@nestjs/common');
   let exceptionInterceptor: ExceptionInterceptor;
 
   beforeEach(async () => {
@@ -21,17 +21,7 @@ describe('ExceptionInterceptor', () => {
   });
 
   test('should catch successfully', async () => {
-    const mock = jest.genMockFromModule<Observable<unknown>>('rxjs');
-    jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
-    callHandlerMOck.handle = () => mock;
-
-    const result = exceptionInterceptor.intercept(executionContextMock, callHandlerMOck);
-
-    expect(result).not.toBeUndefined();
-  });
-
-  test('should catch successfully with status 412', async () => {
-    const mock = jest.genMockFromModule<Observable<unknown>>('rxjs');
+    const mock = jest.createMockFromModule<Observable<unknown>>('rxjs');
     jest.spyOn(mock, 'pipe').mockReturnValue(of(true));
     callHandlerMOck.handle = () => mock;
 

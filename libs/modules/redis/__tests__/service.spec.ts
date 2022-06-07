@@ -28,7 +28,7 @@ describe('ICacheService', () => {
   });
 
   describe('isConnected', () => {
-    test('should connect successfully', async () => {
+    test('should isConnected successfully', async () => {
       const mock = {
         ping: () => 'PONG',
       };
@@ -37,7 +37,7 @@ describe('ICacheService', () => {
       await expect(service.isConnected()).resolves.toBeUndefined();
     });
 
-    test('should connect unsuccessfully', async () => {
+    test('should isConnected unsuccessfully', async () => {
       const mock = {
         ping: () => false,
       };
@@ -138,7 +138,7 @@ describe('ICacheService', () => {
       await expect(service.pExpire('keyMock', 1000)).resolves.toBeUndefined();
     });
 
-    test('should pExpire successfully', async () => {
+    test('should pExpire unsuccessfully', async () => {
       const KEY = 'keyMock';
 
       const mock = {

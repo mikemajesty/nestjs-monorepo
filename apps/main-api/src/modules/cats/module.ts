@@ -18,7 +18,7 @@ import { CatDocument, Cats, CatSchema } from './schema';
     {
       provide: ICatsRepository,
       useFactory: (connection: Connection) =>
-        new CatsRepository(connection.model(Cats.name, CatSchema) as unknown as Model<CatDocument>),
+        new CatsRepository(connection.model(Cats.name, CatSchema) as Model<CatDocument>),
       inject: [getConnectionToken(ConnectionName.CATS)],
     },
   ],

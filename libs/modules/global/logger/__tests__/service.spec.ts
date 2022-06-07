@@ -69,18 +69,6 @@ describe('LoggerService', () => {
       expect(loggerService.pino.logger.error).toHaveBeenCalled();
     });
 
-    test('should throw error of not mapped conditional', () => {
-      try {
-        loggerService.error({
-          getResponse: {},
-          getStatus: () => undefined,
-          status: 200,
-        } as unknown as ErrorType);
-      } catch (error) {
-        expect(error.message).toEqual(`Cannot read property 'value' of undefined`);
-      }
-    });
-
     test('should log default node error', () => {
       loggerService.error(new Error('ERROR') as unknown as ErrorType);
 

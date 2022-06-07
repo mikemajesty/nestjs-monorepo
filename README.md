@@ -15,7 +15,6 @@ Check the [contributing manual](./CONTRIBUTING.md)
  - Logs Service
    - Pinojs
    - Elastic
-   - Tracing
 
  - Observability
    - Jeager
