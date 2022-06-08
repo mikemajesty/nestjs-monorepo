@@ -3,7 +3,5 @@
 
 yarn lint
 yarn test:coverage
-git add README.md
-git commit -m "(doc) Update README.md" -n
 
 echo '\nI Know What You Did Last Commit\n'
