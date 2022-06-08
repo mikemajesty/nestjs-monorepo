@@ -1,6 +1,8 @@
 # Nestjs Monorepo Boilerplate
 
-Check the [contributing manual](./CONTRIBUTING.md)
+Check
+  - [monorepo docs](https://docs.nestjs.com/cli/monorepo)
+  - [contributing manual](./CONTRIBUTING.md)
 
 
 | Statements | Branches | Functions | Lines |
