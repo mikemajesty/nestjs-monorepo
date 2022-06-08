@@ -2,6 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "tsconfig.json",
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": [
@@ -9,7 +10,8 @@
     "simple-import-sort",
     "security",
     "sonarjs",
-    "jest"
+    "jest",
+    "unicorn"
   ],
   "extends": [
     "plugin:@typescript-eslint/recommended",
@@ -17,16 +19,19 @@
     "plugin:security/recommended",
     "plugin:you-dont-need-lodash-underscore/compatible",
     "plugin:sonarjs/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:unicorn/recommended"
   ],
   "root": true,
   "env": {
     "node": true,
     "jest": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "es2022": true
   },
   "ignorePatterns": [".eslintrc.json"],
   "rules": {
+    "unicorn/prevent-abbreviations": "off",
     "jest/expect-expect": "off",
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-unused-vars": ["error"],

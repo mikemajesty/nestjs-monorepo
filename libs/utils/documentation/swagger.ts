@@ -22,8 +22,8 @@ type SwaggerJSON = {
   description?: string;
 };
 
-export class Swagger {
-  static defaultResponseError({ status, route, message, description }: SwaggerError): ApiResponseOptions {
+export const Swagger = {
+  defaultResponseError({ status, route, message, description }: SwaggerError): ApiResponseOptions {
     return {
       schema: {
         example: {
@@ -39,9 +39,9 @@ export class Swagger {
       description,
       status,
     };
-  }
+  },
 
-  static defaultResponseText({ status, text, description }: SwaggerText): ApiResponseOptions {
+  defaultResponseText({ status, text, description }: SwaggerText): ApiResponseOptions {
     return {
       content: {
         'text/plain': {
@@ -53,9 +53,9 @@ export class Swagger {
       description,
       status,
     };
-  }
+  },
 
-  static defaultResponseJSON({ status, json, description }: SwaggerJSON): ApiResponseOptions {
+  defaultResponseJSON({ status, json, description }: SwaggerJSON): ApiResponseOptions {
     return {
       content: {
         'application/json': {
@@ -67,13 +67,13 @@ export class Swagger {
       description,
       status,
     };
-  }
+  },
 
-  static defaultRequestJSON(json: unknown): ApiResponseOptions {
+  defaultRequestJSON(json: unknown): ApiResponseOptions {
     return {
       schema: {
         example: json,
       },
     };
-  }
-}
+  },
+};

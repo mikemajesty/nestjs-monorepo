@@ -6,20 +6,20 @@ import { v4 as uuidv4 } from 'uuid';
 @Injectable()
 export class HttpLoggerInterceptor implements NestInterceptor {
   constructor(private readonly loggerService: ILoggerService) {}
-  intercept(ctx: ExecutionContext, next: CallHandler): Observable<unknown> {
-    const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
+  intercept(executionContext: ExecutionContext, next: CallHandler): Observable<unknown> {
+    const context = `${executionContext.getClass().name}/${executionContext.getHandler().name}`;
 
-    const req = ctx.switchToHttp().getRequest();
-    const res = ctx.switchToHttp().getResponse();
+    const request = executionContext.switchToHttp().getRequest();
+    const response = executionContext.switchToHttp().getResponse();
 
-    req['context'] = context;
+    request['context'] = context;
 
-    if (!req.headers?.traceid) {
-      req.headers.traceid = uuidv4();
-      req.id = req.headers.traceid;
+    if (!request.headers?.traceid) {
+      request.headers.traceid = uuidv4();
+      request.id = request.headers.traceid;
     }
 
-    this.loggerService.pino(req, res);
+    this.loggerService.pino(request, response);
     return next.handle();
   }
 }

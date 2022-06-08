@@ -3,12 +3,12 @@ import { green, isColorSupported, red, yellow } from 'colorette';
 import { PinoRequestConverter } from 'convert-pino-request-to-curl';
 import { ApiException } from 'libs/utils';
 import { DateTime } from 'luxon';
+import { Transform } from 'node:stream';
 import { LevelWithSilent, Logger, pino } from 'pino';
 import * as pinoElastic from 'pino-elasticsearch';
 import { HttpLogger, pinoHttp } from 'pino-http';
 import { multistream } from 'pino-multi-stream';
 import pinoPretty from 'pino-pretty';
-import { Transform } from 'stream';
 import { v4 as uuidv4 } from 'uuid';
 
 import { ILoggerService } from './adapter';
@@ -51,8 +51,8 @@ export class LoggerService implements ILoggerService {
     this.pino = pinoHttp(this.getPinoHttpConfig(pinoLogger));
   }
 
-  setContext(ctx: string): void {
-    this.context = ctx;
+  setContext(context: string): void {
+    this.context = context;
   }
 
   setApplication(app: string): void {
@@ -60,21 +60,21 @@ export class LoggerService implements ILoggerService {
   }
 
   log(message: string): void {
-    const msg = green(message);
-    this.pino.logger.trace(msg);
+    const message_ = green(message);
+    this.pino.logger.trace(message_);
   }
 
   info({ message, context, obj }: MessageType): void {
-    const msg = green(message);
+    const message_ = green(message);
 
     this.setContext(context);
 
     if (obj) {
-      this.pino.logger.info(obj, msg);
+      this.pino.logger.info(obj, message_);
       return;
     }
 
-    this.pino.logger.info(msg);
+    this.pino.logger.info(message_);
   }
 
   error(error: ErrorType, message?: string, context?: string): void {
@@ -112,21 +112,19 @@ export class LoggerService implements ILoggerService {
       },
       red(message),
     );
-
-    process.exit(1);
   }
 
   warn({ message, context, obj }: MessageType): void {
-    const msg = yellow(message);
+    const message_ = yellow(message);
 
     this.setContext(context);
 
     if (obj) {
-      this.pino.logger.warn(obj, msg);
+      this.pino.logger.warn(obj, message_);
       return;
     }
 
-    this.pino.logger.warn(msg);
+    this.pino.logger.warn(message_);
   }
 
   private getPinoConfig() {
@@ -137,8 +135,8 @@ export class LoggerService implements ILoggerService {
       quietReqLogger: true,
       messageFormat: (log: unknown, messageKey: string) => {
         const message = log[String(messageKey)];
-        const ctx = [this.context, this.app]?.find((c: string) => c);
-        if (ctx) return `[${ctx}] ${message}`;
+        const context = [this.context, this.app]?.find((c: string) => c);
+        if (context) return `[${context}] ${message}`;
 
         return `${message}`;
       },
@@ -160,8 +158,8 @@ export class LoggerService implements ILoggerService {
       customErrorMessage: function (error: Error, res) {
         return `request ${red('error')} with status code: ${res.statusCode} `;
       },
-      genReqId: (req) => {
-        return req.headers.traceid;
+      genReqId: (request) => {
+        return request.headers.traceid;
       },
       customAttributeKeys: {
         req: 'request',
@@ -171,21 +169,21 @@ export class LoggerService implements ILoggerService {
         reqId: 'traceid',
       },
       serializers: {
-        err: () => undefined,
-        req: (req) => {
+        err: () => false,
+        req: (request) => {
           return {
-            method: req.method,
-            curl: PinoRequestConverter.getCurl(req),
+            method: request.method,
+            curl: PinoRequestConverter.getCurl(request),
           };
         },
         res: pino.stdSerializers.res,
       },
-      customProps: (req): unknown => {
-        const context = this.context || req.context;
+      customProps: (request): unknown => {
+        const context = this.context || request.context;
 
-        const traceid = req?.headers?.traceid || req.id;
+        const traceid = request?.headers?.traceid || request.id;
 
-        const path = `${req.protocol}://${req.headers.host}${req.url}`;
+        const path = `${request.protocol}://${request.headers.host}${request.url}`;
 
         this.pino.logger.setBindings({
           traceid,
@@ -203,12 +201,12 @@ export class LoggerService implements ILoggerService {
           timestamp: this.getDateFormat(),
         };
       },
-      customLogLevel: (res, err) => {
-        if ([res.statusCode >= 400, err].some((s) => s)) {
+      customLogLevel: (res, error) => {
+        if ([res.statusCode >= 400, error].some(Boolean)) {
           return 'error';
         }
 
-        if ([res.statusCode >= 300, res.statusCode <= 400].every((s) => s)) {
+        if ([res.statusCode >= 300, res.statusCode <= 400].every(Boolean)) {
           return 'silent';
         }
 
@@ -246,6 +244,6 @@ export class LoggerService implements ILoggerService {
 
   private getTraceId(error): string {
     if (typeof error === 'string') return uuidv4();
-    return [error.traceid, this.pino.logger.bindings()?.tranceId].find((e) => e);
+    return [error.traceid, this.pino.logger.bindings()?.tranceId].find(Boolean);
   }
 }

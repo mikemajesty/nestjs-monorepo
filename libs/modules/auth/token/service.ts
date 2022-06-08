@@ -24,9 +24,9 @@ export class TokenService implements ITokenService {
 
   async verify(token: string): Promise<jwt.JwtPayload | string> {
     return new Promise((res, rej) => {
-      jwt.verify(token, this.secret.authAPI.jwtToken, (err, decoded) => {
-        if (err)
-          rej(new ApiException(err.message, HttpStatus.UNAUTHORIZED, `${TokenService.name}/${this.verify.name}`));
+      jwt.verify(token, this.secret.authAPI.jwtToken, (error, decoded) => {
+        if (error)
+          rej(new ApiException(error.message, HttpStatus.UNAUTHORIZED, `${TokenService.name}/${this.verify.name}`));
 
         res(decoded);
       });

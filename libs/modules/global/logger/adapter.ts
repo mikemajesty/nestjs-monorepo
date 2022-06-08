@@ -6,7 +6,7 @@ import { ErrorType, MessageType } from './type';
 export abstract class ILoggerService {
   abstract pino: HttpLogger;
   abstract connect(logLevel?: LevelWithSilent): void;
-  abstract setContext(ctx: string): void;
+  abstract setContext(context: string): void;
   abstract setApplication(app: string): void;
   /**
    * @deprecated The method should be use only in main.ts

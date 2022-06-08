@@ -8,9 +8,9 @@ export type TracingType = {
   tags: typeof Tags;
   axios: (config?: AxiosRequestConfig) => AxiosInstance;
   log: (event: string, payload: unknown) => void;
-  setTag: (key: string, val: unknown) => void;
-  addTags: (obj: object) => void;
-  setTracingTag: (tag: string, val: unknown) => void;
+  setTag: (key: string, value: unknown) => void;
+  addTags: (object: object) => void;
+  setTracingTag: (tag: string, value: unknown) => void;
   createSpan: (name: string, parent: Span) => Span;
   finish: () => void;
 };

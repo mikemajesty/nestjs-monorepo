@@ -5,24 +5,24 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ExceptionInterceptor implements NestInterceptor {
-  intercept(ctx: ExecutionContext, next: CallHandler): Observable<unknown> {
+  intercept(executionContext: ExecutionContext, next: CallHandler): Observable<unknown> {
     return next.handle().pipe(
       catchError((error) => {
-        error.status = [error.status, error?.response?.status, 500].find((s) => s);
+        error.status = [error.status, error?.response?.status, 500].find(Boolean);
 
         const isClassValidatorError = [
           error.status === HttpStatus.PRECONDITION_FAILED,
           Array.isArray(error?.response?.message),
-        ].every((e) => e);
+        ].every(Boolean);
 
         if (isClassValidatorError) {
           error.message = error?.response?.message.join(', ');
           error.response.message = error.message;
         }
 
-        const request: ApiRequest = ctx.switchToHttp().getRequest();
+        const request: ApiRequest = executionContext.switchToHttp().getRequest();
 
-        const headers = ctx.getArgs()[0]?.headers;
+        const headers = executionContext.getArgs()[0]?.headers;
 
         error.user = headers.user;
 
@@ -32,7 +32,7 @@ export class ExceptionInterceptor implements NestInterceptor {
           error.traceid = headers.traceid;
         }
 
-        const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
+        const context = `${executionContext.getClass().name}/${executionContext.getHandler().name}`;
 
         if (request?.tracing) {
           request.tracing.setTag(request.tracing.tags.ERROR, true);

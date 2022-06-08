@@ -6,12 +6,12 @@ import { Repository } from '../repository';
 
 class EntityDummy extends Model {}
 
-describe('Repository', () => {
-  const buildMock = (mock: unknown) => {
-    const repository: IRepository<EntityDummy> = new Repository<EntityDummy>(mock as unknown as Model<EntityDummy>);
-    return repository;
-  };
+const buildMock = (mock: unknown) => {
+  const repository: IRepository<EntityDummy> = new Repository<EntityDummy>(mock as unknown as Model<EntityDummy>);
+  return repository;
+};
 
+describe('Repository', () => {
   describe('create', () => {
     test('should create successfully', async () => {
       const created = { id: '<id>' };
@@ -25,7 +25,7 @@ describe('Repository', () => {
       await expect(repository.create({})).resolves.toEqual({ created: true, id: '<id>' } as CreatedModel);
     });
 
-    test.each([undefined, null, ''])('should create unsuccessfully', async (id) => {
+    test.each([undefined, ''])('should create unsuccessfully', async (id) => {
       const notCreated = { id: id, __v: 0 };
 
       const repository = buildMock(

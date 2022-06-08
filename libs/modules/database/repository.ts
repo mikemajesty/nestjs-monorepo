@@ -14,15 +14,15 @@ export class Repository<T extends Document> implements IRepository<T> {
       throw new ApiException(`db ${this.model.db.name} disconnected`, HttpStatus.INTERNAL_SERVER_ERROR, 'Database');
   }
 
-  async create(doc: object, saveOptions?: SaveOptions): Promise<CreatedModel> {
-    const createdEntity = new this.model(doc);
+  async create(document: object, saveOptions?: SaveOptions): Promise<CreatedModel> {
+    const createdEntity = new this.model(document);
     const savedResult = await createdEntity.save(saveOptions);
 
     return { id: savedResult.id, created: !!savedResult.id };
   }
 
   async find(filter: FilterQuery<T>, options?: QueryOptions): Promise<T[]> {
-    return await this.model.find(filter, null, options);
+    return await this.model.find(filter, undefined, options);
   }
 
   async findById(id: string | number): Promise<T> {
@@ -30,7 +30,7 @@ export class Repository<T extends Document> implements IRepository<T> {
   }
 
   async findOne(filter: FilterQuery<T>, options?: QueryOptions): Promise<T> {
-    return await this.model.findOne(filter, null, options);
+    return await this.model.findOne(filter, undefined, options);
   }
 
   async findAll(): Promise<T[]> {

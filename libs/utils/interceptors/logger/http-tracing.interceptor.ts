@@ -33,82 +33,82 @@ export class TracingInterceptor implements NestInterceptor {
         app: app,
       },
       logger: {
-        info: (msg: string) => {
-          logger.log(msg);
+        info: (message: string) => {
+          logger.log(message);
         },
-        error: (msg: string) => {
-          logger.error(msg as unknown as InternalServerErrorException);
+        error: (message: string) => {
+          logger.error(message as unknown as InternalServerErrorException);
         },
       },
     };
     this.tracer = initTracer(config, options);
   }
 
-  intercept(ctx: ExecutionContext, next: CallHandler): Observable<unknown> {
-    const context = `${ctx.getClass().name}/${ctx.getHandler().name}`;
-    const req = ctx.switchToHttp().getRequest();
-    const res = ctx.switchToHttp().getResponse();
+  intercept(executionContext: ExecutionContext, next: CallHandler): Observable<unknown> {
+    const context = `${executionContext.getClass().name}/${executionContext.getHandler().name}`;
+    const request = executionContext.switchToHttp().getRequest();
+    const res = executionContext.switchToHttp().getResponse();
 
-    const parent = this.tracer.extract(FORMAT_HTTP_HEADERS, req.headers);
-    const parentObj = parent ? { childOf: parent } : {};
-    const span = this.tracer.startSpan(req.headers.host + req.path, parentObj);
+    const parent = this.tracer.extract(FORMAT_HTTP_HEADERS, request.headers);
+    const parentObject = parent ? { childOf: parent } : {};
+    const span = this.tracer.startSpan(request.headers.host + request.path, parentObject);
 
     const createJaegerInstance = (): TracingType => {
       return {
         span: span,
         tracer: this.tracer,
         tags: Tags,
-        axios: (opts: AxiosRequestConfig = {}) => {
+        axios: (options_: AxiosRequestConfig = {}) => {
           let options = {};
           const headers = {};
           this.tracer.inject(span, FORMAT_HTTP_HEADERS, headers);
-          opts.headers = { ...opts.headers, ...headers, traceid: req.id };
+          options_.headers = { ...options_.headers, ...headers, traceid: request.id };
 
-          options = { ...opts };
+          options = { ...options_ };
           return axios.create(options);
         },
         log: (eventName, payload) => {
           span.logEvent(eventName, payload);
         },
-        setTag: (key, val) => {
-          span.setTag(key, val);
+        setTag: (key, value) => {
+          span.setTag(key, value);
         },
-        addTags: (obj) => {
-          if (!obj) return;
-          span.addTags(obj);
+        addTags: (object) => {
+          if (!object) return;
+          span.addTags(object);
         },
-        setTracingTag: (key, val) => {
-          span.setTag(key, val);
+        setTracingTag: (key, value) => {
+          span.setTag(key, value);
         },
         finish: () => {
           span.finish();
         },
         createSpan: (name, parent: Span) => {
-          const parentObj: SpanOptions = parent ? { childOf: parent } : { childOf: span };
-          return this.tracer.startSpan(name, parentObj);
+          const parentObject: SpanOptions = parent ? { childOf: parent } : { childOf: span };
+          return this.tracer.startSpan(name, parentObject);
         },
       };
     };
 
-    req.tracing = createJaegerInstance();
+    request.tracing = createJaegerInstance();
 
-    req.tracing.setTag('ip', req.ip);
-    req.tracing.setTag('app', this.app);
-    req.tracing.setTag('method', req.method);
-    req.tracing.setTag('headers', req.headers);
-    req.tracing.setTag('path', req.path);
-    req.tracing.setTag('body', req.body);
-    req.tracing.setTag('query', req.query);
-    req.tracing.setTag('context', context);
+    request.tracing.setTag('ip', request.ip);
+    request.tracing.setTag('app', this.app);
+    request.tracing.setTag('method', request.method);
+    request.tracing.setTag('headers', request.headers);
+    request.tracing.setTag('path', request.path);
+    request.tracing.setTag('body', request.body);
+    request.tracing.setTag('query', request.query);
+    request.tracing.setTag('context', context);
 
-    if (req.id) {
-      req.tracing.setTag('traceId', req.id);
+    if (request.id) {
+      request.tracing.setTag('traceId', request.id);
     }
 
     return next.handle().pipe(
       tap(() => {
-        req.tracing.setTag('statusCode', res.statusCode);
-        req.tracing.finish();
+        request.tracing.setTag('statusCode', res.statusCode);
+        request.tracing.finish();
       }),
     );
   }

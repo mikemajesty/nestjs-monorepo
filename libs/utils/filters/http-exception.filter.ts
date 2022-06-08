@@ -10,16 +10,16 @@ export class AppExceptionFilter implements ExceptionFilter {
   constructor(private readonly loggerService: ILoggerService) {}
 
   catch(exception: ApiException, host: ArgumentsHost): void {
-    const ctx = host.switchToHttp();
-    const response = ctx.getResponse();
-    const request = ctx.getRequest<Request>();
+    const context = host.switchToHttp();
+    const response = context.getResponse();
+    const request = context.getRequest<Request>();
 
     const status =
       exception instanceof HttpException
         ? exception.getStatus()
         : exception['status'] || HttpStatus.INTERNAL_SERVER_ERROR;
 
-    exception.traceid = [exception.traceid, request['id']].find((t) => t);
+    exception.traceid = [exception.traceid, request['id']].find(Boolean);
 
     this.loggerService.error(exception, exception.message, exception.context);
 

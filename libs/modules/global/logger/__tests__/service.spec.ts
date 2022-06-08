@@ -62,7 +62,7 @@ describe('LoggerService', () => {
     test('should log error with getResponse string and status property', () => {
       loggerService.error({
         getResponse: () => 'ERROR',
-        getStatus: () => undefined,
+        getStatus: () => jest.fn(),
         status: 200,
       } as unknown as ErrorType);
 
