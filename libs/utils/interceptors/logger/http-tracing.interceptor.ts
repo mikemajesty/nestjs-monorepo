@@ -99,7 +99,7 @@ export class TracingInterceptor implements NestInterceptor {
     request.tracing.setTag('path', request.path);
     request.tracing.setTag('body', request.body);
     request.tracing.setTag('query', request.query);
-    request.tracing.setTag('context', context);
+    request.tracing.setTag('component', context);
 
     if (request.id) {
       request.tracing.setTag('traceId', request.id);
