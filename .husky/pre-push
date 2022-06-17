@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/husky.sh"
+
+yarn test:coverage
