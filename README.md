@@ -7,7 +7,7 @@ Check
 
 | Statements | Branches | Functions | Lines |
 | -----------|----------|-----------|-------|
-| ![Statements](https://img.shields.io/badge/Coverage-92.24%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-65.32%25-red.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-86.9%25-yellow.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-91.61%25-brightgreen.svg "Make me better!") |
+| ![Statements](https://img.shields.io/badge/Coverage-92.26%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-65.32%25-red.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-86.9%25-yellow.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-91.63%25-brightgreen.svg "Make me better!") |
 
 ##### Monorepo with nestjs
  - Docker

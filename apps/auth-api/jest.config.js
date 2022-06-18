@@ -12,6 +12,7 @@ const {
 
 module.exports = {
   rootDir: 'src',
+  collectCoverage: true,
   displayName: name,
   name,
   preset: 'ts-jest',
