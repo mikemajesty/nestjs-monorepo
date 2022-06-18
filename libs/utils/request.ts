@@ -5,6 +5,7 @@ import { Span, Tags } from 'opentracing';
 export type TracingType = {
   span: Span;
   tracer: JaegerTracer;
+  initTracer: (app: string) => JaegerTracer;
   tags: typeof Tags;
   axios: (config?: AxiosRequestConfig) => AxiosInstance;
   log: (event: string, payload: unknown) => void;

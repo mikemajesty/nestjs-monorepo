@@ -32,4 +32,6 @@ export abstract class ISecretsService {
     jwtToken: AuthAPIEnvironment | string;
     url: AuthAPIEnvironment | string;
   };
+
+  GITHUB_SCRAP_API: string;
 }

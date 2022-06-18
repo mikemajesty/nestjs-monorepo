@@ -41,4 +41,6 @@ export class SecretsService extends ConfigService implements ISecretsService {
     jwtToken: this.get<string>(AuthAPIEnvironment.SECRET_JWT),
     url: this.get<string>(AuthAPIEnvironment.URL),
   };
+
+  GITHUB_SCRAP_API = this.get<string>('GITHUB_SCRAP_API');
 }

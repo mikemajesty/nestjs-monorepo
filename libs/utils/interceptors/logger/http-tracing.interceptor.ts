@@ -17,8 +17,9 @@ export class TracingInterceptor implements NestInterceptor {
   private tracer: JaegerTracer;
   private app: string;
 
-  constructor({ app, version }: { app: string; version: string }, logger: ILoggerService) {
+  constructor({ app, version }: { app: string; version: string }, private logger: ILoggerService) {
     this.app = app;
+
     const config: TracingConfig = {
       serviceName: app,
       sampler: {
@@ -27,20 +28,13 @@ export class TracingInterceptor implements NestInterceptor {
       },
     };
 
-    const options: TracingOptions = {
-      tags: {
-        version: version,
-        app: app,
-      },
-      logger: {
-        info: (message: string) => {
-          logger.log(message);
-        },
-        error: (message: string) => {
-          logger.error(message as unknown as InternalServerErrorException);
-        },
-      },
+    const options: TracingOptions = this.getTracingLogger(logger);
+
+    options.tags = {
+      version: version,
+      app: app,
     };
+
     this.tracer = initTracer(config, options);
   }
 
@@ -54,9 +48,17 @@ export class TracingInterceptor implements NestInterceptor {
     const span = this.tracer.startSpan(request.headers.host + request.path, parentObject);
 
     const createJaegerInstance = (): TracingType => {
+      const config: TracingConfig = {
+        sampler: {
+          type: 'const',
+          param: 1,
+        },
+      };
       return {
         span: span,
         tracer: this.tracer,
+        initTracer: (app: string) =>
+          initTracer(Object.assign(config, { serviceName: app }), this.getTracingLogger(this.logger)),
         tags: Tags,
         axios: (options_: AxiosRequestConfig = {}) => {
           let options = {};
@@ -111,5 +113,18 @@ export class TracingInterceptor implements NestInterceptor {
         request.tracing.finish();
       }),
     );
+  }
+
+  private getTracingLogger(logger: ILoggerService): TracingOptions {
+    return {
+      logger: {
+        info: (message: string) => {
+          logger.log(message);
+        },
+        error: (message: string) => {
+          logger.error(message as unknown as InternalServerErrorException);
+        },
+      },
+    };
   }
 }
