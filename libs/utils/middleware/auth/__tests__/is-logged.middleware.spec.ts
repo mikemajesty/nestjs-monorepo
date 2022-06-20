@@ -38,7 +38,11 @@ describe('IsLoggedMiddleware', () => {
   describe('use', () => {
     test('should throw "no token provided" errro', async () => {
       await expect(
-        isLoggedMiddleware.use(MockUtils.setMock({ headers: {} }), MockUtils.setMock({}), () => ({})),
+        isLoggedMiddleware.use(
+          MockUtils.setMock({ headers: {} }),
+          MockUtils.setMock({ status: () => jest.fn() }),
+          () => ({}),
+        ),
       ).rejects.toThrowError('no token provided');
     });
 
@@ -48,7 +52,7 @@ describe('IsLoggedMiddleware', () => {
       await expect(
         isLoggedMiddleware.use(
           MockUtils.setMock({ headers: { authorization: 'Bearer validToken' } }),
-          MockUtils.setMock({}),
+          MockUtils.setMock({ status: () => jest.fn() }),
           () => ({}),
         ),
       ).resolves.toEqual(undefined);
