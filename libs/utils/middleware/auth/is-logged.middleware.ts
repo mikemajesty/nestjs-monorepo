@@ -14,7 +14,7 @@ export class IsLoggedMiddleware implements NestMiddleware {
       if (!request.headers?.traceid) {
         request.headers.traceid = uuidv4();
       }
-
+      response.status(412);
       this.loggerService.pino(request, response);
       throw new UnauthorizedException('no token provided');
     }

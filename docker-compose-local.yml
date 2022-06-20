@@ -34,27 +34,29 @@ services:
     ports:
       - '8081:8081'
   elasticsearch:
-    container_name: monorepo-elastic-search
-    image: elasticsearch:8.1.3
+    container_name: monorepo_elasticsearch
+    image: elasticsearch:7.11.2
     ports:
       - '9200:9200'
       - '9300:9300'
-    env_file:
-      - .env
     environment:
-      discovery.type: 'single-node'
-      ES_JAVA_OPTS: '-Xms2g -Xmx2g'
-      xpack.monitoring.templates.enabled: 'true'
-      xpack.security.enabled: 'false'
+      - node.name=elasticsearch
+      - cluster.name=es-docker-cluster
+      - cluster.initial_master_nodes=elasticsearch
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
   kibana:
     container_name: monorepo-kibana
-    image: kibana:8.1.3
+    image: kibana:7.11.2
     ports:
       - '5601:5601'
-    depends_on:
-      - elasticsearch
-    env_file:
-      - .env
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
   jaegertracing:
     container_name: monorepo_jaegertracing
     image: jaegertracing/all-in-one:latest
