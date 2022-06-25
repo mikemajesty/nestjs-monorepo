@@ -2,6 +2,7 @@
   "name": "monorepo",
   "version": "0.0.22",
   "description": "Nestjs monorepo",
+  "main": "index.js",
   "workspaces": {
     "packages": [
       "./apps/*",
@@ -19,7 +20,7 @@
     "url": "https://github.com/mikemajesty/nestjs-monorepo.git"
   },
   "engines": {
-    "node": ">=14 <=15"
+    "node": ">=14 <=16"
   },
   "private": true,
   "scripts": {
