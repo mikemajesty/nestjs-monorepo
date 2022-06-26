@@ -42,7 +42,7 @@ services:
     environment:
       - node.name=elasticsearch
       - cluster.name=es-docker-cluster
-      - cluster.initial_master_nodes=elasticsearch
+      - discovery.type=single-node
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
     ulimits:
