@@ -1,3 +1,6 @@
+# HTTP
+
+---
 ### Access external services
 
 ```ts
@@ -34,11 +37,7 @@ async get(@Req() req: ApiRequest): Promise<string> {
       throw error;
     }
 }
-```
-
-<!-- or -->
-
-```ts
+// OR
 import { IHealthService } from './adapter';
 import { Req } from '@nestjs/common';
 import { ApiRequest } from 'libs/utils';
@@ -70,3 +69,5 @@ async get(@Req() req: ApiRequest): Promise<string> {
 }
 
 ```
+---
+

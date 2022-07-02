@@ -48,7 +48,7 @@ Check
 ---
 
 #### Prerequisite
- - Node: 14 => <= 15
+ - Node: 14 => <= 16
  - Docker
  - npm install -g commitizen
  - npm install -g changelog
@@ -389,6 +389,10 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 
 ---
  #### Architecture
+
+ [<img alt="mikemajesty" src="https://avatars1.githubusercontent.com/u/11630212?s=460&v=4&s=117" width="117">](https://github.com/mikemajesty)
+
+
  - ```├── tools```: Project  tools like: eslint, prettier and etc.
  - ```├── libs```: Application shared libs.
  - ```├── libs ├── core```: Core business rules, don't use nestjs dependecies here, only class and rules that will be shared with other projects
@@ -400,9 +404,9 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 
 ---
 
-The following is a list of all the people that have contributed Nest monorepo boilerplate. Thanks for your contributions!
+The following is a list of all the people that have contributed Nestjs monorepo boilerplate. Thanks for your contributions!
 
-[<img alt="mikemajesty" src="https://avatars1.githubusercontent.com/u/11630212?s=460&v=4&s=117" width="117">](https://github.com/mikemajesty)
+[<img alt="monorepo-diagram" src="https://avatars1.githubusercontent.com/u/11630212?s=460&v=4&s=117" width="117">](https://drive.google.com/file/d/1B8MS8jOJ5fuE_S6BTbDoWJTKgPdBE9m9/view?usp=sharing)
 
 ## License
 
