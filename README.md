@@ -390,6 +390,8 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 ---
  #### Architecture
 
+  [<img alt="monorepo-diagram" src="https://raw.githubusercontent.com/mikemajesty/nestjs-monorepo/main/libs/utils/documentation/monorepo-diagram.jpg" width="350">](https://drive.google.com/file/d/1B8MS8jOJ5fuE_S6BTbDoWJTKgPdBE9m9/view?usp=sharing)
+
 
  - ```├── tools```: Project  tools like: eslint, prettier and etc.
  - ```├── tests```: Monorepo tests initializer like: env, mocks and configs.
@@ -400,7 +402,7 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
  - ```├── libs ├── core```: Core business rules, don't use nestjs dependecies here, only class and rules that will be shared with other projects
  - ```├── libs ├── modules```: Application modules, use only nestjs modules here, you can add modules like: http, databse etc.
  - ```├── libs ├── utils```: Application utils, utilities that will shared with your monorepo.
- 
+
  - ```├── libs ├── modules ├── global ├── secrets```: Monorepo secrets.
 
 ---
