@@ -391,9 +391,6 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
  #### Architecture
 
  [<img alt="monorepo-diagram" src="https://raw.githubusercontent.com/mikemajesty/nestjs-monorepo/main/libs/utils/documentation/monorepo-diagram.jpg" width="350">](https://drive.google.com/file/d/1B8MS8jOJ5fuE_S6BTbDoWJTKgPdBE9m9/view?usp=sharing)
- 
-
- [<img alt="mikemajesty" src="https://avatars1.githubusercontent.com/u/11630212?s=460&v=4&s=117" width="117">](https://github.com/mikemajesty)
 
 
  - ```├── tools```: Project  tools like: eslint, prettier and etc.
@@ -408,6 +405,8 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 ---
 
 The following is a list of all the people that have contributed Nestjs monorepo boilerplate. Thanks for your contributions!
+
+[<img alt="mikemajesty" src="https://avatars1.githubusercontent.com/u/11630212?s=460&v=4&s=117" width="117">](https://github.com/mikemajesty)
 
 ## License
 
