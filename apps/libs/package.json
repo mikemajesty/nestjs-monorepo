@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": {
     "name": "Mike Lima",
-    "email": "mike.rodrigues.lima@dasa.com.br"
+    "email": "mike.rodrigues.lima@gmail.com.br"
   },
   "engines": {
     "node": ">=14 <=15"
