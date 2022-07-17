@@ -77,18 +77,24 @@ $ yarn infra:local
 # http://0.0.0.0:5601/app/home to access kibana
 # http://0.0.0.0:16686/search to access jeager
 ```
----
-##### workspace list
- ```bash
- $ yarn workspaces info
- ```
- 
- - @app/cats.api
- - @app/auth.api
- - @tools/eslint.config
- - @libs/utils
- - @libs/modules
- - @libs/core
+
+#### Create Access User
+
+ - http://0.0.0.0:8082/db/monorepo_auth/users
+ - Click [New Document] 
+   ```
+   {
+      "_id": ObjectID(),
+      "login": "<user>",
+      "pass": "<pass>"
+   }
+   ```
+ - now use this curl to get your access token
+   ```
+   curl -X 'POST'  'http://0.0.0.0:4000/api/login'    -H 'accept: application/json'  -H 'Content-Type:  application/json'  -d '{ "login": "admin", "pass":  "admin" }'
+   ```
+ -  use this token to access all monorepo internal APIs
+
 ---
 
 #### Running the app
@@ -105,6 +111,19 @@ $ yarn infra:local
     $ docker-compose up --build
     ```
  
+---
+
+##### workspace list
+ ```bash
+ $ yarn workspaces info
+ ```
+ 
+ - @app/cats.api
+ - @app/auth.api
+ - @tools/eslint.config
+ - @libs/utils
+ - @libs/modules
+ - @libs/core
 ---
 
 #### Add new features
