@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { name, version } from 'apps/main-api/package.json';
+import { name, version } from 'apps/cats-api/package.json';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { ICacheService } from 'libs/modules/redis/adapter';
 

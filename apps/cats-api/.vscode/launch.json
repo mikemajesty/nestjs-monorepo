@@ -2,13 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "App: @app/main.api",
+      "name": "App: @app/cats.api",
       "type": "node",
       "request": "launch",
       "localRoot": "${workspaceFolder}/../../",
       "runtimeExecutable": "yarn",
       "runtimeArgs": [
-        "start:main-api:dev"
+        "start:cats-api:dev"
       ],
       "console": "integratedTerminal",
       "smartStep": true,
@@ -23,11 +23,10 @@
       "args": ["--runInBand", "--config=${workspaceFolder}/jest.config.js"],
       "request": "launch",
       "console": "integratedTerminal",
-      "name": "Test: @app/main.api",
+      "name": "Test: @app/cats.api",
       "runtimeExecutable": "yarn",
       "cwd": "${workspaceFolder}",
       "runtimeArgs": ["test"],
-      "port": 9229,
       "sourceMaps": true
     }  
   ],

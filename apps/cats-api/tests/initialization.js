@@ -1,4 +1,4 @@
-// main-api env and mocks initialization
+// cats-api env and mocks initialization
 
 
 

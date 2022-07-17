@@ -1,6 +1,6 @@
-export enum MainAPIEnvironment {
-  PORT = 'PORT_MAIN_API',
-  URL = 'MAIN_API_URL',
+export enum CatsAPIEnvironment {
+  PORT = 'PORT_CATS_API',
+  URL = 'CATS_API_URL',
 }
 
 export enum AuthAPIEnvironment {

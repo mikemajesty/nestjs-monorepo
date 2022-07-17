@@ -1,7 +1,7 @@
 {
-  "name": "@app/main.api",
+  "name": "@app/cats.api",
   "version": "v0.0.22",
-  "description": "monorepo main-api",
+  "description": "monorepo cats-api",
   "main": "main",
   "scripts": {
     "format": "../../tools/eslint/node_modules/.bin/prettier --write \"**/*.{ts, js, json}\"",
@@ -13,7 +13,7 @@
     "email": "mike.rodrigues.lima@gmail.com"
   },
   "engines": {
-    "node": ">=14 <=15"
+    "node": ">=14 <=16"
   },
   "license": "MIT"
 }

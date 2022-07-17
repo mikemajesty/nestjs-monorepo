@@ -198,7 +198,7 @@
 
 ##### Documentation Changes
 
-* **main-api:**  imporve docs ([196ffe32](https://github.com/mikemajesty/nestjs-monorepo/commit/196ffe32e5ebde30257b00fc375d756b0baeea30))
+* **cats-api:**  imporve docs ([196ffe32](https://github.com/mikemajesty/nestjs-monorepo/commit/196ffe32e5ebde30257b00fc375d756b0baeea30))
 * **readme:**  set new tree folders ([bec6763a](https://github.com/mikemajesty/nestjs-monorepo/commit/bec6763aaa2eb6ba7f4253580082129e2b0b0c9d))
 
 ##### New Features
@@ -235,7 +235,7 @@
 
 ##### New Features
 
-* **main-api:**  refactor cats module ([da26f4a7](https://github.com/mikemajesty/nestjs-monorepo/commit/da26f4a748d215ce1559f1c2441680e956f320f1))
+* **cats-api:**  refactor cats module ([da26f4a7](https://github.com/mikemajesty/nestjs-monorepo/commit/da26f4a748d215ce1559f1c2441680e956f320f1))
 * **dabatase module:**  add index and pre save support ([2b64f1ff](https://github.com/mikemajesty/nestjs-monorepo/commit/2b64f1ff5908f166996e90bf723699c33e3126e2))
 * **validator:**  add class validator pipe ([af35b94e](https://github.com/mikemajesty/nestjs-monorepo/commit/af35b94e4c63d739be0fe568004283e57c45fdb7))
 
@@ -273,7 +273,7 @@
 
 ##### Tests
 
-* **main-api:**
+* **cats-api:**
   *  add repostitory tests ([ae89895c](https://github.com/mikemajesty/nestjs-monorepo/commit/ae89895cb690adf271fe8a5de6d1d4ba11275b03))
   *  add repository tests ([094fab7e](https://github.com/mikemajesty/nestjs-monorepo/commit/094fab7e20e9cfe3ecefb70ad7abda1b55a5a3d5))
 * **repository:**  add tests ([03be9989](https://github.com/mikemajesty/nestjs-monorepo/commit/03be998906c6802e096d35f8ba1bc4ccef4622ff))
@@ -451,7 +451,7 @@
   *  add lint fo json ([d56f0f46](https://github.com/mikemajesty/nestjs-monorepo/commit/d56f0f46bb09f023ccf3bb7d9283ab9ec85a498a))
   *  add tab size 120 on settings ([3c732f74](https://github.com/mikemajesty/nestjs-monorepo/commit/3c732f7461dfa4c75cb467a3ef5cecc135bf168b))
   *  add eslintignore ([e177dd13](https://github.com/mikemajesty/nestjs-monorepo/commit/e177dd1394f43942884eec257822c6f41f8f2b55))
-* **main-api:**
+* **cats-api:**
   *  add information ([5474c7a8](https://github.com/mikemajesty/nestjs-monorepo/commit/5474c7a853791e3218084da8da4f435c16065160))
   *  add jest.config ([e841b807](https://github.com/mikemajesty/nestjs-monorepo/commit/e841b80791cf1d362158b208dc2727be404860a5))
   *  add .eslintignore ([ee92bb28](https://github.com/mikemajesty/nestjs-monorepo/commit/ee92bb288f0239047e9c5c1cdb7af49728ce8ecf))
@@ -599,7 +599,7 @@
 * **eslint:**
   *  add simple-import-sort ([a375e8aa](https://github.com/mikemajesty/nestjs-monorepo/commit/a375e8aaff98bf024ae930ebcaeaaf6ffa9c7b03))
   *  add global eslint ([dfee4b40](https://github.com/mikemajesty/nestjs-monorepo/commit/dfee4b40364ceff06245dd5a1283131d284d2b8b))
-* **main.health:**  add health modules on main-api ([e5c943d1](https://github.com/mikemajesty/nestjs-monorepo/commit/e5c943d13f5c13b2d4d10fd8228e5b2193c08b71))
+* **main.health:**  add health modules on cats-api ([e5c943d1](https://github.com/mikemajesty/nestjs-monorepo/commit/e5c943d13f5c13b2d4d10fd8228e5b2193c08b71))
 * **shared:**
   *  change project structure ([f9798d66](https://github.com/mikemajesty/nestjs-monorepo/commit/f9798d6687e3881d1023c96decae411fd35170d8))
   *  add global filters and interceptors ([04e9e74e](https://github.com/mikemajesty/nestjs-monorepo/commit/04e9e74e35441dfe7640435181c4d67a86a590de))

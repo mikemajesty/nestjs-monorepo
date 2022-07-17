@@ -1,6 +1,6 @@
 import { LevelWithSilent } from 'pino';
 
-import { AuthAPIEnvironment, MainAPIEnvironment } from './enum';
+import { AuthAPIEnvironment, CatsAPIEnvironment } from './enum';
 
 export abstract class ISecretsService {
   ENV: string;
@@ -23,8 +23,8 @@ export abstract class ISecretsService {
   };
 
   mainAPI: {
-    port: MainAPIEnvironment | number;
-    url: MainAPIEnvironment | number;
+    port: CatsAPIEnvironment | number;
+    url: CatsAPIEnvironment | number;
   };
 
   authAPI: {

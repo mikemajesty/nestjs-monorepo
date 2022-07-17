@@ -9,6 +9,9 @@ export class CatsEntity implements Cats {
   @ApiProperty({ description: 'Cats age' })
   age: number;
 
+  @ApiProperty({ description: 'Cats status' })
+  status: 'aproved' | 'pending' = 'pending';
+
   @ApiProperty({ description: 'Cats breed' })
   breed: string;
 }

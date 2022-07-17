@@ -12,7 +12,7 @@
     "lint": "yarn format && ../../tools/eslint/node_modules/.bin/eslint \"**/*.{ts, js, json}\" --fix"
   },
   "engines": {
-    "node": ">=14 <=15"
+    "node": ">=14 <=16"
   },
   "dependencies": {},
   "license": "MIT"

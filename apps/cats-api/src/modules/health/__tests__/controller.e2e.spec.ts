@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
+import { ICatsRepository } from 'apps/cats-api/src/modules/cats/adapter';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { GlobalModule } from 'libs/modules/global/module';
 import { ICacheService } from 'libs/modules/redis/adapter';

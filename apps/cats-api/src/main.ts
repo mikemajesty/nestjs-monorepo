@@ -1,7 +1,7 @@
 import { HttpStatus, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { description, name, version } from 'apps/main-api/package.json';
+import { description, name, version } from 'apps/cats-api/package.json';
 import { bold } from 'colorette';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { ISecretsService } from 'libs/modules/global/secrets/adapter';

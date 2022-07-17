@@ -25,7 +25,6 @@ describe('DataBaseService', () => {
       expect(con).toEqual({
         appName: 'monorepo',
         uri: 'mongodb://user:pass@mongo:10/db?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&authSource=admin&authMechanism=SCRAM-SHA-256',
-        connectTimeoutMS: 2000,
       });
     });
   });

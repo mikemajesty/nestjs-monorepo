@@ -8,7 +8,7 @@
     "email": "mike.rodrigues.lima@gmail.com"
   },
   "engines": {
-    "node": ">=14 <=15"
+    "node": ">=14 <=16"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",

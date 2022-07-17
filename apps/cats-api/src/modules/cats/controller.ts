@@ -1,9 +1,10 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
+import { MessagePattern, Payload } from '@nestjs/microservices';
+import { KafkaMessage } from '@nestjs/microservices/external/kafka.interface';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatedModel } from 'libs/modules';
 
 import { ICatsRepository } from './adapter';
-import { CatsEntity } from './entity';
 import { SwagggerResponse } from './swagger';
 
 @Controller('cats')
@@ -16,7 +17,8 @@ export class CatsController {
   @ApiResponse(SwagggerResponse.save[201])
   @ApiResponse(SwagggerResponse.save[401])
   @ApiResponse(SwagggerResponse.save[500])
-  async save(@Body() model: CatsEntity): Promise<CreatedModel> {
-    return await this.catRepository.create(model);
+  @MessagePattern('monorepo')
+  async save(@Payload() body: KafkaMessage): Promise<CreatedModel> {
+    return await this.catRepository.create(body);
   }
 }

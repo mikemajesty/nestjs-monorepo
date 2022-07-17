@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { LevelWithSilent } from 'pino';
 
 import { ISecretsService } from './adapter';
-import { AuthAPIEnvironment, MainAPIEnvironment } from './enum';
+import { AuthAPIEnvironment, CatsAPIEnvironment } from './enum';
 
 @Injectable()
 export class SecretsService extends ConfigService implements ISecretsService {
@@ -32,8 +32,8 @@ export class SecretsService extends ConfigService implements ISecretsService {
   };
 
   mainAPI = {
-    port: this.get<number>(MainAPIEnvironment.PORT),
-    url: this.get<number>(MainAPIEnvironment.URL),
+    port: this.get<number>(CatsAPIEnvironment.PORT),
+    url: this.get<number>(CatsAPIEnvironment.URL),
   };
 
   authAPI = {

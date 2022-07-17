@@ -17,7 +17,6 @@ export class DataBaseService implements IDataBaseService {
     return {
       appName: 'monorepo',
       uri: this.getConnectionString(config),
-      connectTimeoutMS: 2000,
     };
   }
 

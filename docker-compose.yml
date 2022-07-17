@@ -1,10 +1,10 @@
 version: "2"
 services:
-  main-api:
-    container_name: monorepo-main-api
+  cats-api:
+    container_name: monorepo-cats-api
     build:
       context: .
-      dockerfile: ./apps/main-api/Dockerfile
+      dockerfile: ./apps/cats-api/Dockerfile
     ports:
       - "3000:3000"
       - "5870:5870"

@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { ICatsRepository } from 'apps/main-api/src/modules/cats/adapter';
+import { ICatsRepository } from 'apps/cats-api/src/modules/cats/adapter';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { ICacheService } from 'libs/modules/redis/adapter';
 

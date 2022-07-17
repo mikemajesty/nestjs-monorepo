@@ -1,20 +1,20 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/main-api/src",
+  "sourceRoot": "apps/cats-api/src",
   "monorepo": true,
-  "root": "apps/main-api",
+  "root": "apps/cats-api",
   "compilerOptions": {
     "webpack": true,
-    "tsConfigPath": "apps/main-api/tsconfig.json"
+    "tsConfigPath": "apps/cats-api/tsconfig.json"
   },
   "projects": {
-    "@app/main-api": {
+    "@app/cats-api": {
       "type": "application",
-      "root": "apps/main-api",
+      "root": "apps/cats-api",
       "entryFile": "main",
-      "sourceRoot": "apps/main-api/src",
+      "sourceRoot": "apps/cats-api/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/main-api/tsconfig.json"
+        "tsConfigPath": "apps/cats-api/tsconfig.json"
       }
     },
     "@app/auth-api": {
