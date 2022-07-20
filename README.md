@@ -91,7 +91,7 @@ $ yarn infra:local
    ```
  - now use this curl to get your access token
    ```
-   curl -X 'POST'  'http://0.0.0.0:4000/api/login'    -H 'accept: application/json'  -H 'Content-Type:  application/json'  -d '{ "login": "admin", "pass":  "admin" }'
+   curl -X 'POST'  'http://0.0.0.0:4000/api/login'    -H 'accept: application/json'  -H 'Content-Type:  application/json'  -d '{ "login": "<user>", "pass":  "<pass>" }'
    ```
  -  use this token to access all monorepo internal APIs
 
