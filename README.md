@@ -78,6 +78,22 @@ $ yarn infra:local
 # http://0.0.0.0:16686/search to access jeager
 ```
 
+#### Running the app
+ - local
+
+    ```bash
+    $ yarn start:auth-api:dev
+    $ yarn start:cats-api:dev
+    ```
+
+ - dev/hml/prd environment
+
+    ```bash
+    $ docker-compose up --build
+    ```
+ 
+---
+
 #### Create Access User
 
  - http://0.0.0.0:8082/db/monorepo_auth/users
@@ -95,22 +111,6 @@ $ yarn infra:local
    ```
  -  use this token to access all monorepo internal APIs
 
----
-
-#### Running the app
- - local
-
-    ```bash
-    $ yarn start:auth-api:dev
-    $ yarn start:cats-api:dev
-    ```
-
- - dev/hml/prd environment
-
-    ```bash
-    $ docker-compose up --build
-    ```
- 
 ---
 
 ##### workspace list
