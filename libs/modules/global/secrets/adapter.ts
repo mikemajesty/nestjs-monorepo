@@ -24,7 +24,7 @@ export abstract class ISecretsService {
 
   mainAPI: {
     port: CatsAPIEnvironment | number;
-    url: CatsAPIEnvironment | number;
+    url: CatsAPIEnvironment | string;
   };
 
   authAPI: {

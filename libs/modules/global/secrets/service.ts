@@ -33,7 +33,7 @@ export class SecretsService extends ConfigService implements ISecretsService {
 
   mainAPI = {
     port: this.get<number>(CatsAPIEnvironment.PORT),
-    url: this.get<number>(CatsAPIEnvironment.URL),
+    url: this.get<string>(CatsAPIEnvironment.URL),
   };
 
   authAPI = {
