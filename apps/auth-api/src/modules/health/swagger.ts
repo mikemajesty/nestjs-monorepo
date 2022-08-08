@@ -11,6 +11,6 @@ export const SwagggerResponse = {
   },
 };
 
-export class SwagggerRequest {
+export const SwagggerRequest = {
   /** If requesters has a body.  */
-}
+};

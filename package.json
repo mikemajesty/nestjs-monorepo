@@ -64,7 +64,9 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.1.6",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "pino-elasticsearch": "^6.2.0",
+    "pino-multi-stream": "^6.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",

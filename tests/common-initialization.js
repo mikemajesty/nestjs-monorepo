@@ -23,3 +23,9 @@ jest.mock('luxon', () => ({
     }),
   })
 }));
+
+jest.mock('pino-elasticsearch', () => jest.fn());
+
+jest.mock('pino-multi-stream', () => ({
+  multistream: jest.fn()
+}));
