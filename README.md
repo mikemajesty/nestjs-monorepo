@@ -1,75 +1,83 @@
 # Nestjs Monorepo Boilerplate
 
 Check
-  - [monorepo docs](https://docs.nestjs.com/cli/monorepo)
-  - [contributing manual](./CONTRIBUTING.md)
 
+- [monorepo docs](https://docs.nestjs.com/cli/monorepo)
+- [contributing manual](./CONTRIBUTING.md)
 
-| Statements | Branches | Functions | Lines |
-| -----------|----------|-----------|-------|
-| ![Statements](https://img.shields.io/badge/Coverage-92.28%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-65.32%25-red.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-86.9%25-yellow.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-91.66%25-brightgreen.svg "Make me better!") |
+| Statements                                                                                      | Branches                                                                              | Functions                                                                                 | Lines                                                                                      |
+| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| ![Statements](https://img.shields.io/badge/Coverage-92.32%25-brightgreen.svg 'Make me better!') | ![Branches](https://img.shields.io/badge/Coverage-65.32%25-red.svg 'Make me better!') | ![Functions](https://img.shields.io/badge/Coverage-87.05%25-yellow.svg 'Make me better!') | ![Lines](https://img.shields.io/badge/Coverage-91.69%25-brightgreen.svg 'Make me better!') |
 
 ##### Monorepo with nestjs
- - Docker
- 
- - Secrets Service
- 
- - Logs Service
-   - Pinojs
-   - Elastic
 
- - Observability
-   - Jeager
-   - Opentracing
+- Docker
 
- - Authentication
+- Secrets Service
 
- - Error Handler
+- Logs Service
 
- - Libs Structure
+  - Pinojs
+  - Elastic
 
- - Dependency Inversion Pattern
- - Anti Corruption Layer Pattern
- - Interface Adapter Pattern
- - Generic Repository Pattern
+- Observability
 
- - Swaggger Documentation
- 
- - Redis 
+  - Jeager
+  - Opentracing
 
- - Mongodb
-    - mongoose
-    - multiples databases
+- Authentication
 
- - Tests
-    - unit
-    - e2e
-    - 90% coverage
+- Error Handler
+
+- Libs Structure
+
+- Dependency Inversion Pattern
+- Anti Corruption Layer Pattern
+- Interface Adapter Pattern
+- Generic Repository Pattern
+
+- Swaggger Documentation
+
+- Redis
+
+- Mongodb
+
+  - mongoose
+  - multiples databases
+
+- Tests
+  - unit
+  - e2e
+  - 90% coverage
+
 ---
 
 #### Prerequisite
- - Node: 14 => <= 16
- - Docker
- - npm install -g commitizen
- - npm install -g changelog
+
+- Node: 14 => <= 16
+- Docker
+- npm install -g commitizen
+- npm install -g changelog
 
 #### Instalation
 
- - install monorepo dependencies
-    ```bash
-    $ yarn monorepo:install
-    ```
- - install project dependencies 
-    ```bash
-    $ yarn workspace <workspaceName> install
-    ```
- - install lib on project
-    ```bash
-    $ yarn workspace <workspaceName> add <libName>
-    ```
+- install monorepo dependencies
+  ```bash
+  $ yarn monorepo:install
+  ```
+- install project dependencies
+  ```bash
+  $ yarn workspace <workspaceName> install
+  ```
+- install lib on project
+  ```bash
+  $ yarn workspace <workspaceName> add <libName>
+  ```
 
-----
+---
+
 #### Running local mongodb/redis/kibana/jeager
+
 ```bash
 $ yarn infra:local
 # http://0.0.0.0:8082/ to access mongo
@@ -79,116 +87,124 @@ $ yarn infra:local
 ```
 
 #### Running the app
- - local
 
-    ```bash
-    $ yarn start:auth-api:dev
-    $ yarn start:cats-api:dev
-    ```
+- local
 
- - dev/hml/prd environment
+  ```bash
+  $ yarn start:auth-api:dev
+  $ yarn start:cats-api:dev
+  ```
 
-    ```bash
-    $ docker-compose up --build
-    ```
- 
+- dev/hml/prd environment
+
+  ```bash
+  $ docker-compose up --build
+  ```
+
 ---
 
 #### Create Access User
 
- - http://0.0.0.0:8082/db/monorepo_auth/users
- - Click [New Document] 
-   ```
-   {
-      "_id": ObjectID(),
-      "login": "<user>",
-      "pass": "<pass>"
-   }
-   ```
- - now use this curl to get your access token
-   ```
-   curl -X 'POST'  'http://0.0.0.0:4000/api/login'    -H 'accept: application/json'  -H 'Content-Type:  application/json'  -d '{ "login": "<user>", "pass":  "<pass>" }'
-   ```
- -  use this token to access all monorepo internal APIs
+- http://0.0.0.0:8082/db/monorepo_auth/users
+- Click [New Document]
+  ```
+  {
+     "_id": ObjectID(),
+     "login": "<user>",
+     "pass": "<pass>"
+  }
+  ```
+- now use this curl to get your access token
+  ```
+  curl -X 'POST'  'http://0.0.0.0:4000/api/login'    -H 'accept: application/json'  -H 'Content-Type:  application/json'  -d '{ "login": "<user>", "pass":  "<pass>" }'
+  ```
+- use this token to access all monorepo internal APIs
 
 ---
 
 ##### workspace list
- ```bash
- $ yarn workspaces info
- ```
- 
- - @app/cats.api
- - @app/auth.api
- - @tools/eslint.config
- - @libs/utils
- - @libs/modules
- - @libs/core
+
+```bash
+$ yarn workspaces info
+```
+
+- @app/cats.api
+- @app/auth.api
+- @tools/eslint.config
+- @libs/utils
+- @libs/modules
+- @libs/core
+
 ---
 
 #### Add new features
+
 ```bash
 $ npm i -g @mikemajesty/monorepo-nestjs-cli
 ```
-  - add new module
-    ```
-      yarn add:module
-    ```
-     
-  - add new api
-    ```
-      yarn add:app
-    ```
-     
-  - add new test
-    ```
-      yarn add:test
-    ```
+
+- add new module
+  ```
+   monorepo-nestjs-cli --module --name=client
+  ```
+- add new api
+  ```
+    monorepo-nestjs-cli --app --name=client
+  ```
+- add new test
+  ```
+    monorepo-nestjs-cli --test --name=client
+  ```
 
 ---
+
 #### Tests
- - unit
-    ```bash
-    # run monorepo tests
-    $ yarn test
-    ```
-    
-    ```bash
-    # Run project tests
-    $ yarn test main.api
-    $ yarn test auth.api
-    $ yarn test libs
-    ```
- - e2e
-    ```
-    $ yarn test:e2e
-    ```
- - coverage
-    ```
-    $ yarn test:coverage
-    ```
+
+- unit
+  ```bash
+  # run monorepo tests
+  $ yarn test
+  ```
+  ```bash
+  # Run project tests
+  $ yarn test main.api
+  $ yarn test auth.api
+  $ yarn test libs
+  ```
+- e2e
+  ```
+  $ yarn test:e2e
+  ```
+- coverage
+  ```
+  $ yarn test:coverage
+  ```
+
 ---
 
 #### Lint
 
- - Run monorepo lint 
-    ```bash
-    $ yarn lint
-    ```
- - Run project lint
-    ```
-    $ yarn workspace <workspaceName> lint
-    ```
+- Run monorepo lint
+  ```bash
+  $ yarn lint
+  ```
+- Run project lint
+  ```
+  $ yarn workspace <workspaceName> lint
+  ```
+
 ---
+
 #### Build
 
- - Run project build
-    ```
-    $ yarn build <workspaceName>
-    ```
+- Run project build
+  ```
+  $ yarn build <workspaceName>
+  ```
+
 ---
 
--- App Skeleton 
+-- App Skeleton
 
 ```
 .
@@ -407,22 +423,22 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 ```
 
 ---
- #### Architecture
 
-  [<img alt="monorepo-diagram" src="https://raw.githubusercontent.com/mikemajesty/nestjs-monorepo/main/libs/utils/documentation/monorepo-diagram.drawio.png" width="350">](https://drive.google.com/file/d/1B8MS8jOJ5fuE_S6BTbDoWJTKgPdBE9m9/view?usp=sharing)
+#### Architecture
 
+[<img alt="monorepo-diagram" src="https://raw.githubusercontent.com/mikemajesty/nestjs-monorepo/main/libs/utils/documentation/monorepo-diagram.drawio.png" width="350">](https://drive.google.com/file/d/1B8MS8jOJ5fuE_S6BTbDoWJTKgPdBE9m9/view?usp=sharing)
 
- - ```├── tools```: Project  tools like: eslint, prettier and etc.
- - ```├── tests```: Monorepo tests initializer like: env, mocks and configs.
- - ```├── apps```: Monorepo Applications.
- - ```├── apps ├── auth-api ```: Authentication api, use to getting token to navigate between other projects.
- - ```├── apps ├── cats-api ```: Use this API like an example to create other APIs.
- - ```├── libs```: Application shared libs.
- - ```├── libs ├── core```: Core business rules, don't use nestjs dependecies here, only class and rules that will be shared with other projects
- - ```├── libs ├── modules```: Application modules, use only nestjs modules here, you can add modules like: http, databse etc.
- - ```├── libs ├── utils```: Application utils, utilities that will shared with your monorepo.
+- `├── tools`: Project tools like: eslint, prettier and etc.
+- `├── tests`: Monorepo tests initializer like: env, mocks and configs.
+- `├── apps`: Monorepo Applications.
+- `├── apps ├── auth-api `: Authentication api, use to getting token to navigate between other projects.
+- `├── apps ├── cats-api `: Use this API like an example to create other APIs.
+- `├── libs`: Application shared libs.
+- `├── libs ├── core`: Core business rules, don't use nestjs dependecies here, only class and rules that will be shared with other projects
+- `├── libs ├── modules`: Application modules, use only nestjs modules here, you can add modules like: http, databse etc.
+- `├── libs ├── utils`: Application utils, utilities that will shared with your monorepo.
 
- - ```├── libs ├── modules ├── global ├── secrets```: Monorepo secrets.
+- `├── libs ├── modules ├── global ├── secrets`: Monorepo secrets.
 
 ---
 
@@ -434,6 +450,3 @@ The following is a list of all the people that have contributed Nestjs monorepo 
 
 It is available under the MIT license.
 [License](https://opensource.org/licenses/mit-license.php)
-
-
-
