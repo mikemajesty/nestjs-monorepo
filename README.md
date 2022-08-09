@@ -145,15 +145,15 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
 
 - add new module
   ```
-   monorepo-nestjs-cli --module --name=client
+   monorepo-nestjs-cli --module --name=<module-name>
   ```
 - add new api
   ```
-    monorepo-nestjs-cli --app --name=client
+    monorepo-nestjs-cli --app --name=<api-name>
   ```
 - add new test
   ```
-    monorepo-nestjs-cli --test --name=client
+    monorepo-nestjs-cli --test --name=<testClassName>
   ```
 
 ---
