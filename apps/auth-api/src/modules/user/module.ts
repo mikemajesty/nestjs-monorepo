@@ -13,7 +13,7 @@ import { User, UserDocument, UserSchema } from './schema';
     {
       provide: IUserRepository,
       useFactory: (connection: Connection) =>
-        new UserRepository(connection.model(User.name, UserSchema) as Model<UserDocument>),
+        new UserRepository(connection.model(User.name, UserSchema) as unknown as Model<UserDocument>),
       inject: [getConnectionToken(ConnectionName.AUTH)],
     },
   ],
