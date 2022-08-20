@@ -7,7 +7,7 @@ Check
 
 | Statements                                                                                      | Branches                                                                              | Functions                                                                                 | Lines                                                                                      |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| ![Statements](https://img.shields.io/badge/Coverage-92.32%25-brightgreen.svg 'Make me better!') | ![Branches](https://img.shields.io/badge/Coverage-65.32%25-red.svg 'Make me better!') | ![Functions](https://img.shields.io/badge/Coverage-87.05%25-yellow.svg 'Make me better!') | ![Lines](https://img.shields.io/badge/Coverage-91.69%25-brightgreen.svg 'Make me better!') |
+| ![Statements](https://img.shields.io/badge/Coverage-92.32%25-brightgreen.svg "Make me better!") | ![Branches](https://img.shields.io/badge/Coverage-65.32%25-red.svg "Make me better!") | ![Functions](https://img.shields.io/badge/Coverage-87.05%25-yellow.svg "Make me better!") | ![Lines](https://img.shields.io/badge/Coverage-91.69%25-brightgreen.svg "Make me better!") |
 
 ##### Monorepo with nestjs
 
@@ -147,7 +147,7 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
   # type and choose your template
   $ monorepo-nestjs-cli
   ```
-  - see [DOC](https://github.com/mikemajesty/monorepo-nestjs-cli)
+  - see [doc](https://github.com/mikemajesty/monorepo-nestjs-cli)
 
 ---
 
