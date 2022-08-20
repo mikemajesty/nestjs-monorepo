@@ -143,39 +143,38 @@ $ yarn workspaces info
 $ npm i -g @mikemajesty/monorepo-nestjs-cli
 ```
 
-- add new module
+- ```bash
+  # type and choose your template
+  $ monorepo-nestjs-cli
   ```
-   monorepo-nestjs-cli --module --name=<module-name>
-  ```
-- add new api
-  ```
-    monorepo-nestjs-cli --app --name=<api-name>
-  ```
-- add new test
-  ```
-    monorepo-nestjs-cli --test --name=<testClassName>
-  ```
+  - see [DOC](https://github.com/mikemajesty/monorepo-nestjs-cli)
 
 ---
 
 #### Tests
 
 - unit
+
   ```bash
-  # run monorepo tests
+  # Run monorepo tests
   $ yarn test
   ```
+
   ```bash
   # Run project tests
   $ yarn test main.api
   $ yarn test auth.api
   $ yarn test libs
   ```
+
 - e2e
+
   ```
   $ yarn test:e2e
   ```
-- coverage
+
+  - coverage
+
   ```
   $ yarn test:coverage
   ```
@@ -188,6 +187,9 @@ $ npm i -g @mikemajesty/monorepo-nestjs-cli
   ```bash
   $ yarn lint
   ```
+
+````
+
 - Run project lint
   ```
   $ yarn workspace <workspaceName> lint
@@ -450,3 +452,4 @@ The following is a list of all the people that have contributed Nestjs monorepo 
 
 It is available under the MIT license.
 [License](https://opensource.org/licenses/mit-license.php)
+````
