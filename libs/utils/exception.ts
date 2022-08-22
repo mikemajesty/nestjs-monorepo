@@ -19,7 +19,7 @@ export class ApiException extends HttpException {
   user?: string;
 
   constructor(error: string | object, status?: HttpStatus, private readonly ctx?: string) {
-    super(error, status || 500);
+    super(error, [status, 500].find(Boolean));
     this.statusCode = super.getStatus();
 
     if (ctx) {

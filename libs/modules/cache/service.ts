@@ -5,7 +5,7 @@ import { createClient, RedisClientOptions, RedisClientType } from 'redis';
 
 import { ILoggerService } from '../global/logger/adapter';
 import { ICacheService } from './adapter';
-import { RedisKeyArgument, RedisKeyValue, RedisValeuArgument } from './types';
+import { CacheKeyArgument, CacheKeyValue, CacheValeuArgument } from './types';
 
 @Injectable()
 export class RedisService implements ICacheService {
@@ -26,24 +26,24 @@ export class RedisService implements ICacheService {
     return this.client;
   }
 
-  async set(key: RedisKeyArgument, value: RedisValeuArgument, config?: unknown): Promise<void> {
+  async set(key: CacheKeyArgument, value: CacheValeuArgument, config?: unknown): Promise<void> {
     const setResult = await this.client.set(key, value, config);
     if (setResult !== 'OK') this.throwException(`cache ${this.set.name} error: ${key} ${value}`);
   }
 
-  async get(key: RedisKeyArgument): Promise<unknown> {
+  async get(key: CacheKeyArgument): Promise<unknown> {
     const getResult = await this.client.get(key);
     if (!getResult) this.logger.warn({ message: `key: ${key} not found.`, context: RedisService.name });
 
     return getResult;
   }
 
-  async del(key: RedisKeyArgument): Promise<void> {
+  async del(key: CacheKeyArgument): Promise<void> {
     const deleted = await this.client.del(key);
     if (!deleted) this.throwException(`cache key: ${key} not deleted`);
   }
 
-  async setMulti(redisList: RedisKeyValue[]): Promise<void> {
+  async setMulti(redisList: CacheKeyValue[]): Promise<void> {
     const multi = this.client.multi();
 
     for (const model of redisList) {
@@ -53,20 +53,20 @@ export class RedisService implements ICacheService {
     await multi.exec();
   }
 
-  async pExpire(key: RedisKeyArgument, miliseconds: number): Promise<void> {
+  async pExpire(key: CacheKeyArgument, miliseconds: number): Promise<void> {
     const expired = await this.client.pExpire(key, miliseconds);
     if (!expired) this.throwException(`set expire error key: ${key}`);
   }
 
-  async hGet(key: RedisKeyArgument, field: RedisKeyArgument): Promise<unknown | unknown[]> {
+  async hGet(key: CacheKeyArgument, field: CacheKeyArgument): Promise<unknown | unknown[]> {
     return await this.client.hGet(key, field);
   }
 
-  async hSet(key: RedisKeyArgument, field: RedisKeyArgument, value: RedisValeuArgument): Promise<number> {
+  async hSet(key: CacheKeyArgument, field: CacheKeyArgument, value: CacheValeuArgument): Promise<number> {
     return await this.client.hSet(key, field, value);
   }
 
-  async hGetAll(key: RedisKeyArgument): Promise<unknown | unknown[]> {
+  async hGetAll(key: CacheKeyArgument): Promise<unknown | unknown[]> {
     return await this.client.hGetAll(key);
   }
 

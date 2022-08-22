@@ -1,7 +1,7 @@
 import { Test } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/cats-api/src/modules/cats/adapter';
+import { ICacheService } from 'libs/modules/cache/adapter';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
-import { ICacheService } from 'libs/modules/redis/adapter';
 
 import { name, version } from '../../../../package.json';
 import { IHealthService } from '../adapter';

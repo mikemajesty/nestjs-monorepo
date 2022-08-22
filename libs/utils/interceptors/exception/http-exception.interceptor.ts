@@ -52,8 +52,8 @@ export class ExceptionInterceptor implements NestInterceptor {
   private sanitizeExternalError(error: any) {
     if (typeof error?.response === 'object' && error?.isAxiosError) {
       error['getResponse'] = () => ({ ...error?.response?.data?.error });
-      error['getStatus'] = () => error?.response?.data?.error?.code || error?.status;
-      error.message = error?.response?.data?.error?.message || error.message;
+      error['getStatus'] = () => [error?.response?.data?.error?.code, error?.status].find(Boolean);
+      error.message = [error?.response?.data?.error?.message, error.message].find(Boolean);
       error.traceid = error?.response?.data?.error?.traceid;
     }
   }

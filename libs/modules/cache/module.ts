@@ -1,11 +1,10 @@
-import { Global, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 
 import { ILoggerService } from '../global/logger/adapter';
 import { ISecretsService } from '../global/secrets/adapter';
 import { ICacheService } from './adapter';
 import { RedisService } from './service';
 
-@Global()
 @Module({
   providers: [
     {

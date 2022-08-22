@@ -30,7 +30,7 @@ export const Swagger = {
           error: {
             code: status,
             traceid: '<traceid>',
-            message: message || htttpStatus[String(status)],
+            message: [message, htttpStatus[String(status)]].find(Boolean),
             timestamp: '<timestamp>',
             path: route,
           },

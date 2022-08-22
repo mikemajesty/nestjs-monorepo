@@ -1,5 +1,5 @@
 import { Injectable, InternalServerErrorException, Scope } from '@nestjs/common';
-import { green, isColorSupported, red, yellow } from 'colorette';
+import { gray, green, isColorSupported, red, yellow } from 'colorette';
 import { PinoRequestConverter } from 'convert-pino-request-to-curl';
 import { ApiException } from 'libs/utils';
 import { DateTime } from 'luxon';
@@ -17,7 +17,6 @@ import { ErrorType, MessageType } from './type';
 @Injectable({ scope: Scope.REQUEST })
 export class LoggerService implements ILoggerService {
   pino: HttpLogger;
-  private context: string;
   private app: string;
   private streamToElastic: Transform;
 
@@ -37,7 +36,7 @@ export class LoggerService implements ILoggerService {
     const pinoLogger = pino(
       {
         useLevelLabels: true,
-        level: logLevel || 'trace',
+        level: [logLevel, 'trace'].find(Boolean),
       },
       multistream([
         {
@@ -51,30 +50,27 @@ export class LoggerService implements ILoggerService {
     this.pino = pinoHttp(this.getPinoHttpConfig(pinoLogger));
   }
 
-  setContext(context: string): void {
-    this.context = context;
-  }
-
   setApplication(app: string): void {
     this.app = app;
   }
 
   log(message: string): void {
-    const message_ = green(message);
-    this.pino.logger.trace(message_);
+    this.pino.logger.trace(green(message));
   }
 
-  info({ message, context, obj }: MessageType): void {
-    const message_ = green(message);
+  trace({ message, context, obj = {} }: MessageType): void {
+    Object.assign(obj, { context });
+    this.pino.logger.trace([obj, gray(message)].find(Boolean), gray(message));
+  }
 
-    this.setContext(context);
+  info({ message, context, obj = {} }: MessageType): void {
+    Object.assign(obj, { context });
+    this.pino.logger.info([obj, green(message)].find(Boolean), green(message));
+  }
 
-    if (obj) {
-      this.pino.logger.info(obj, message_);
-      return;
-    }
-
-    this.pino.logger.info(message_);
+  warn({ message, context, obj = {} }: MessageType): void {
+    Object.assign(obj, { context });
+    this.pino.logger.warn([obj, yellow(message)].find(Boolean), yellow(message));
   }
 
   error(error: ErrorType, message?: string, context?: string): void {
@@ -85,11 +81,15 @@ export class LoggerService implements ILoggerService {
         ? { statusCode: error['statusCode'], message: error?.message }
         : errorResponse?.value();
 
+    const type = {
+      Error: ApiException.name,
+    }[error?.name];
+
     this.pino.logger.error(
       {
-        ...(response as object),
-        context: context || this.context,
-        type: error?.name === 'Error' ? ApiException.name : error?.name,
+        ...response,
+        context: [context, this.app].find(Boolean),
+        type: [type, error?.name].find(Boolean),
         traceid: this.getTraceId(error),
         timestamp: this.getDateFormat(),
         application: this.app,
@@ -103,7 +103,7 @@ export class LoggerService implements ILoggerService {
     this.pino.logger.fatal(
       {
         ...(error.getResponse() as object),
-        context: context || this.context,
+        context: [context, this.app].find(Boolean),
         type: error.name,
         traceid: this.getTraceId(error),
         timestamp: this.getDateFormat(),
@@ -114,19 +114,6 @@ export class LoggerService implements ILoggerService {
     );
   }
 
-  warn({ message, context, obj }: MessageType): void {
-    const message_ = yellow(message);
-
-    this.setContext(context);
-
-    if (obj) {
-      this.pino.logger.warn(obj, message_);
-      return;
-    }
-
-    this.pino.logger.warn(message_);
-  }
-
   private getPinoConfig() {
     return {
       colorize: isColorSupported,
@@ -135,10 +122,7 @@ export class LoggerService implements ILoggerService {
       quietReqLogger: true,
       messageFormat: (log: unknown, messageKey: string) => {
         const message = log[String(messageKey)];
-        const context = [this.context, this.app]?.find((c: string) => c);
-        if (context) return `[${context}] ${message}`;
-
-        return `${message}`;
+        return `[${this.app}] ${message}`;
       },
       customPrettifiers: {
         time: () => {
@@ -179,9 +163,9 @@ export class LoggerService implements ILoggerService {
         res: pino.stdSerializers.res,
       },
       customProps: (request): unknown => {
-        const context = this.context || request.context;
+        const context = request.context;
 
-        const traceid = request?.headers?.traceid || request.id;
+        const traceid = [request?.headers?.traceid, request.id].find(Boolean);
 
         const path = `${request.protocol}://${request.headers.host}${request.url}`;
 
@@ -215,7 +199,8 @@ export class LoggerService implements ILoggerService {
     };
   }
 
-  private getErrorResponse(error: ErrorType) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private getErrorResponse(error: ErrorType): any {
     const isFunction = typeof error?.getResponse === 'function';
     return [
       {
@@ -225,14 +210,18 @@ export class LoggerService implements ILoggerService {
       {
         conditional: isFunction && typeof error.getResponse() === 'string',
         value: () =>
-          new ApiException(error.getResponse(), error.getStatus() || error['status'], error['context']).getResponse(),
+          new ApiException(
+            error.getResponse(),
+            [error.getStatus(), error['status']].find(Boolean),
+            error['context'],
+          ).getResponse(),
       },
       {
         conditional: isFunction && typeof error.getResponse() === 'object',
         value: () => error?.getResponse(),
       },
       {
-        conditional: error?.name === Error.name || error?.name == TypeError.name,
+        conditional: [error?.name === Error.name, error?.name == TypeError.name].some(Boolean),
         value: () => new InternalServerErrorException(error.message).getResponse(),
       },
     ].find((c) => c.conditional);

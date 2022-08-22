@@ -23,7 +23,6 @@ describe('LoggerService', () => {
     }).compile();
 
     loggerService = module.get(ILoggerService);
-    loggerService.setContext('Test');
     loggerService.setApplication('Test');
 
     loggerService.pino = MockUtils.setMock({
@@ -89,7 +88,6 @@ describe('LoggerService', () => {
     });
 
     test('should log fatal error with global context', () => {
-      loggerService.setContext('ctx');
       loggerService.fatal(new InternalServerErrorException(), 'Error');
       expect(loggerService.pino.logger.fatal).toHaveBeenCalled();
     });
@@ -140,6 +138,26 @@ describe('LoggerService', () => {
       loggerService.info({ message: 'message', context: 'context', obj: {} });
 
       expect(loggerService.pino.logger.info).toHaveBeenCalled();
+    });
+  });
+
+  describe('trace', () => {
+    test('should trace without obj', () => {
+      loggerService.trace({ message: 'message', context: 'context' });
+
+      expect(loggerService.pino.logger.trace).toHaveBeenCalled();
+    });
+
+    test('should trace without obj and context', () => {
+      loggerService.trace({ message: 'message' });
+
+      expect(loggerService.pino.logger.trace).toHaveBeenCalled();
+    });
+
+    test('should trace with all options', () => {
+      loggerService.trace({ message: 'message', context: 'context', obj: {} });
+
+      expect(loggerService.pino.logger.trace).toHaveBeenCalled();
     });
   });
 

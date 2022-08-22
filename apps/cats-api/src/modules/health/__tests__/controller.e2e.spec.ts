@@ -2,9 +2,9 @@ import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { ICatsRepository } from 'apps/cats-api/src/modules/cats/adapter';
+import { ICacheService } from 'libs/modules/cache/adapter';
 import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { GlobalModule } from 'libs/modules/global/module';
-import { ICacheService } from 'libs/modules/redis/adapter';
 import { ApiException } from 'libs/utils';
 import * as request from 'supertest';
 

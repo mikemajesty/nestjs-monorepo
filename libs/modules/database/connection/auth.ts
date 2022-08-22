@@ -1,4 +1,4 @@
-import { Global, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { ISecretsService } from '../../global/secrets/adapter';
@@ -8,7 +8,6 @@ import { ConnectionName } from '../enum';
 import { Repository } from '../repository';
 import { DataBaseService } from '../service';
 
-@Global()
 @Module({
   providers: [
     {

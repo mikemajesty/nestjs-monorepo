@@ -2,3 +2,4 @@
 jest.config.js
 node_modules/
 tests/
+.eslintrc.js

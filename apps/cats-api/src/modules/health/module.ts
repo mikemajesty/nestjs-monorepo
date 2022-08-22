@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { RedisModule } from 'libs/modules/redis/module';
+import { RedisModule } from 'libs/modules/cache/module';
 
 import { CatsModule } from '../cats/module';
 import { IHealthService } from './adapter';

@@ -1,6 +1,7 @@
 # HTTP
 
 ---
+
 ### Access external services
 
 ```ts
@@ -32,7 +33,7 @@ async get(@Req() req: ApiRequest): Promise<string> {
     } catch (error) {
       tracer.setTag(req.tracing.tags.ERROR, true);
       tracer.setTag('message', error.message);
-      tracer.setTag('statusCode', error.status || error.getStatus());
+      tracer.setTag('statusCode', [error.status, error.getStatus())].find(Boolean);
       tracer.finish();
       throw error;
     }
@@ -69,5 +70,5 @@ async get(@Req() req: ApiRequest): Promise<string> {
 }
 
 ```
----
 
+---

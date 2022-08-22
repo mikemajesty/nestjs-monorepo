@@ -17,7 +17,7 @@ export class AppExceptionFilter implements ExceptionFilter {
     const status =
       exception instanceof HttpException
         ? exception.getStatus()
-        : exception['status'] || HttpStatus.INTERNAL_SERVER_ERROR;
+        : [exception['status'], HttpStatus.INTERNAL_SERVER_ERROR].find(Boolean);
 
     exception.traceid = [exception.traceid, request['id']].find(Boolean);
 
@@ -27,7 +27,7 @@ export class AppExceptionFilter implements ExceptionFilter {
       error: {
         code: status,
         traceid: exception.traceid,
-        message: errorStatus[String(status)] || exception.message,
+        message: [errorStatus[String(status)], exception.message].find(Boolean),
         timestamp: DateTime.fromJSDate(new Date()).setZone(process.env.TZ).toFormat('dd/MM/yyyy HH:mm:ss'),
         path: request.url,
       },
