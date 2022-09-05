@@ -2,14 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { MongooseModuleOptions } from '@nestjs/mongoose';
 
 import { IDataBaseService } from '..';
-
-type ConnectionModel = {
-  host: string;
-  port: string | number;
-  user: string;
-  pass: string;
-  dbName: string;
-};
+import { ConnectionModel } from './types';
 
 @Injectable()
 export class DataBaseService implements IDataBaseService {
