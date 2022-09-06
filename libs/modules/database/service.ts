@@ -6,11 +6,11 @@ import { ConnectionModel } from './types';
 
 @Injectable()
 export class DataBaseService implements IDataBaseService {
-  getDefaultConnection(config: ConnectionModel): MongooseModuleOptions {
+  getDefaultConnection<T extends MongooseModuleOptions = MongooseModuleOptions>(config: ConnectionModel): T {
     return {
       appName: 'monorepo',
       uri: this.getConnectionString(config),
-    };
+    } as T;
   }
 
   private getConnectionString(config: ConnectionModel): string {

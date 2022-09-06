@@ -3,7 +3,7 @@ import * as jwt from 'jsonwebtoken';
 import { Token } from './types';
 
 export abstract class ITokenService {
-  abstract sign(model: object, options?: jwt.SignOptions): Token;
-  abstract verify(token: string): Promise<jwt.JwtPayload | string | unknown>;
-  abstract decode(token: string): jwt.JwtPayload | string | unknown;
+  abstract sign<T = jwt.SignOptions>(model: object, options?: T): Token;
+  abstract verify<T = jwt.JwtPayload>(token: string): Promise<T | string | unknown>;
+  abstract decode<T = jwt.JwtPayload>(token: string): T | string | unknown;
 }

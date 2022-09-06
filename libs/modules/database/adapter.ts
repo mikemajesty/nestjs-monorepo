@@ -5,25 +5,36 @@ import { CreatedModel, RemovedModel, UpdatedModel } from './entity';
 import { ConnectionModel } from './types';
 
 export abstract class IDataBaseService {
-  abstract getDefaultConnection(options?: ConnectionModel): MongooseModuleOptions;
+  abstract getDefaultConnection<T = MongooseModuleOptions>(options?: ConnectionModel): T;
 }
 
 export abstract class IRepository<T> {
   abstract isConnected(): Promise<void>;
-  abstract create(document: object, saveOptions?: SaveOptions): Promise<CreatedModel>;
+
+  abstract create<T = SaveOptions>(document: object, saveOptions?: T): Promise<CreatedModel>;
+
   abstract findById(id: string | number): Promise<T>;
+
   abstract findAll(): Promise<T[]>;
-  abstract find(filter: FilterQuery<T>, options?: QueryOptions | null): Promise<T[]>;
-  abstract remove(filter: FilterQuery<T>): Promise<RemovedModel>;
-  abstract findOne(filter: FilterQuery<T>, options?: QueryOptions): Promise<T>;
-  abstract updateOne(
-    filter: FilterQuery<T>,
-    updated: UpdateQuery<T> | UpdateWithAggregationPipeline,
-    options?: QueryOptions,
-  ): Promise<UpdatedModel>;
-  abstract updateMany(
-    filter: FilterQuery<T>,
-    updated: UpdateQuery<T> | UpdateWithAggregationPipeline,
-    options?: QueryOptions,
-  ): Promise<UpdatedModel>;
+
+  abstract find<TQuery = FilterQuery<T>, TOptions = QueryOptions<T>>(
+    filter: TQuery,
+    options?: TOptions | null,
+  ): Promise<T[]>;
+
+  abstract remove<TQuery = FilterQuery<T>>(filter: TQuery): Promise<RemovedModel>;
+
+  abstract findOne<TQuery = FilterQuery<T>, TOptions = QueryOptions<T>>(filter: TQuery, options?: TOptions): Promise<T>;
+
+  abstract updateOne<
+    TQuery = FilterQuery<T>,
+    TUpdate = UpdateQuery<T> | UpdateWithAggregationPipeline,
+    TOptions = QueryOptions<T>,
+  >(filter: TQuery, updated: TUpdate, options?: TOptions): Promise<UpdatedModel>;
+
+  abstract updateMany<
+    TQuery = FilterQuery<T>,
+    TUpdate = UpdateQuery<T> | UpdateWithAggregationPipeline,
+    TOptions = QueryOptions<T>,
+  >(filter: TQuery, updated: TUpdate, options?: TOptions): Promise<UpdatedModel>;
 }
