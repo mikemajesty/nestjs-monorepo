@@ -11,36 +11,36 @@ export class SecretsService extends ConfigService implements ISecretsService {
     super();
   }
 
-  ELK_URL = this.get<string>('ELK_URL');
+  ELK_URL = this.get('ELK_URL');
 
-  MONGO_EXPRESS_URL = this.get<string>('MONGO_EXPRESS_URL');
-  REDIS_COMMANDER_URL = this.get<string>('REDIS_COMMANDER_URL');
-  JEAGER_URL = this.get<string>('JEAGER_URL');
-  KIBANA_URL = this.get<string>('KIBANA_URL');
+  MONGO_EXPRESS_URL = this.get('MONGO_EXPRESS_URL');
+  REDIS_COMMANDER_URL = this.get('REDIS_COMMANDER_URL');
+  JEAGER_URL = this.get('JEAGER_URL');
+  KIBANA_URL = this.get('KIBANA_URL');
 
-  REDIS_URL = this.get<string>('REDIS_URL');
+  REDIS_URL = this.get('REDIS_URL');
 
-  ENV = this.get<string>('ENV');
+  ENV = this.get('ENV');
 
   LOG_LEVEL = this.get<LevelWithSilent>('LOG_LEVEL');
 
   database = {
-    host: this.get<string>('MONGO_HOST'),
-    port: this.get<string>('MONGO_PORT'),
-    user: this.get<string>('MONGO_INITDB_ROOT_USERNAME'),
-    pass: this.get<string>('MONGO_INITDB_ROOT_PASSWORD'),
+    host: this.get('MONGO_HOST'),
+    port: this.get<number>('MONGO_PORT'),
+    user: this.get('MONGO_INITDB_ROOT_USERNAME'),
+    pass: this.get('MONGO_INITDB_ROOT_PASSWORD'),
   };
 
   mainAPI = {
     port: this.get<number>(CatsAPIEnvironment.PORT),
-    url: this.get<string>(CatsAPIEnvironment.URL),
+    url: this.get(CatsAPIEnvironment.URL),
   };
 
   authAPI = {
     port: this.get<number>(AuthAPIEnvironment.PORT),
-    jwtToken: this.get<string>(AuthAPIEnvironment.SECRET_JWT),
-    url: this.get<string>(AuthAPIEnvironment.URL),
+    jwtToken: this.get(AuthAPIEnvironment.SECRET_JWT),
+    url: this.get(AuthAPIEnvironment.URL),
   };
 
-  GITHUB_SCRAP_API = this.get<string>('GITHUB_SCRAP_API');
+  GITHUB_SCRAP_API = this.get('GITHUB_SCRAP_API');
 }

@@ -1,5 +1,3 @@
-import { LevelWithSilent } from 'pino';
-
 import { AuthAPIEnvironment, CatsAPIEnvironment } from './enum';
 
 export abstract class ISecretsService {
@@ -13,11 +11,11 @@ export abstract class ISecretsService {
   REDIS_COMMANDER_URL: string;
   KIBANA_URL: string;
 
-  LOG_LEVEL: LevelWithSilent;
+  LOG_LEVEL: string;
 
   database: {
     host: string;
-    port: string;
+    port: number;
     user: string;
     pass: string;
   };

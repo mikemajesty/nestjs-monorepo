@@ -3,9 +3,9 @@ import { HttpLogger } from 'pino-http';
 
 import { ErrorType, MessageType } from './type';
 
-export abstract class ILoggerService {
-  abstract pino: HttpLogger;
-  abstract connect(logLevel?: LevelWithSilent): void;
+export abstract class ILoggerService<T extends HttpLogger = HttpLogger> {
+  abstract pino: T;
+  abstract connect<TLevel = LevelWithSilent>(logLevel?: TLevel): void;
   abstract setApplication(app: string): void;
   /**
    * @deprecated The method should be use only in main.ts, this log won't be saved in elastic, only sdout

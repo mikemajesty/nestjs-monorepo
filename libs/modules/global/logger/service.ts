@@ -32,11 +32,11 @@ export class LoggerService implements ILoggerService {
     });
   }
 
-  connect(logLevel: LevelWithSilent): void {
+  connect<T = LevelWithSilent>(logLevel: T): void {
     const pinoLogger = pino(
       {
         useLevelLabels: true,
-        level: [logLevel, 'trace'].find(Boolean),
+        level: [logLevel, 'trace'].find(Boolean).toString(),
       },
       multistream([
         {
@@ -122,7 +122,11 @@ export class LoggerService implements ILoggerService {
       quietReqLogger: true,
       messageFormat: (log: unknown, messageKey: string) => {
         const message = log[String(messageKey)];
-        return `[${this.app}] ${message}`;
+        if (this.app) {
+          return `[${this.app}] ${message}`;
+        }
+
+        return message;
       },
       customPrettifiers: {
         time: () => {
