@@ -1,8 +1,8 @@
 import { Model } from 'mongoose';
 
 import { IRepository } from '../adapter';
-import { CreatedModel } from '../entity';
 import { Repository } from '../repository';
+import { CreatedModel } from '../types';
 
 class EntityDummy extends Model {}
 
