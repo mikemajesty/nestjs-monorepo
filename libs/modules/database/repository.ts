@@ -4,7 +4,7 @@ import { FilterQuery, Model, QueryOptions, SaveOptions, UpdateQuery, UpdateWithA
 import { Document } from 'mongoose';
 
 import { IRepository } from './adapter';
-import { CreatedModel, RemovedModel, UpdatedModel } from './entity';
+import { CreatedModel, RemovedModel, UpdatedModel } from './types';
 
 export class Repository<T extends Document> implements IRepository<T> {
   constructor(private readonly model: Model<T>) {}

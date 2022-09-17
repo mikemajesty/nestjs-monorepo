@@ -1,8 +1,7 @@
 import { MongooseModuleOptions } from '@nestjs/mongoose';
 import { FilterQuery, QueryOptions, SaveOptions, UpdateQuery, UpdateWithAggregationPipeline } from 'mongoose';
 
-import { CreatedModel, RemovedModel, UpdatedModel } from './entity';
-import { ConnectionModel } from './types';
+import { ConnectionModel, CreatedModel, RemovedModel, UpdatedModel } from './types';
 
 export abstract class IDataBaseService {
   abstract getDefaultConnection<T = MongooseModuleOptions>(options?: ConnectionModel): T;
