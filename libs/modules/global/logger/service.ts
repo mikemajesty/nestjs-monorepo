@@ -4,10 +4,9 @@ import { PinoRequestConverter } from 'convert-pino-request-to-curl';
 import { ApiException } from 'libs/utils';
 import { DateTime } from 'luxon';
 import { Transform } from 'node:stream';
-import { LevelWithSilent, Logger, pino } from 'pino';
+import { LevelWithSilent, Logger, pino, multistream } from 'pino';
 import * as pinoElastic from 'pino-elasticsearch';
 import { HttpLogger, pinoHttp } from 'pino-http';
-import { multistream } from 'pino-multi-stream';
 import pinoPretty from 'pino-pretty';
 import { v4 as uuidv4 } from 'uuid';
 
