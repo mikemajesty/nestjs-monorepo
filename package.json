@@ -33,7 +33,7 @@
     "lint": "yarn format && eslint \"apps/**/*.{ts, js, json}\" \"libs/**/*.{ts, js, json}\" --fix",
     "test": "jest --detectOpenHandles --maxWorkers=50%",
     "test:e2e": "jest --config ./jest.config.e2e.ts --maxWorkers=50%",
-    "test:coverage": "jest --coverage --detectOpenHandles --maxWorkers=50% && yarn make-badges",
+    "test:coverage": "jest --coverage --detectOpenHandles --maxWorkers=50%",
     "commit": "cz",
     "start:cats-api:dev": "nest start @app/cats-api --debug --watch",
     "start:auth-api:dev": "nest start @app/auth-api --debug --watch",
