@@ -9,11 +9,6 @@ process.env.SECRET_JWT = '12345'
 
 // -----------------------------------------------------------MOCK----------------------------------------------------------------//
 
-jest.mock('redis', () => ({
-  ...jest.createMockFromModule('redis'),
-  RedisClientType: () => ({ ping: () => 'PONG' })
-}))
-
 jest.mock('luxon', () => ({
   DateTime: ({
     fromJSDate: () => ({

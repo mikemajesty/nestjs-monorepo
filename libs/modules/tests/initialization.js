@@ -7,10 +7,12 @@ process.env.PORT_AUTH_API = 4000
 // -----------------------------------------------------------MOCK----------------------------------------------------------------//
 
 jest.mock('redis', () => ({
+  ...jest.createMockFromModule('redis'),
+  RedisClientType: () => ({ ping: () => 'PONG' }),
   createClient: () => ({
     connect: jest.fn(),
   }),
-}));
+}))
 
 jest.mock('convert-pino-request-to-curl', () => ({
   PinoRequestConverter: { getCurl: jest.fn() }
