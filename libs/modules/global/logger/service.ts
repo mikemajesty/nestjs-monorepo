@@ -146,8 +146,8 @@ export class LoggerService implements ILoggerService {
       customErrorMessage: (req: IncomingMessage, res: ServerResponse, error: Error) => {
         return `request ${red(error.name)} with status code: ${res.statusCode} `;
       },
-      genReqId: (request) => {
-        return request.headers.traceid;
+      genReqId: (req: IncomingMessage) => {
+        return req.headers.traceid;
       },
       customAttributeKeys: {
         req: 'request',

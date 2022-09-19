@@ -57,7 +57,6 @@
     "jaeger-client": "^3.19.0",
     "luxon": "^2.4.0",
     "mongoose": "^6.1.2",
-    "nestjs-convert-to-curl": "^0.0.15",
     "npm": "^8.6.0",
     "pino-elasticsearch": "^6.2.0",
     "reflect-metadata": "^0.1.13",
