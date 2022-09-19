@@ -23,6 +23,3 @@ jest.mock('luxon', () => ({
     }),
   })
 }));
-
-jest.mock('pino-elasticsearch', () => jest.fn(() => ({})));
-jest.mock('pino', () => jest.genMockFromModule('pino'));

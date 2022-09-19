@@ -22,4 +22,6 @@ jest.mock('pino-http', () => ({
 }));
 
 jest.spyOn(process, 'exit').mockReturnValue(true)
+jest.mock('pino-elasticsearch', () => jest.fn(() => ({})));
+jest.mock('pino', () => jest.genMockFromModule('pino'));
 

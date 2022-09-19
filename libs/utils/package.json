@@ -14,9 +14,12 @@
   "engines": {
     "node": ">=14 <=16"
   },
-  "dependencies": {},
+  "dependencies": {
+    "opentracing": "^0.14.7",
+    "jaeger-client": "^3.19.0"
+  },
   "devDependencies": {
-    "opentracing": "^0.14.7"
+    "@types/jaeger-client": "^3.18.3"
   },
   "license": "MIT"
 }
