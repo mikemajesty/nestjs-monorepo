@@ -1,7 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/husky.sh"
 
-yarn make-badges
 yarn lint
 
 echo '\nI Know What You Did Last Commit\n'
