@@ -3,10 +3,11 @@ import { gray, green, isColorSupported, red, yellow } from 'colorette';
 import { PinoRequestConverter } from 'convert-pino-request-to-curl';
 import { ApiException } from 'libs/utils';
 import { DateTime } from 'luxon';
+import { IncomingMessage, ServerResponse } from 'node:http';
 import { Transform } from 'node:stream';
 import { LevelWithSilent, Logger, multistream, pino } from 'pino';
 import * as pinoElastic from 'pino-elasticsearch';
-import { HttpLogger, pinoHttp } from 'pino-http';
+import { HttpLogger, Options, pinoHttp } from 'pino-http';
 import pinoPretty from 'pino-pretty';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -135,15 +136,15 @@ export class LoggerService implements ILoggerService {
     };
   }
 
-  private getPinoHttpConfig(pinoLogger: Logger) {
+  private getPinoHttpConfig(pinoLogger: Logger): Options {
     return {
       logger: pinoLogger,
       quietReqLogger: true,
-      customSuccessMessage: (res) => {
+      customSuccessMessage: (req: IncomingMessage, res: ServerResponse) => {
         return `request ${res.statusCode >= 400 ? red('errro') : green('success')} with status code: ${res.statusCode}`;
       },
-      customErrorMessage: function (error: Error, res) {
-        return `request ${red('error')} with status code: ${res.statusCode} `;
+      customErrorMessage: (req: IncomingMessage, res: ServerResponse, error: Error) => {
+        return `request ${red(error.name)} with status code: ${res.statusCode} `;
       },
       genReqId: (request) => {
         return request.headers.traceid;
@@ -165,12 +166,13 @@ export class LoggerService implements ILoggerService {
         },
         res: pino.stdSerializers.res,
       },
-      customProps: (request): unknown => {
-        const context = request.context;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      customProps: (req: any): any => {
+        const context = req.context;
 
-        const traceid = [request?.headers?.traceid, request.id].find(Boolean);
+        const traceid = [req?.headers?.traceid, req.id].find(Boolean);
 
-        const path = `${request.protocol}://${request.headers.host}${request.url}`;
+        const path = `${req.protocol}://${req.headers.host}${req.url}`;
 
         this.pino.logger.setBindings({
           traceid,
@@ -188,7 +190,7 @@ export class LoggerService implements ILoggerService {
           timestamp: this.getDateFormat(),
         };
       },
-      customLogLevel: (res, error) => {
+      customLogLevel: (req: IncomingMessage, res: ServerResponse, error: Error) => {
         if ([res.statusCode >= 400, error].some(Boolean)) {
           return 'error';
         }
