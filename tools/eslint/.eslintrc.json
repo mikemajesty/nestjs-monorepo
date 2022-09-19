@@ -29,19 +29,45 @@
     "jest/globals": true,
     "es2022": true
   },
-  "ignorePatterns": [".eslintrc.json"],
+  "ignorePatterns": [
+    ".eslintrc.json"
+  ],
   "rules": {
     "unicorn/prevent-abbreviations": "off",
     "jest/expect-expect": "off",
+    "unicorn/prefer-top-level-await": "off",
     "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
-    "@typescript-eslint/no-explicit-any": ["error"],
-    "security/detect-object-injection": ["error"],
+    "@typescript-eslint/no-unused-vars": [
+      "error"
+    ],
+    "@typescript-eslint/no-explicit-any": [
+      "error"
+    ],
+    "security/detect-object-injection": [
+      "error"
+    ],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "max-len": ["error", { "code": 120,  "ignoreTemplateLiterals": true, "ignoreRegExpLiterals": true, "ignoreStrings": true, "ignoreUrls": true   }],
-    "no-console": ["error"],
-    "complexity": ["error", 5],
-    "spaced-comment": [2, "always"]
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true,
+        "ignoreStrings": true,
+        "ignoreUrls": true
+      }
+    ],
+    "no-console": [
+      "error"
+    ],
+    "complexity": [
+      "error",
+      5
+    ],
+    "spaced-comment": [
+      2,
+      "always"
+    ]
   }
 }

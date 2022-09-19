@@ -32,19 +32,19 @@ describe('TokenService', () => {
     });
 
     test('should throw malformed token error', async () => {
-      await expect(tokenService.verify('tokenMock')).rejects.toThrowError('jwt malformed');
+      await expect(tokenService.verify('tokenMock')).rejects.toThrow('jwt malformed');
     });
 
     test('should throw invalid signature token error', async () => {
       const tokenMock =
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ3ODQ4YzRhOGUyZjVmMzQ3NDhiNjYiLCJpYXQiOjE2NDg5NDQ1MzUsImV4cCI6MTY0ODk0NDU0NX0.RTajwMt3HJyIu7epECOU_eOkUOoqKnAlGtOhlRO3it4';
-      await expect(tokenService.verify(tokenMock)).rejects.toThrowError('invalid signature');
+      await expect(tokenService.verify(tokenMock)).rejects.toThrow('invalid signature');
     });
 
     test('should throw jwt expired token error', async () => {
       const tokenMock =
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4OTk2MDc4LCJleHAiOjE2NDg5OTYzNzh9.z9eupnKs3C3KurhiTmdIpj-IJG4RDQ2-ZADz3MAbUNs';
-      await expect(tokenService.verify(tokenMock)).rejects.toThrowError('jwt expired');
+      await expect(tokenService.verify(tokenMock)).rejects.toThrow('jwt expired');
     });
   });
 

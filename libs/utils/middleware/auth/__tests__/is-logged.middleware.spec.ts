@@ -43,7 +43,7 @@ describe('IsLoggedMiddleware', () => {
           MockUtils.setMock({ status: () => jest.fn() }),
           () => ({}),
         ),
-      ).rejects.toThrowError('no token provided');
+      ).rejects.toThrow('no token provided');
     });
 
     test('should use successfully', async () => {

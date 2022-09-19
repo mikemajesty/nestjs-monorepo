@@ -43,7 +43,7 @@ describe('ICacheService', () => {
       };
 
       service.client = MockUtils.setMock(mock);
-      await expect(service.isConnected()).rejects.toThrowError('redis disconnected.');
+      await expect(service.isConnected()).rejects.toThrow('redis disconnected.');
     });
   });
 
@@ -65,7 +65,7 @@ describe('ICacheService', () => {
       };
 
       service.client = MockUtils.setMock(mock);
-      await expect(service.set(KEY_MOCK, 'valueMock')).rejects.toThrowError(`cache set error: ${KEY_MOCK} valueMock`);
+      await expect(service.set(KEY_MOCK, 'valueMock')).rejects.toThrow(`cache set error: ${KEY_MOCK} valueMock`);
     });
   });
 

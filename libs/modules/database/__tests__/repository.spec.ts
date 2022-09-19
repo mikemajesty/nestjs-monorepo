@@ -64,7 +64,7 @@ describe('Repository', () => {
         db: { readyState: 0, name: 'mock' },
       });
 
-      await expect(repository.isConnected()).rejects.toThrowError('db mock disconnected');
+      await expect(repository.isConnected()).rejects.toThrow('db mock disconnected');
     });
   });
 

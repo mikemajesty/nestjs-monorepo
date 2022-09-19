@@ -40,7 +40,7 @@ describe('LoginService', () => {
 
     test('should throw "not found login" error', async () => {
       userRepository.findOne = jest.fn();
-      await expect(loginService.login(user)).rejects.toThrowError('username or password is invalid.');
+      await expect(loginService.login(user)).rejects.toThrow('username or password is invalid.');
     });
   });
 });

@@ -6,13 +6,13 @@ describe('ApiException', () => {
   test('should ApiException successfully', () => {
     expect(() => {
       throw new ApiException('BAD_GATEWAY', HttpStatus.BAD_GATEWAY);
-    }).toThrowError('BAD_GATEWAY');
+    }).toThrow('BAD_GATEWAY');
   });
 
   test('should ApiException successfully without status', () => {
     expect(() => {
       throw new ApiException('BAD_REQUEST');
-    }).toThrowError('BAD_REQUEST');
+    }).toThrow('BAD_REQUEST');
   });
 
   test('should ApiException successfully with context', () => {
