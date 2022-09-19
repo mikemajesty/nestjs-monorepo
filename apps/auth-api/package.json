@@ -16,7 +16,5 @@
   },
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {
-    "@types/jsonwebtoken": "^8.5.8"
-  }
+  "devDependencies": {}
 }

@@ -55,7 +55,6 @@
     "class-validator": "^0.13.2",
     "colorette": "^2.0.19",
     "jaeger-client": "^3.19.0",
-    "jsonwebtoken": "^8.5.1",
     "luxon": "^2.4.0",
     "mongoose": "^6.1.2",
     "nestjs-convert-to-curl": "^0.0.15",

@@ -21,8 +21,11 @@
     "pino": "^8.5.0",
     "pino-http": "^8.2.0",
     "pino-pretty": "^9.1.0",
-    "redis": "^4.3.1"
+    "redis": "^4.3.1",
+    "jsonwebtoken": "^8.5.1"
   },
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.9"
+  }
 }
