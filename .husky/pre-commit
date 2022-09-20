@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/husky.sh"
 
+node "./verify-dependencies.js"
 yarn make-badges
 yarn lint
 
