@@ -58,6 +58,7 @@ Check
 - Docker
 - npm install -g commitizen
 - npm install -g changelog
+- https://stedolan.github.io/jq/download/
 
 #### Instalation
 
