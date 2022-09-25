@@ -10,32 +10,18 @@ import { Req } from '@nestjs/common';
 import { ApiRequest } from 'libs/utils';
 
 async get(@Req() req: ApiRequest): Promise<string> {
-    const path = `${this.secretService.GITHUB_SCRAP_API}/user/full`;
+    const URL = 'https://legend-of-github-api.herokuapp.com';
 
-    const tracer = req.tracing.initTracer('legend-of-github-api').startSpan(path, { childOf: req.tracing.span });
+    const span = request.tracing.createSpan(URL);
+
+    let response;
 
     try {
-      tracer.addTags({ app: 'legend-of-github-api' });
-      tracer.addTags({ component: 'HealthController/getHealth' });
-      tracer.addTags({ path: '/user/full' });
-      tracer.addTags({ method: 'GET' });
-      tracer.addTags({ traceId: req.id });
-      tracer.addTags({ body: {} });
-      tracer.addTags({ headers: {} });
-
-      const result = await req.tracing.axios({ params: { username: 'mikemajesty' } }).get(path);
-
-      tracer.addTags({ statusCode: result.status });
-
-      tracer.finish();
-
-      return this.healthService.getText();
-    } catch (error) {
-      tracer.setTag(req.tracing.tags.ERROR, true);
-      tracer.setTag('message', error.message);
-      tracer.setTag('statusCode', [error.status, error.getStatus())].find(Boolean);
-      tracer.finish();
-      throw error;
+      response = await request.tracing.axios().get(`${URL}/user/full?mikemajesty`);
+    } finally {
+      span.addTags({ headers: response.headers });
+      span.addTags({ [request.tracing.tags.HTTP_STATUS_CODE]: response.status });
+      span.finish();
     }
 }
 // OR
