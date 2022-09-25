@@ -17,7 +17,7 @@ export class TracingInterceptor implements NestInterceptor {
   private tracer: JaegerTracer;
   private app: string;
 
-  constructor({ app, version }: { app: string; version: string }, private logger: ILoggerService) {
+  constructor({ app, version }: { app: string; version: string }, logger: ILoggerService) {
     this.app = app;
 
     const config: TracingConfig = {
@@ -48,25 +48,15 @@ export class TracingInterceptor implements NestInterceptor {
     const span = this.tracer.startSpan(request.headers.host + request.path, parentObject);
 
     const createJaegerInstance = (): TracingType => {
-      const config: TracingConfig = {
-        sampler: {
-          type: 'const',
-          param: 1,
-        },
-      };
       return {
         span: span,
         tracer: this.tracer,
-        initTracer: (app: string) =>
-          initTracer(Object.assign(config, { serviceName: app }), this.getTracingLogger(this.logger)),
         tags: Tags,
-        axios: (options_: AxiosRequestConfig = {}) => {
-          let options = {};
+        axios: (options: AxiosRequestConfig = {}) => {
           const headers = {};
           this.tracer.inject(span, FORMAT_HTTP_HEADERS, headers);
-          options_.headers = { ...options_.headers, ...headers, traceid: request.id };
+          options.headers = { ...options.headers, ...headers, traceid: request.id };
 
-          options = { ...options_ };
           return axios.create(options);
         },
         log: (eventName, payload) => {
@@ -76,7 +66,6 @@ export class TracingInterceptor implements NestInterceptor {
           span.setTag(key, value);
         },
         addTags: (object) => {
-          if (!object) return;
           span.addTags(object);
         },
         setTracingTag: (key, value) => {
@@ -96,7 +85,7 @@ export class TracingInterceptor implements NestInterceptor {
 
     request.tracing.setTag('ip', request.ip);
     request.tracing.setTag('app', this.app);
-    request.tracing.setTag('method', request.method);
+    request.tracing.setTag(Tags.HTTP_METHOD, request.method);
     request.tracing.setTag('headers', request.headers);
     request.tracing.setTag('path', request.path);
     request.tracing.setTag('body', request.body);
@@ -109,7 +98,7 @@ export class TracingInterceptor implements NestInterceptor {
 
     return next.handle().pipe(
       tap(() => {
-        request.tracing.setTag('statusCode', res.statusCode);
+        request.tracing.setTag(Tags.HTTP_STATUS_CODE, res.statusCode);
         request.tracing.finish();
       }),
     );
