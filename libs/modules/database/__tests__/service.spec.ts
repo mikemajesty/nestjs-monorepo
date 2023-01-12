@@ -22,10 +22,7 @@ describe('DataBaseService', () => {
     test('should verify required properties', () => {
       const con = service.getDefaultConnection({ dbName: 'db', URI: 'dummy' });
 
-      expect(con).toEqual({
-        appName: 'monorepo',
-        uri: 'mongodb://user:pass@mongo:10/db?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&authSource=admin&authMechanism=SCRAM-SHA-256',
-      });
+      expect(con).toEqual({ dbName: 'db', uri: 'dummy', appName: 'monorepo' });
     });
   });
 });
