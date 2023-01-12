@@ -1,10 +1,7 @@
 import { ObjectId } from 'mongoose';
 
 export type ConnectionModel = {
-  host: string;
-  port: string | number;
-  user: string;
-  pass: string;
+  URI: string;
   dbName: string;
 };
 

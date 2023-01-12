@@ -23,8 +23,8 @@ import { DataBaseService } from '../service';
     SecretsModule,
     MongooseModule.forRootAsync({
       connectionName: ConnectionName.AUTH,
-      useFactory: ({ database: { host, port, pass, user } }: ISecretsService) =>
-        new DataBaseService().getDefaultConnection({ dbName: ConnectionName.AUTH, host, pass, port, user }),
+      useFactory: ({ database }: ISecretsService) =>
+        new DataBaseService().getDefaultConnection({ dbName: ConnectionName.AUTH, URI: database }),
       inject: [ISecretsService],
     }),
   ],

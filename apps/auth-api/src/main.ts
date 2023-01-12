@@ -41,7 +41,6 @@ async function bootstrap() {
     ENV,
     KIBANA_URL,
     JEAGER_URL,
-    MONGO_EXPRESS_URL,
     REDIS_COMMANDER_URL,
   } = app.get(ISecretsService);
 
@@ -70,7 +69,6 @@ async function bootstrap() {
   const openApiURL = `${url}/${SWAGGER_API_ROOT}`;
 
   loggerService.log(`🔵 swagger listening at ${bold(openApiURL)}`);
-  loggerService.log(`🔵 mongo-express listening at ${bold(MONGO_EXPRESS_URL)}`);
   loggerService.log(`🔵 redis-commander listening at ${bold(REDIS_COMMANDER_URL)}`);
   loggerService.log(`🔵 kibana listening at ${bold(KIBANA_URL)}`);
   loggerService.log(`🔵 jeager listening at ${bold(JEAGER_URL)}`);

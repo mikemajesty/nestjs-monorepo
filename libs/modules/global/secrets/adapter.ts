@@ -13,12 +13,7 @@ export abstract class ISecretsService {
 
   LOG_LEVEL: string;
 
-  database: {
-    host: string;
-    port: number;
-    user: string;
-    pass: string;
-  };
+  database: string;
 
   mainAPI: {
     port: CatsAPIEnvironment | number;

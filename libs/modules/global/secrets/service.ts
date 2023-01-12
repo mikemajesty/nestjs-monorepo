@@ -24,12 +24,7 @@ export class SecretsService extends ConfigService implements ISecretsService {
 
   LOG_LEVEL = this.get<LevelWithSilent>('LOG_LEVEL');
 
-  database = {
-    host: this.get('MONGO_HOST'),
-    port: this.get<number>('MONGO_PORT'),
-    user: this.get('MONGO_INITDB_ROOT_USERNAME'),
-    pass: this.get('MONGO_INITDB_ROOT_PASSWORD'),
-  };
+  database = this.get('DATABASE_URL');
 
   mainAPI = {
     port: this.get<number>(CatsAPIEnvironment.PORT),

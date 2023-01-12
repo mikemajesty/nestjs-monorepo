@@ -1,26 +1,68 @@
 version: '3'
 
 services:
-  db:
-    container_name: monorepo-mongo
-    image: mongo
+  mongo-primary:
+    container_name: nestjs-monorepo-primary
+    image: mongo:4.2.20
+    entrypoint: ['/usr/bin/mongod', '--bind_ip_all', '--replSet', 'app']
     env_file:
       - .env
+    volumes:
+      - mongo-primary-data:/data/db
+      - ./scripts/rs-init.sh:/scripts/rs-init.sh
     ports:
-      - 27017:27017
-  mongo-express:
-    container_name: monorepo-mongo-express
-    image: mongo-express
-    restart: always
-    depends_on:
-      - db
-    ports:
-      - 8082:8082
+      - 27001:27017
+    networks:
+      mongo-network:
+        ipv4_address: 20.0.0.2
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2048M
+
+  mongo-secondary:
+    container_name: nestjs-monorepo-secondary
+    image: mongo:4.2.20
+    entrypoint: ['/usr/bin/mongod', '--bind_ip_all', '--replSet', 'app']
     env_file:
       - .env
+    volumes:
+      - mongo-secondary-data:/data/db
+    ports:
+      - 27002:27017
+    networks:
+      mongo-network:
+        ipv4_address: 20.0.0.3
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2048M
+
+  mongo-tertiary:
+    container_name: nestjs-monorepo-tertiary
+    image: mongo:4.2.20
+    entrypoint: ['/usr/bin/mongod', '--bind_ip_all', '--replSet', 'app']
+    env_file:
+      - .env
+    volumes:
+      - mongo-tertiary-data:/data/db
+    ports:
+      - 27003:27017
+    networks:
+      mongo-network:
+        ipv4_address: 20.0.0.4
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2048M
   redis:
     container_name: monorepo-redis
     image: 'redis:alpine'
+    volumes:
+      - redis-data:/data
     ports:
       - 6379:6379
   redis-commander:
@@ -70,3 +112,15 @@ services:
       - '16686:16686'
       - '14268:14268'
       - '9411:9411'
+networks:
+  mongo-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 20.0.0.0/29
+
+volumes:
+  mongo-primary-data:
+  mongo-secondary-data:
+  mongo-tertiary-data:
+  redis-data:

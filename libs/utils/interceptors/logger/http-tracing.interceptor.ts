@@ -31,8 +31,8 @@ export class TracingInterceptor implements NestInterceptor {
     const options: TracingOptions = this.getTracingLogger(logger);
 
     options.tags = {
-      version: version,
-      app: app,
+      'service.version': version,
+      'service.name': app,
     };
 
     this.tracer = initTracer(config, options);
@@ -44,8 +44,7 @@ export class TracingInterceptor implements NestInterceptor {
     const res = executionContext.switchToHttp().getResponse();
 
     const parent = this.tracer.extract(FORMAT_HTTP_HEADERS, request.headers);
-    const parentObject = parent ? { childOf: parent } : {};
-    const span = this.tracer.startSpan(request.headers.host + request.path, parentObject);
+    const span = this.tracer.startSpan(request.headers.host + request.path, { childOf: parent });
 
     const createJaegerInstance = (): TracingType => {
       return {
