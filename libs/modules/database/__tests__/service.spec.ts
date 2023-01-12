@@ -20,7 +20,7 @@ describe('DataBaseService', () => {
 
   describe('getDefaultConnection', () => {
     test('should verify required properties', () => {
-      const con = service.getDefaultConnection({ dbName: 'db', host: 'mongo', pass: 'pass', port: 10, user: 'user' });
+      const con = service.getDefaultConnection({ dbName: 'db', URI: 'dummy' });
 
       expect(con).toEqual({
         appName: 'monorepo',
