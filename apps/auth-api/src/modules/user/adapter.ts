@@ -1,4 +1,4 @@
-import { IRepository } from 'libs/modules';
+import { IRepository } from 'libs/infra';
 
 import { UserDocument } from './schema';
 

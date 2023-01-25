@@ -1,5 +1,5 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus } from '@nestjs/common';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 import { DateTime } from 'luxon';
 
 import { ApiException, ErrorModel } from '../exception';

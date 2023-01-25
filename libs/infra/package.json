@@ -1,7 +1,7 @@
 {
-  "name": "@libs/modules",
+  "name": "@libs/infra",
   "version": "v0.0.22",
-  "description": "monorepo modules libs",
+  "description": "monorepo infra libs",
   "author": {
     "name": "Mike Lima",
     "email": "mike.rodrigues.lima@gmail.com"
@@ -15,10 +15,16 @@
     "node": ">=14 <=16"
   },
   "dependencies": {
-    "jsonwebtoken": "^8.5.1"
+    "node-cache": "^5.1.2",
+    "axios": "^0.27.2",
+    "redis": "^4.3.1",
+    "@nestjs/config": "^2.2.0",
+    "convert-pino-request-to-curl": "^0.0.28",
+    "pino": "^8.5.0",
+    "pino-http": "^8.2.0",
+    "pino-pretty": "^9.1.0",
+    "pino-elasticsearch": "^6.2.0"
   },
   "license": "MIT",
-  "devDependencies": {
-    "@types/jsonwebtoken": "^8.5.9"
-  }
+  "devDependencies": {}
 }

@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import axios, { AxiosRequestConfig } from 'axios';
 import { initTracer, JaegerTracer, TracingConfig, TracingOptions } from 'jaeger-client';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 import { TracingType } from 'libs/utils';
 import { FORMAT_HTTP_HEADERS, Span, SpanOptions, Tags } from 'opentracing';
 import { Observable, tap } from 'rxjs';

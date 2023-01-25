@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { name, version } from 'apps/auth-api/package.json';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 
 import { IUserRepository } from '../user/adapter';
 import { IHealthService } from './adapter';

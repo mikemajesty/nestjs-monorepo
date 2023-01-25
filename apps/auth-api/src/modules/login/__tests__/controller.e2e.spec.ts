@@ -1,8 +1,8 @@
 import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
+import { SecretsModule } from 'libs/infra/secrets/module';
 import { TokenModule } from 'libs/modules/auth/token/module';
-import { SecretsModule } from 'libs/modules/global/secrets/module';
 import { Model } from 'mongoose';
 import * as request from 'supertest';
 

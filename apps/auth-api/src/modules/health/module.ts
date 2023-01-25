@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
-import { LoggerModule } from 'libs/modules/global/logger/module';
+import { MemoryCacheModule } from 'libs/infra/cache/memory/module';
+import { LoggerModule } from 'libs/infra/logger/module';
 
 import { UserModule } from '../user/module';
 import { IHealthService } from './adapter';
@@ -7,7 +8,7 @@ import { HealthController } from './controller';
 import { HealthService } from './service';
 
 @Module({
-  imports: [UserModule, LoggerModule],
+  imports: [UserModule, LoggerModule, MemoryCacheModule],
   controllers: [HealthController],
   providers: [
     {

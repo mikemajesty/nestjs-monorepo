@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 
 import { name, version } from '../../../../package.json';
 import { IUserRepository } from '../../user/adapter';

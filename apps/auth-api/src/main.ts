@@ -3,8 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/auth-api/package.json';
 import { bold } from 'colorette';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
-import { ISecretsService } from 'libs/modules/global/secrets/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
+import { ISecretsService } from 'libs/infra/secrets/adapter';
 import { DEFAULT_TAG, SWAGGER_API_ROOT } from 'libs/utils/documentation/constants';
 import { AppExceptionFilter } from 'libs/utils/filters/http-exception.filter';
 import { ExceptionInterceptor } from 'libs/utils/interceptors/exception/http-exception.interceptor';
@@ -62,7 +62,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup(SWAGGER_API_ROOT, app, document);
 
-  loggerService.log(`🟢 ${name} listening at ${bold(PORT)} on ${bold(ENV?.toUpperCase())} 🟢\n`);
+  loggerService.info({ message: `🟢 ${name} listening at ${bold(PORT)} on ${bold(ENV?.toUpperCase())} 🟢` });
+
+  loggerService.log('Database connected!\n');
 
   await app.listen(PORT);
 

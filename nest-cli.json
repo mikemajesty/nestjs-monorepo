@@ -58,6 +58,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/utils/tsconfig.json"
       }
+    },
+    "@libs/infra": {
+      "type": "library",
+      "root": "libs/infra",
+      "entryFile": "index",
+      "sourceRoot": "libs/infra",
+      "compilerOptions": {
+        "tsConfigPath": "libs/infra/tsconfig.json"
+      }
     }
   }
 }
