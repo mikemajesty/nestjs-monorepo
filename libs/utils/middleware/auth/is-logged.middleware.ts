@@ -1,7 +1,7 @@
 import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
 import { NextFunction, Request, Response } from 'express';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 import { ITokenService } from 'libs/modules/auth/token/adapter';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { ExecutionContext } from '@nestjs/common';
 import { CallHandler } from '@nestjs/common/interfaces';
 import { Test } from '@nestjs/testing';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 import { Observable, of } from 'rxjs';
 
 import { HttpLoggerInterceptor } from '../http-logger.interceptor';

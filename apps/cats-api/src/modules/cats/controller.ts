@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreatedModel } from 'libs/modules';
+import { CreatedModel } from 'libs/infra';
 
 import { ICatsRepository } from './adapter';
 import { CatsEntity } from './entity';

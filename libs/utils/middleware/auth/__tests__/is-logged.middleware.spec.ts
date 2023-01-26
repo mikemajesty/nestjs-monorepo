@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing';
-import { ITokenService } from 'libs/modules/auth/token/adapter';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { ITokenService } from 'libs/infra/auth/token/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 import { MockUtils } from 'libs/utils/tests/mock-utils';
 
 import { IsLoggedMiddleware } from '../is-logged.middleware';

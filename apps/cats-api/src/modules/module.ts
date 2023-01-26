@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
-import { CatsDatabaseModule } from 'libs/modules';
-import { RedisModule } from 'libs/modules/cache/module';
-import { GlobalModule } from 'libs/modules/global/module';
+import { CatsDataBaseModule, LoggerModule, RedisCacheModule, SecretsModule } from 'libs/infra';
 
 import { CatsModule } from '../modules/cats/module';
 import { HealthModule } from './health/module';
 @Module({
-  imports: [HealthModule, GlobalModule, CatsModule, CatsDatabaseModule, RedisModule],
+  imports: [HealthModule, SecretsModule, LoggerModule, CatsModule, CatsDataBaseModule, RedisCacheModule],
 })
 export class MainModule {}

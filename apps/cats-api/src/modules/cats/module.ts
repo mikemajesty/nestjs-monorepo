@@ -1,8 +1,8 @@
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from '@nestjs/common';
 import { getConnectionToken } from '@nestjs/mongoose';
+import { HttpModule, LoggerModule } from 'libs/infra';
+import { ConnectionName } from 'libs/infra/database/enum';
 import { TokenModule } from 'libs/modules/auth/token/module';
-import { ConnectionName } from 'libs/modules/database/enum';
-import { HttpModule } from 'libs/modules/http/module';
 import { IsLoggedMiddleware } from 'libs/utils/middleware/auth/is-logged.middleware';
 import { Connection, Model } from 'mongoose';
 
@@ -12,7 +12,7 @@ import { CatsRepository } from './repository';
 import { CatDocument, Cats, CatSchema } from './schema';
 
 @Module({
-  imports: [TokenModule, HttpModule],
+  imports: [TokenModule, HttpModule, LoggerModule],
   controllers: [CatsController],
   providers: [
     {

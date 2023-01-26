@@ -3,9 +3,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ISecretsService } from 'libs/infra/secrets/adapter';
 import { SecretsModule } from 'libs/infra/secrets/module';
 
-import { IDataBaseService } from '../adapter';
-import { ConnectionName } from '../enum';
-import { MongoService } from './service';
+import { IDataBaseService } from '../../adapter';
+import { ConnectionName } from '../../enum';
+import { MongoService } from '../service';
 
 @Module({
   providers: [

@@ -1,6 +1,6 @@
 import { ArgumentsHost, HttpStatus } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
-import { ILoggerService } from 'libs/modules/global/logger/adapter';
+import { ILoggerService } from 'libs/infra/logger/adapter';
 
 import { ApiException } from '../../exception';
 import { AppExceptionFilter } from '../http-exception.filter';

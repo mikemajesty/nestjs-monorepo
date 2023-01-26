@@ -1,4 +1,4 @@
-import { CreatedModel } from 'libs/modules';
+import { CreatedModel } from 'libs/infra';
 import { Swagger } from 'libs/utils/documentation/swagger';
 
 export const SwagggerResponse = {
