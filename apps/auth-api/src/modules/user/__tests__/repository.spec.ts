@@ -1,7 +1,8 @@
 import { getModelToken } from '@nestjs/mongoose';
 import { Test } from '@nestjs/testing';
 
-import { IUserRepository } from '../adapter';
+import { IUserRepository } from '@/libs/core/repositories';
+
 import { UserRepository } from '../repository';
 import { User } from '../schema';
 

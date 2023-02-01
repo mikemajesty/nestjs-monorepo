@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
-import { MemoryCacheModule } from 'libs/infra/cache/memory/module';
-import { LoggerModule } from 'libs/infra/logger/module';
+import { MemoryCacheModule } from 'libs/infra/src/cache/memory/module';
+
+import { LoggerModule } from '@/libs/infra/logger';
 
 import { UserModule } from '../user/module';
 import { IHealthService } from './adapter';

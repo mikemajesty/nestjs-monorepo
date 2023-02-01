@@ -1,1 +1,1 @@
-export * from './auth/token';
+export * from './src/auth/token';

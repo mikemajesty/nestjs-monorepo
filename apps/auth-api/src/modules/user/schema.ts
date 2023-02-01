@@ -1,7 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export type UserDocument = User & Document;
+import { UserEntity } from '@/libs/core/entities';
+
+export type UserDocument = UserEntity & Document;
 
 @Schema()
 export class User {
@@ -9,7 +11,7 @@ export class User {
   login: string;
 
   @Prop()
-  pass: string;
+  password: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

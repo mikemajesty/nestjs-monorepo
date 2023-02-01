@@ -1,6 +1,6 @@
 import { HttpStatus } from '@nestjs/common';
 
-import { ApiException } from '../exception';
+import { ApiException } from '../src/exception';
 
 describe('ApiException', () => {
   test('should ApiException successfully', () => {

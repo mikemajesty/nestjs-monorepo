@@ -1,8 +1,9 @@
 import { Test } from '@nestjs/testing';
-import { ILoggerService } from 'libs/infra/logger/adapter';
+
+import { IUserRepository } from '@/libs/core/repositories';
+import { ILoggerService } from '@/libs/infra/logger';
 
 import { name, version } from '../../../../package.json';
-import { IUserRepository } from '../../user/adapter';
 import { IHealthService } from '../adapter';
 import { HealthService } from '../service';
 

@@ -1,18 +1,18 @@
 import { INestApplication } from '@nestjs/common';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { SecretsModule } from 'libs/infra/secrets/module';
-import { TokenModule } from 'libs/modules/auth/token/module';
 import { Model } from 'mongoose';
 import * as request from 'supertest';
 
-import { IUserRepository } from '../../user/adapter';
-import { UserEntity } from '../../user/entity';
+import { IUserRepository } from '@/libs/core/repositories';
+import { LoginUseCase } from '@/libs/core/use-cases/user/login.usecase';
+import { SecretsModule } from '@/libs/infra/secrets';
+import { TokenModule } from '@/libs/modules/auth/token';
+
 import { UserRepository } from '../../user/repository';
 import { User } from '../../user/schema';
 import { ILoginService } from '../adapter';
 import { LoginController } from '../controller';
-import { LoginService } from '../service';
 
 describe('LoginController (e2e)', () => {
   let app: INestApplication;
@@ -27,7 +27,7 @@ describe('LoginController (e2e)', () => {
       providers: [
         {
           provide: ILoginService,
-          useClass: LoginService,
+          useClass: LoginUseCase,
         },
         {
           provide: IUserRepository,
@@ -47,7 +47,7 @@ describe('LoginController (e2e)', () => {
 
   describe('/login (POST)', () => {
     it(`should login successfully`, async () => {
-      model.findOne = jest.fn().mockResolvedValue({ login: 'mockLogin', pass: 'passMock', id: 'idMock' } as UserEntity);
+      model.findOne = jest.fn().mockResolvedValue({ login: 'mockLogin', password: 'passMock', id: 'idMock' });
       const response = await request(app.getHttpServer()).post('/login').send({ login: 'mockLogin', pass: 'passMock' });
 
       expect(response.body).toHaveProperty('token');

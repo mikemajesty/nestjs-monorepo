@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { TokenModule } from 'libs/modules/auth/token/module';
+
+import { IUserRepository } from '@/libs/core/repositories';
+import { LoginUseCase } from '@/libs/core/use-cases/user/login.usecase';
+import { TokenModule } from '@/libs/modules/auth/token';
 
 import { UserModule } from '../user/module';
 import { ILoginService } from './adapter';
 import { LoginController } from './controller';
-import { LoginService } from './service';
 
 @Module({
   imports: [TokenModule, UserModule],
@@ -12,7 +14,9 @@ import { LoginService } from './service';
   providers: [
     {
       provide: ILoginService,
-      useClass: LoginService,
+      useFactory: (userRepository: IUserRepository) => {
+        return new LoginUseCase(userRepository);
+      },
     },
   ],
   exports: [ILoginService],

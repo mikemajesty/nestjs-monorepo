@@ -1,5 +1,6 @@
 import { name } from 'apps/auth-api/package.json';
-import { Swagger } from 'libs/utils/documentation/swagger';
+
+import { Swagger } from '@/libs/utils/documentation/swagger';
 
 export const SwagggerResponse = {
   getHealth: {

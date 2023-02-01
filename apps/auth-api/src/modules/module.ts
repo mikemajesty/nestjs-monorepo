@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AuthDataBaseModule, LoggerModule, MemoryCacheModule, RedisCacheModule, SecretsModule } from 'libs/infra';
-import { TokenModule } from 'libs/modules/auth/token/module';
+
+import { MemoryCacheModule, RedisCacheModule } from '@/libs/infra/cache';
+import { AuthDataBaseModule } from '@/libs/infra/database';
+import { LoggerModule } from '@/libs/infra/logger';
+import { SecretsModule } from '@/libs/infra/secrets';
+import { TokenModule } from '@/libs/modules/auth/token';
 
 import { HealthModule } from './health/module';
 import { LoginModule } from './login/module';

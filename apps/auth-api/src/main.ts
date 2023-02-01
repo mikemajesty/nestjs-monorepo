@@ -3,13 +3,14 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { description, name, version } from 'apps/auth-api/package.json';
 import { bold } from 'colorette';
-import { ILoggerService } from 'libs/infra/logger/adapter';
-import { ISecretsService } from 'libs/infra/secrets/adapter';
-import { DEFAULT_TAG, SWAGGER_API_ROOT } from 'libs/utils/documentation/constants';
-import { AppExceptionFilter } from 'libs/utils/filters/http-exception.filter';
-import { ExceptionInterceptor } from 'libs/utils/interceptors/exception/http-exception.interceptor';
-import { HttpLoggerInterceptor } from 'libs/utils/interceptors/logger/http-logger.interceptor';
-import { TracingInterceptor } from 'libs/utils/interceptors/logger/http-tracing.interceptor';
+
+import { ILoggerService } from '@/libs/infra/logger';
+import { ISecretsService } from '@/libs/infra/secrets';
+import { DEFAULT_TAG, SWAGGER_API_ROOT } from '@/libs/utils/documentation/constants';
+import { AppExceptionFilter } from '@/libs/utils/filters/http-exception.filter';
+import { ExceptionInterceptor } from '@/libs/utils/interceptors/exception/http-exception.interceptor';
+import { HttpLoggerInterceptor } from '@/libs/utils/interceptors/logger/http-logger.interceptor';
+import { TracingInterceptor } from '@/libs/utils/interceptors/logger/http-tracing.interceptor';
 
 import { MainModule } from './modules/module';
 

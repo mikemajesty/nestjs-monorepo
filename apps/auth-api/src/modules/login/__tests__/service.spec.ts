@@ -1,8 +1,9 @@
 import { Test } from '@nestjs/testing';
 
-import { IUserRepository } from '../../user/adapter';
+import { IUserRepository } from '@/libs/core/repositories';
+import { LoginUseCase } from '@/libs/core/use-cases/user/login.usecase';
+
 import { ILoginService } from '../adapter';
-import { LoginService } from '../service';
 
 describe('LoginService', () => {
   let loginService: ILoginService;
@@ -16,7 +17,7 @@ describe('LoginService', () => {
       providers: [
         {
           provide: ILoginService,
-          useClass: LoginService,
+          useClass: LoginUseCase,
         },
         {
           provide: IUserRepository,
@@ -32,7 +33,7 @@ describe('LoginService', () => {
   });
 
   describe('login', () => {
-    const user = { login: 'mock', pass: 'pass' };
+    const user = { login: 'mock', password: 'pass', id: '7624a959-fd87-4dc8-bebd-e7af38539d85' };
     test('should login successfully', async () => {
       userRepository.findOne = jest.fn().mockResolvedValue(user);
       await expect(loginService.login(user)).resolves.toEqual(user);

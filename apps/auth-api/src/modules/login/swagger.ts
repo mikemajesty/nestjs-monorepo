@@ -1,5 +1,7 @@
-import { Token } from 'libs/modules/auth/token/types';
-import { Swagger } from 'libs/utils/documentation/swagger';
+import { ApiBodyOptions } from '@nestjs/swagger';
+
+import { Token } from '@/libs/modules/auth/token/types';
+import { Swagger } from '@/libs/utils/documentation/swagger';
 
 export const SwagggerResponse = {
   login: {
@@ -17,6 +19,4 @@ export const SwagggerResponse = {
   },
 };
 
-export const SwagggerRequest = {
-  /** If requesters has a body.  */
-};
+export const SwagggerRequest: ApiBodyOptions = Swagger.defaultRequestJSON({ login: 'login', password: 'password' });

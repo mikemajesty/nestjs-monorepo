@@ -9,8 +9,21 @@
     "target": "es2017",
     "sourceMap": true,
     "paths": {
-      "apps/*": ["./apps/*"],
-      "libs/*": ["./libs/*"]
+      "@/apps/*": [
+        "./apps/*"
+      ],
+      "@/libs/core/*": [
+        "./libs/core/src/*"
+      ],
+      "@/libs/infra/*": [
+        "./libs/infra/src/*"
+      ],
+      "@/libs/utils/*": [
+        "./libs/utils/src/*"
+      ],
+      "@/libs/modules/*": [
+        "./libs/modules/src/*"
+      ],
     },
     "outDir": "./dist",
     "resolveJsonModule": true,

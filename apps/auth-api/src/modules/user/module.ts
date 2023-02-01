@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
 import { getConnectionToken } from '@nestjs/mongoose';
-import { ConnectionName } from 'libs/infra/database/enum';
 import { Connection } from 'mongoose';
 
-import { IUserRepository } from './adapter';
+import { IUserRepository } from '@/libs/core/repositories';
+import { ConnectionName } from '@/libs/infra/database';
+
 import { UserRepository } from './repository';
 import { User, UserDocument, UserSchema } from './schema';
 
