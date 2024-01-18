@@ -1,0 +1,68 @@
+{
+  "name": "comment-json",
+  "version": "4.2.3",
+  "description": "Parse and stringify JSON with comments. It will retain comments even after saved!",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "npm run test:only",
+    "test:only": "npm run test:ts && npm run test:node",
+    "test:ts": "tsc -b test/ts/tsconfig.build.json && node test/ts/test-ts.js",
+    "test:node": "NODE_DEBUG=comment-json nyc ava --timeout=10s --verbose",
+    "test:dev": "npm run test:only && npm run report:dev",
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "posttest": "npm run report",
+    "report": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "report:dev": "nyc report --reporter=html && npm run report:open",
+    "report:open": "open coverage/index.html"
+  },
+  "files": [
+    "src/",
+    "index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/node-comment-json.git"
+  },
+  "keywords": [
+    "comment-json",
+    "comments",
+    "annotations",
+    "json",
+    "json-stringify",
+    "json-parse",
+    "parser",
+    "comments-json",
+    "json-comments"
+  ],
+  "engines": {
+    "node": ">= 6"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.js"
+    ]
+  },
+  "author": "kaelzhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kaelzhang/node-comment-json/issues"
+  },
+  "devDependencies": {
+    "@ostai/eslint-config": "^3.6.0",
+    "ava": "^4.0.1",
+    "codecov": "^3.8.2",
+    "eslint": "^8.8.0",
+    "eslint-plugin-import": "^2.25.4",
+    "nyc": "^15.1.0",
+    "test-fixture": "^2.4.1",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "array-timsort": "^1.0.3",
+    "core-util-is": "^1.0.3",
+    "esprima": "^4.0.1",
+    "has-own-prop": "^2.0.0",
+    "repeat-string": "^1.6.1"
+  }
+}

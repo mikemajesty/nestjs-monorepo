@@ -1,0 +1,88 @@
+{
+	"name": "prom-client",
+	"version": "14.2.0",
+	"description": "Client for prometheus",
+	"main": "index.js",
+	"files": [
+		"lib/",
+		"index.js",
+		"index.d.ts"
+	],
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"benchmarks": "node ./benchmarks/index.js",
+		"test": "npm run lint && npm run check-prettier && npm run compile-typescript && npm run test-unit",
+		"lint": "eslint .",
+		"test-unit": "jest",
+		"run-prettier": "prettier . .eslintrc",
+		"check-prettier": "npm run run-prettier -- --check",
+		"compile-typescript": "tsc --project ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:siimon/prom-client.git"
+	},
+	"keywords": [
+		"Prometheus",
+		"Metrics",
+		"Client"
+	],
+	"author": "Simon Nyberg",
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/siimon/prom-client",
+	"devDependencies": {
+		"@clevernature/benchmark-regression": "^1.0.0",
+		"eslint": "^7.7.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-node": "^11.0.0",
+		"eslint-plugin-prettier": "^3.0.1",
+		"express": "^4.13.3",
+		"husky": "^4.2.1",
+		"jest": "^26.0.1",
+		"lint-staged": "^10.0.4",
+		"nock": "^13.0.5",
+		"prettier": "2.7.1",
+		"typescript": "^4.0.2"
+	},
+	"dependencies": {
+		"tdigest": "^0.1.1"
+	},
+	"types": "./index.d.ts",
+	"jest": {
+		"testEnvironment": "node",
+		"testRegex": ".*Test\\.js$"
+	},
+	"lint-staged": {
+		"*.js": "eslint --fix",
+		"*.{ts,md,json,yml}": "prettier --write",
+		".{eslintrc,travis.yml}": "prettier --write"
+	},
+	"prettier": {
+		"singleQuote": true,
+		"useTabs": true,
+		"arrowParens": "avoid",
+		"trailingComma": "all",
+		"endOfLine": "auto",
+		"overrides": [
+			{
+				"files": "*.md",
+				"options": {
+					"useTabs": false
+				}
+			},
+			{
+				"files": ".eslintrc",
+				"options": {
+					"parser": "json"
+				}
+			}
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	}
+}

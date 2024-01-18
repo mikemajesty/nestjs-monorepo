@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+MYDIR=`dirname $0`
+benchmark_folder=$MYDIR/../benchmarks
+find $benchmark_folder/* | (while read SERVER; do set -e; $MYDIR/benchmark $SERVER; done)

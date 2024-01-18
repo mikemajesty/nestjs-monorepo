@@ -1,0 +1,3 @@
+service BogusService {
+    string bogus()
+}

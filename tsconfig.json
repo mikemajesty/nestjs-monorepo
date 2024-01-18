@@ -6,11 +6,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
+    "target": "ES2022",
     "sourceMap": true,
     "paths": {
-      "apps/*": ["./apps/*"],
-      "libs/*": ["./libs/*"]
+      "apps/*": [
+        "./apps/*"
+      ],
+      "libs/*": [
+        "./libs/*"
+      ]
     },
     "outDir": "./dist",
     "resolveJsonModule": true,

@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "args": ["--runInBand", "--config=${workspaceFolder}/jest.config.js"],
+      "request": "launch",
+      "console": "integratedTerminal",
+      "name": "Test: @libs/modules",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": ["test"],
+      "port": 9229,
+      "sourceMaps": true
+    }  
+  ]
+ }

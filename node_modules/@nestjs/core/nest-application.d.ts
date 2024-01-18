@@ -1,0 +1,64 @@
+import { CanActivate, ExceptionFilter, HttpServer, INestApplication, INestMicroservice, NestHybridApplicationOptions, NestInterceptor, PipeTransform, VersioningOptions, WebSocketAdapter } from '@nestjs/common';
+import { GlobalPrefixOptions, NestApplicationOptions } from '@nestjs/common/interfaces';
+import { CorsOptions, CorsOptionsDelegate } from '@nestjs/common/interfaces/external/cors-options.interface';
+import { Logger } from '@nestjs/common/services/logger.service';
+import { AbstractHttpAdapter } from './adapters';
+import { ApplicationConfig } from './application-config';
+import { NestContainer } from './injector/container';
+import { GraphInspector } from './inspector/graph-inspector';
+import { NestApplicationContext } from './nest-application-context';
+/**
+ * @publicApi
+ */
+export declare class NestApplication extends NestApplicationContext<NestApplicationOptions> implements INestApplication {
+    private readonly httpAdapter;
+    private readonly config;
+    private readonly graphInspector;
+    protected readonly logger: Logger;
+    private readonly middlewareModule;
+    private readonly middlewareContainer;
+    private readonly microservicesModule;
+    private readonly socketModule;
+    private readonly routesResolver;
+    private readonly microservices;
+    private httpServer;
+    private isListening;
+    constructor(container: NestContainer, httpAdapter: HttpServer, config: ApplicationConfig, graphInspector: GraphInspector, appOptions?: NestApplicationOptions);
+    protected dispose(): Promise<void>;
+    getHttpAdapter(): AbstractHttpAdapter;
+    registerHttpServer(): void;
+    getUnderlyingHttpServer<T>(): T;
+    applyOptions(): void;
+    createServer<T = any>(): T;
+    registerModules(): Promise<void>;
+    registerWsModule(): void;
+    init(): Promise<this>;
+    registerParserMiddleware(): void;
+    registerRouter(): Promise<void>;
+    registerRouterHooks(): Promise<void>;
+    connectMicroservice<T extends object>(microserviceOptions: T, hybridAppOptions?: NestHybridApplicationOptions): INestMicroservice;
+    getMicroservices(): INestMicroservice[];
+    getHttpServer(): any;
+    startAllMicroservices(): Promise<this>;
+    use(...args: [any, any?]): this;
+    useBodyParser(...args: [any, any?]): this;
+    enableCors(options?: CorsOptions | CorsOptionsDelegate<any>): void;
+    enableVersioning(options?: VersioningOptions): this;
+    listen(port: number | string): Promise<any>;
+    listen(port: number | string, hostname: string): Promise<any>;
+    getUrl(): Promise<string>;
+    private formatAddress;
+    setGlobalPrefix(prefix: string, options?: GlobalPrefixOptions): this;
+    useWebSocketAdapter(adapter: WebSocketAdapter): this;
+    useGlobalFilters(...filters: ExceptionFilter[]): this;
+    useGlobalPipes(...pipes: PipeTransform<any>[]): this;
+    useGlobalInterceptors(...interceptors: NestInterceptor[]): this;
+    useGlobalGuards(...guards: CanActivate[]): this;
+    useStaticAssets(options: any): this;
+    useStaticAssets(path: string, options?: any): this;
+    setBaseViewsDir(path: string | string[]): this;
+    setViewEngine(engineOrOptions: any): this;
+    private host;
+    private getProtocol;
+    private registerMiddleware;
+}

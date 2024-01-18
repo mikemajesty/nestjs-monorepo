@@ -1,0 +1,60 @@
+{
+  "name": "@nestjs/core",
+  "version": "10.3.0",
+  "description": "Nest - modern, fast, powerful node.js web framework (@core)",
+  "author": "Kamil Mysliwiec",
+  "license": "MIT",
+  "homepage": "https://nestjs.com",
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/nest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nestjs/nest.git",
+    "directory": "packages/core"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "postinstall": "opencollective || exit 0"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/nest",
+    "donation": {
+      "text": "Become a partner:"
+    }
+  },
+  "dependencies": {
+    "@nuxtjs/opencollective": "0.3.2",
+    "fast-safe-stringify": "2.1.1",
+    "iterare": "1.2.1",
+    "path-to-regexp": "3.2.0",
+    "tslib": "2.6.2",
+    "uid": "2.0.2"
+  },
+  "devDependencies": {
+    "@nestjs/common": "10.3.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/websockets": "^10.0.0",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^7.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@nestjs/websockets": {
+      "optional": true
+    },
+    "@nestjs/microservices": {
+      "optional": true
+    },
+    "@nestjs/platform-express": {
+      "optional": true
+    }
+  }
+}

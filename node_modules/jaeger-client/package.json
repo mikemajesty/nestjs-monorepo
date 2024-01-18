@@ -1,0 +1,93 @@
+{
+  "name": "jaeger-client",
+  "version": "3.19.0",
+  "description": "Jaeger binding for OpenTracing API for Node.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "license": "Apache-2.0",
+  "keywords": [],
+  "author": "Onwukike Ibe <oibe@uber.com>",
+  "main": "./dist/src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jaegertracing/jaeger-client-node.git"
+  },
+  "files": [
+    "dist/src"
+  ],
+  "contributors": [
+    "Yuri Shkuro <ys@uber.com>",
+    "Won Jun Jang <wjang@uber.com>",
+    "Jaeger Authors <jaeger-tracing@googlegroups.com>"
+  ],
+  "dependencies": {
+    "node-int64": "^0.4.0",
+    "opentracing": "^0.14.4",
+    "thriftrw": "^3.5.0",
+    "uuid": "^8.3.2",
+    "xorshift": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-istanbul": "^0.11.0",
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.11.6",
+    "beautify-benchmark": "^0.2.4",
+    "benchmark": "^2.1.1",
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.4.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "express": "^4.14.0",
+    "flow-bin": "^0.75.0",
+    "gulp-sourcemaps": "1.7.x",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "lodash": "^4.15.0",
+    "minimist": "1.2.3",
+    "mocha": "^3.0.1",
+    "prettier": "1.10.2",
+    "prom-client": "11.0.0",
+    "request": "2.74.0",
+    "rsvp": "^3.3.1",
+    "semver": "^5",
+    "sinon": "^1.17.5",
+    "source-map-support": "^0.4.5",
+    "tchannel": "^4",
+    "uber-licence": "^2.0.2",
+    "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "check-license": "./scripts/check-license.sh",
+    "check-ls": "npm ls --loglevel=http --parseable 1>/dev/null && echo '# npm is in a good state'",
+    "cover": "babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- test/ test/samplers/ test/baggage/ test/throttler/ test/metrics/",
+    "flow": "flow",
+    "format": "prettier --write '**/*.{js,json,md}' '!src/jaeger-idl/**'",
+    "lint": "eslint $(ls src/ | grep '.js$') && echo '# linter passed' && npm run check-license",
+    "precommit": "lint-staged",
+    "test": "make test",
+    "test-dist": "mocha dist/test/ dist/test/baggage/ dist/test/throttler/ dist/test/samplers/ dist/test/metrics/",
+    "test-all": "npm run test-core && npm run test-samplers && npm run test-baggage && npm run test-throttler && npm run test-prom-metrics && npm run test-crossdock",
+    "test-core": "mocha --compilers js:babel-core/register test",
+    "test-samplers": "mocha --compilers js:babel-core/register test/samplers",
+    "test-baggage": "mocha --compilers js:babel-core/register test/baggage",
+    "test-throttler": "mocha --compilers js:babel-core/register test/throttler",
+    "test-prom-metrics": "mocha --compilers js:babel-core/register test/metrics",
+    "test-crossdock": "mocha --compilers js:babel-register crossdock/test",
+    "show-cover": "open coverage/lcov-report/index.html"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

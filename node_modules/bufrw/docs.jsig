@@ -1,0 +1,85 @@
+/*  This is a jsig notation of your interface.
+    https://github.com/jsigbiz/spec
+*/
+
+type ValueConstructor : () => value
+
+type LengthResult: {
+  err: null|Error,
+  length: Number
+}
+
+type WriteResult: {
+  err: null|Error,
+  offset: Number
+}
+
+type ReadResult: {
+  err: null|Error,
+  offset: Number,
+  value: null|Object
+}
+
+type BufferRW : {
+  byteLength: (value) => LengthResult
+  writeInto: (value, buffer, offset) => WriteResult
+  readFrom: (buffer, offset) => ReadResult
+}
+
+type structFieldSpecs : Array<structFieldSpec> | Object<name,structFieldSpec>
+
+type structFieldSpec : {
+    name : ?String,
+    rw : ?BufferRW
+    call : ?{
+        byteLength: (obj, value) => LengthResult
+        writeInto: (obj, buffer, offset) => WriteResult
+        readFrom: (obj, buffer, offset) => ReadResult
+    }
+}
+
+type structOptions : {
+    readGuard : (obj) => null|Error
+    writeGuard : (obj) => null|Error
+}
+
+bufrw : {
+    toBuffer: (BufferRW, value) => Buffer
+    fromBuffer: (BufferRW, Buffer, offset?:Number) => value
+
+    Base : (byteLength, writeInto, readFrom) => BufferRW
+
+    LengthResult : {
+        just: (length:Number) => LengthResult
+        error: (err:Error, length:Number) => LengthResult
+    }
+
+    WriteResult : {
+        just: (offset:Number) => WriteResult
+        error: (err:Error, offset:Number) => WriteResult
+    }
+
+    ReadResult : {
+        just: (offset:Number, value) => ReadResult
+        error: (err:Error, offset:Number, value) => ReadResult
+    }
+
+    UInt8 : BufferRW
+    UInt16BE : BufferRW
+    UInt32BE : BufferRW
+    Null : BufferRW
+
+    FixedWidth : (length:Number, ?readFrom, ?writeInto) => BufferRW
+    Skip : (length:Number, fill:Number) => BufferRW
+
+    VariableBuffer : (size:Number, {encoding:String, autoDecode:Boolean}) => BufferRW
+    buf1 : BufferRW
+    buf2 : BufferRW
+    str1 : BufferRW
+    str2 : BufferRW
+
+    Series : (Array<BufferRW>) => BufferRW
+    Struct : (cons:ValueConstructor, fields:structFieldSpec, options:structOptions) => BufferRW
+    Switch : (valrw:BufferRW, cases:Map<val,BufferRW>, ?opts:{valKey?:String, dataKey?:String}) => BufferRW
+    Repeat : (countrw:BufferRW, repeatedrw:BufferRW) => BufferRW
+}

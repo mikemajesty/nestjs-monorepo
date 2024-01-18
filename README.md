@@ -81,10 +81,10 @@ Check
 
 ```bash
 $ yarn infra:local
-# http://0.0.0.0:8082/ to access mongo
-# http://0.0.0.0:8081/ to access redis
-# http://0.0.0.0:5601/app/home to access kibana
-# http://0.0.0.0:16686/search to access jeager
+# http://localhost:8082/ to access mongo
+# http://localhost:8081/ to access redis
+# http://localhost:5601/app/home to access kibana
+# http://localhost:16686/search to access jeager
 ```
 
 #### Running the app
@@ -106,7 +106,7 @@ $ yarn infra:local
 
 #### Create Access User
 
-- http://0.0.0.0:8082/db/monorepo_auth/users
+- http://localhost:8082/db/monorepo_auth/users
 - Click [New Document]
   ```
   {
@@ -117,7 +117,7 @@ $ yarn infra:local
   ```
 - now use this curl to get your access token
   ```
-  curl -X 'POST'  'http://0.0.0.0:4000/api/login'    -H 'accept: application/json'  -H 'Content-Type:  application/json'  -d '{ "login": "<user>", "pass":  "<pass>" }'
+  curl -X 'POST'  'http://localhost:4000/api/login'    -H 'accept: application/json'  -H 'Content-Type:  application/json'  -d '{ "login": "<user>", "pass":  "<pass>" }'
   ```
 - use this token to access all monorepo internal APIs
 
@@ -131,7 +131,7 @@ $ yarn workspaces info
 
 - @app/cats.api
 - @app/auth.api
-- @tools/eslint.config
+- @tools/eslint
 - @libs/utils
 - @libs/modules
 - @libs/core

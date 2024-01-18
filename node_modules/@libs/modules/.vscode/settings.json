@@ -1,0 +1,31 @@
+{
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "jest.rootPath": "../../../node_modules/.bin/jest",
+
+  "eslint.validate": ["javascript"],
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/*dist*": true,
+    "**/*coverage*": true,
+    "**/*package-lock.json*": true,
+    "**/*yarn.lock*": true
+  },
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false
+}

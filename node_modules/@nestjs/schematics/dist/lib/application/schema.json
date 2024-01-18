@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsNestApplication",
+  "title": "Nest Application Options Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" }
+      ],
+      "description": "The name of the application.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the new project?"
+    },
+    "author": {
+      "type": "string",
+      "description": "Nest application author.",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "description": "Nest application description.",
+      "default": ""
+    },
+    "directory": {
+      "type": "string",
+      "description": "Nest application destination directory."
+    },
+    "strict": {
+      "type": "boolean",
+      "description": "With TypeScript strict mode.",
+      "default": false
+    },
+    "version": {
+      "type": "string",
+      "description": "Nest application version.",
+      "default": "0.0.1"
+    },
+    "language": {
+      "type": "string",
+      "description": "Nest application language."
+    },
+    "packageManager": {
+      "type": "string",
+      "description": "Nest application package manager."
+    },
+    "dependencies": {
+      "type": "string",
+      "description": "Nest application dependencies."
+    },
+    "devDependencies": {
+      "type": "string",
+      "description": "Nest application development dependencies."
+    },
+    "spec": {
+      "type": "boolean",
+      "default": true,
+      "description": "Specifies if a spec file is generated."
+    },
+    "specFileSuffix": {
+      "type": "string",
+      "default": "spec",
+      "description": "Specifies the file suffix of spec files."
+    }
+  },
+  "required": ["name"]
+}

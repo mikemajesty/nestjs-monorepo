@@ -1,0 +1,1 @@
+!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?n(exports):"function"==typeof define&&define.amd?define(["exports"],n):n(e.uid={})}(this,(function(e){for(var n=36,o="";n--;)o+=n.toString(36);e.uid=function(e){for(var n="",t=e||11;t--;)n+=o[36*Math.random()|0];return n}}));

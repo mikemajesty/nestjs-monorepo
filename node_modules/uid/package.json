@@ -1,0 +1,70 @@
+{
+  "name": "uid",
+  "version": "2.0.2",
+  "repository": "lukeed/uid",
+  "description": "A tiny (130B to 205B) and fast utility to randomize unique IDs of fixed length",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "https://lukeed.com"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "bundt",
+    "test": "uvu -r esm test -i collisions"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./single": {
+      "types": "./single/index.d.ts",
+      "import": "./single/index.mjs",
+      "require": "./single/index.js"
+    },
+    "./secure": {
+      "types": "./secure/index.d.ts",
+      "import": "./secure/index.mjs",
+      "require": "./secure/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.d.ts",
+    "single",
+    "secure",
+    "dist"
+  ],
+  "keywords": [
+    "id",
+    "uid",
+    "uuid",
+    "random",
+    "generate",
+    "secure",
+    "crypto",
+    "foid"
+  ],
+  "modes": {
+    "secure": "src/secure.js",
+    "default": "src/index.js",
+    "single": "src/single.js"
+  },
+  "dependencies": {
+    "@lukeed/csprng": "^1.0.0"
+  },
+  "devDependencies": {
+    "bundt": "1.1.1",
+    "esm": "3.2.25",
+    "uvu": "0.3.4"
+  }
+}

@@ -1,0 +1,13 @@
+language: node_js
+
+node_js:
+  - 10
+  - 12
+  - 14
+
+script:
+  - yarn test
+  - yarn test:unit
+
+after_success:
+  - yarn coveralls

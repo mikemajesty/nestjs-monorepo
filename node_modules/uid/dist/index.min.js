@@ -1,0 +1,1 @@
+!function(n,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports):"function"==typeof define&&define.amd?define(["exports"],t):t(n.uid={})}(this,(function(n){for(var t,e=256,o=[];e--;)o[e]=(e+256).toString(16).substring(1);n.uid=function(n){var i=0,f=n||11;if(!t||e+f>512)for(t="",e=0;i<256;i++)t+=o[256*Math.random()|0];return t.substring(e,e+++f)}}));

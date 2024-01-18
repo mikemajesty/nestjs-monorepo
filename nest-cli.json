@@ -26,7 +26,7 @@
         "tsConfigPath": "apps/auth-api/tsconfig.json"
       }
     },
-    "@tools/eslint.config": {
+    "@tools/eslint": {
       "type": "library",
       "root": "tools/eslint",
       "entryFile": ".eslintrc.json",

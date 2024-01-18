@@ -1,0 +1,15 @@
+{
+    "name": "ansi-color",
+    "description": "This module provides basic ANSI color code support, to allow you to format your console output with foreground and background colors as well as providing bold, italic and underline support.",
+    "version": "0.2.1",
+    "author": "James Smith <james@loopj.com>",
+    "keywords": ["ansi", "color", "console"],
+    "directories": {"lib": "./lib"},
+    "repositories": [
+    {
+        "type": "git",
+        "url": "git://github.com/loopj/commonjs-ansi-color.git"
+    }
+    ],
+    "main": "./lib/ansi-color.js"
+}

@@ -1,0 +1,13 @@
+---
+version: '3.6'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.1
+    container_name: elasticsearch
+    ports: ['9200:9200']
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.1
+    container_name: kibana
+    ports: ['5601:5601']
+    depends_on: ['elasticsearch']

@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "App: @app/cats.api",
+      "type": "node",
+      "request": "launch",
+      "localRoot": "${workspaceFolder}/../../",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "start:cats-api:dev"
+      ],
+      "console": "integratedTerminal",
+      "smartStep": true,
+      "sourceMaps": true,
+      "remoteRoot": "${workspaceFolder}/src",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "type": "node",
+      "args": ["--runInBand", "--config=${workspaceFolder}/jest.config.js"],
+      "request": "launch",
+      "console": "integratedTerminal",
+      "name": "Test: @app/cats.api",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": ["test"],
+      "sourceMaps": true
+    }  
+  ],
+ }

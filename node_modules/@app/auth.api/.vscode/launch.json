@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "App: @app/auth.api",
+      "type": "node",
+      "request": "launch",
+      "localRoot": "${workspaceFolder}/../../",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": [
+        "start:auth-api:dev"
+      ],
+      "console": "integratedTerminal",
+      "smartStep": true,
+      "sourceMaps": true,
+      "remoteRoot": "${workspaceFolder}/src",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "Test: @app/auth.api",
+      "type": "node",
+      "args": [
+        "--runInBand",
+        "--config=${workspaceFolder}/jest.config.js"
+      ],
+      "request": "launch",
+      "console": "integratedTerminal",
+      "runtimeExecutable": "yarn",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": [
+        "test"
+      ],
+      "sourceMaps": true
+    }
+  ]
+}

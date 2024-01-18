@@ -1,0 +1,6 @@
+# dependencies
+node_modules
+
+# git, vs config
+.vscode
+.gitignore
